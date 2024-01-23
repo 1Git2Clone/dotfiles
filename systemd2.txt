@@ -1,0 +1,12 @@
+# /etc/systemd/system/update-package-list.timer
+# ^ The path you need to paste the contents of the file in.
+
+[Unit]
+Description=Run update-package-list.service daily
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=timers.target
