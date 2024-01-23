@@ -1,6 +1,6 @@
 # THESE INIT SYSTEM CHANGES ARE ONLY IF YOU WANT TO AUTOMATE THE `packages-used.txt` GENERATION
-# IN ORDER TO SCHEDULE THE PACKAGES-USED FOLDER
-# YOU NEED TO SET UP THESE 2 CONFIG FILES FOR YOUR INIT SYSTEM
+
+**In order to schedule the packages-used.txt file you need to make some timer schedules in your init system.**
 
 ## For systemd (refer to /systemd1.txt and /systemd2.txt):
 
@@ -9,6 +9,7 @@
 `sudo systemctl enable update-package-list.timer`
 `sudo systemctl start update-package-list.timer`
 
+## I don't know about different init systems. This can be scheduled in different ways or not be scheduled at all, it's not important to set it up 
 
 # The `neovim` configuration is the default [lazy.nvim](https://github.com/LazyVim/LazyVim) with some small extras. THEIR LICENSING STILL APPLIES THERE! (/nvim)
 
