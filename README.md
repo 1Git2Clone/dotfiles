@@ -10,7 +10,7 @@ In order to schedule the packages-used.txt file you need to make some timer sche
 
 `sudo systemctl start update-package-list.timer`
 
-I don't know about different init systems. This can be scheduled in different ways or not be scheduled at all, it's not important to set it up 
+I don't know about different init systems. This can be scheduled in different ways or done manually. It's not important to set it up 
 
 # The `neovim` configuration is the default [lazy.nvim](https://github.com/LazyVim/LazyVim) with some small extras. THEIR LICENSING STILL APPLIES THERE! (/nvim)
 
