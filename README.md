@@ -1,4 +1,4 @@
-# THESE INIT SYSTEM CHANGES ARE ONLY IF YOU WANT TO AUTOMATE THE `packages-used.txt` GENERATION
+# ONLY IF YOU WANT TO AUTOMATE THE `packages-used.txt` GENERATION
 
 **In order to schedule the packages-used.txt file you need to make some timer schedules in your init system.**
 
