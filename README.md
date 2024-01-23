@@ -7,6 +7,7 @@ In order to schedule the packages-used.txt file you need to make some timer sche
 - Then you just need to run
 
 `sudo systemctl enable update-package-list.timer`
+
 `sudo systemctl start update-package-list.timer`
 
 I don't know about different init systems. This can be scheduled in different ways or not be scheduled at all, it's not important to set it up 
