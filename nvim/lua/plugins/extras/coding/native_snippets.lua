@@ -1,3 +1,5 @@
+-- These are all commented because i had issues with tabulations...
+return {}
 -- return {
 -- 	desc = "Use native snippets instead of LuaSnip. Only works on Neovim >= 0.10!",
 -- 	{
