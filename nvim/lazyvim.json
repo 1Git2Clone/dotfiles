@@ -1,8 +1,6 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.coding.codeium",
     "lazyvim.plugins.extras.coding.tabnine",
-    "lazyvim.plugins.extras.coding.yanky",
     "lazyvim.plugins.extras.editor.aerial",
     "lazyvim.plugins.extras.lang.clangd",
     "lazyvim.plugins.extras.lang.cmake",
@@ -19,11 +17,7 @@
     "lazyvim.plugins.extras.lang.typescript",
     "lazyvim.plugins.extras.lsp.none-ls",
     "lazyvim.plugins.extras.test.core",
-    "lazyvim.plugins.extras.util.dot",
-    "plugins.extras.coding.codeium",
-    "plugins.extras.coding.native_snippets",
     "plugins.extras.coding.tabnine",
-    "plugins.extras.coding.yanky",
     "plugins.extras.lang.clangd",
     "plugins.extras.lang.cmake",
     "plugins.extras.lang.docker",
@@ -38,8 +32,7 @@
     "plugins.extras.lang.tailwind",
     "plugins.extras.lang.typescript",
     "plugins.extras.lsp.none-ls",
-    "plugins.extras.test.core",
-    "plugins.extras.util.dot"
+    "plugins.extras.test.core"
   ],
   "news": {
     "NEWS.md": "2123"
