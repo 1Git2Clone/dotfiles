@@ -17,6 +17,7 @@
     "lazyvim.plugins.extras.lang.typescript",
     "lazyvim.plugins.extras.lsp.none-ls",
     "lazyvim.plugins.extras.test.core",
+    "lazyvim.plugins.extras.util.dot",
     "plugins.extras.coding.tabnine",
     "plugins.extras.lang.clangd",
     "plugins.extras.lang.cmake",
@@ -32,7 +33,8 @@
     "plugins.extras.lang.tailwind",
     "plugins.extras.lang.typescript",
     "plugins.extras.lsp.none-ls",
-    "plugins.extras.test.core"
+    "plugins.extras.test.core",
+    "plugins.extras.util.dot"
   ],
   "news": {
     "NEWS.md": "2123"
