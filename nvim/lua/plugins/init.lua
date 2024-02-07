@@ -19,6 +19,6 @@ return {
 		config = true,
 		cond = true,
 		version = "*",
-		opts = { colorscheme = "catppuccin-mocha" },
+		opts = { colorscheme = "catppuccin" },
 	},
 }
