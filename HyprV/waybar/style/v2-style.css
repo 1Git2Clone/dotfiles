@@ -9,57 +9,56 @@
 
 window#waybar {
     background: rgba(21, 18, 27, 0);
-    color: #2b2b2c;
+    color: #ff9999;
 }
 
 tooltip {
-    background: #e7e7ec;;
+    background: #2e1e1e;
     opacity: 0.8;
-    border-radius: 10px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #11111b;
+    /* border-radius: 10px; */
+    /* border-width: 2px; */
+    /* border-style: solid; */
+    /* border-color: #11111b; */
 }
 
 tooltip label{
-    color: #2b2b2c;
+    color: #ff9999;
 }
 
 #workspaces button {
     padding: 5px;
-    color: #313244;
+    color: #cc3333;
     margin-right: 5px;
 }
 
 #workspaces button.active {
-    color: #a6adc8;
+    color: #ff6666;
 }
 
 #workspaces button.focused {
-    color: #a6adc8;
+    color: #ff8080;
     background: #eba0ac;
-    border-radius: 10px;
+    /* border-radius: 10px; */
 }
 
 #workspaces button.urgent {
-    color: #11111b;
+    color: #b81414;
     background: #a6e3a1;
-    border-radius: 10px;
+    /* border-radius: 10px; */
 }
 
 #workspaces button:hover {
-    background: #11111b;
-    color: #cdd6f4;
-    border-radius: 10px;
+    background: #1a0000;
+    color: #ff9999;
+    /* border-radius: 10px; */
 }
 
-#custom-launch_wofi,
+/* #custom-launch_wofi, */
 #custom-lock_screen,
 #custom-light_dark,
 #custom-power_btn,
 #custom-power_profile,
-#custom-weather,
-#custom-myhyprv,
+/* #custom-myhyprv, */
 #window,
 #cpu,
 #disk,
@@ -73,21 +72,24 @@ tooltip label{
 #temperature,
 #workspaces,
 #backlight {
-    background: #e7e7ec;
+    background: #2e1e1e;
     opacity: 0.8;
     padding: 0px 10px;
     margin: 3px 0px;
     margin-top: 10px;
-    border: 0px;
+    /* border: 0px; */
 }
 
 #tray, #custom-lock_screen, #temperature, #backlight, #custom-launch_wofi, #cpu {
-    border-radius: 10px 0px 0px 10px;
+    /* border-radius: 10px 0px 0px 10px; */
 }
 
-#custom-light_dark, #custom-power_btn, #workspaces, #pulseaudio.microphone, #battery, #disk{
-    border-radius: 0px 10px 10px 0px;
-    margin-right: 10px;
+#custom-light_dark, #workspaces, #battery, #cpu {
+    /* border-radius: 0px 10px 10px 0px; */
+    margin-left: 12px;
+}
+#custom-light_dark {
+    margin-right: 12px;
 }
 
 #temperature.critical {
@@ -101,36 +103,36 @@ tooltip label{
 }
 
 #custom-power_profile {
-    color: #1d7715;
-    border-left: 0px;
-    border-right: 0px;
+    color: #a6e3a1;
+    /* border-left: 0px; */
+    /* border-right: 0px; */
 }
 
 #window {
-    border-radius: 10px;
+    /* border-radius: 10px; */
     margin-left: 20px;
     margin-right: 20px;
 }
 
-#custom-launch_wofi {
-    color: #407cdd;
-    margin-left: 10px;
-    border-right: 0px;
-}
+/* #custom-launch_wofi { */
+/*     color: #fa8989; */
+/*     margin-left: 10px; */
+/*     border-right: 0px; */
+/* } */
 
 #pulseaudio {
-    color: #407cdd;
-    border-left: 0px;
-    border-right: 0px;
+    color: #fa8989;
+    /* border-left: 0px; */
+    /* border-right: 0px; */
 }
 
 #pulseaudio.microphone {
-    color: #ad6bfd;
-    border-left: 0px;
-    border-right: 0px;
+    color: #fa8989;
+    /* border-left: 0px; */
+    /* border-right: 0px; */
 }
 
 #battery {
-    color: #1d7715;
-    border-left: 0px;
+    color: #a6e3a1;
+    /* border-left: 0px; */
 }
