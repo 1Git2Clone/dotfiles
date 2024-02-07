@@ -7,11 +7,11 @@
   "gtk-layer-shell": true,
   "height": 50,
   "modules-left": [
-    "wlr/workspaces",
     "cpu",
     "memory",
     "disk",
-    "__UNUSED__hyprland/window"
+    "__UNUSED__hyprland/window",
+    "hyprland/workspaces"
   ],
   "modules-center": [
     "custom/lock_screen",
@@ -77,7 +77,7 @@
     "interval": 300,
     "tooltip": true
   },
-  "wlr/workspaces": {
+  "hyprland/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
     "on-click": "activate",
