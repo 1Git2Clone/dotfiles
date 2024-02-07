@@ -27,6 +27,8 @@ I don't know about different init systems. This can be scheduled in different wa
 
 ### Lazy Neovim
 
+**NOTE:** I'm too lazy to change the color scheming for the lualine at the bottom.
+
 <img src="https://media.discordapp.net/attachments/643888283449032736/1204838429511127070/72sEYJy.png?ex=65d6303a&is=65c3bb3a&hm=696895dc089012a7a14bcb925210e4f761f9d4d5b3fc9acd95f2a1507e4b41cc"></img>
 
 ### Additional resources
