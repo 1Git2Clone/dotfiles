@@ -24,7 +24,7 @@ I don't know about different init systems. This can be scheduled in different wa
 ## Preview (current v2 layout)
 
 <img src="https://cdn.discordapp.com/attachments/1204166452450431067/1204699086633041931/vibNCTb.png?ex=65d5ae74&is=65c33974&hm=64a6cd42e57da5d785baa2371edec985f27e93e9081dc53a8d4633bc6bd69118&"></img>
-
+<img src="https://media.discordapp.net/attachments/643888283449032736/1204838429511127070/72sEYJy.png?ex=65d6303a&is=65c3bb3a&hm=696895dc089012a7a14bcb925210e4f761f9d4d5b3fc9acd95f2a1507e4b41cc&=&format=webp"></img>
 
 ### Additional resources
 - HyprV4 guide video - [YouTube](https://youtu.be/whAi_y_LfEE?si=VjWGe4B-OIfhH2xu) (By the author)
