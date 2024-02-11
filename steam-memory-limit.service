@@ -1,0 +1,28 @@
+# This is useful for your steam bloatware client that
+# for some reason takes an unreasonable amount of RAM
+#
+# I don't reccommend setting the limit below 1GB because
+# it gets pretty slow.
+
+# Place the config here:
+# /etc/systemd/system/steam-memory-limit.service
+# ! ^ use sudo/sudoedit !
+
+[Unit]
+Description=Steam Memory Limit
+
+[Service]
+ExecStart=/usr/bin/systemd-run --scope -p MemoryLimit=1500M /usr/bin/steam
+Type=simple
+
+### DON'T FORGET TO CHANGE THIS TO YOUR ACTUAL USER
+User=<your_username>
+
+Restart=always
+
+[Install]
+WantedBy=default.target
+
+# After you're done:
+# sudo systemctl daemon-reload
+# sudo systemctl start steam-memory-limit.service
