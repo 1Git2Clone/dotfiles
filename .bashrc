@@ -32,9 +32,10 @@ alias hyprv4-config='cd ~/.config/HyprV/'
 
 # KITTY ONLY ALIAS:
 alias img='kitten icat'
+alias imgl='kitten icat --align left'
 
-alias iliq='kitten icat /home/hutao/Pictures/daskalo/iliq.jpg'
-alias iliq2='kitten icat /home/hutao/Pictures/daskalo/iliq2.jpg'
+alias iliq='kitten icat --align left /home/hutao/Pictures/daskalo/iliq.jpg'
+alias iliq2='kitten icat --align left /home/hutao/Pictures/daskalo/iliq2.jpg'
 
 export PATH=$PATH:/opt/rocm/bin
 export HIP_PATH=/opt/rocm
