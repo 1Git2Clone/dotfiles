@@ -109,3 +109,11 @@ echo "    胡桃ちゃんは一番でーす！"
 
 [ -f "/home/hutao/.ghcup/env" ] && source "/home/hutao/.ghcup/env" # ghcup-env
 . "$HOME/.cargo/env"
+
+neovimterm() {
+	if ! pgrep -f "^nvim.*-c terminal" >/dev/null; then
+		nvim -c "terminal"
+	fi
+}
+
+neovimterm
