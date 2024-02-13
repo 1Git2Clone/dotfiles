@@ -33,6 +33,9 @@ alias hyprv4-config='cd ~/.config/HyprV/'
 # KITTY ONLY ALIAS:
 alias img='kitten icat'
 
+alias iliq='kitten icat /home/hutao/Pictures/daskalo/iliq.jpg'
+alias iliq2='kitten icat /home/hutao/Pictures/daskalo/iliq2.jpg'
+
 export PATH=$PATH:/opt/rocm/bin
 export HIP_PATH=/opt/rocm
 
@@ -116,4 +119,8 @@ neovimterm() {
 	fi
 }
 
-neovimterm
+# uncomment this if you want every bash terminal to open in neovim
+# some cons:
+# - if you open nvim in it you'll have 2 nvim instances opened
+# - no pixel image support
+# neovimterm
