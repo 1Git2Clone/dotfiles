@@ -30,12 +30,17 @@ alias coding='cd ~/Documents/Code/'
 alias hyprland-config='cd ~/.config/hypr/'
 alias hyprv4-config='cd ~/.config/HyprV/'
 
+alias webapps='cd /usr/share/webapps/'
+
 # KITTY ONLY ALIAS:
 alias img='kitten icat'
 alias imgl='kitten icat --align left'
 
 alias iliq='kitten icat --align left /home/hutao/Pictures/daskalo/iliq.jpg'
 alias iliq2='kitten icat --align left /home/hutao/Pictures/daskalo/iliq2.jpg'
+
+# https://github.com/dylanjcastillo/shell-genie
+alias ai='shell-genie ask'
 
 export PATH=$PATH:/opt/rocm/bin
 export HIP_PATH=/opt/rocm
