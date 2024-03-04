@@ -17,6 +17,7 @@
     "lazyvim.plugins.extras.lsp.none-ls",
     "lazyvim.plugins.extras.test.core",
     "lazyvim.plugins.extras.util.dot",
+    "plugins.extras.coding.codeium",
     "plugins.extras.lang.clangd",
     "plugins.extras.lang.cmake",
     "plugins.extras.lang.docker",

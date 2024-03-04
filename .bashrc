@@ -15,8 +15,8 @@ alias rm='trash'
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-alias vi='nvim' # pretty goofy yea.
-alias vim='nvim'
+# alias vi='nvim' # pretty goofy yea.
+# alias vim='nvim'
 alias haskell='cd ~/Documents/Code/Haskell/'
 alias c='cd ~/Documents/Code/C/'
 alias javascript='cd ~/Documents/Code/JavaScript/'
@@ -130,3 +130,7 @@ neovimterm() {
 # - if you open nvim in it you'll have 2 nvim instances opened
 # - no pixel image support
 # neovimterm
+
+# zoxide + fzf
+# https://github.com/ajeetdsouza/zoxide
+eval "$(zoxide init --cmd cd bash)"
