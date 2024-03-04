@@ -10,7 +10,7 @@
     "cpu",
     "memory",
     "disk",
-    "__UNUSED__hyprland/window",
+    "tray",
     "hyprland/workspaces"
   ],
   "modules-center": [
@@ -20,13 +20,13 @@
     "custom/power_btn"
   ],
   "modules-right": [
+    "hyprland/window",
     "temperature",
     "custom/power_profile",
     "battery",
     "backlight",
     "pulseaudio",
     "pulseaudio#microphone",
-    "tray",
     "__UNUSED__custom/myhyprv",
     "custom/light_dark"
   ],
