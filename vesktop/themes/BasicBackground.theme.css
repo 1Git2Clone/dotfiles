@@ -58,7 +58,7 @@
 	--font:				"gg sans", "JetBrains Mono";		/* font used in most places														*/
 	--textshadow:			transparent;			/* default: transparent				(textshadow for text ontop of accentcolor nodes, ONLY accepts a color, no px)		*/
 	
-	--background:			url(https://media.discordapp.net/attachments/1068264061919318138/1201216879780429915/IwrBLPm.png?ex=65c90365&is=65b68e65&hm=719f44e4f9906c73b023fe239a873ed419e5289dc0d8f34fa1ba5399d4cd23eb&=);	/* general background image					*/
+	--background:			url(https://raw.githubusercontent.com/1Kill2Steal/dotfiles/main/vesktop/themes/PinkHuTao.png);	/* general background image					*/
 	--backgroundposition:		50% 55%;				/* default: center				(position of background - values: [center/top/right/bottom/left])			*/
 	--backgroundsize:		cover;				/* default: cover				(sizefit of background - values: [cover/contain/auto])					*/
 	--backgroundblur:		0;				/* default: 0					(blur in px, only works when --background is set to an image)				*/
