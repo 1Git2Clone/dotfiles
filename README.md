@@ -1,25 +1,25 @@
-# Automating your own used packages
+# Configuration files
 
-**THIS PART IS USEFUL ONLY IF YOU WANT TO AUTOMATE THE `packages-used.txt` GENERATION**
+Quick tip about querying your packages into your own file:
 
-In order to schedule the packages-used.txt file you need to make some timer schedules in your init system.
+```sh
+pacman -Qqe > target_file_location/target_file.txt
+```
 
-- For systemd (refer to /systemd1.txt and /systemd2.txt):
-  - The top comments of the files show the locations they need to be at alongside their proper file extension.
+To install the queried packages:
 
-- Then you just need to run
+```sh
+sudo pacman -S --needed - < target_file_location/target_file.txt
+```
 
-`sudo systemctl enable update-package-list.timer`
-
-`sudo systemctl start update-package-list.timer`
-
-I don't know about different init systems. This can be scheduled in different ways or done manually. It's not important to set it up 
+*Feel free to replace pacman with paru, yay or whatever [AUR helper](https://wiki.archlinux.org/title/AUR_helpers) you may use*
+- But __**DON'T**__ use `sudo` if you use an AUR helper!!!
 
 ### Important notes
 
-- **The `neovim` configuration is the default [lazy.nvim](https://github.com/LazyVim/LazyVim) with some small extras. THEIR LICENSING STILL APPLIES THERE! (/nvim)**
+- **The [Neovim](https://github.com/neovim/neovim) configuration is the default [lazy.nvim](https://github.com/LazyVim/LazyVim) with some small extras. THEIR LICENSING STILL APPLIES THERE! (/nvim)**
 
-- **The `Hyprland` configuration is just [HyprV4](https://github.com/soldoestech/hyprv4) with changed images and `mako` notification changes.**
+- **The [Hyprland](https://hyprland.org/) configuration is just [HyprV4](https://github.com/soldoestech/hyprv4) with changed images and `mako` notification changes.**
 
 ## Preview (current v2 layout)
 
@@ -32,8 +32,6 @@ I don't know about different init systems. This can be scheduled in different wa
 
 <img src="images/treesitter.png">
 <img src="images/code-testing.png">
-
-- Also a link to the [Neovim project](https://github.com/neovim/neovim) on GitHub.
 
 ## Terminal utils
 
