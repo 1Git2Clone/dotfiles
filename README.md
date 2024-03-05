@@ -23,25 +23,25 @@ sudo pacman -S --needed - < target_file_location/target_file.txt
 
 ## Preview (current v2 layout)
 
-<img src="images/screenshot-one-screen.png">
-<img src="images/screenshot-two-screens.png">
+![One screen preview](images/screenshot-one-screen.png)
+![Two screens preview](images/screenshot-two-screens.png)
 
 ### [Lazy Neovim](https://github.com/folke/lazy.nvim)
 
 **NOTE:** I'm too lazy to change the color scheming for the lualine at the bottom.
 
-<img src="images/treesitter.png">
-<img src="images/code-testing.png">
+![Treesitter](images/treesitter.png)
+![Code testing feature preview](images/code-testing.png)
 
 ## Terminal utils
 
 ### [Zoxide](https://github.com/ajeetdsouza/zoxide)
 
-<img src="images/zoxide.png">
+![Zoxide preview](images/zoxide.png)
 
 ### [Lazygit](https://github.com/jesseduffield/lazygit)
 
-<img src="images/lazygit.png">
+![Lazygit preview](images/lazygit.png)
 
 ### Additional resources
 - HyprV4 guide video - [YouTube](https://youtu.be/whAi_y_LfEE?si=VjWGe4B-OIfhH2xu) (By the author)
