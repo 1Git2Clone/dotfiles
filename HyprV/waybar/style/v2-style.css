@@ -33,47 +33,47 @@
 
 window#waybar {
     background: rgba(21, 18, 27, 0);
-    color: #ff9999;
+    color: #cc99ff;
 }
 
 tooltip {
-    background: #2e1e1e;
+    background: #261e2e;
     opacity: 0.8;
     border-radius: 25px;
     /* border-width: 2px; */
     /* border-style: solid; */
-    /* border-color: #11111b; */
+    /* border-color: #111b16; */
 }
 
 tooltip label{
-    color: #ff9999;
+    color: #cc99ff;
 }
 
 #workspaces button {
     padding: 5px;
-    color: #cc3333;
+    color: #7f32cc;
     margin-right: 5px;
 }
 
 #workspaces button.active {
-    color: #ff6666;
+    color: #b266ff;
 }
 
 #workspaces button.focused {
-    color: #ff8080;
-    background: #eba0ac;
+    color: #bf80ff;
+    background: #b9a0eb;
     /* border-radius: 10px; */
 }
 
 #workspaces button.urgent {
-    color: #b81414;
-    background: #a6e3a1;
+    color: #6614b8;
+    background: #e3bca1;
     /* border-radius: 10px; */
 }
 
 #workspaces button:hover {
-    background: #1a0000;
-    color: #ff9999;
+    background: #0d001a;
+    color: #cc99ff;
     /* border-radius: 10px; */
 }
 
@@ -96,7 +96,7 @@ tooltip label{
 #temperature,
 #workspaces,
 #backlight {
-    background: #2e1e1e;
+    background: #261e2e;
     opacity: 0.8;
     padding: 0px 10px;
     margin-top: 10px;
@@ -116,7 +116,7 @@ tooltip label{
 }
 
 #temperature.critical {
-    color: #e92d4d;
+    color: #6a2de9;
 }
 
 
@@ -126,7 +126,7 @@ tooltip label{
 }
 
 #custom-power_profile {
-    color: #a6e3a1;
+    color: #e3bca1;
     /* border-left: 0px; */
     /* border-right: 0px; */
 }
@@ -138,26 +138,26 @@ tooltip label{
 }
 
 /* #custom-launch_wofi { */
-/*     color: #fa8989; */
+/*     color: #c189fa; */
 /*     margin-left: 10px; */
 /*     border-right: 0px; */
 /* } */
 
 #pulseaudio {
-    color: #fa8989;
+    color: #c189fa;
     /* border-left: 0px; */
     /* border-right: 0px; */
 }
 
 #pulseaudio.microphone {
     margin-left: 10px;
-    color: #fa8989;
+    color: #c189fa;
     /* border-left: 0px; */
     /* border-right: 0px; */
 }
 
 #battery {
-    color: #a6e3a1;
+    color: #e3bca1;
     /* border-left: 0px; */
 }
 

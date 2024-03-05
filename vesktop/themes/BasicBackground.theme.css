@@ -46,22 +46,32 @@
 @import url(https://mwittrien.github.io/BetterDiscordAddons/Themes/BasicBackground/BasicBackground.css);
 
 :root {
-	--transparencycolor:		60, 28, 21;			/* default: 0, 0, 0															*/
+  /* Purpel */
+	--transparencycolor:		69, 21, 69;			/* default: 0, 0, 0															*/
+	--transparencyalpha:		0.69;				/* default: 0.15				(general darkness of the app)								*/
+  /* Pinkish */
+	/* --transparencycolor:		60, 28, 21;			/* default: 0, 0, 0															*/ */
 	--transparencyalpha:		0.55;				/* default: 0.15				(general darkness of the app)								*/
 	--messagetransparency:		0.5;				/* default: 0.5					(additional shadows behind messages, set to 0 to remove boxes)				*/
 	--guildchanneltransparency:	0.15;				/* default: 0.15				(additional darkness for guild/channel list)						*/
 	--chatinputtransparency:	0.0;				/* default: 0.0					(additional darkness for chat input container)						*/
 	--memberlisttransparency:	0.0;				/* default: 0.0					(additional darkness for member list)							*/
-	--accentcolor:			255, 179, 204;			/* default: 190, 78, 180			(RGB-format - blurple: 88, 101, 242 bd-blue: 58, 113, 193)				*/
+  /* Pinkish */
+	/* --accentcolor:			255, 179, 204;			/* default: 190, 78, 180			(RGB-format - blurple: 88, 101, 242 bd-blue: 58, 113, 193)				*/ */
+  /* Purpel */
+	--accentcolor:			255, 0, 255;			/* default: 190, 78, 180			(RGB-format - blurple: 88, 101, 242 bd-blue: 58, 113, 193)				*/
 	
 	--settingsicons:		1;				/* Use Settings Icons in User Settings: 1 = yes, 0 = no											*/
 	--font:				"gg sans", "JetBrains Mono";		/* font used in most places														*/
 	--textshadow:			transparent;			/* default: transparent				(textshadow for text ontop of accentcolor nodes, ONLY accepts a color, no px)		*/
 	
-	--background:			url(https://raw.githubusercontent.com/1Kill2Steal/dotfiles/main/vesktop/themes/PinkHuTao.png);	/* general background image					*/
+  /* Purpel */
+	--background:			url(https://lh3.googleusercontent.com/fife/ALs6j_GFHJbKaqsyWiwtY9zhHsp1xWdP-PXUg0kEesAxQ0DujoqTyx7em_axgs4MSO01UKw4tNjdvvwSqhEdbWq9VUE9yDEcwOzztl4kyiAsehm49sIEn8HP9A0rP2Fe13cTE7JdoxBHRpz7o97_JhVT_0RIRp5aQlljptliPoGYOxClRZpR09K0xndHo9j2qDbbD-6gN4LMj5lsMU_hgzeCzLbt1O4zfRN6DFrjgHvqGsyYnWdAS8BZwPVNCgZZnJAArraYflgOZR0MAPK0QyqfRkZYHMy9wghTAuF0-9lchohI3sKBKtfY6aIR4uSICm_aVC2HwZXVKaRaBQXsmYmpAV4axNCu4EkKnsyr22KbWl6s_ZJv4ZGK2qlS_FOm61I8QQlFaICFTFl2avEUEUdxCKodwjIl6wXHhUF_CGFRYozTBD6NdgtJtdv9LYGNYHPOJo3Zazql_mjICfMLGYrtCdnpha589yW7CkWr24ymdayLsn7-yJu2ywKVqk-Dxo-8Q-TJZRyh_Wp90Cg7TbGYIBTKnyYrx0mpDUybkPRwkbcoBNZxxNcbrC6uYhKdHLgrY1M88EbgbavR1mJZS3TKM9LQd5flaEErOh2antUV_SJPLKh2_I3qE8wFSKeRn_6PdwzAGFDiCYoVASkqJywDJ1FIUPuVI0iS4rLJm6kksZVL9JrjgtgKCZjMOf_3EQ4NQISDT4DeKND10565SmVBM54bwW__cZPk74a2iZwTQaN9qtcyY79dg6ErqRGXahnK2vFe1_Wd2Wz2RsdAgG4_dbGCvHERhalOjWSVUfah8mAgm_lGeM59AjJhaUC9W6eJCjtrjMKiAFpNaFn-wpL9AVdNC9b5Lkcn472uicotg3fdZlUevXIif8OlSKyCihD5w8A_Ng3Xs8m1etzCwEMpvqaqbQzaJ3Fa-48EJzovKXwM2mpR_BtrryPJo4FOuep5xfKMCIN0i6E0VXoIqygqC7wN2pJ5jvnw_F9et7aJFCrdoZWph7P3o1h98Fd6mNNSAuNlRrx3aTluSuojVfZzXzS1Zw7qcxf4pETW5rA-E7GnyoK-2vl94SJjMmQWWAQT4eidrz5aznAGwY2gA_1jyV6VFV5YcNtU0knFC9LlfLOP8h7VWk_3-wx6r-4hg6lXM8iUvGe-i7AGf5zZOMQY3PdXXBQgJWEzBRU1SiqM5drMNIFZpCL2ZVo3Ec4602BtK6pnYOBNN2fxMNpOihEP2oz88xtqi9RYkYlXkXCQqbizSWVa8wy6k1q_YCyE7DgjsHFrma6KZ9zr0PnhyFWKC0OvONRFxAvyw0YvITSV2aocJcR9jxJHAWNmWvKhmckUT3isawI_5gx4yUdYDCnjSm8Bx0Qh4jT_wpK9PaH9MBvOZ1IABVJ_wCRnlanVMzLcAYDptnVRpu1bByo2ni_G-5baSJgLyM0ZholV4nRrmLj_-NC7y2u3hSb4NLHhxtV7FUgHMkf_zFfMSBBTdmaLK0RxcGFNi72xJ3tc_kq360yO-srD1et9frQl59NlJlvX6NZGC5uI1Wi4WUzRKWaPzG1LvLP31Jj1Fiuhq1XVYmM50zdfXXmBmg1X1wRPcu23aCIL7hS6R1ncBmQ64qwVOzg6z6YQDt4gPpQQbBZ0UAQn-DtiBsLOQJFa=w1894-h889);	/* general background image					*/
+  /* Pinkish */
+	/* --background:			url(https://raw.githubusercontent.com/1Kill2Steal/dotfiles/main/vesktop/themes/PinkHuTao.png);	/* general background image					*/ */
 	--backgroundposition:		50% 55%;				/* default: center				(position of background - values: [center/top/right/bottom/left])			*/
 	--backgroundsize:		cover;				/* default: cover				(sizefit of background - values: [cover/contain/auto])					*/
-	--backgroundblur:		0;				/* default: 0					(blur in px, only works when --background is set to an image)				*/
+	--backgroundblur:		3;				/* default: 0					(blur in px, only works when --background is set to an image)				*/
 	
 	--popout:			var(--background);		/* default: var(--background)			(change to use another background/color for modals/popouts)				*/
 	--popoutposition:		var(--backgroundposition);	/* default: center				(position of popout - values: [center/top/right/bottom/left])				*/
