@@ -24,6 +24,7 @@ alias c-personal='cd ~/Documents/Code/C-personal/'
 alias cpp='cd ~/Documents/Code/CPP/'
 alias websites='cd ~/Documents/Code/Websites/'
 alias python='cd ~/Documents/Code/Python/'
+alias py='python3'
 alias rust='cd ~/Documents/Code/rust/'
 alias c#='cd ~/Documents/Code/C#/'
 alias coding='cd ~/Documents/Code/'
@@ -62,6 +63,7 @@ export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
 export PATH="$HOME/programs:$PATH"
+export PATH="$HOME/.config:$PATH"
 
 # echo "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⢻⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣵⣿⣿⣿⢻⣿⡾⣿⡛⠿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⡇⠀⠀⠀
 # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠠⠀⠀⠀⠀⠀⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣮⠙⢷⣜⢷⣤⣿⣿⣿⣯⣿⣿⣿⣿⣿⣷⠀⠀⠀
