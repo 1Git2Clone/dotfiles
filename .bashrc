@@ -62,8 +62,8 @@ export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
-export PATH="$HOME/programs:$PATH"
-export PATH="$HOME/.config:$PATH"
+export PATH="$HOME/.config/programs/bin/:$PATH"
+# export PATH="$HOME/.config:$PATH"
 
 # echo "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⢻⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣵⣿⣿⣿⢻⣿⡾⣿⡛⠿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⡇⠀⠀⠀
 # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠠⠀⠀⠀⠀⠀⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣮⠙⢷⣜⢷⣤⣿⣿⣿⣯⣿⣿⣿⣿⣿⣷⠀⠀⠀
