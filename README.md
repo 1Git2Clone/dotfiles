@@ -14,6 +14,7 @@ sudo pacman -S --needed - < target_file_location/target_file.txt
 
 *Feel free to replace pacman with paru, yay or whatever [AUR helper](https://wiki.archlinux.org/title/AUR_helpers) you may use*
 - But __**DON'T**__ use `sudo` if you use an AUR helper!!!
+
 Also, a lot of the packages **are** AUR packages, so don't worry about pacman telling you they don't exist if you don't use an AUR helper to install them with.
 
 ### Important notes
