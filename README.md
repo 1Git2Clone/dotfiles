@@ -45,6 +45,10 @@ Also, a lot of the packages **are** AUR packages, so don't worry about pacman te
 
 ![Lazygit preview](images/lazygit.png)
 
+### [Btop++](https://github.com/aristocratos/btop)
+
+![Btop++](images/btop++.png)
+
 ### Additional resources
 - HyprV4 guide video - [YouTube](https://youtu.be/whAi_y_LfEE?si=VjWGe4B-OIfhH2xu) (By the author)
 - cattpuccin.nvim docs - [neovimcraft.com](https://neovimcraft.com/plugin/catppuccin/nvim/index.html)
