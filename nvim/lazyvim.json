@@ -1,5 +1,6 @@
 {
   "extras": [
+    "lazyvim.plugins.extras.coding.codeium",
     "lazyvim.plugins.extras.coding.yanky",
     "lazyvim.plugins.extras.lang.clangd",
     "lazyvim.plugins.extras.lang.cmake",
@@ -29,6 +30,7 @@
     "plugins.extras.lang.ruby",
     "plugins.extras.lang.rust",
     "plugins.extras.lang.tailwind",
+    "plugins.extras.lang.terraform",
     "plugins.extras.lang.typescript",
     "plugins.extras.lang.yaml",
     "plugins.extras.lsp.none-ls",
@@ -40,5 +42,5 @@
   "news": {
     "NEWS.md": "2123"
   },
-  "version": 2
+  "version": 3
 }
