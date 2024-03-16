@@ -136,3 +136,6 @@ neovimterm() {
 # zoxide + fzf
 # https://github.com/ajeetdsouza/zoxide
 eval "$(zoxide init --cmd cd bash)"
+
+# Rust app build optimization
+RUSTFLAGS="-C opt-level=3 -C target-cpu=native -C linker=rust-lld -C inline-threshold=250"
