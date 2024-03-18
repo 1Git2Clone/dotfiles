@@ -259,7 +259,7 @@ return {
 						LineNr = { fg = "#9958da" },
 						Pmenu = { fg = "#9958da" },
 						CursorLineNr = { fg = "#7f00ff" },
-						Comment = { fg = "#4c0099" },
+						Comment = { fg = "#d9b3ff" },
 					}
 				end,
 			},
