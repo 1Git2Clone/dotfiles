@@ -121,6 +121,15 @@ echo "    胡桃ちゃんは一番でーす！"
 [ -f "/home/hutao/.ghcup/env" ] && source "/home/hutao/.ghcup/env" # ghcup-env
 . "$HOME/.cargo/env"
 
+# Run cargo tests when doing cargo run
+cargo() {
+	if [[ $1 == "run" ]]; then
+		command cargo test && command cargo run "${@:2}"
+	else
+		command cargo "$@"
+	fi
+}
+
 neovimterm() {
 	if ! pgrep -f "^nvim.*-c terminal" >/dev/null; then
 		nvim -c "terminal"
