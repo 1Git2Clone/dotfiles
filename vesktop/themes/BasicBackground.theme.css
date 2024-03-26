@@ -62,7 +62,7 @@
 	--accentcolor:			255, 0, 255;			/* default: 190, 78, 180			(RGB-format - blurple: 88, 101, 242 bd-blue: 58, 113, 193)				*/
 	
 	--settingsicons:		1;				/* Use Settings Icons in User Settings: 1 = yes, 0 = no											*/
-	--font:				"gg sans", "JetBrains Mono";		/* font used in most places														*/
+	--font:				"JetBrainsMono Nerd Font Mono", "JetBrainsMono Nerd Font Mono";		/* font used in most places														*/
 	--textshadow:			transparent;			/* default: transparent				(textshadow for text ontop of accentcolor nodes, ONLY accepts a color, no px)		*/
 	
   /* Purpel */
