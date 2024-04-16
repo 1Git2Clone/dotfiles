@@ -140,6 +140,7 @@ return {
 				desc = "Switch Buffer",
 			},
 			{ "<leader>/", Util.telescope("live_grep"), desc = "Grep (root dir)" },
+			{ "<leader>F", Util.telescope("live_grep"), desc = "Grep (root dir)" },
 			{ "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
 			{ "<leader><space>", Util.telescope("files"), desc = "Find Files (root dir)" },
 			-- find
@@ -261,7 +262,6 @@ return {
 	{
 		"folke/flash.nvim",
 		event = "VeryLazy",
-		vscode = true,
 		---@type Flash.Config
 		opts = {},
     -- stylua: ignore
@@ -344,7 +344,7 @@ return {
 	-- hunks in a commit.
 	{
 		"lewis6991/gitsigns.nvim",
-		event = "LazyFile",
+		event = "VeryLazy",
 		opts = {
 			signs = {
 				add = { text = "▎" },
@@ -383,7 +383,7 @@ return {
 	-- instances.
 	{
 		"RRethy/vim-illuminate",
-		event = "LazyFile",
+		event = "VeryLazy",
 		opts = {
 			delay = 200,
 			large_file_cutoff = 2000,
@@ -493,7 +493,7 @@ return {
 	{
 		"folke/todo-comments.nvim",
 		cmd = { "TodoTrouble", "TodoTelescope" },
-		event = "LazyFile",
+		event = "VeryLazy",
 		config = true,
     -- stylua: ignore
     keys = {

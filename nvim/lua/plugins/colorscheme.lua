@@ -1,18 +1,11 @@
 return {
 
-	-- tokyonight
-	{
-		"ntk148v/habamax.nvim",
-		lazy = true,
-		-- opts = { style = "" },
-	},
 	-- catppuccin
 	{
 		"catppuccin/nvim",
 		lazy = true,
 		name = "catppuccin",
 		priority = 1000,
-		transparent_background = true,
 		styles = {
 			functions = { "bold" },
 		},
@@ -262,28 +255,6 @@ return {
 						Comment = { fg = "#d9b3ff" },
 					}
 				end,
-			},
-			mode_colors = {
-				["n"] = { "NORMAL", "#a750ff" },
-				["no"] = { "N-PENDING", "#a750ff" },
-				["i"] = { "INSERT", "#a750ff" },
-				["ic"] = { "INSERT", "#a750ff" },
-				["t"] = { "TERMINAL", "#a750ff" },
-				["v"] = { "VISUAL", "#a750ff" },
-				["V"] = { "V-LINE", "#a750ff" },
-				[""] = { "V-BLOCK", "#a750ff" },
-				["R"] = { "REPLACE", "#a750ff" },
-				["Rv"] = { "V-REPLACE", "#a750ff" },
-				["s"] = { "SELECT", "#a750ff" },
-				["S"] = { "S-LINE", "#a750ff" },
-				[""] = { "S-BLOCK", "#a750ff" },
-				["c"] = { "COMMAND", "#a750ff" },
-				["cv"] = { "COMMAND", "#a750ff" },
-				["ce"] = { "COMMAND", "#a750ff" },
-				["r"] = { "PROMPT", "#a750ff" },
-				["rm"] = { "MORE", "#a750ff" },
-				["r?"] = { "CONFIRM", "#a750ff" },
-				["!"] = { "SHELL", "#a750ff" },
 			},
 			integrations = {
 				aerial = true,
