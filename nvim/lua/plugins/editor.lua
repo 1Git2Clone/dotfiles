@@ -59,6 +59,8 @@ return {
 				use_libuv_file_watcher = true,
 			},
 			window = {
+				-- Cursed ikr
+				position = "right",
 				mappings = {
 					["<space>"] = "none",
 					["Y"] = function(state)
