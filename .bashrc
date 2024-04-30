@@ -15,6 +15,9 @@ alias rm='trash'
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+alias fm='thunar &'
+alias ..='cd ../'
+alias ...='cd ../../'
 # alias vi='nvim' # pretty goofy yea.
 # alias vim='nvim'
 alias haskell='cd ~/Documents/Code/Haskell/'
@@ -26,6 +29,7 @@ alias websites='cd ~/Documents/Code/Websites/'
 alias python='cd ~/Documents/Code/Python/'
 alias py='python3'
 alias rust='cd ~/Documents/Code/rust/'
+alias golang='cd ~/Documents/Code/go/'
 alias c#='cd ~/Documents/Code/C#/'
 alias coding='cd ~/Documents/Code/'
 alias hyprland-config='cd ~/.config/hypr/'
@@ -63,6 +67,8 @@ export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
 export PATH="$HOME/.config/programs/bin/:$PATH"
+
+export PATH="$PATH:/home/hutao/.cargo/bin"
 # export PATH="$HOME/.config:$PATH"
 
 # echo "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⢻⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣵⣿⣿⣿⢻⣿⡾⣿⡛⠿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⡇⠀⠀⠀
@@ -118,8 +124,8 @@ echo "
 ⠀⠀⠀⠊⠦⠿⠓⢦⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⠞⠉⠀⠀⠀⠀⠈⠆⠀⠀⠀⠄"
 echo "    胡桃ちゃんは一番でーす！"
 
-[ -f "/home/hutao/.ghcup/env" ] && source "/home/hutao/.ghcup/env" # ghcup-env
-. "$HOME/.cargo/env"
+# [ -f "/home/hutao/.ghcup/env" ] && source "/home/hutao/.ghcup/env" # ghcup-env
+# . "$HOME/.cargo/env"
 
 # Run cargo tests when doing cargo run
 cargo() {
