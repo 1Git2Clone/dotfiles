@@ -23,7 +23,6 @@ alias ...='cd ../../'
 alias haskell='cd ~/Documents/Code/Haskell/'
 alias c='cd ~/Documents/Code/C/'
 alias javascript='cd ~/Documents/Code/JavaScript/'
-alias c-personal='cd ~/Documents/Code/C-personal/'
 alias cpp='cd ~/Documents/Code/CPP/'
 alias websites='cd ~/Documents/Code/Websites/'
 alias python='cd ~/Documents/Code/Python/'
@@ -124,7 +123,7 @@ echo "
 ⠀⠀⠀⠊⠦⠿⠓⢦⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⠞⠉⠀⠀⠀⠀⠈⠆⠀⠀⠀⠄"
 echo "    胡桃ちゃんは一番でーす！"
 
-# [ -f "/home/hutao/.ghcup/env" ] && source "/home/hutao/.ghcup/env" # ghcup-env
+export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
 # . "$HOME/.cargo/env"
 
 # Run cargo tests when doing cargo run
