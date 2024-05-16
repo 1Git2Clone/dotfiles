@@ -1,21 +1,20 @@
 ###############################################################################
-# The default ZSH variables.
+# The .profile config for both Bash and Zsh.
 ###############################################################################
 
-export ZSH="$HOME/.oh-my-zsh"
+# NOTE: Contains the $ZSH export
+source $HOME/.profile
+
+###############################################################################
+# The default ZSH variables.
+###############################################################################
 
 # Unneeded due to starship eval.
 # ZSH_THEME="robbyrussell"
 
-plugins=(git)
+plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
-
-###############################################################################
-# The .profile config for both Bash and Zsh.
-###############################################################################
-
-source $HOME/.profile
 
 ###############################################################################
 # Startup programs in the terminal using eval.

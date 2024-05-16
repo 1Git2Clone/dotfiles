@@ -74,6 +74,11 @@ alias ai='shell-genie ask'
 # Exports
 ###############################################################################
 
+# The $ZSH variable is needed for the full_setup.sh
+# script which runs in bash by default for
+# compatibility sake.
+export ZSH="$HOME/.oh-my-zsh"
+
 export EDITOR=nvim
 
 export LC_ALL=en_US.UTF-8
