@@ -169,30 +169,30 @@ installing the Zsh plugins.**"
 		if ! command -v zsh >/dev/null 2>&1; then
 			sudo pacman -S zsh
 			sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-		else
-			# Restow just to make sure the configurations match.
-			# This is due to the fact that "$HOME/.profile" has the $ZSH export.
-			rm "$HOME/.zshrc"
-			rm "$HOME/.bashrc"
-			rm "$HOME/.profile"
-			stow home_user/ -t "$HOME"
-			source "$HOME/.profile"
-
-			declare -A plugins_to_install=()
-			plugins_to_install["$ZSH/plugins/zsh-autosuggestions"]="https://github.com/zsh-users/zsh-autosuggestions"
-
-			echo "Installing zsh plugins: zsh-autosuggestions"
-			for plugin_path in ${!plugins_to_install[@]}; do
-				if [[ -d "${plugin_path}" ]]; then
-					echo "Installing zsh_autosuggestions in ${plugin_path}"
-					echo "zsh-autosuggestions is already installed in: ${plugin_path}"
-				else
-					repo_url="${plugins_to_install[$plugin_path]}"
-					git clone "${repo_url}" "${plugin_path}"
-				fi
-			done
-
 		fi
+
+		# Restow just to make sure the configurations match.
+		# This is due to the fact that "$HOME/.profile" has the $ZSH export.
+		rm "$HOME/.zshrc"
+		rm "$HOME/.bashrc"
+		rm "$HOME/.profile"
+		stow home_user/ -t "$HOME"
+		source "$HOME/.profile"
+
+		declare -A plugins_to_install=()
+		plugins_to_install["$ZSH/plugins/zsh-autosuggestions"]="https://github.com/zsh-users/zsh-autosuggestions"
+
+		echo "Installing zsh plugins: zsh-autosuggestions"
+		for plugin_path in ${!plugins_to_install[@]}; do
+			if [[ -d "${plugin_path}" ]]; then
+				echo "Installing zsh_autosuggestions in ${plugin_path}"
+				echo "zsh-autosuggestions is already installed in: ${plugin_path}"
+			else
+				repo_url="${plugins_to_install[$plugin_path]}"
+				git clone "${repo_url}" "${plugin_path}"
+			fi
+		done
+
 		break
 		;;
 	*)
