@@ -1,65 +1,29 @@
 # paths = ["/path/to/override"] # path dependency overrides
 
 [alias] # command aliases
-b = "build"
-c = "check"
-t = "test"
-r = "run"
-rr = "run --release"
-recursive_example = "rr --example recursions"
-space_example = ["run", "--release", "--", "\"command list\""]
+# "I like testing"
+t = "test --all-features"
+rt = "run && cargo test --all-features"
+
+[build-debug]
+incremental = true # Quite a lot quicker rebuild times for the sake of binary size.
 
 [build]
-jobs = 10                          # number of parallel jobs, defaults to # of CPUs
-rustdoc = "rustdoc"                # the doc generator tool
-target-dir = "shared_rust_target/" # path of where to place all generated artifacts
-incremental = true                 # whether or not to enable incremental compilation
-
-[doc]
-# browser = "firefox" # browser to use with `cargo doc --open`,
-# overrides the `BROWSER` environment variable
-
-[env]
-# # Set even if already present in environment
-# ENV_VAR_NAME_2 = { value = "value", force = true }
-# # Value is relative to .cargo directory containing `config.toml`, make absolute
-# ENV_VAR_NAME_3 = { value = "relative/path", relative = true }
-
-[future-incompat-report]
-frequency = 'always' # when to display a notification about a future incompat report
+jobs = 10                          # Defaults to your CPU cores
+rustdoc = "rustdoc"
+target-dir = "shared_rust_target/" # Shared target-dir.
+# Save on disc space for apps that require single compilation and release
+# compilation in general.
+incremental = false
 
 [cargo-new]
-vcs = "git" # VCS to use ('git', 'hg', 'pijul', 'fossil', 'none')
-
-[http]
-# debug = false           # HTTP debugging
-# proxy = "host:port"     # HTTP proxy in libcurl format
-# ssl-version = "tlsv1.3" # TLS version to use
-# ssl-version.max = "tlsv1.3" # maximum TLS version
-# ssl-version.min = "tlsv1.1" # minimum TLS version
-# timeout = 30         # timeout for each HTTP request, in seconds
-# low-speed-limit = 10 # network timeout threshold (bytes/sec)
-# cainfo = "cert.pem"  # path to Certificate Authority (CA) bundle
-# check-revoke = true  # check for SSL certificate revocation
-# multiplexing = true  # HTTP/2 multiplexing
-# user-agent = "…"     # the user-agent header
-
-[install]
-# root = "/some/path" # `cargo install` destination directory
-
-[net]
-# retry = 3                 # network retries
-# git-fetch-with-cli = true # use the `git` executable for git operations
-# offline = true            # do not access the network
-
-[net.ssh]
-# known-hosts = ["..."] # known SSH host keys
+vcs = "git" # git is the default.
 
 [term]
-quiet = false          # whether cargo output is quiet
-verbose = false        # whether cargo provides verbose output
-color = 'auto'         # whether cargo colorizes output
-hyperlinks = true      # whether cargo inserts links into output
-unicode = true         # whether cargo can render output using non-ASCII unicode characters
-progress.when = 'auto' # whether cargo shows progress bar
-progress.width = 80    # width of progress bar
+quiet = false            # whether cargo output is quiet
+verbose = false          # whether cargo provides verbose output
+color = 'always'         # whether cargo colorizes output
+hyperlinks = true        # whether cargo inserts links into output
+unicode = true           # whether cargo can render output using non-ASCII unicode characters
+progress.when = 'always' # whether cargo shows progress bar
+progress.width = 80      # width of progress bar
