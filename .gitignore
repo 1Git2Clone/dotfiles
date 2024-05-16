@@ -1,0 +1,16 @@
+config/vesktop/*
+config!/vesktop/themes
+
+config/spicetify/*
+!config/spicetify/config-xpui.ini
+!config/spicetify/Themes
+!config/spicetify/Extensions
+!config/spicetify/CustomApps
+
+
+# ignore the pyinstaller stuff
+config/programs/build/
+
+# This was already in another repo
+# https://github.com/1Kill2Steal/Bernoulli-C
+config/programs/bernoulli.c
