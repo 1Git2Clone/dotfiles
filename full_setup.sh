@@ -154,18 +154,45 @@ done
 ###############################################################################
 
 while [[ true ]]; do
-	echo "NOTE: **The bash and zsh configurations vary a bit**"
+	echo "NOTE: **If you choose zsh your .bashrc, .profile and .zshrc will get
+replaced with the home_user/ ones based on this repo. This is for the sake of
+installing the Zsh plugins.**"
 	read -p "Continue with bash (1) or use zsh (2)? [Default: bash]: " \
 		choose_shell
 	choose_shell=${choose_shell:-1}
-	case "$enable_sddm" in
+	case "$choose_shell" in
 	1)
 		echo "Bash it is..."
 		break
 		;;
 	2)
-		sudo pacman -S zsh
-		sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+		if ! command -v zsh >/dev/null 2>&1; then
+			sudo pacman -S zsh
+			sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+		else
+			# Restow just to make sure the configurations match.
+			# This is due to the fact that "$HOME/.profile" has the $ZSH export.
+			rm "$HOME/.zshrc"
+			rm "$HOME/.bashrc"
+			rm "$HOME/.profile"
+			stow home_user/ -t "$HOME"
+			source "$HOME/.profile"
+
+			declare -A plugins_to_install=()
+			plugins_to_install["$ZSH/plugins/zsh-autosuggestions"]="https://github.com/zsh-users/zsh-autosuggestions"
+
+			echo "Installing zsh plugins: zsh-autosuggestions"
+			for plugin_path in ${!plugins_to_install[@]}; do
+				if [[ -d "${plugin_path}" ]]; then
+					echo "Installing zsh_autosuggestions in ${plugin_path}"
+					echo "zsh-autosuggestions is already installed in: ${plugin_path}"
+				else
+					repo_url="${plugins_to_install[$plugin_path]}"
+					git clone "${repo_url}" "${plugin_path}"
+				fi
+			done
+
+		fi
 		break
 		;;
 	*)
