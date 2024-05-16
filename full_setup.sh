@@ -150,6 +150,31 @@ thunar, maim, xclip, stow, wofi, waybar"
 done
 
 ###############################################################################
+# Shell Emulator
+###############################################################################
+
+while [[ true ]]; do
+	echo "NOTE: **The bash and zsh configurations vary a bit**"
+	read -p "Continue with bash (1) or use zsh (2)? [Default: bash]: " \
+		choose_shell
+	choose_shell=${choose_shell:-1}
+	case "$enable_sddm" in
+	1)
+		echo "Bash it is..."
+		break
+		;;
+	2)
+		sudo pacman -S zsh
+		sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+		break
+		;;
+	*)
+		echo "Select (y/n)."
+		;;
+	esac
+done
+
+###############################################################################
 # Terminal install
 ###############################################################################
 
