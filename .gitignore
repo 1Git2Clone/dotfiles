@@ -1,5 +1,5 @@
 config/vesktop/*
-config!/vesktop/themes
+!config/vesktop/themes
 
 config/spicetify/*
 !config/spicetify/config-xpui.ini
