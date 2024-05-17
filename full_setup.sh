@@ -181,6 +181,8 @@ installing the Zsh plugins.**"
 
 		declare -A plugins_to_install=()
 		plugins_to_install["$ZSH/plugins/zsh-autosuggestions"]="https://github.com/zsh-users/zsh-autosuggestions"
+		plugins_to_install["$ZSH/plugins/zsh-vi-mode"]="https://github.com/jeffreytse/zsh-vi-mode"
+		plugins_to_install["$ZSH/plugins/zsh-syntax-highlighting"]=https://github.com/zsh-users/zsh-syntax-highlighting
 
 		echo "Installing zsh plugins: zsh-autosuggestions"
 		for plugin_path in ${!plugins_to_install[@]}; do

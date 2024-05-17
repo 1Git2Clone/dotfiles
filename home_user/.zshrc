@@ -12,7 +12,8 @@ source $HOME/.profile
 # Unneeded due to starship eval.
 # ZSH_THEME="robbyrussell"
 
-plugins=(git zsh-autosuggestions)
+plugins=(git zsh-autosuggestions zsh-vi-mode copyfile zsh-syntax-highlighting \
+  catimg colored-man-pages colorize vim-interaction)
 
 source $ZSH/oh-my-zsh.sh
 
