@@ -1,4 +1,0 @@
-# Sat Jan 20 18:10:17 2024
-
-## hu tao
-HU TAO IS THE BEST GIRL SHE NUMBER 1!!! WOOO!
