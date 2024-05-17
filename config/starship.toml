@@ -58,7 +58,7 @@ style = "bg:#362124"
 format = '[[ $symbol ($version) ](fg:#f07185 bg:#603745)]($style)'
 
 [time]
-disabled = false
+disabled = true
 time_format = "%R"                                      # Hour:Minute Format
 style = "bg:#301e1d"
 format = '[[  $time ](fg:#caa0a8 bg:#301e1d)]($style)'
