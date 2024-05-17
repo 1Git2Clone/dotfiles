@@ -66,7 +66,7 @@
 	--textshadow:			transparent;			/* default: transparent				(textshadow for text ontop of accentcolor nodes, ONLY accepts a color, no px)		*/
 	
   /* Purpel */
-	--background:			url(https://raw.githubusercontent.com/1Kill2Steal/dotfiles/main/vesktop/themes/PurpleHuTao.png);	/* general background image					*/
+	--background:			url(https://raw.githubusercontent.com/1Kill2Steal/dotfiles/main/config/vesktop/themes/PurpleHuTao.png);	/* general background image					*/
   /* Pinkish */
 	/* --background:			url(https://raw.githubusercontent.com/1Kill2Steal/dotfiles/main/vesktop/themes/PinkHuTao.png);	/* general background image					*/ */
 	--backgroundposition:		50% 55%;				/* default: center				(position of background - values: [center/top/right/bottom/left])			*/
