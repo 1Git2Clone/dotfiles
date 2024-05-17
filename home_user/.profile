@@ -39,7 +39,7 @@ alias rm='trash'
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-alias fm='thunar &'
+alias fm='thunar & disown'
 alias ..='cd ../'
 alias ...='cd ../../'
 # alias vi='nvim' # pretty goofy yea.
