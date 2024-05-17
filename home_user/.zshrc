@@ -18,6 +18,11 @@ plugins=(git zsh-autosuggestions zsh-vi-mode copyfile zsh-syntax-highlighting \
 source $ZSH/oh-my-zsh.sh
 
 ###############################################################################
+# Zsh keybinds
+###############################################################################
+# bindkey '^f' autosuggest-accept
+
+###############################################################################
 # Startup programs in the terminal using eval.
 ###############################################################################
 
