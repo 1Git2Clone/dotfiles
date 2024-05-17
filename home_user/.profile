@@ -88,11 +88,20 @@ export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
-export PATH="$HOME/.config/programs/bin/:$PATH"
+export PROGRAMS="$HOME/.config/programs/"
 
-export PATH="$PATH:/home/hutao/.cargo/bin"
+# More likely than not. PATH is already an export.
+if [ -z "${PATH-}" ]; then
+	export PATH=/usr/local/bin:/usr/bin:/bin
+fi
 
-export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
+PATH="$PROGRAMS/bin/:$PATH"
+PATH="$PROGRAMS/py_scripts/:$PATH"
+PATH="$PROGRAMS/shell_scripts/:$PATH"
+
+PATH="$PATH:/home/hutao/.cargo/bin"
+
+PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
 
 ###############################################################################
 # Some custom flags
