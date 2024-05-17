@@ -3,12 +3,6 @@
 -- Add any additional keymaps here
 -- vim.api.nvim_set_keymap("n", "<space>", ":colorscheme habamax", { noremap = true, silent = true })
 
-require("config.global_functions")({
-	-- Do a shell command and pipe the output to a new buffer
-	vim.api.nvim_set_keymap(
-		"n",
-		"<leader>C",
-		":lua RUN_COMMAND_IN_NEW_BUFFER()<CR>",
-		{ noremap = true, silent = false }
-	),
-})
+require("config.global_functions")
+
+vim.api.nvim_set_keymap("n", "<leader>C", ":lua RUN_COMMAND_IN_NEW_BUFFER()<CR>", { noremap = true, silent = false })
