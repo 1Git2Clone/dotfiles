@@ -1,13 +1,33 @@
+#!/bin/sh
+
 ###############################################################################
 ###############################################################################
 ###############################################################################
-#         CONFIGURATION THAT WORKS ON BOTH `BASH` AND `ZSH`                   #
+############## CONFIGURATION THAT WORKS ON BOTH `BASH` AND `ZSH` ##############
 ###############################################################################
 ###############################################################################
 ###############################################################################
 
 ###############################################################################
-# Starting echoes
+# Startup Functions
+###############################################################################
+
+# [ -z "$TMUX" ] && tmux attach # All terminals with 1 tmux
+[ -z "$TMUX" ] && tmux new # All terminals with different tmux
+
+nvimterm() {
+	if ! pgrep -f "^nvim.*-c terminal" >/dev/null; then
+		nvim -c "terminal"
+	fi
+}
+# uncomment this if you want every bash terminal to open in neovim
+# some cons:
+# - if you open nvim in it you'll have 2 nvim instances opened
+# - no pixel image support
+# nvimterm
+
+###############################################################################
+# Starting Echoes
 ###############################################################################
 
 echo \
@@ -71,6 +91,13 @@ alias iliq2='kitten icat --align left /home/hutao/Pictures/daskalo/iliq2.jpg'
 alias ai='shell-genie ask'
 
 ###############################################################################
+# Custom Flags
+###############################################################################
+
+# Rust app build optimization
+RUSTFLAGS="-C opt-level=3 -C target-cpu=native -C linker=rust-lld"
+
+###############################################################################
 # Exports
 ###############################################################################
 
@@ -104,14 +131,7 @@ PATH="$PATH:/home/hutao/.cargo/bin"
 PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
 
 ###############################################################################
-# Some custom flags
-###############################################################################
-
-# Rust app build optimization
-RUSTFLAGS="-C opt-level=3 -C target-cpu=native -C linker=rust-lld"
-
-###############################################################################
-# Utility functions
+# Extra Utility Functions
 ###############################################################################
 
 # Run cargo tests when doing cargo run
@@ -122,15 +142,3 @@ cargo() {
 		command cargo "$@"
 	fi
 }
-
-nvimterm() {
-	if ! pgrep -f "^nvim.*-c terminal" >/dev/null; then
-		nvim -c "terminal"
-	fi
-}
-
-# uncomment this if you want every bash terminal to open in neovim
-# some cons:
-# - if you open nvim in it you'll have 2 nvim instances opened
-# - no pixel image support
-# nvimterm
