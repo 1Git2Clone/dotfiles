@@ -1,0 +1,314 @@
+{
+  "sceneGroups": [],
+  "macros": [
+    {
+      "name": "Hu Tao PNGtuber",
+      "pause": false,
+      "parallel": true,
+      "onChange": true,
+      "skipExecOnStart": false,
+      "stopActionsIfNotDone": false,
+      "group": false,
+      "dockSettings": {
+        "register": false,
+        "hasRunButton": true,
+        "hasPauseButton": true,
+        "hasStatusLabel": false,
+        "highlightIfConditionsTrue": false,
+        "runButtonText": "Run",
+        "pauseButtonText": "Pause",
+        "unpauseButtonText": "Unpause",
+        "conditionsTrueStatusText": "Conditions are true.",
+        "conditionsFalseStatusText": "Conditions are false."
+      },
+      "macroActionConditionSplitterPosition": [{ "pos": 192 }, { "pos": 191 }],
+      "macroElseActionSplitterPosition": [{ "pos": 153 }, { "pos": 0 }],
+      "registerHotkeys": false,
+      "pauseHotkey": [],
+      "unpauseHotkey": [],
+      "togglePauseHotkey": [],
+      "conditions": [
+        {
+          "segmentSettings": {
+            "collapsed": false,
+            "useCustomLabel": false,
+            "customLabel": "My label"
+          },
+          "id": "audio",
+          "logic": 0,
+          "durationModifier": {
+            "time_constraint": 0,
+            "seconds": {
+              "value": { "value": 0.0, "type": 0 },
+              "unit": 0,
+              "version": 1
+            }
+          },
+          "audioSource": { "type": 0, "name": "Input" },
+          "monitor": 0,
+          "volume": { "value": 2.9552085399627686, "type": 0 },
+          "syncOffset": { "value": 0, "type": 0 },
+          "balance": { "value": 0.5, "type": 0 },
+          "checkType": 0,
+          "outputCondition": 0,
+          "volumeCondition": 0,
+          "useDb": false,
+          "volumeDB": { "value": -30.588235294117645, "type": 0 },
+          "version": 3
+        }
+      ],
+      "actions": [
+        {
+          "segmentSettings": {
+            "collapsed": false,
+            "useCustomLabel": false,
+            "customLabel": "My label"
+          },
+          "id": "scene_visibility",
+          "enabled": true,
+          "sceneSelection": { "type": 0, "name": "Hu Tao GIF-tuber" },
+          "sceneItemSelection": {
+            "type": 0,
+            "idxType": 0,
+            "idx": 0,
+            "item": "Hu Tao speaking"
+          },
+          "action": 0
+        },
+        {
+          "segmentSettings": {
+            "collapsed": false,
+            "useCustomLabel": false,
+            "customLabel": "My label"
+          },
+          "id": "scene_visibility",
+          "enabled": true,
+          "sceneSelection": { "type": 0, "name": "Hu Tao GIF-tuber" },
+          "sceneItemSelection": {
+            "type": 0,
+            "idxType": 0,
+            "idx": 0,
+            "item": "Hu Tao quiet"
+          },
+          "action": 1
+        }
+      ],
+      "elseActions": []
+    },
+    {
+      "name": "Hu Tao PNGtuber-2",
+      "pause": false,
+      "parallel": true,
+      "onChange": true,
+      "skipExecOnStart": false,
+      "stopActionsIfNotDone": false,
+      "group": false,
+      "dockSettings": {
+        "register": false,
+        "hasRunButton": true,
+        "hasPauseButton": true,
+        "hasStatusLabel": false,
+        "highlightIfConditionsTrue": false,
+        "runButtonText": "Run",
+        "pauseButtonText": "Pause",
+        "unpauseButtonText": "Unpause",
+        "conditionsTrueStatusText": "Conditions are true.",
+        "conditionsFalseStatusText": "Conditions are false."
+      },
+      "macroActionConditionSplitterPosition": [{ "pos": 192 }, { "pos": 191 }],
+      "macroElseActionSplitterPosition": [{ "pos": 153 }, { "pos": 0 }],
+      "registerHotkeys": false,
+      "pauseHotkey": [],
+      "unpauseHotkey": [],
+      "togglePauseHotkey": [],
+      "conditions": [
+        {
+          "segmentSettings": {
+            "collapsed": false,
+            "useCustomLabel": false,
+            "customLabel": "My label"
+          },
+          "id": "audio",
+          "logic": 0,
+          "durationModifier": {
+            "time_constraint": 0,
+            "seconds": {
+              "value": { "value": 0.0, "type": 0 },
+              "unit": 0,
+              "version": 1
+            }
+          },
+          "audioSource": { "type": 0, "name": "Input" },
+          "monitor": 0,
+          "volume": { "value": 2.9552085399627686, "type": 0 },
+          "syncOffset": { "value": 0, "type": 0 },
+          "balance": { "value": 0.5, "type": 0 },
+          "checkType": 0,
+          "outputCondition": 1,
+          "volumeCondition": 0,
+          "useDb": false,
+          "volumeDB": { "value": -30.588235294117645, "type": 0 },
+          "version": 3
+        }
+      ],
+      "actions": [
+        {
+          "segmentSettings": {
+            "collapsed": false,
+            "useCustomLabel": false,
+            "customLabel": "My label"
+          },
+          "id": "scene_visibility",
+          "enabled": true,
+          "sceneSelection": { "type": 0, "name": "Hu Tao GIF-tuber" },
+          "sceneItemSelection": {
+            "type": 0,
+            "idxType": 0,
+            "idx": 0,
+            "item": "Hu Tao quiet"
+          },
+          "action": 0
+        },
+        {
+          "segmentSettings": {
+            "collapsed": false,
+            "useCustomLabel": false,
+            "customLabel": "My label"
+          },
+          "id": "scene_visibility",
+          "enabled": true,
+          "sceneSelection": { "type": 0, "name": "Hu Tao GIF-tuber" },
+          "sceneItemSelection": {
+            "type": 0,
+            "idxType": 0,
+            "idx": 0,
+            "item": "Hu Tao speaking"
+          },
+          "action": 1
+        }
+      ],
+      "elseActions": []
+    }
+  ],
+  "macroProperties": {
+    "highlightExecuted": false,
+    "highlightConditions": false,
+    "highlightActions": false,
+    "newMacroRegisterHotkey": false
+  },
+  "variables": [],
+  "switches": [],
+  "ignoreWindows": [],
+  "screenRegion": [],
+  "pauseEntries": [],
+  "sceneRoundTrip": [],
+  "sceneTransitions": [],
+  "defaultTransitions": [],
+  "defTransitionDelay": 0,
+  "ignoreIdleWindows": [],
+  "idleTargetType": 0,
+  "idleSceneName": "",
+  "idleTransitionName": "",
+  "idleEnable": false,
+  "idleTime": 60,
+  "executableSwitches": [],
+  "randomSwitches": [],
+  "fileSwitches": [],
+  "readEnabled": false,
+  "readPath": "",
+  "writeEnabled": false,
+  "writePath": "",
+  "mediaSwitches": [],
+  "timeSwitches": [],
+  "audioSwitches": [],
+  "audioFallbackTargetType": 0,
+  "audioFallbackScene": "",
+  "audioFallbackTransition": "",
+  "audioFallbackEnable": false,
+  "audioFallbackDuration": {
+    "value": { "value": 0.0, "type": 0 },
+    "unit": 0,
+    "version": 1
+  },
+  "videoSwitches": [],
+  "ServerEnabled": false,
+  "ServerPort": 55555,
+  "LockToIPv4": false,
+  "ClientEnabled": false,
+  "Address": "",
+  "ClientPort": 55555,
+  "SendSceneChange": true,
+  "SendSceneChangeAll": true,
+  "SendPreview": true,
+  "triggers": [],
+  "interval": 300,
+  "non_matching_scene": "",
+  "switch_if_not_matching": 0,
+  "noMatchDelay": {
+    "value": { "value": 0.0, "type": 0 },
+    "unit": 0,
+    "version": 1
+  },
+  "cooldown": { "value": { "value": 0.0, "type": 0 }, "unit": 0, "version": 1 },
+  "active": true,
+  "startup_behavior": 0,
+  "autoStartEvent": 0,
+  "logLevel": 0,
+  "showSystemTrayNotifications": false,
+  "disableHints": false,
+  "disableFilterComboboxFilter": false,
+  "warnPluginLoadFailure": true,
+  "hideLegacyTabs": true,
+  "priority0": 10,
+  "priority1": 0,
+  "priority2": 2,
+  "priority3": 8,
+  "priority4": 6,
+  "priority5": 9,
+  "priority6": 7,
+  "priority7": 4,
+  "priority8": 1,
+  "priority9": 5,
+  "priority10": 3,
+  "threadPriority": 3,
+  "transitionOverrideOverride": false,
+  "adjustActiveTransitionType": true,
+  "lastImportPath": "",
+  "startHotkey": [],
+  "stopHotkey": [],
+  "toggleHotkey": [],
+  "upMacroSegmentHotkey": [],
+  "downMacroSegmentHotkey": [],
+  "removeMacroSegmentHotkey": [],
+  "tabWidgetOrder": [
+    { "generalTab": 0 },
+    { "macroTab": 1 },
+    { "variableTab": 2 },
+    { "windowTitleTab": 3 },
+    { "executableTab": 4 },
+    { "screenRegionTab": 5 },
+    { "mediaTab": 6 },
+    { "fileTab": 7 },
+    { "randomTab": 8 },
+    { "timeTab": 9 },
+    { "idleTab": 10 },
+    { "sceneSequenceTab": 11 },
+    { "audioTab": 12 },
+    { "videoTab": 13 },
+    { "networkTab": 14 },
+    { "sceneGroupTab": 15 },
+    { "transitionsTab": 16 },
+    { "pauseTab": 17 },
+    { "sceneTriggerTab": 18 }
+  ],
+  "saveWindowGeo": false,
+  "windowPosX": 437,
+  "windowPosY": 162,
+  "windowWidth": 1000,
+  "windowHeight": 600,
+  "macroListMacroEditSplitterPosition": [{ "pos": 143 }, { "pos": 831 }],
+  "version": "cdacfc946c062982a5e865b9a4f849b5ce2fb05f",
+  "websocketConnections": [],
+  "twitchConnections": [],
+  "actionQueues": []
+}
