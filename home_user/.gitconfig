@@ -1,0 +1,18 @@
+[user]
+	name = 1Kill2Steal
+	email = 51541614+1Kill2Steal@users.noreply.github.com
+	signingkey = D2B0C2CD2BAC465C
+[credential]
+	credentialStore = gpg
+	helper = cache --timeout=3600
+[core]
+	sshCommand = ssh -i ~/.ssh/id_rsa
+[init]
+	defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[commit]
+	gpgsign = true
