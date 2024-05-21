@@ -1,0 +1,25 @@
+game:
+  exe: /mnt/Linux/Lutris/proper_genshin/drive_c/Program Files/Genshin Impact/launcher.exe
+  prefix: /mnt/Linux/Lutris/proper_genshin
+game_slug: genshin-impact
+name: Genshin Impact
+script:
+  files:
+  - giclient:
+      filename: GenshinImpact_install_mihoyo.exe
+      url: https://ys-api-os.mihoyo.com/event/download_porter/link/ys_global/genshinimpactpc/default
+  game:
+    exe: drive_c/Program Files/Genshin Impact/launcher.exe
+    prefix: $GAMEDIR
+  installer:
+  - task:
+      arch: win64
+      prefix: /mnt/Linux/Lutris/genshin-impact
+      wine_path: /home/hutao/.local/share/lutris/runners/wine/wine-ge-8-17-x86_64/bin/wine
+  - execute:
+      command: WINEPREFIX="$GAMEDIR" "$WINEBIN" "$giclient"
+slug: genshin-impact-standard
+version: Standard
+wine:
+  version: wine-ge-8-25-x86_64
+year: 2020

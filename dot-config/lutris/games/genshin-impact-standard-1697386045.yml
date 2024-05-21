@@ -1,0 +1,42 @@
+game:
+  exe: /mnt/Linux/Lutris/proper_genshin/drive_c/3dmigoto/lauch.bat
+  prefix: /mnt/Linux/Lutris/proper_genshin
+game_slug: genshin-impact
+name: Genshin Impact
+script:
+  files:
+  - giclient:
+      filename: GenshinImpact_install_mihoyo.exe
+      url: https://ys-api-os.mihoyo.com/event/download_porter/link/ys_global/genshinimpactpc/default
+  game:
+    exe: drive_c/Program Files/Genshin Impact/launcher.exe
+    prefix: $GAMEDIR
+  installer:
+  - task:
+      arch: win64
+      prefix: /home/hutao/Games/genshin-impact
+      wine_path: /home/hutao/.local/share/lutris/runners/wine/lutris-GE-Proton8-15-x86_64/bin/wine
+  - task:
+      app: vcrun2019 corefonts
+      arch: win64
+      prefix: /home/hutao/Games/genshin-impact
+      wine_path: /home/hutao/.local/share/lutris/runners/wine/lutris-GE-Proton8-15-x86_64/bin/wine
+  - execute:
+      command: WINEPREFIX="$GAMEDIR" "$WINEBIN" "$giclient"
+slug: genshin-impact-standard
+system:
+  disable_runtime: true
+version: Standard
+wine:
+  battleye: false
+  d3d_extras: true
+  dxvk: true
+  dxvk_nvapi: false
+  dxvk_version: v2.3.1
+  eac: false
+  esync: true
+  fsr: true
+  fsync: true
+  version: wine-ge-8-25-x86_64
+  vkd3d: false
+year: 2020
