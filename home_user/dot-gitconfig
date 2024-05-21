@@ -1,7 +1,7 @@
 [user]
 	name = 1Kill2Steal
 	email = 51541614+1Kill2Steal@users.noreply.github.com
-	signingkey = D2B0C2CD2BAC465C
+	signingkey = A0D4DAF106526C40946CC5C1D2B0C2CD2BAC465C
 [credential]
 	credentialStore = gpg
 	helper = cache --timeout=3600
@@ -15,4 +15,4 @@
 	process = git-lfs filter-process
 	required = true
 [commit]
-	gpgsign = true
+	gpgSign = true
