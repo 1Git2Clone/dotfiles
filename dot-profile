@@ -13,7 +13,7 @@
 ###############################################################################
 
 # [ -z "$TMUX" ] && tmux attach # All terminals with 1 tmux
-[ -z "$TMUX" ] && tmux new # All terminals with different tmux
+# [ -z "$TMUX" ] && tmux new # All terminals with different tmux
 
 nvimterm() {
 	if ! pgrep -f "^nvim.*-c terminal" >/dev/null; then
@@ -141,4 +141,13 @@ cargo() {
 	else
 		command cargo "$@"
 	fi
+}
+
+# Do a fuzzy find and pipe the output into neovim
+fz() {
+  nvim $(fzf --preview 'cat {}')
+}
+# Alias for fz
+cdf() {
+  fz
 }
