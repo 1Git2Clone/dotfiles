@@ -15,7 +15,7 @@ sudo pacman -S --needed - < target_file_location/target_file.txt
 _Feel free to replace pacman with paru, yay or whatever [AUR
 helper](https://wiki.archlinux.org/title/AUR_helpers) you may use_
 
-- But \***\*DON'T\*\*** use `sudo` if you use an AUR helper!!!
+- But **_DON'T_** use `sudo` if you use an AUR helper!!!
 
 Also, a lot of the packages **are** AUR packages, so don't worry about pacman
 telling you they don't exist if you don't use an AUR helper to install them
@@ -31,16 +31,10 @@ chmod +x ./stow_setup.sh && chmod +x ./full_setup.sh # One time only
 
 ### Important notes
 
-- **The [Hyprland](https://hyprland.org/) configuration is just
-  [HyprV4](https://github.com/soldoestech/hyprv4) with changed images and `mako`
-  notification changes.**
-
 - **Both the i3 and Hyprland configurations assume DP-1 is a 1080p165hz
   monitor. _(easy to change)_**
 
 ### [Lazy Neovim](https://github.com/folke/lazy.nvim)
-
-**NOTE:** I'm too lazy to change the color scheming for the lualine at the bottom.
 
 ![Treesitter](images/treesitter.png)
 ![Code testing feature preview](images/code-testing.png)
@@ -61,9 +55,13 @@ chmod +x ./stow_setup.sh && chmod +x ./full_setup.sh # One time only
 
 ### Additional resources
 
-- HyprV4 guide video -
-  [YouTube](https://youtu.be/whAi_y_LfEE?si=VjWGe4B-OIfhH2xu) (By the author)
 - cattpuccin.nvim docs -
   [neovimcraft.com](https://neovimcraft.com/plugin/catppuccin/nvim/index.html)
+
   - Useful for those who want to change the styling under
     /nvim/lua/plugins/colorscheme.lua
+
+- Make sure to check the `dot-config/programs/` folder which contains a bunch
+  of useful utilities like a color hue shift script that changes the hues of
+  every 6-digit HEX sequence with your specified offset (1-360) and some other
+  apps. They're already added to your `$PATH` variable in `dot-profile`.
