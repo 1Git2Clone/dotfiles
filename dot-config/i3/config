@@ -300,4 +300,4 @@ bindsym $mod+e exec thunar
 
 # Wallpaper
 # https://itsfoss.com/i3-customization/
-exec_always feh --bg-fill /home/hutao/Pictures/i3-background.png
+exec_always feh --bg-fill ~/dotfiles/dot-config/i3/backgrounds/Hu_Tao_1.png
