@@ -12,11 +12,14 @@ To install the queried packages:
 sudo pacman -S --needed - < target_file_location/target_file.txt
 ```
 
-_Feel free to replace pacman with paru, yay or whatever [AUR helper](https://wiki.archlinux.org/title/AUR_helpers) you may use_
+_Feel free to replace pacman with paru, yay or whatever [AUR
+helper](https://wiki.archlinux.org/title/AUR_helpers) you may use_
 
-- But ****DON'T**** use `sudo` if you use an AUR helper!!!
+- But \***\*DON'T\*\*** use `sudo` if you use an AUR helper!!!
 
-Also, a lot of the packages **are** AUR packages, so don't worry about pacman telling you they don't exist if you don't use an AUR helper to install them with.
+Also, a lot of the packages **are** AUR packages, so don't worry about pacman
+telling you they don't exist if you don't use an AUR helper to install them
+with.
 
 ## Quick setup guide
 
@@ -28,14 +31,12 @@ chmod +x ./stow_setup.sh && chmod +x ./full_setup.sh # One time only
 
 ### Important notes
 
-- **The [Hyprland](https://hyprland.org/) configuration is just [HyprV4](https://github.com/soldoestech/hyprv4) with changed images and `mako` notification changes.**
+- **The [Hyprland](https://hyprland.org/) configuration is just
+  [HyprV4](https://github.com/soldoestech/hyprv4) with changed images and `mako`
+  notification changes.**
 
-- **Both the i3 and Hyprland configurations assume DP-1 is a 1080p165hz monitor. _(easy to change)_**
-
-## Preview (current v2 layout)
-
-![One screen preview](images/screenshot-one-screen.png)
-![Two screens preview](images/screenshot-two-screens.png)
+- **Both the i3 and Hyprland configurations assume DP-1 is a 1080p165hz
+  monitor. _(easy to change)_**
 
 ### [Lazy Neovim](https://github.com/folke/lazy.nvim)
 
@@ -60,6 +61,9 @@ chmod +x ./stow_setup.sh && chmod +x ./full_setup.sh # One time only
 
 ### Additional resources
 
-- HyprV4 guide video - [YouTube](https://youtu.be/whAi_y_LfEE?si=VjWGe4B-OIfhH2xu) (By the author)
-- cattpuccin.nvim docs - [neovimcraft.com](https://neovimcraft.com/plugin/catppuccin/nvim/index.html)
-  - Useful for those who want to change the styling under /nvim/lua/plugins/colorscheme.lua
+- HyprV4 guide video -
+  [YouTube](https://youtu.be/whAi_y_LfEE?si=VjWGe4B-OIfhH2xu) (By the author)
+- cattpuccin.nvim docs -
+  [neovimcraft.com](https://neovimcraft.com/plugin/catppuccin/nvim/index.html)
+  - Useful for those who want to change the styling under
+    /nvim/lua/plugins/colorscheme.lua
