@@ -47,11 +47,14 @@
 
 :root {
   /* Purpel */
-	--transparencycolor:		69, 21, 69;			/* default: 0, 0, 0															*/
-	--transparencyalpha:		0.69;				/* default: 0.15				(general darkness of the app)								*/
+	/*--transparencycolor:		69, 21, 69;			/* default: 0, 0, 0															*/*/
+	/*--transparencyalpha:		0.69;				/* default: 0.15				(general darkness of the app)								*/*/
+  /* Default */
+	--transparencycolor:		0, 0, 0;			/* default: 0, 0, 0															*/
+	--transparencyalpha:		0.45;				/* default: 0.15				(general darkness of the app)								*/
   /* Pinkish */
 	/* --transparencycolor:		60, 28, 21;			/* default: 0, 0, 0															*/ */
-	--transparencyalpha:		0.55;				/* default: 0.15				(general darkness of the app)								*/
+	/*--transparencyalpha:		0.55;				/* default: 0.15				(general darkness of the app)								*/*/
 	--messagetransparency:		0.5;				/* default: 0.5					(additional shadows behind messages, set to 0 to remove boxes)				*/
 	--guildchanneltransparency:	0.15;				/* default: 0.15				(additional darkness for guild/channel list)						*/
 	--chatinputtransparency:	0.0;				/* default: 0.0					(additional darkness for chat input container)						*/
@@ -66,12 +69,13 @@
 	--textshadow:			transparent;			/* default: transparent				(textshadow for text ontop of accentcolor nodes, ONLY accepts a color, no px)		*/
 	
   /* Purpel */
-	--background:			url(https://raw.githubusercontent.com/1Kill2Steal/dotfiles/main/dot-config/vesktop/themes/PurpleHuTao.png);	/* general background image					*/
+	--background:			url(https://raw.githubusercontent.com/1Kill2Steal/dotfiles/main/dot-config/i3/backgrounds/Hu_Tao_1.png);	/* general background image					*/
   /* Pinkish */
 	/* --background:			url(https://raw.githubusercontent.com/1Kill2Steal/dotfiles/main/vesktop/themes/PinkHuTao.png);	/* general background image					*/ */
 	--backgroundposition:		50% 55%;				/* default: center				(position of background - values: [center/top/right/bottom/left])			*/
 	--backgroundsize:		cover;				/* default: cover				(sizefit of background - values: [cover/contain/auto])					*/
-	--backgroundblur:		3;				/* default: 0					(blur in px, only works when --background is set to an image)				*/
+	/*--backgroundblur:		3;				/* default: 0					(blur in px, only works when --background is set to an image)				*/*/
+	--backgroundblur:		0;				/* default: 0					(blur in px, only works when --background is set to an image)				*/
 	
 	--popout:			var(--background);		/* default: var(--background)			(change to use another background/color for modals/popouts)				*/
 	--popoutposition:		var(--backgroundposition);	/* default: center				(position of popout - values: [center/top/right/bottom/left])				*/
