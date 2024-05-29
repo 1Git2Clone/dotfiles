@@ -184,11 +184,11 @@ installing the Zsh plugins.**"
 		plugins_to_install["$ZSH/plugins/zsh-vi-mode"]="https://github.com/jeffreytse/zsh-vi-mode"
 		plugins_to_install["$ZSH/plugins/zsh-syntax-highlighting"]=https://github.com/zsh-users/zsh-syntax-highlighting
 
-		echo "Installing zsh plugins: zsh-autosuggestions"
+		echo "Installing zsh plugins: zsh-autosuggestions, zsh-vi-mode, zsh-syntax-highlighting"
 		for plugin_path in ${!plugins_to_install[@]}; do
 			if [[ -d "${plugin_path}" ]]; then
-				echo "Installing zsh_autosuggestions in ${plugin_path}"
-				echo "zsh-autosuggestions is already installed in: ${plugin_path}"
+				echo "Installing ${plugin_path}"
+				echo "Current plugin is already installed in: ${plugin_path}"
 			else
 				repo_url="${plugins_to_install[$plugin_path]}"
 				git clone "${repo_url}" "${plugin_path}"
