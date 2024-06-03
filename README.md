@@ -50,7 +50,11 @@ chmod +x ./stow_setup.sh && chmod +x ./full_setup.sh # One time only
 
 [Workflow preview - only visible on the GitHub repo](https://github.com/1Git2Clone/dotfiles/assets/171241044/21eb072e-509b-4ef2-b709-15ddfa58ff0d)
 
-[Better Quality Download link](https://raw.githubusercontent.com/1git2clone/dotfiles/main/assets/workflow_showcase.mp4)
+For non-GitHub users you can preview the video on [YouTube](https://youtu.be/Zu_38OXGSvc)
+
+Or you can download the raw video file from
+[here](https://raw.githubusercontent.com/1git2clone/dotfiles/main/assets/workflow_showcase.mp4)
+(`raw.githubusercontent.com`). Alternatively, head to the [git repo asset itself](assets/workflow_showcase.mp4).
 
 ### [Zoxide](https://github.com/ajeetdsouza/zoxide)
 
