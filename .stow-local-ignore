@@ -1,5 +1,5 @@
 _spicetify_theme_configs*
-images*
+assets*
 
 bulk_color_shift.sh
 ./full_setup.sh
