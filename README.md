@@ -48,7 +48,9 @@ chmod +x ./stow_setup.sh && chmod +x ./full_setup.sh # One time only
 
 ### Workflow video
 
-[![Workflow preview](assets/compresed_workflow_showcase.mp4)](https://raw.githubusercontent.com/1git2clone/dotfiles/main/assets/workflow_showcase.mp4)
+[Workflow preview](https://github.com/1Git2Clone/dotfiles/assets/171241044/21eb072e-509b-4ef2-b709-15ddfa58ff0d)
+
+[Better Quality Download link](https://raw.githubusercontent.com/1git2clone/dotfiles/main/assets/workflow_showcase.mp4)
 
 ### [Zoxide](https://github.com/ajeetdsouza/zoxide)
 
