@@ -36,22 +36,31 @@ chmod +x ./stow_setup.sh && chmod +x ./full_setup.sh # One time only
 
 ### [Lazy Neovim](https://github.com/folke/lazy.nvim)
 
-![Treesitter](images/treesitter.png)
-![Code testing feature preview](images/code-testing.png)
+![Treesitter](assets/treesitter.png)
+![Code testing feature preview](assets/code-testing.png)
 
 ## Terminal utils
 
+> [!NOTE]
+> The screenshots from below are from my old Hyprland setup. The applications
+> are the same but the windows don't have gaps and aren't rounded anymore in
+> the i3 environment.
+
+### Workflow video
+
+![Workflow preview](assets/workflow_showcase.mp4)
+
 ### [Zoxide](https://github.com/ajeetdsouza/zoxide)
 
-![Zoxide preview](images/zoxide.png)
+![Zoxide preview](assets/zoxide.png)
 
 ### [Lazygit](https://github.com/jesseduffield/lazygit)
 
-![Lazygit preview](images/lazygit.png)
+![Lazygit preview](assets/lazygit.png)
 
 ### [Btop++](https://github.com/aristocratos/btop)
 
-![Btop++](images/btop++.png)
+![Btop++](assets/btop++.png)
 
 ### Additional resources
 
