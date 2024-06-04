@@ -231,7 +231,7 @@ while [[ true ]]; do
 	read -p "Would you like to setup GNU stow with the current repo dotfiles?
 (Y/n): " setup_stow
 	setup_stow=${setup_stow:-y}
-	case "$enable_sddm" in
+	case "$setup_stow" in
 	[Yy]*)
 		exec ./stow_setup.sh
 		;;
