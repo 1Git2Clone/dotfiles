@@ -1,7 +1,12 @@
+README.md
+LICENSE
+
+_extra_notes*
 _spicetify_theme_configs*
+
 assets*
 
 bulk_color_shift.sh
-./full_setup.sh
-./stow_setup.sh
-./packages-used.txt
+full_setup.sh
+stow_setup.sh
+packages-used.txt
