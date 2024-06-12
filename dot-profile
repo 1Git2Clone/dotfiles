@@ -151,3 +151,9 @@ fz() {
 cdf() {
   fz
 }
+
+# Using commands with a `$` start because some markdown files add that dollar
+# sign in the start.
+\$() {
+  "$@"
+}
