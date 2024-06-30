@@ -90,6 +90,11 @@ alias iliq2='kitten icat --align left /home/hutao/Pictures/daskalo/iliq2.jpg'
 # https://github.com/dylanjcastillo/shell-genie
 alias ai='shell-genie ask'
 
+# doas > sudo
+if command -v doas > /dev/null 2>&1; then
+  alias sudo='doas'
+fi
+
 ###############################################################################
 # Custom Flags
 ###############################################################################
