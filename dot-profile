@@ -135,6 +135,26 @@ PATH="$PATH:/home/hutao/.cargo/bin"
 
 PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
 
+# Example usage
+#
+# ```sh
+# mkdir "MONTHS[@]" # NOTE: Pivots off your CWD.
+# ```
+MONTHS=(
+  "January"
+  "February"
+  "March"
+  "April"
+  "May"
+  "June"
+  "July"
+  "August"
+  "September"
+  "October"
+  "November"
+  "December"
+)
+
 ###############################################################################
 # Extra Utility Functions
 ###############################################################################
