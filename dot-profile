@@ -138,7 +138,7 @@ PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
 # Example usage
 #
 # ```sh
-# mkdir "MONTHS[@]" # NOTE: Pivots off your CWD.
+# mkdir "MONTHS[@]" # NOTE: mkdir will pivots off your CWD.
 # ```
 MONTHS=(
   "January"
