@@ -7,6 +7,9 @@ dot-config/spicetify/*
 !dot-config/spicetify/Extensions
 !dot-config/spicetify/CustomApps
 
+# Empty file
+dot-config/lazygit/config.yml
+
 
 # ignore the pyinstaller stuff
 dot-config/programs/build/
