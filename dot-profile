@@ -106,6 +106,9 @@ RUSTFLAGS="-C opt-level=3 -C target-cpu=native -C linker=rust-lld"
 # Exports
 ###############################################################################
 
+# Required for CLI only installs.
+export GPG_TTY=$(tty)
+
 # The $ZSH variable is needed for the full_setup.sh
 # script which runs in bash by default for
 # compatibility sake.
