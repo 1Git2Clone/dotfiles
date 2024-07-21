@@ -95,6 +95,11 @@ if command -v doas > /dev/null 2>&1; then
   alias sudo='doas'
 fi
 
+# SQL aliases
+
+alias sqlite="sqlite.sh"
+alias sqlite3="sqlite.sh"
+
 ###############################################################################
 # Custom Flags
 ###############################################################################
