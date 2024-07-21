@@ -9,4 +9,4 @@ assets*
 bulk_color_shift.sh
 full_setup.sh
 stow_setup.sh
-packages-used.txt
+required_packages_archlinux.txt
