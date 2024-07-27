@@ -17,3 +17,9 @@ dot-config/programs/build/
 # This was already in another repo
 # https://github.com/1Kill2Steal/Bernoulli-C
 dot-config/programs/bernoulli.c
+
+# big nono
+dot-config/spotify/Users/*
+dot-config/spotify/prefs
+dot-config/obs-studio/basic/profiles/Untitled/service.json
+dot-config/obs-studio/basic/profiles/Untitled/service.json.bak
