@@ -14,13 +14,13 @@ Layout=
 
 [Groups/0/Items/1]
 # Name
-Name=mozc
+Name=keyboard-bg-phonetic
 # Layout
 Layout=
 
 [Groups/0/Items/2]
 # Name
-Name=keyboard-bg-phonetic
+Name=mozc
 # Layout
 Layout=
 
