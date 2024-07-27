@@ -1,7 +1,7 @@
 [user]
 	name = 1Kill2Steal
 	email = 171241044+1Git2Clone@users.noreply.github.com
-	signingkey = 69352F0D1AEB5DC26C9A130D47BD645B9D5D62DD
+	signingkey = F9AC0DB0122368D95C7A067965FBC622BD8DE12D
 [credential]
 	credentialStore = gpg
 	helper = cache --timeout=3600
