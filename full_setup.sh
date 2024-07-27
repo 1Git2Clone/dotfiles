@@ -183,6 +183,7 @@ installing the Zsh plugins.**"
 		plugins_to_install["$ZSH/plugins/zsh-autosuggestions"]="https://github.com/zsh-users/zsh-autosuggestions"
 		plugins_to_install["$ZSH/plugins/zsh-vi-mode"]="https://github.com/jeffreytse/zsh-vi-mode"
 		plugins_to_install["$ZSH/plugins/zsh-syntax-highlighting"]=https://github.com/zsh-users/zsh-syntax-highlighting
+		plugins_to_install["$ZSH/plugins/zsh-mommy"]="https://github.com/catuhana/zsh-mommy" # ???
 
 		echo "Installing zsh plugins: zsh-autosuggestions, zsh-vi-mode, zsh-syntax-highlighting"
 		for plugin_path in ${!plugins_to_install[@]}; do

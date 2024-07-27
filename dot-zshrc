@@ -15,9 +15,12 @@ source $HOME/.profile
 # ZSH_THEME="robbyrussell"
 
 plugins=(git zsh-autosuggestions zsh-vi-mode copyfile zsh-syntax-highlighting \
-  catimg colored-man-pages colorize vim-interaction)
+  catimg colored-man-pages colorize vim-interaction zsh-mommy)
 
 source $ZSH/oh-my-zsh.sh
+
+ZSH_MOMMY_AFFECTIONATE_TERM=(boy)
+ZSH_MOMMY_MOMMYS_PRONOUN=(her)
 
 ###############################################################################
 # Zsh keybinds
