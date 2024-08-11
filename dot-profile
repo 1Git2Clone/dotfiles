@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/env bash
 
 ###############################################################################
 ###############################################################################
@@ -91,8 +91,8 @@ alias iliq2='kitten icat --align left /home/hutao/Pictures/daskalo/iliq2.jpg'
 alias ai='shell-genie ask'
 
 # doas > sudo
-if command -v doas > /dev/null 2>&1; then
-  alias sudo='doas'
+if command -v doas >/dev/null 2>&1; then
+	alias sudo='doas'
 fi
 
 # SQL aliases
@@ -107,14 +107,15 @@ alias mysql="mysql.sh"
 ###############################################################################
 
 # Rust app build optimization
-RUSTFLAGS="-C opt-level=3 -C target-cpu=native -C linker=rust-lld"
+export RUSTFLAGS="-C opt-level=3 -C target-cpu=native -C linker=rust-lld"
 
 ###############################################################################
 # Exports
 ###############################################################################
 
 # Required for CLI only installs.
-export GPG_TTY=$(tty)
+GPG_TTY="$(tty)"
+export GPG_TTY
 
 # The $ZSH variable is needed for the full_setup.sh
 # script which runs in bash by default for
@@ -124,7 +125,6 @@ export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=nvim
 
 export LC_ALL=en_US.UTF-8
-source /etc/locale.conf
 
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
@@ -150,19 +150,19 @@ PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
 # ```sh
 # mkdir "MONTHS[@]" # NOTE: Pivots off your CWD.
 # ```
-MONTHS=(
-  "January"
-  "February"
-  "March"
-  "April"
-  "May"
-  "June"
-  "July"
-  "August"
-  "September"
-  "October"
-  "November"
-  "December"
+export MONTHS=(
+	"January"
+	"February"
+	"March"
+	"April"
+	"May"
+	"June"
+	"July"
+	"August"
+	"September"
+	"October"
+	"November"
+	"December"
 )
 
 ###############################################################################
@@ -171,7 +171,7 @@ MONTHS=(
 
 # Run cargo tests when doing cargo run
 cargo() {
-	if [[ $1 == "run" ]]; then
+	if [ "$1" = "run" ]; then
 		command cargo test --all-features && command cargo run "${@:2}"
 	else
 		command cargo "$@"
@@ -180,15 +180,9 @@ cargo() {
 
 # Do a fuzzy find and pipe the output into neovim
 fz() {
-  nvim $(fzf --preview 'cat {}')
+	nvim "$(fzf --preview 'cat {}')"
 }
 # Alias for fz
 cdf() {
-  fz
-}
-
-# Using commands with a `$` start because some markdown files add that dollar
-# sign in the start.
-\$() {
-  "$@"
+	fz
 }
