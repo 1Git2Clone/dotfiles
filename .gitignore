@@ -1,22 +1,67 @@
-dot-config/vesktop/*
-!dot-config/vesktop/themes
+/*
+!/assets/*
+!/bulk_color_shift.sh/*
+!/dot-bashrc/*
+!/dot-cargo/*
+!/dot-config/*
+!/dot-gitconfig/*
+!/dot-profile/*
+!/dot-tmux.conf/*
+!/dot-zshrc/*
+!/_extra_notes/*
+!/full_setup.sh/*
+!/LICENSE/*
+!/README.md/*
+!/required_packages_archlinux.txt/*
+!/_spicetify_theme_configs/*
+!/stow_setup.sh/*
 
-dot-config/spicetify/*
-!dot-config/spicetify/config-xpui.ini
-!dot-config/spicetify/Themes
-!dot-config/spicetify/Extensions
-!dot-config/spicetify/CustomApps
+###############################################################################
+# Vesktop
+###############################################################################
+
+!/dot-config/vesktop
+/dot-config/vesktop/*
+!/dot-config/vesktop/themes
+
+###############################################################################
+# Spicetify
+###############################################################################
+
+!/dot-config/spicetify
+/dot-config/spicetify/*
+!/dot-config/spicetify/config-xpui.ini
+!/dot-config/spicetify/Themes
+!/dot-config/spicetify/Extensions
+!/dot-config/spicetify/CustomApps
+
+###############################################################################
+# Lazygit
+###############################################################################
+
+!/dot-config/lazygit
+!/dot-config/lazygit/*
 
 # Empty file
-dot-config/lazygit/config.yml
+/dot-config/lazygit/config.yml
 
+###############################################################################
+# Programs (scripts really)
+###############################################################################
+
+!/dot-config/programs
+!/dot-config/programs/*
 
 # ignore the pyinstaller stuff
-dot-config/programs/build/
+/dot-config/programs/build/
 
 # This was already in another repo
 # https://github.com/1Kill2Steal/Bernoulli-C
 dot-config/programs/bernoulli.c
+
+###############################################################################
+# Local data
+###############################################################################
 
 # big nono
 dot-config/spotify/Users/*
@@ -26,3 +71,11 @@ dot-config/obs-studio/basic/profiles/Untitled/service.json.bak
 
 # unneeded
 dot-config/pulse/
+dot-config/ibus/bus
+dot-config/mozc
+
+################################################################################
+# Cargo config
+################################################################################
+
+!/dot-cargo/config.toml
