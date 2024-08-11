@@ -55,7 +55,7 @@ echo \
 # Aliases
 ###############################################################################
 
-alias rm='trash'
+# alias rm='trash'
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
