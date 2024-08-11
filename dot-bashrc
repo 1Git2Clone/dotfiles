@@ -14,7 +14,7 @@
 # The .profile config for both Bash and Zsh.
 ###############################################################################
 
-source $HOME/.profile
+source "$HOME/.profile"
 
 ###############################################################################
 # Startup programs in the terminal using eval.
