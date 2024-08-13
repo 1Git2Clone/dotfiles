@@ -233,7 +233,7 @@ exec --no-startup-id firefox
 exec --no-startup-id spotify
 
 # Discord client
-exec --no-startup-id vesktop
+# exec --no-startup-id vesktop
 
 # Gaming
 exec --no-startup-id lutris
