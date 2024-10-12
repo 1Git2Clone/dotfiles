@@ -6,11 +6,11 @@ $directory\
 [](fg:#f07185 bg:#603745)\
 $git_branch\
 $git_status\
-$nodejs\
 $rust\
+$nodejs\
+$python\
 $golang\
 $php\
-[](fg:#362124 bg:#301e1d)\
 $time\
 [ ](fg:#301e1d)\
 \n$character"""
@@ -54,6 +54,11 @@ format = '[[ $symbol ($version) ](fg:#f07185 bg:#603745)]($style)'
 
 [php]
 symbol = ""
+style = "bg:#362124"
+format = '[[ $symbol ($version) ](fg:#f07185 bg:#603745)]($style)'
+
+[python]
+symbol = ""
 style = "bg:#362124"
 format = '[[ $symbol ($version) ](fg:#f07185 bg:#603745)]($style)'
 
