@@ -16,9 +16,9 @@
 # [ -z "$TMUX" ] && tmux new # All terminals with different tmux
 
 nvimterm() {
-	if ! pgrep -f "^nvim.*-c terminal" >/dev/null; then
-		nvim -c "terminal"
-	fi
+  if ! pgrep -f "^nvim.*-c terminal" >/dev/null; then
+    nvim -c "terminal"
+  fi
 }
 # uncomment this if you want every bash terminal to open in neovim
 # some cons:
@@ -31,7 +31,7 @@ nvimterm() {
 ###############################################################################
 
 echo \
-	"
+  "
 ⠀⠀⠀⠀⠀⢿⣿⣿⣿⡆⠀⠁⠀⠀⣾⣿⣿⣿⣿⣿⣿⣟⢝⢟⣿⣿⣿⣿⡇⠀
 ⠀⠀⠀⠀⠀⢸⡿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣯⣾⣿⣿⣿⢿⣿⡉⠀
 ⠀⠀⠀⢀⠔⣡⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣏⣶⣿⣷⣄
@@ -48,7 +48,7 @@ echo \
 ⠀⠀⠘⡀⠀⣼⣇⣠⠾⠿⠛⠋⠉⠀⠀⠀⠀⠀⠀⣠⣿⠿⠛⠉⣧⠀⠈⠃⠀⡆
 ⠀⠀⠀⠊⠦⠿⠓⢦⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⠞⠉⠀⠀⠀⠀⠈⠆⠀⠀⠀⠄"
 echo \
-	"
+  "
     胡桃ちゃんは一番でーす！ "
 
 ###############################################################################
@@ -92,7 +92,7 @@ alias ai='shell-genie ask'
 
 # doas > sudo
 if command -v doas >/dev/null 2>&1; then
-	alias sudo='doas'
+  alias sudo='doas'
 fi
 
 # SQL aliases
@@ -107,7 +107,7 @@ alias mysql="mysql.sh"
 ###############################################################################
 
 # Rust app build optimization
-export RUSTFLAGS="-C opt-level=3 -C target-cpu=native -C linker=rust-lld"
+export RUSTFLAGS="-C opt-level=3 -C target-cpu=native"
 
 ###############################################################################
 # Exports
@@ -134,7 +134,7 @@ export PROGRAMS="$HOME/.config/programs/"
 
 # More likely than not. PATH is already an export.
 if [ -z "${PATH-}" ]; then
-	export PATH=/usr/local/bin:/usr/bin:/bin
+  export PATH=/usr/local/bin:/usr/bin:/bin
 fi
 
 PATH="$PROGRAMS/bin/:$PATH"
@@ -151,18 +151,18 @@ PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
 # mkdir "MONTHS[@]" # NOTE: Pivots off your CWD.
 # ```
 export MONTHS=(
-	"January"
-	"February"
-	"March"
-	"April"
-	"May"
-	"June"
-	"July"
-	"August"
-	"September"
-	"October"
-	"November"
-	"December"
+  "January"
+  "February"
+  "March"
+  "April"
+  "May"
+  "June"
+  "July"
+  "August"
+  "September"
+  "October"
+  "November"
+  "December"
 )
 
 ###############################################################################
@@ -171,18 +171,19 @@ export MONTHS=(
 
 # Run cargo tests when doing cargo run
 cargo() {
-	if [ "$1" = "run" ]; then
-		command cargo test --all-features && command cargo run "${@:2}"
-	else
-		command cargo "$@"
-	fi
+  if [ "$1" = "run" ]; then
+    command cargo test --all-features && command cargo run "${@:2}"
+  else
+    command cargo "$@"
+  fi
 }
 
 # Do a fuzzy find and pipe the output into neovim
 fz() {
-	nvim "$(fzf --preview 'cat {}')"
+  nvim "$(fzf --preview 'cat {}')"
 }
 # Alias for fz
 cdf() {
-	fz
+  fz
 }
+. "$HOME/.cargo/env"
