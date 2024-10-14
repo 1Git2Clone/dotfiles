@@ -301,3 +301,23 @@ bindsym $mod+e exec thunar
 # Wallpaper
 # https://itsfoss.com/i3-customization/
 exec_always feh --bg-fill ~/dotfiles/dot-config/i3/backgrounds/Hu_Tao_1.png
+
+# Gaps (of course)
+gaps inner 10
+
+bindsym $mod+Shift+plus gaps inner current plus 5
+bindsym $mod+Shift+minus gaps inner current minus 5
+
+bindsym $mod+Shift+g gaps inner current set 10
+
+# Colors:
+# - Border color
+# - Background color
+# - Text color
+# - Indicator color (for the layout indicator)
+# - Border for other windows (like tabbed/stacked layout)
+
+client.focused          #ff0000 #8b0000 #ffffff #ff4500 #8b0000
+client.focused_inactive #333333 #8b0000 #ffffff #ff4500 #8b0000
+client.unfocused        #333333 #550000 #888888 #550000 #8b0000
+client.urgent           #550000 #ff0000 #ffffff #ff0000 #8b0000
