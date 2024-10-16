@@ -260,10 +260,10 @@ bindsym Ctrl+Shift+Print exec --no-startup-id grim -g "$(slurp)" - | wl-copy
 ###############################################################################
 
 # File manager
-for_window [class="Thunar"] floating enable resize set 800 600
+for_window [app_id="thunar"] floating enable, resize set 800 600
 
 # PulseAudio Volume Control (pavucontrol)
-for_window [class="Pavucontrol"] floating enable resize set 800 600
+for_window [app_id="org.pulseaudio.pavucontrol"] floating enable, resize set 800 600
 
 ###############################################################################
 # Start apps with keybindings
@@ -288,7 +288,7 @@ bindsym $mod+e exec thunar
 ###############################################################################
 
 # Wallpaper
-exec_always swaybg -i ~/dotfiles/dot-config/i3/backgrounds/Hu_Tao_3.jpg -m fill
+exec_always swaybg -i ~/dotfiles/dot-config/i3/backgrounds/Hu_Tao_4.jpg -m fill
 
 # Gaps (of course)
 gaps inner 10
@@ -309,3 +309,7 @@ client.focused          #ff0000 #8b0000 #ffffff #ff4500 #8b0000
 client.focused_inactive #333333 #8b0000 #ffffff #ff4500 #8b0000
 client.unfocused        #333333 #550000 #888888 #550000 #8b0000
 client.urgent           #550000 #ff0000 #ffffff #ff0000 #8b0000
+
+# Window transparency
+for_window [class="Spotify"] opacity 0.95
+for_window [app_id="kitty"] opacity 0.95
