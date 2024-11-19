@@ -1,20 +1,10 @@
-/*
-!/assets/*
-!/bulk_color_shift.sh/*
-!/dot-bashrc/*
-!/dot-cargo/*
-!/dot-config/*
-!/dot-gitconfig/*
-!/dot-profile/*
-!/dot-tmux.conf/*
-!/dot-zshrc/*
-!/_extra_notes/*
-!/full_setup.sh/*
-!/LICENSE/*
-!/README.md/*
-!/required_packages_archlinux.txt/*
-!/_spicetify_theme_configs/*
-!/stow_setup.sh/*
+/dot-config/**/*
+
+###############################################################################
+# Cargo config
+###############################################################################
+/dot-cargo/*
+!/dot-cargo/config.toml
 
 ###############################################################################
 # Neovim
@@ -74,16 +64,6 @@ dot-config/programs/bernoulli.c
 # big nono
 dot-config/spotify/Users/*
 dot-config/spotify/prefs
+
 dot-config/obs-studio/basic/profiles/Untitled/service.json
 dot-config/obs-studio/basic/profiles/Untitled/service.json.bak
-
-# unneeded
-dot-config/pulse/
-dot-config/ibus/bus
-dot-config/mozc
-
-################################################################################
-# Cargo config
-################################################################################
-
-!/dot-cargo/config.toml
