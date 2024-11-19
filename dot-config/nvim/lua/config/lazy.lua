@@ -18,6 +18,19 @@ require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    -- wakatime: <https://wakatime.com/neovim>
+    { "wakatime/vim-wakatime", lazy = false },
+    -- showkeys
+    -- https://www.youtube.com/watch?v=WOaRvqaA8iU
+    {
+      "nvzone/showkeys",
+      cmd = "ShowkeysToggle",
+      opts = {
+        maxkeys = 7,
+        position = "top-center",
+        show_count = true,
+      },
+    },
     -- import/override with your plugins
     { import = "plugins" },
   },
