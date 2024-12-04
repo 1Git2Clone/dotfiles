@@ -132,6 +132,8 @@ export QT_IM_MODULE=ibus
 
 export PROGRAMS="$HOME/.config/programs/"
 
+export DOTNET_ROOT=$HOME/.dotnet
+
 # More likely than not. PATH is already an export.
 if [ -z "${PATH-}" ]; then
   export PATH=/usr/local/bin:/usr/bin:/bin
@@ -144,6 +146,8 @@ PATH="$PROGRAMS/shell_scripts/:$PATH"
 PATH="$PATH:/home/hutao/.cargo/bin"
 
 PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
+
+PATH="$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools"
 
 # Example usage
 #
@@ -178,6 +182,15 @@ cargo() {
   fi
 }
 
+nvim() {
+  if [ "$1" = "tui" ]; then
+    /usr/bin/nvim "${@:2}"
+  else
+    neovide "$@" &
+    disown
+  fi
+}
+
 # Do a fuzzy find and pipe the output into neovim
 fz() {
   nvim "$(fzf --preview 'cat {}')"
@@ -186,4 +199,3 @@ fz() {
 cdf() {
   fz
 }
-. "$HOME/.cargo/env"
