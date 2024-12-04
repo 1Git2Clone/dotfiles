@@ -27,7 +27,7 @@ require("lazy").setup({
       cmd = "ShowkeysToggle",
       opts = {
         maxkeys = 7,
-        position = "top-center",
+        position = "bottom-right",
         show_count = true,
       },
     },
