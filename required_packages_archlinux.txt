@@ -7,8 +7,10 @@ fzf
 git
 kitty
 lazygit
+lsd
 nano
 neovim
+neovide
 noto-fonts
 npm
 openssh
