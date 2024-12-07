@@ -57,7 +57,7 @@ echo \
 
 # alias rm='trash'
 
-alias ls='ls --color=auto'
+alias ls='lsd --color=auto'
 alias grep='grep --color=auto'
 alias fm='thunar & disown'
 alias ..='cd ../'

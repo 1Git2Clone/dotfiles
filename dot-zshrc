@@ -44,3 +44,5 @@ eval "$(zoxide init --cmd cd zsh)"
 # Starship
 # https://github.com/starship/starship
 eval "$(starship init zsh)"
+
+alias ls='lsd --color=auto'
