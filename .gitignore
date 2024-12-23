@@ -1,8 +1,16 @@
 /dot-config/**/*
 
 ###############################################################################
+# i3
+###############################################################################
+
+!/dot-config/i3/
+!/dot-config/i3/**/*
+
+###############################################################################
 # Cargo config
 ###############################################################################
+
 /dot-cargo/*
 !/dot-cargo/config.toml
 
@@ -10,16 +18,14 @@
 # Neovim
 ###############################################################################
 
-!/dot-config/nvim
-!/dot-config/nvim/*
+!/dot-config/nvim/
 !/dot-config/nvim/**/*
 
 ###############################################################################
 # Neovide
 ###############################################################################
 
-!/dot-config/neovide
-!/dot-config/neovide/*
+!/dot-config/neovide/
 !/dot-config/neovide/**/*
 
 ###############################################################################
@@ -64,14 +70,3 @@
 # This was already in another repo
 # https://github.com/1Kill2Steal/Bernoulli-C
 dot-config/programs/bernoulli.c
-
-###############################################################################
-# Local data
-###############################################################################
-
-# big nono
-dot-config/spotify/Users/*
-dot-config/spotify/prefs
-
-dot-config/obs-studio/basic/profiles/Untitled/service.json
-dot-config/obs-studio/basic/profiles/Untitled/service.json.bak
