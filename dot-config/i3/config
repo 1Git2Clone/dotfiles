@@ -218,7 +218,7 @@ set $ws10 "10"
 ###############################################################################
 
 # Screen Refresh Rate (DP-1 at 165hz)
-exec_always xrandr --output DisplayPort-0 --mode 1920x1080 --rate 165
+exec_always xrandr --output DP-1 --mode 1920x1080 --rate 165
 
 ###############################################################################
 
