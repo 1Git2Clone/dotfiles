@@ -16,7 +16,7 @@ trap cleanup SIGINT
 ###############################################################################
 
 while true; do
-  read -pr "Do you want to install packages: base-devel and git with pacman?
+  read -p "Do you want to install packages: base-devel and git with pacman?
 (y/N): " packages
 
   packages=${packages:-n}
@@ -41,7 +41,7 @@ done
 
 install_additional_packages() {
   while true; do
-    read -pr "Would you like to install packages required for setting up your
+    read -p "Would you like to install packages required for setting up your
 desktop environment (i3) as well as apps like discord and OBS studio?
 Warning: this may take a while if you don't have obs-studio-tytan652.
 (y/N): " additional_packages
@@ -64,7 +64,7 @@ Warning: this may take a while if you don't have obs-studio-tytan652.
 
 while true; do
 
-  read -pr \
+  read -p \
     "Select your AUR helper. [Default: none] (Won't reinstall if it exists)
 1 - paru
 2 - yay
@@ -112,7 +112,7 @@ Choice: " aur_helper
     break
     ;;
   *)
-    read -pr "Are you sure you don't want an AUR helper? (y/N): " no_aur_helper
+    read -p "Are you sure you don't want an AUR helper? (y/N): " no_aur_helper
     case "$no_aur_helper" in
     [Yy]*)
       break
@@ -133,7 +133,7 @@ while true; do
   echo "NOTE: **If you choose zsh your .bashrc, .profile and .zshrc will get
 replaced with the home_user/ ones based on this repo. This is for the sake of
 installing the Zsh plugins.**"
-  read -pr "Continue with bash (1) or use zsh (2)? [Default: bash]: " \
+  read -p "Continue with bash (1) or use zsh (2)? [Default: bash]: " \
     choose_shell
   choose_shell=${choose_shell:-1}
   case "$choose_shell" in
@@ -184,7 +184,7 @@ done
 ###############################################################################
 
 while true; do
-  read -pr "If this is a terminal install. Would you like to enable SDDM?
+  read -p "If this is a terminal install. Would you like to enable SDDM?
 (y/N): " enable_sddm
   enable_sddm=${enable_sddm:-n}
   case "$enable_sddm" in
@@ -204,7 +204,7 @@ done
 # GNU stow setup
 ###############################################################################
 while true; do
-  read -pr "Would you like to setup GNU stow with the current repo dotfiles?
+  read -r "Would you like to setup GNU stow with the current repo dotfiles?
 (Y/n): " setup_stow
   setup_stow=${setup_stow:-y}
   case "$setup_stow" in
