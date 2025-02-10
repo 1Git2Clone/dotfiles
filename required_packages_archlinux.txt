@@ -15,6 +15,7 @@ noto-fonts
 npm
 openssh
 paru
+picom
 pinentry
 ripgrep
 starship
