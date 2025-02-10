@@ -220,6 +220,12 @@ set $ws10 "10"
 # Screen Refresh Rate (DP-1 at 165hz)
 exec_always xrandr --output DP-1 --mode 1920x1080 --rate 165
 
+# Picom
+# https://wiki.archlinux.org/title/Picom
+exec --no-startup-id picom --backend xrender
+bindsym $mod+o exec sh -c "picom-trans -c +5"
+bindsym $mod+Shift+o exec sh -c "picom-trans -c -5"
+
 ###############################################################################
 
 # Normal apps
