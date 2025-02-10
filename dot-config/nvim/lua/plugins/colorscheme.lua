@@ -198,4 +198,23 @@ return {
       },
     },
   },
+  -- lualine
+  {
+    "nvim-lualine/lualine.nvim",
+    opts = function()
+      local lualine_theme = require("lualine.themes.auto")
+
+      for _, mode in pairs({ "normal", "insert", "visual", "replace", "command", "inactive", "terminal" }) do
+        lualine_theme[mode].a = default_fg_bg
+        lualine_theme[mode].b = default_fg_bg
+        lualine_theme[mode].c = default_fg_bg
+      end
+
+      return {
+        options = {
+          theme = lualine_theme,
+        },
+      }
+    end,
+  },
 }
