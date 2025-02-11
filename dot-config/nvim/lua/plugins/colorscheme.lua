@@ -25,9 +25,9 @@ return {
           surface1 = "#594548",
           surface0 = "#443131",
 
-          base = "#110003",
-          mantle = "#100001",
-          crust = "#100001",
+          base = colors.catppuccin.base,
+          mantle = colors.catppuccin.mantle,
+          crust = colors.catppuccin.crust,
         },
       },
       highlight_overrides = {

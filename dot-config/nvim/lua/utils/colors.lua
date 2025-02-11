@@ -1,5 +1,12 @@
 local M = {}
 
+---@type { base: string, mantle: string, crust: string }
+M.catppuccin = {
+  base = "#110003",
+  mantle = "#100001",
+  crust = "#100001",
+}
+
 ---@type string
 M.default_fg = "#ff5077"
 ---@type string
