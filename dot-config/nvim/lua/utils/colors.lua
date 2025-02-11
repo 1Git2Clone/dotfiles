@@ -22,4 +22,4 @@ M.line_col = "#da5876"
 ---@type string
 M.comment_col = "#ffb3c3"
 
-return M
+return require("utils.generic").make_constant(M)
