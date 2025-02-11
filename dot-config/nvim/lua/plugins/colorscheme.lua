@@ -2,6 +2,10 @@ local default_fg = "#ff5077"
 local default_bg = "#110003"
 local default_fg_bg = { fg = default_fg, bg = default_bg }
 
+local line_hl_col = "#ff003e"
+local line_col = "#da5876"
+local comment_col = "#ffb3c3"
+
 return {
   -- catppuccin
   {
@@ -35,11 +39,6 @@ return {
       highlight_overrides = {
         all = function()
           return {
-            DashboardHeader = { fg = "#ff416e" },
-            DashboardIcon = { fg = "#ff668a" },
-            DashboardDesc = { fg = "#bb8992" },
-            DashboardKey = { fg = "#ff668a" },
-            DashboardFooter = { fg = "#ff517a" },
             -- Thank god it was as easy as getting chat gippidy to make
             -- a python script for this all
             Directory = { fg = default_fg },
@@ -152,12 +151,11 @@ return {
             NeotestNamespace = { fg = default_fg },
             DapBreakpointRejected = { fg = default_fg },
             RainbowDelimiterViolet = { fg = default_fg },
-            -- Operator = { fg="FF5050" }
-            Normal = { fg = "#fb89a4", bg = "#110003" },
-            LineNr = { fg = "#da5876" },
-            Pmenu = { fg = "#da5876" },
-            CursorLineNr = { fg = "#ff003e" },
-            Comment = { fg = "#ffb3c3" },
+            Normal = default_fg_bg,
+            LineNr = { fg = line_col },
+            Pmenu = { fg = line_col },
+            CursorLineNr = { fg = line_hl_col },
+            Comment = { fg = comment_col },
           }
         end,
       },
