@@ -12,6 +12,7 @@ nano
 neovim
 neovide
 noto-fonts
+noto-fonts-emoji
 npm
 openssh
 paru
