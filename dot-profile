@@ -97,6 +97,7 @@ fi
 
 # Pipe a command to | clip
 alias clip='xclip -selection clipboard'
+alias ff='fastfetch'
 
 ###############################################################################
 # Custom Flags
