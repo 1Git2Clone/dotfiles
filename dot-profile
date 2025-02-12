@@ -57,7 +57,10 @@ echo \
 
 # alias rm='trash'
 
-alias ls='lsd --color=auto'
+if command -v lsd >/dev/null 2>&1; then
+  alias ls='lsd --color=auto'
+fi
+
 alias grep='grep --color=auto'
 alias fm='thunar & disown'
 alias ..='cd ../'
