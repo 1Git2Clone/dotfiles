@@ -147,6 +147,7 @@ PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
 PATH="$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools"
 PATH="$PATH:$HOME/.local/bin"
 PATH="$PATH:$HOME/shared_rust_target/release"
+PATH="$PATH:$HOME/.spicetify"
 
 # Example usage
 #
