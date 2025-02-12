@@ -60,17 +60,6 @@
 !/dot-config/vesktop/themes
 
 ###############################################################################
-# Spicetify
-###############################################################################
-
-!/dot-config/spicetify
-/dot-config/spicetify/*
-!/dot-config/spicetify/config-xpui.ini
-!/dot-config/spicetify/Themes
-!/dot-config/spicetify/Extensions
-!/dot-config/spicetify/CustomApps
-
-###############################################################################
 # Lazygit
 ###############################################################################
 
