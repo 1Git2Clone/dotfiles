@@ -175,11 +175,11 @@ cargo() {
 }
 
 nvim() {
-  if [ "$1" = "tui" ]; then
-    /usr/bin/nvim "${@:2}"
-  else
-    neovide "$@" &
+  if [ "$1" = "gui" ]; then
+    neovide "${@:2}" &
     disown
+  else
+    /usr/bin/nvim "${@}"
   fi
 }
 
