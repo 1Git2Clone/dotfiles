@@ -233,7 +233,7 @@ bindsym $mod+Shift+o exec sh -c "picom-trans -c -5"
 ###############################################################################
 
 # Browser
-exec --no-startup-id firefox
+exec --no-startup-id floorp
 
 # Music Player
 exec --no-startup-id spotify
