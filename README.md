@@ -21,6 +21,19 @@ Also, a lot of the packages **are** AUR packages, so don't worry about pacman
 telling you they don't exist if you don't use an AUR helper to install them
 with.
 
+## Table of contents
+
+- [Configuration files](#configuration-files)
+  - [Quick setup guide](#quick-setup-guide)
+    - [Important notes](#important-notes)
+    - [Lazy Neovim](#lazy-neovim)
+  - [Terminal utils](#terminal-utils)
+    - [Workflow video](#workflow-video)
+    - [Zoxide](#zoxide)
+    - [Lazygit](#lazygit)
+    - [Btop++](#btop)
+    - [Additional resources](#additional-resources)
+
 ## Quick setup guide
 
 ```sh
@@ -34,7 +47,7 @@ chmod +x ./stow_setup.sh && chmod +x ./full_setup.sh # One time only
 - **Both the i3 and Hyprland configurations assume DP-1 is a 1080p165hz
   monitor. _(easy to change)_**
 
-### [Lazy Neovim](https://github.com/folke/lazy.nvim)
+### Lazy Neovim
 
 ![Treesitter](assets/treesitter.png)
 ![Code testing feature preview](assets/code-testing.png)
@@ -65,15 +78,15 @@ Or you can download the raw video file from
 [here](https://raw.githubusercontent.com/1git2clone/dotfiles/main/assets/workflow_showcase.mp4)
 (`raw.githubusercontent.com`). Alternatively, head to the [git repo asset itself](assets/workflow_showcase.mp4).
 
-### [Zoxide](https://github.com/ajeetdsouza/zoxide)
+### Zoxide
 
 ![Zoxide preview](assets/zoxide.png)
 
-### [Lazygit](https://github.com/jesseduffield/lazygit)
+### Lazygit
 
 ![Lazygit preview](assets/lazygit.png)
 
-### [Btop++](https://github.com/aristocratos/btop)
+### Btop++
 
 ![Btop++](assets/btop++.png)
 
