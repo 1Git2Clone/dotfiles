@@ -260,3 +260,19 @@ for cmd in "${SSH_COMMANDS[@]}"; do
   "
 done
 
+declare -A GIT_SSH_COMMANDS=(
+  [pull]=1
+  [push]=1
+  [clone]=1
+  [fetch]=1
+  [submodule]=1
+)
+
+git() {
+  if [[ -n "${GIT_SSH_COMMANDS[$1]}" ]]; then
+    ssh_agent_checks "Tried to do git commands that require SSH authentication with no SSH agent."
+  fi
+
+  command git "$@"
+}
+
