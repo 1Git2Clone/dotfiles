@@ -102,3 +102,9 @@ Or you can download the raw video file from
   of useful utilities like a color hue shift script that changes the hues of
   every 6-digit HEX sequence with your specified offset (1-360) and some other
   apps. They're already added to your `$PATH` variable in `dot-profile`.
+  a/plugins/colorscheme.lua
+
+- Make sure to check the `dot-config/programs/` folder which contains a bunch
+  of useful utilities like a color hue shift script that changes the hues of
+  every 6-digit HEX sequence with your specified offset (1-360) and some other
+  apps. They're already added to your `$PATH` variable in `dot-profile`.
