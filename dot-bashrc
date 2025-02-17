@@ -14,7 +14,8 @@
 # The .profile config for both Bash and Zsh.
 ###############################################################################
 
-source "$HOME/.profile"
+# shellcheck source=/dev/null
+. ~/.profile
 
 ###############################################################################
 # Startup programs in the terminal using eval.
