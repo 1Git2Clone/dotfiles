@@ -15,16 +15,13 @@ ssh_agent_checks() {
     fi
   done
 
-  case $0 in
-  "zsh")
+  if [[ -n $ZSH_VERSION ]]; then
     read -r "response?Set up SSH agent now or ignore $dir? (y/N): "
     response=${response:l}
-    ;;
-  "bash")
+  elif [[ -n $BASH_VERSION ]]; then
     read -p "Set up SSH agent now or ignore $dir? (y/N): " response
     response=${response,,}
-    ;;
-  esac
+  fi
 
   case "${response}" in
   "yes" | "y") ;;
