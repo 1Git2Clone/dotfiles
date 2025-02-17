@@ -39,6 +39,15 @@ chmod +x ./stow_setup.sh && chmod +x ./full_setup.sh # One time only
 ![Treesitter](assets/treesitter.png)
 ![Code testing feature preview](assets/code-testing.png)
 
+Here's a more recent setup showcase video too (recorded on `2025-02-10` | `YYYY/MM/DD`):
+
+[Neovim Setup Showcase](https://github.com/user-attachments/assets/adf29c80-4e4b-4bee-a1a0-c8d8f511ade3)
+
+> [!NOTE]
+> Also available on [`YouTube`](https://www.youtube.com/watch?v=BKOce2_b8t8)
+> and as an uncompressed asset under
+> [`/assets`](./assets/neovm-setup-showcase.mp4).
+
 ## Terminal utils
 
 > [!NOTE]
