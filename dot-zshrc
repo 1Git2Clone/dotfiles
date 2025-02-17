@@ -46,3 +46,7 @@ eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
 
 alias ls='lsd --color=auto'
+
+precmd() {
+  $PROFILE_PROMPT_COMMANDS
+}
