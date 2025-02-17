@@ -1,6 +1,42 @@
 export SSH_KEY_PATH="$HOME/.ssh/id_ed25519"
 
+ignored_ssh_directories=("")
+
+undo_last_ignored_dir() {
+  unset "ignored_ssh_directories[-1]"
+}
+
 ssh_agent_checks() {
+  dir=$(command pwd)
+
+  for ignored_dir in "${ignored_ssh_directories[@]}"; do
+    if [[ "$dir" == "$ignored_dir" ]]; then
+      return
+    fi
+  done
+
+  case $0 in
+  "zsh")
+    read -r "response?Set up SSH agent now or ignore $dir? (y/N): "
+    response=${response:l}
+    ;;
+  "bash")
+    read -p "Set up SSH agent now or ignore $dir? (y/N): " response
+    response=${response,,}
+    ;;
+  esac
+
+  case "${response}" in
+  "yes" | "y") ;;
+  *)
+    ignored_ssh_directories+=("$dir")
+    echo "Added $dir to the ignored ssh directories."
+    echo "If this was a mistake then you can remove it by undo_last_ignored_dir function."
+    echo "You can always run ssh_agent_checks to set up your SSH agent."
+    return
+    ;;
+  esac
+
   if command ssh-add -L >/dev/null 2>&1; then
     return
   fi
