@@ -249,3 +249,14 @@ ssh_agent_checks() {
   fi
 }
 
+SSH_COMMANDS=(ssh ssh-add)
+
+for cmd in "${SSH_COMMANDS[@]}"; do
+  eval "
+  $cmd() {
+    ssh_agent_checks
+    command $cmd \"\$@\"
+  }
+  "
+done
+
