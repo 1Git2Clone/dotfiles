@@ -17,16 +17,25 @@
 # shellcheck source=/dev/null
 . ~/.profile
 
+# For some reason bash doesn't pick it up from .profile with that syntax. on
+# zsh it works just fine.
+for script in "$HOME/dotfiles/dot-profile.d/"*; do
+  if [ -f "$script" ]; then
+    # shellcheck source=/dev/null
+    . "$script"
+  fi
+done
+
+PROMPT_COMMAND="$PROFILE_PROMPT_COMMANDS; $PROMPT_COMMAND"
+
 ###############################################################################
 # Startup programs in the terminal using eval.
 ###############################################################################
-
-# zoxide + fzf
-# https://github.com/ajeetdsouza/zoxide
-eval "$(zoxide init --cmd cd bash)"
 
 # Starship
 # https://github.com/starship/starship
 eval "$(starship init bash)"
 
-PROMPT_COMMAND="$PROFILE_PROMPT_COMMANDS $PROMPT_COMMAND"
+# zoxide + fzf
+# https://github.com/ajeetdsouza/zoxide
+eval "$(zoxide init --cmd cd bash)"
