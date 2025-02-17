@@ -6,7 +6,7 @@
 	credentialStore = gpg
 	helper = cache --timeout=3600
 [core]
-	sshCommand = ssh -i ~/.ssh/id_rsa
+	sshCommand = ssh -i ~/.ssh/id_ed25519
 [init]
 	defaultBranch = main
 [filter "lfs"]
