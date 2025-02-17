@@ -232,13 +232,20 @@ esac
 # SSH
 ###############################################################################
 
+SSH_KEY_PATH="$HOME/.ssh/id_ed25519"
+
 ssh_agent_checks() {
-  if ! ssh-add -L >/dev/null 2>&1; then
-    echo "No SSH agent set."
+  local message="$1"
+
+  if ! command ssh-add -L >/dev/null 2>&1; then
+    if [ -n "$message" ]; then
+      echo "$message"
+    else
+      echo "No SSH agent set."
+    fi
     echo -n "SSH "
-    eval "$(ssh-agent -s)"
-    ssh-add ~/.ssh/id_ed25519
+    eval "$(command ssh-agent -s)"
+    command ssh-add "$SSH_KEY_PATH"
   fi
 }
 
-ssh_agent_checks
