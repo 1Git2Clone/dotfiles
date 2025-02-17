@@ -44,3 +44,29 @@ git() {
 
   command git "$@"
 }
+
+declare -A GITHUB_CLI_REPO_SSH_COMMANDS=(
+  [clone]=1
+  [delete]=1
+  [fork]=1
+  [edit]=1
+  [sync]=1
+  [rename]=1
+  [create]=1
+  [add]=1
+)
+
+declare -A GITHUB_CLI_PR_SSH_COMMANDS=(
+  [create]=1
+)
+
+gh() {
+  local msg="Tried to do GitHub CLI commands that require SSH authentication with no SSH agent."
+
+  case "$1" in
+  "pr") ${GITHUB_CLI_PR_SSH_COMMANDS[$2]} || ssh_agent_checks "$msg" ;;
+  "repo") ${GITHUB_CLI_REPO_SSH_COMMANDS[$2]} || ssh_agent_checks "$msg" ;;
+  esac
+
+  command gh "$@"
+}
