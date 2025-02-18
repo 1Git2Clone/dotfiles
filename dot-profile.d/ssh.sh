@@ -15,6 +15,10 @@ ssh_agent_checks() {
     fi
   done
 
+  if command ssh-add -L >/dev/null 2>&1; then
+    return
+  fi
+
   if [[ -n $ZSH_VERSION ]]; then
     read -r "response?Set up SSH agent now or ignore $dir? (y/N): "
     response=${response:l}
@@ -33,10 +37,6 @@ ssh_agent_checks() {
     return
     ;;
   esac
-
-  if command ssh-add -L >/dev/null 2>&1; then
-    return
-  fi
 
   local message="$1"
 
