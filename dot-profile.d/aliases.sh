@@ -19,3 +19,4 @@ alias imgl='kitten icat --align left'
 alias clip='xclip -selection clipboard'
 
 alias ff='fastfetch'
+alias py='python'
