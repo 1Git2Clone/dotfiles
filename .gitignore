@@ -74,7 +74,7 @@
 ###############################################################################
 
 !/dot-config/programs
-!/dot-config/programs/*
+!/dot-config/programs/**/*
 
 # ignore the pyinstaller stuff
 /dot-config/programs/build/
