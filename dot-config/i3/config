@@ -231,19 +231,19 @@ bindsym $mod+Shift+o exec sh -c "picom-trans -c -5"
 ###############################################################################
 
 # Browser
-exec i3-msg "workspace 1; exec --no-startup-id floorp"
+exec --no-startup-id floorp
 
 # Discord client
-exec i3-msg "workspace 1; exec --no-startup-id vesktop"
+exec --no-startup-id vesktop
 
 # Music Player
-exec i3-msg "workspace 10; exec --no-startup-id spotify"
+exec --no-startup-id spotify
 
 # Gaming
-exec i3-msg "workspace 10; exec --no-startup-id steam"
+exec --no-startup-id steam
 
 # Streaming/Recording
-exec i3-msg "workspace 10; exec --no-startup-id obs"
+exec --no-startup-id obs
 
 # Keyboard languages management
 exec --no-startup-id fcitx5
