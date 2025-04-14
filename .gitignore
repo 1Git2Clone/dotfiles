@@ -94,9 +94,6 @@
 !/dot-config/lazygit
 !/dot-config/lazygit/**/*
 
-# Empty file
-/dot-config/lazygit/config.yml
-
 ###############################################################################
 # Programs (scripts really)
 ###############################################################################
