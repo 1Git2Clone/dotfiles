@@ -173,7 +173,7 @@
       "format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤢 ", "󰤨 "],
     },
     "clock": {
-      "format": "⏰{:%I:%M %p}",
+      "format": "{:%I:%M %p}",
       "format-alt": "📅{:%A, %B %d, %Y (%I:%M %p)}",
       //"format": "<span color='#bf616a'> </span>{:%I:%M %p}",
       //"format-alt": "<span color='#bf616a'> </span>{:%A, %B %d, %Y (%I:%M %p)}",
