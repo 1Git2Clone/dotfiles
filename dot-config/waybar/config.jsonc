@@ -173,8 +173,9 @@
       "format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤢 ", "󰤨 "],
     },
     "clock": {
-      "format": "{:%I:%M %p}",
-      "format-alt": "📅{:%A, %B %d, %Y (%I:%M %p)}",
+      "format": "{:%I:%M:%S %p}",
+      "interval": 1,
+      "format-alt": "📅{:%A, %B %d, %Y (%I:%M:%S %p)}",
       //"format": "<span color='#bf616a'> </span>{:%I:%M %p}",
       //"format-alt": "<span color='#bf616a'> </span>{:%A, %B %d, %Y (%I:%M %p)}",
       // "format": "{: %R   %d/%m}",
