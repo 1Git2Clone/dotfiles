@@ -18,7 +18,6 @@
       "clock",
       "bluetooth",
       "network",
-      "privacy",
       "hyprland/submap",
     ],
     "modules-center": ["hyprland/window"],
@@ -31,7 +30,6 @@
       "temperature",
       "group/cpu-load",
       "memory",
-      "idle_inhibitor",
       "systemd-failed-units",
       "group/power",
     ],
@@ -135,28 +133,6 @@
         "locked": "",
         "unlocked": "",
       },
-    },
-    "privacy": {
-      "icon-spacing": 4,
-      "icon-size": 14,
-      "transition-duration": 250,
-      "modules": [
-        {
-          "type": "screenshare",
-          "tooltip": true,
-          "tooltip-icon-size": 14,
-        },
-        {
-          "type": "audio-out",
-          "tooltip": true,
-          "tooltip-icon-size": 14,
-        },
-        {
-          "type": "audio-in",
-          "tooltip": true,
-          "tooltip-icon-size": 14,
-        },
-      ],
     },
     "network": {
       //"interface": "wlp2s0",
@@ -308,13 +284,6 @@
       },
       "tooltip-format": "MPD (connected)",
       "tooltip-format-disconnected": "MPD (disconnected)",
-    },
-    "idle_inhibitor": {
-      "format": "{icon}",
-      "format-icons": {
-        "activated": " ",
-        "deactivated": " ",
-      },
     },
     "systemd-failed-units": {
       "format": "✗ {nr_failed}",
