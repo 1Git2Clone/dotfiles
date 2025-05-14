@@ -103,3 +103,10 @@
 
 # ignore the pyinstaller stuff
 /dot-config/programs/build/
+
+
+###############################################################################
+# Custom Application Icons
+###############################################################################
+
+/dot-local/share/icons
