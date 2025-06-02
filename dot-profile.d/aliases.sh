@@ -18,3 +18,7 @@ alias clip='xclip -selection clipboard'
 
 alias ff='fastfetch'
 alias py='python'
+
+# Git aliases
+alias gs='git status'
+alias gll='git log --oneline --graph --decorate'
