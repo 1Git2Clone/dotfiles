@@ -12,6 +12,18 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[url "https://github.com/1Git2Clone/"]
+  insteadOf = "gh/1g2c/"
+[url "https://github.com/"]
+  insteadOf = "gh/"
+[url "https://gitlab.com/1Kill2Steal/"]
+  insteadOf = "gl/1k2s/"
+[url "https://gitlab.com/"]
+  insteadOf = "gl/"
+[url "https://codeberg.org/1Kill2Steal/"]
+  insteadOf = "cb/1k2s/"
+[url "https://codeberg.org/"]
+  insteadOf = "cb/"
 [alias]
   pushall = !git remote | xargs -L1 git push --all
 [credential "https://github.com"]
