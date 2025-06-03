@@ -109,21 +109,21 @@
       "key": "║  󰍹  ",
       "keyColor": "red",
     },
-    {
-      "type": "custom",
-      "format": "{$1} {$2}   🎧   {$3}",
-      "outputColor": "red",
-    },
-    {
-      "type": "player",
-      "key": "║  󰥠  ",
-      "keyColor": "red",
-    },
-    {
-      "type": "media",
-      "key": "║  󰝚  ",
-      "keyColor": "red",
-    },
+    // {
+    //   "type": "custom",
+    //   "format": "{$1} {$2}   🎧   {$3}",
+    //   "outputColor": "red",
+    // },
+    // {
+    //   "type": "player",
+    //   "key": "║  󰥠  ",
+    //   "keyColor": "red",
+    // },
+    // {
+    //   "type": "media",
+    //   "key": "║  󰝚  ",
+    //   "keyColor": "red",
+    // },
     {
       "type": "custom",
       "format": "╚══════╝ {$2}₊‧ ୨୧ ‧₊{$3}",
