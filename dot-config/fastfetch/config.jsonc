@@ -1,48 +1,133 @@
+// Load with --load-config examples/2.jsonc
+// Note that you must replace the image path to an existing image to display it.
+
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
-    "type": "small",
+    "type": "kitty-icat",
+    "source": "~/dotfiles/dot-config/fastfetch/icons/HuTaoSmall.png",
     "color": {
       "1": "red",
       "2": "red",
     },
   },
   "display": {
-    "separator": "| ",
+    "separator": " ║ ",
     "color": {
       "separator": "red",
     },
+    "constants": ["╠═[❤️]═╣", ".˚̣̇✧.⋆ ✶˖·˳.✦˚", "˚✦.˳·˖✶ ⋆.✧̣̇˚."],
   },
   "modules": [
     {
-      "key": "Distro      ",
+      "type": "custom",
+      "format": "╔══════╗ {$2}  USER  {$3}",
+      "outputcolor": "red",
+    },
+    {
+      "type": "title",
+      "color": {
+        "user": "red",
+        "at": "red",
+        "host": "red",
+      },
+      "format": "║     ║ {user-name}@{host-name} ",
+      "outputColor": "red",
+    },
+    {
+      "type": "custom",
+      "format": "{$1} {$2}   OS   {$3}",
+      "outputcolor": "red",
+    },
+    {
       "type": "os",
+      "key": "║  {icon}  ",
       "keyColor": "red",
     },
     {
-      "key": "Shell       ",
+      "type": "kernel",
+      "key": "║    ",
+      "keyColor": "red",
+    },
+    {
+      "type": "packages",
+      "key": "║  󰏖  ",
+      "keyColor": "red",
+    },
+    {
       "type": "shell",
+      "key": "║    ",
       "keyColor": "red",
     },
     {
-      "key": "Terminal    ",
       "type": "terminal",
+      "key": "║    ",
       "keyColor": "red",
     },
     {
-      "key": "WM          ",
-      "type": "wm",
+      "type": "custom",
+      "format": "{$1} {$2}   PC   {$3}",
+      "outputColor": "red",
+    },
+    {
+      "type": "host",
+      "key": "║  󰌢  ",
       "keyColor": "red",
     },
     {
-      "key": "Display     ",
-      "type": "display",
+      "type": "cpu",
+      "key": "║  󰻠  ",
       "keyColor": "red",
     },
     {
-      "key": "Memory      ",
+      "type": "gpu",
+      "key": "║  󰍛  ",
+      "keyColor": "red",
+    },
+    {
+      "type": "disk",
+      "key": "║    ",
+      "keyColor": "red",
+    },
+    {
       "type": "memory",
+      "key": "║  󰑭  ",
       "keyColor": "red",
+    },
+    {
+      "type": "swap",
+      "key": "║  󰓡  ",
+      "keyColor": "red",
+    },
+    {
+      "type": "uptime",
+      "key": "║  󰅐  ",
+      "keyColor": "red",
+    },
+    {
+      "type": "display",
+      "key": "║  󰍹  ",
+      "keyColor": "red",
+    },
+    {
+      "type": "custom",
+      "format": "{$1} {$2}   🎧   {$3}",
+      "outputColor": "red",
+    },
+    {
+      "type": "player",
+      "key": "║  󰥠  ",
+      "keyColor": "red",
+    },
+    {
+      "type": "media",
+      "key": "║  󰝚  ",
+      "keyColor": "red",
+    },
+    {
+      "type": "custom",
+      "format": "╚══════╝ {$2}₊‧ ୨୧ ‧₊{$3}",
+      "outputColor": "red",
     },
   ],
 }
