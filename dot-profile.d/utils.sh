@@ -1,3 +1,21 @@
+# Why? Some commands force `less` as the pager even with a different `$PAGER` variable.
+# Also works with manpages for convenience.
+help() {
+  if command man "$@" >/dev/null 2>&1; then
+    eval "$MANPAGER" <<<"$(man "$@")"
+    return
+  fi
+
+  for viable_help_flag in --help -h; do
+    if "$@" $viable_help_flag >/dev/null 2>&1; then
+      eval "$PAGER" <<<"$("$@" $viable_help_flag 2>&1)"
+      return
+    fi
+  done
+
+  eval "$PAGER" <<<"$("$@" 2>&1)"
+}
+
 # Run cargo tests when doing cargo run
 cargo() {
   if [ "$1" = "run" ]; then
