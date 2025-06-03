@@ -14,7 +14,17 @@ alias img='kitten icat'
 alias imgl='kitten icat --align left'
 
 # Pipe a command to | clip
-alias clip='xclip -selection clipboard'
+case $XDG_SESSION_TYPE in
+wayland)
+  alias clip='wl-copy'
+  ;;
+x11)
+  alias clip='xclip -selection clipboard'
+  ;;
+*)
+  echo "Unknown session type: $XDG_SESSION_TYPE. Please set up \`clip\` alias manually."
+  ;;
+esac
 
 alias ff='fastfetch'
 alias py='python'
