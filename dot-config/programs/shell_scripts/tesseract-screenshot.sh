@@ -17,8 +17,9 @@ grim -g "$(slurp)" "$TMPFILE"
 
 # swappy -f "$TMPFILE" -o "$TMPFILE" || true
 
-tesseract "$TMPFILE" stdout -l "$LANG" | wl-copy
+text=$(tesseract "$TMPFILE" stdout -l "$LANG")
+wl-copy "$text"
 
-notify-send "OCR Success" "Text ($LANG) copied to clipboard!" --icon=checkmark
+notify-send --app-name "tesseract-screenshot.sh" "✅ OCR Success" "Copied \"$text\" to clipboard!"
 
 rm "$TMPFILE"
