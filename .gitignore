@@ -118,3 +118,4 @@
 
 /dot-local/share/icons
 dot-config/espanso/scripts/work/welcome/welcome_history.txt
+__pycache__
