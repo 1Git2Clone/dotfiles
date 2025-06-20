@@ -360,7 +360,7 @@
     "wlr/taskbar": {
       "format": "{icon}",
       // "format": "{icon} {title:.17}",
-      "icon-size": 32,
+      "icon-size": 28,
       "icon-theme": "BeautyLine",
       "tooltip-format": "{title}",
       "on-click": "activate",
