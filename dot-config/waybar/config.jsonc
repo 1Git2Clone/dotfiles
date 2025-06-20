@@ -222,6 +222,7 @@
       "max-volume": 100,
       "on-click": "pavucontrol",
       "on-click-right": "qpwgraph",
+      "format-icons": [" ", " "],
     },
     "jack": {
       "format": "DSP {}%",
