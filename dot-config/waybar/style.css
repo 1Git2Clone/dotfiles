@@ -139,7 +139,6 @@ window#waybar.empty {
 #clock,
 #network,
 #wireplumber,
-#keyboard-state,
 #custom-notification,
 #taskbar,
 #user,
@@ -196,15 +195,6 @@ window#waybar.empty {
 /* Focused Label Background */
 label:focus {
   background-color: black;
-}
-
-/* Keyboard State Styles */
-#keyboard-state > label {
-  padding: 0 5px;
-}
-
-#keyboard-state > label.locked {
-  background: rgba(0, 0, 0, 0.2);
 }
 
 /* Tray Styles */

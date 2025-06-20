@@ -14,7 +14,6 @@
     "reload_style_on_change": true,
     "modules-left": [
       "custom/updates",
-      "keyboard-state",
       "clock",
       "bluetooth",
       "network",
@@ -124,15 +123,6 @@
         "(.*) — Mozilla Firefox": "🌎 $1",
       },
       "separate-outputs": true,
-    },
-    "keyboard-state": {
-      "numlock": true,
-      "capslock": true,
-      "format": "  {name} {icon}",
-      "format-icons": {
-        "locked": "",
-        "unlocked": "",
-      },
     },
     "network": {
       //"interface": "wlp2s0",
