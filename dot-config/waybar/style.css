@@ -143,7 +143,6 @@ window#waybar.empty {
 #taskbar,
 #user,
 #systemd-failed-units,
-#power,
 #load,
 #jack,
 #cpu-load,
@@ -151,10 +150,6 @@ window#waybar.empty {
 #workspaces {
   background-color: black;
   color: #ff1a1a;
-}
-
-#power {
-  margin-right: 5px;
 }
 
 #temperature.critical {
