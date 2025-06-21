@@ -19,6 +19,7 @@ paru
 picom
 pinentry
 ripgrep
+power-profiles-daemon
 starship
 stow
 sudo
