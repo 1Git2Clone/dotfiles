@@ -9,7 +9,7 @@ for lang in "${LANGUAGES[@]}"; do
   fi
 done
 
-SELECTED_LANG=$(printf "%s\n" "${LANGUAGES[@]}" | wofi --dmenu --prompt "OCR Language" --width 200 --height 150)
+SELECTED_LANG="${1:-$(printf "%s\n" "${LANGUAGES[@]}" | wofi --dmenu --prompt "OCR Language" --width 200 --height 150)}"
 LANG=${SELECTED_LANG:-$DEFAULT_LANG}
 
 TMPFILE=$(mktemp --suffix=.png)
