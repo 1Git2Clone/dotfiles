@@ -320,8 +320,8 @@
     "hideDelay": 2000
   },
   "paths": {
-    "mediaGif": "root:/assets/bongocat.gif",
-    "sessionGif": "root:/assets/kurukuru.gif",
+    "mediaGif": "~/Pictures/Misc/hu-tao-burnice-dance-crop.gif",
+    "sessionGif": "~/Pictures/Misc/hu-tao-wink-hu-tao-crop.gif",
     "wallpaperDir": "~/Pictures/Wallpapers"
   },
   "services": {
