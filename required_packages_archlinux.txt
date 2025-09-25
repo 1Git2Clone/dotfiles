@@ -1,6 +1,7 @@
 base
 base-devel
 btop
+caelestia-git
 clang
 fakeroot
 fzf
