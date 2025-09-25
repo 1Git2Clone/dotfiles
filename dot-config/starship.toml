@@ -13,7 +13,7 @@ $golang\
 $php\
 $time\
 [ ](fg:#301e1d)\
-\n$character"""
+\n$cmd_duration$character"""
 
 [directory]
 style = "fg:#e4e3e5 bg:#f07185"
@@ -67,3 +67,9 @@ disabled = true
 time_format = "%R"                                      # Hour:Minute Format
 style = "bg:#301e1d"
 format = '[[  $time ](fg:#caa0a8 bg:#301e1d)]($style)'
+
+[cmd_duration]
+min_time = 1000
+show_milliseconds = true
+style = "bg:#301e1d"
+format = '[[  $duration ](fg:#caa0a8 bg:#301e1d)]($style)'
