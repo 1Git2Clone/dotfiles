@@ -16,6 +16,24 @@ help() {
   eval "$PAGER" <<<"$("$@" 2>&1)"
 }
 
+# Useful if you mess around with VPNs
+# NOTE: If you configure your firewall with `iptables`, this will reset it.
+# This function is intended for `ufw` users.
+reset_network() {
+  sudo iptables -t nat -F
+  sudo iptables -t nat -F
+  sudo iptables -F
+  sudo iptables -X
+  sudo iptables -t nat -F
+  sudo iptables -t nat -X
+  sudo iptables -t mangle -F
+  sudo iptables -t mangle -X
+  sudo iptables -P INPUT ACCEPT
+  sudo iptables -P FORWARD ACCEPT
+  sudo iptables -P OUTPUT ACCEPT
+  sudo systemctl restart ufw
+}
+
 # Run cargo tests when doing cargo run
 cargo() {
   if [ "$1" = "run" ]; then
