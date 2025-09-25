@@ -5,7 +5,7 @@ else
 fi
 
 alias grep='grep --color=auto'
-alias fm='thunar & disown'
+alias fm='nautilus -w & disown'
 alias ..='cd ../'
 alias ...='cd ../../'
 
