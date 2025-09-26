@@ -32,10 +32,10 @@
   },
   "general": {
     "apps": {
-      "terminal": ["foot"],
+      "terminal": ["kitty"],
       "audio": ["pavucontrol"],
       "playback": ["mpv"],
-      "explorer": ["thunar"]
+      "explorer": ["nautilus"]
     },
     "battery": {
       "warnLevels": [
@@ -290,8 +290,8 @@
     "dragThreshold": 50,
     "vimKeybinds": true,
     "enableDangerousActions": false,
-    "maxShown": 7,
-    "maxWallpapers": 9,
+    "maxShown": 5,
+    "maxWallpapers": 1000,
     "specialPrefix": "@",
     "useFuzzy": {
       "apps": false,
@@ -300,7 +300,7 @@
       "variants": false,
       "wallpapers": false
     },
-    "showOnHover": false,
+    "showOnHover": true,
     "hiddenApps": []
   },
   "lock": {
