@@ -14,6 +14,9 @@
 !/dot-config/caelestia/
 !/dot-config/caelestia/**/*
 
+# Managed by caelestia
+dot-config/hypr/scheme/current.conf
+
 ###############################################################################
 # wofi
 ###############################################################################
