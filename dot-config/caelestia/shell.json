@@ -274,7 +274,7 @@
         "name": "Lock",
         "icon": "lock",
         "description": "Lock the current session",
-        "command": ["loginctl", "lock-session"],
+        "command": ["caelestia", "shell", "lock", "lock"],
         "enabled": true,
         "dangerous": false
       },
