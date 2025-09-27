@@ -112,6 +112,15 @@ dot-config/hypr/scheme/current.conf
 # !/dot-config/espanso/**/*
 
 ###############################################################################
+# qBittorrent
+###############################################################################
+
+!/dot-config/qBittorrent/
+!/dot-config/qBittorrent/themes
+!/dot-config/qBittorrent/themes/custom
+!/dot-config/qBittorrent/themes/custom/**/*
+
+###############################################################################
 # Programs (scripts really)
 ###############################################################################
 
