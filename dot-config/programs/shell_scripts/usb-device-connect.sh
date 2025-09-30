@@ -1,5 +1,12 @@
 #!/bin/bash
 
+LOCK_FILE="/tmp/usb-device-connect.lock"
+exec 200>"$LOCK_FILE"
+if ! flock -n 200; then
+  echo "Another instance is already running. Exiting." >&2
+  exit 1
+fi
+
 USB_SOUND_FILE=""
 
 export DISPLAY=:0
