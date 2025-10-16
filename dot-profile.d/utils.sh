@@ -20,8 +20,7 @@ help() {
 # NOTE: If you configure your firewall with `iptables`, this will reset it.
 # This function is intended for `ufw` users.
 reset_network() {
-  sudo iptables -t nat -F
-  sudo iptables -t nat -F
+  echo "[*] Flushing iptables..."
   sudo iptables -F
   sudo iptables -X
   sudo iptables -t nat -F
@@ -31,7 +30,22 @@ reset_network() {
   sudo iptables -P INPUT ACCEPT
   sudo iptables -P FORWARD ACCEPT
   sudo iptables -P OUTPUT ACCEPT
-  sudo systemctl restart ufw
+
+  echo "[*] Restarting networking and DNS..."
+  sudo systemctl restart NetworkManager 2>/dev/null || true
+  sudo systemctl restart systemd-resolved 2>/dev/null || true
+  sudo systemctl restart ufw 2>/dev/null || true
+
+  echo "[*] Restoring resolv.conf if needed..."
+  # If your system uses systemd-resolved:
+  if [ -f /run/systemd/resolve/stub-resolv.conf ]; then
+    sudo ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+  else
+    # fallback DNS
+    echo "nameserver 1.1.1.1" | sudo tee /etc/resolv.conf >/dev/null
+  fi
+
+  echo "[*] Done."
 }
 
 # Run cargo tests when doing cargo run
