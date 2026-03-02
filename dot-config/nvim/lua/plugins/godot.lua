@@ -26,27 +26,11 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    config = function()
-      require("nvim-treesitter.configs").setup({
-        modules = {},
-        sync_install = false,
-        ignore_install = {},
-        ensure_installed = {
-          "gdscript",
-          "godot_resource",
-          "gdshader",
-          "bash",
-          "c",
-          "html",
-          "lua",
-          "markdown",
-          "vim",
-          "vimdoc",
-        },
-        auto_install = true,
-        highlight = { enable = true },
-        indent = { enable = true },
+    opts = function(_, opts)
+      vim.list_extend(opts.ensure_installed, {
+        "gdscript",
+        "godot_resource",
+        "gdshader",
       })
     end,
   },
