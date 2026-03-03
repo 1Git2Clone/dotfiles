@@ -7,14 +7,24 @@ rt = "run && cargo test --all-features"
 
 [build-debug]
 incremental = true # Quite a lot quicker rebuild times for the sake of binary size.
+debug = 1          # less debug symbols for potato laptop
+
+[profile.dev]
+opt-level = 0
+debug = 1
+incremental = true
+
+[profile.dev.package."*"]
+opt-level = 2
+
+[target.'cfg(all())']
+rustflags = ["-C", "link-arg=-fuse-ld=lld"]
 
 [build]
 jobs = 10                          # Defaults to your CPU cores
 rustdoc = "rustdoc"
 target-dir = "shared_rust_target/" # Shared target-dir.
-# Save on disc space for apps that require single compilation and release
-# compilation in general.
-incremental = false
+incremental = true
 
 [cargo-new]
 vcs = "git" # git is the default.
