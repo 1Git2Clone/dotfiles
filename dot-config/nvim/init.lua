@@ -5,7 +5,7 @@ package.path = package.path .. ";~/dotfiles/dot-config/nvim/lua/?.lua"
 require("snippets")
 require("snippets.classes")
 
-vim.cmd("ShowkeysToggle")
+-- vim.cmd("ShowkeysToggle")
 
 vim.diagnostic.config({
   virtual_text = {
