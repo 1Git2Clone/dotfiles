@@ -11,6 +11,8 @@ M.catppuccin = {
 M.default_fg = "#ff5077"
 ---@type string
 M.default_bg = "#110003"
+---@type string
+M.module_col = "#ff9999"
 
 ---@type { fg: string, bg: string }
 M.default_fg_bg = { fg = M.default_fg, bg = M.default_bg }

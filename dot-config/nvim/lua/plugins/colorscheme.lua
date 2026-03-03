@@ -150,6 +150,7 @@ return {
             Pmenu = { fg = colors.line_col },
             CursorLineNr = { fg = colors.line_hl_col },
             Comment = { fg = colors.comment_col },
+            ["@lsp.type.namespace"] = { fg = colors.module_col },
           }
         end,
       },
