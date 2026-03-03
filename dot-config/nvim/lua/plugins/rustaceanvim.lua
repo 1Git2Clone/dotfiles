@@ -1,56 +1,21 @@
--- Specify desired features enabled based on the current crate (as a folder name).
---
--- NOTE: Unfortunately this isn't hot-reloading, meaning that you'd have to
--- restart neovim each time you change around these features.
-
-require("rustaceanvim")
-
----@type string
-local spec_name = "mrcjkb/rustaceanvim"
-
----@type { [string]: string[] }
-local crate_features = {
-  ["taboc"] = {
-    "git",
-    "memmap2",
-  },
-}
-
----@return string[]
-local function get_rust_features_based_on_current_crate()
-  local cwd = vim.fn.getcwd()
-  local crate_name = vim.fn.fnamemodify(cwd, ":t")
-
-  return (crate_features[crate_name] or {})
-end
-
---- @return LazyPlugin
 return {
-  spec_name,
-  ---@type string
+  "mrcjkb/rustaceanvim",
   event = "LazyFile",
-  ---@return rustaceanvim.Opts
   opt = function()
-    ---@type rustaceanvim.Opts
     vim.g.rustaceanvim = {
-      ---@type rustaceanvim.tools.Opts
-      tools = {},
-      ---@type rustaceanvim.lsp.ClientOpts
       server = {
-        ---@type boolean
-        load_vscode_settings = false,
-        ---@type { [string]: table }
-        settings = {
-          ["rust-analyzer"] = {
-            ---@type table
-            cargo = {
-              ---@type string[]
-              features = get_rust_features_based_on_current_crate(),
-            },
-          },
-        },
+        cmd = function()
+          local mason_registry = require("mason-registry")
+          if mason_registry.is_installed("rust-analyzer") then
+            local ra = mason_registry.get_package("rust-analyzer")
+            local ra_filename = ra:get_receipt():get().links.bin["rust-analyzer"]
+            return { ("%s/%s"):format(ra:get_installed_version(), ra_filename or "rust-analyzer") }
+          else
+            -- global installation
+            return { "rust-analyzer" }
+          end
+        end,
       },
-      ---@type rustaceanvim.dap.Opts
       dap = {},
     }
 
