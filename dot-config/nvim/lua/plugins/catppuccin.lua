@@ -147,6 +147,8 @@ return {
             NeotestNamespace = { fg = colors.default_fg },
             DapBreakpointRejected = { fg = colors.default_fg },
             RainbowDelimiterViolet = { fg = colors.default_fg },
+            NvimTreeRootFolder = { fg = colors.default_fg },
+            NvimTreeHighlights = { fg = colors.default_fg },
             Normal = colors.default_fg_bg,
             LineNr = { fg = colors.line_col },
             Pmenu = { fg = colors.line_col },
