@@ -6,12 +6,13 @@ clang
 fakeroot
 fzf
 git
+hyprqt6engine
 kitty
 lazygit
 lsd
 nano
-neovim
 neovide
+neovim
 noto-fonts
 noto-fonts-emoji
 npm
@@ -19,8 +20,8 @@ openssh
 paru
 picom
 pinentry
-ripgrep
 power-profiles-daemon
+ripgrep
 starship
 stow
 sudo
