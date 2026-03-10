@@ -1,161 +1,104 @@
 local colors = require 'utils.colors'
 
----@module 'lazy'
----@type LazySpec
 return {
-  -- catppuccin
   {
     'catppuccin/nvim',
     lazy = false,
     name = 'catppuccin',
-    priority = 1000,
     styles = {
       functions = { 'bold' },
     },
-    -- credit to the original color overrides:
-    --https://github.com/b-ggs/dotfiles/blob/becba14045586db9ee2becf39fbe07f0f8ae0a68/nvim/.config/nvim/init.vim#L203-L237
     opts = {
       color_overrides = {
         all = {
-          text = '#f4cdd5',
-          subtext1 = '#debac2',
-          subtext0 = '#c9a6ae',
-          overlay2 = '#b39497',
-          overlay1 = '#9b7d82',
-          overlay0 = '#856a6d',
-          surface2 = '#6f585d',
-          surface1 = '#594548',
-          surface0 = '#443131',
-
-          base = colors.catppuccin.base,
-          mantle = colors.catppuccin.mantle,
-          crust = colors.catppuccin.crust,
+          text     = '#f7c0c8',
+          subtext1 = '#e6aab3',
+          subtext0 = '#d4939d',
+          overlay2 = '#c17c87',
+          overlay1 = '#ab6670',
+          overlay0 = '#965159',
+          surface2 = '#7f3e44',
+          surface1 = '#6a2f36',
+          surface0 = '#541f27',
+          base     = colors.catppuccin.base,
+          mantle   = colors.catppuccin.mantle,
+          crust    = colors.catppuccin.crust,
         },
       },
+      background = { light = "latte", dark = "mocha" },
+      transparent_background = false,
+      dim_inactive = { enabled = false },
       highlight_overrides = {
         all = function()
-          return {
-            -- Thank god it was as easy as getting chat gippidy to make
-            -- a python script for this all
-            Directory = { fg = colors.default_fg },
-            MoreMsg = { fg = colors.default_fg },
-            Question = { fg = colors.default_fg },
-            Title = { fg = colors.default_fg },
-            Folded = { fg = colors.default_fg },
-            FloatBorder = { fg = colors.default_fg },
-            Function = { fg = colors.default_fg },
-            diffChanged = { fg = colors.default_fg },
-            markdownLinkText = { fg = colors.default_fg },
-            NavicIconsTypeParameter = { fg = colors.default_fg },
-            NavicIconsEvent = { fg = colors.default_fg },
-            NavicIconsStruct = { fg = colors.default_fg },
-            NavicIconsFunction = { fg = colors.default_fg },
-            NavicIconsMethod = { fg = colors.default_fg },
-            NavicIconsPackage = { fg = colors.default_fg },
-            NavicIconsModule = { fg = colors.default_fg },
-            NeogitTagDistance = { fg = colors.default_fg },
-            NeogitDiffHeader = { fg = colors.default_fg },
-            NeogitGraphBoldBlue = { fg = colors.default_fg },
-            NeogitGraphBlue = { fg = colors.default_fg },
-            NeogitGraphCyan = { fg = colors.default_fg },
-            NeoTreeRootName = { fg = colors.default_fg },
-            NeogitChangeModified = { fg = colors.default_fg },
-            NoiceConfirmBorder = { fg = colors.default_fg },
-            NeotestWinSelect = { fg = colors.default_fg },
-            NeotestDir = { fg = colors.default_fg },
-            NeotestFile = { fg = colors.default_fg },
-            NvimTreeGitNew = { fg = colors.default_fg },
+          local highlights = {
+            -- Main UI
+            Normal = colors.default_fg_bg,
+            NormalNC = colors.default_fg_bg,
+            LineNr = { fg = colors.line_col },
+            CursorLineNr = { fg = colors.line_hl_col },
+            Comment = { fg = colors.comment_col },
+            Pmenu = { fg = colors.line_col, bg = colors.default_bg },
+            FloatNormal = { bg = colors.default_bg },
+
+            -- Sidebar (NvimTree / NeoTree)
+            NvimTreeNormal = { bg = colors.default_bg },
+            NvimTreeNormalNC = { bg = colors.default_bg },
+            NvimTreeWinSeparator = { fg = colors.default_bg, bg = colors.default_bg },
+
+            -- Telescope
+            TelescopeNormal = { bg = colors.default_bg },
+            TelescopeBorder = colors.default_fg_bg,
+            TelescopePromptNormal = { bg = colors.default_bg },
+            TelescopePromptBorder = colors.default_fg_bg,
+            TelescopeResultsNormal = { bg = colors.default_bg },
+            TelescopeResultsBorder = colors.default_fg_bg,
+            TelescopePreviewNormal = { bg = colors.default_bg },
+            TelescopePreviewBorder = colors.default_fg_bg,
+            TelescopeMatching = { fg = colors.hl_col, bold = true },
+
+            -- WhichKey
+            WhichKeyFloat = { bg = colors.default_bg },
+            WhichKeyNormal = { bg = colors.default_bg },
+            WhichKeyBorder = colors.default_fg_bg,
+
+            -- Snacks & Terminal
+            SnacksNormal = { bg = colors.default_bg },
+            SnacksNormalNC = { bg = colors.default_bg },
+            TerminalNormal = { bg = colors.default_bg },
+            SnacksTerminalBorder = colors.default_fg_bg,
+
+            -- LSP / Treesitter
+            ['@lsp.type.namespace'] = { fg = colors.module_col },
+            ['@lsp.type.enumMember'] = { fg = colors.enum_member_col },
+
+            -- NvimTree
+            NvimTreeRootFolder = { fg = colors.default_fg },
+            NvimTreeFolderName = { fg = colors.default_fg },
             NvimTreeEmptyFolderName = { fg = colors.default_fg },
             NvimTreeOpenedFolderName = { fg = colors.default_fg },
             NvimTreeFolderIcon = { fg = colors.default_fg },
-            NvimTreeFolderName = { fg = colors.default_fg },
-            MiniStatuslineInactive = { fg = colors.default_fg },
-            MiniStarterItemBullet = { fg = colors.default_fg },
-            MiniStarterHeader = { fg = colors.default_fg },
-            qfFileName = { fg = colors.default_fg },
-            htmlH2 = { fg = colors.default_fg },
-            diffFile = { fg = colors.default_fg },
-            GlyphPalette4 = { fg = colors.default_fg },
-            TelescopeMatching = { fg = colors.default_fg },
-            NavicIconsConstructor = { fg = colors.default_fg },
-            NeogitFilePath = { fg = colors.default_fg },
-            NeoTreeDirectoryIcon = { fg = colors.default_fg },
-            NeoTreeDirectoryName = { fg = colors.default_fg },
-            WhichKeyGroup = { fg = colors.default_fg },
-            NeogitNotificationInfo = { fg = colors.default_fg },
-            NeogitHunkHeaderHighlight = { fg = colors.default_fg },
-            NotifyINFOTitle = { fg = colors.default_fg },
-            NotifyINFOIcon = { fg = colors.default_fg },
-            NotifyINFOBorder = { fg = colors.default_fg },
-            NeogitGraphBoldCyan = { fg = colors.default_fg },
-            CmpItemKindTypeParameter = { fg = colors.default_fg },
-            CmpItemKindOperator = { fg = colors.default_fg },
-            CmpItemKindEvent = { fg = colors.default_fg },
-            CmpItemKindStruct = { fg = colors.default_fg },
-            CmpItemKindFile = { fg = colors.default_fg },
-            CmpItemKindModule = { fg = colors.default_fg },
-            CmpItemKindFolder = { fg = colors.default_fg },
-            CmpItemKindFunction = { fg = colors.default_fg },
-            CmpItemKindConstructor = { fg = colors.default_fg },
-            CmpItemKindMethod = { fg = colors.default_fg },
-            CmpItemKind = { fg = colors.default_fg },
-            RainbowDelimiterBlue = { fg = colors.default_fg },
-            NeotestSkipped = { fg = colors.default_fg },
-            AlphaHeader = { fg = colors.default_fg },
-            NavicIconsFile = { fg = colors.default_fg },
-            NavicIconsNamespace = { fg = colors.default_fg },
-            DapUIStepOver = { fg = colors.default_fg },
-            DapUIStepInto = { fg = colors.default_fg },
-            DapUIStepBack = { fg = colors.default_fg },
-            DapUIStepOut = { fg = colors.default_fg },
-            lualine_a_inactive = { fg = colors.default_fg },
-            lualine_b_normal = { fg = colors.default_fg },
-            NoiceAttr90 = { fg = colors.default_fg },
-            NoiceAttr103 = { fg = colors.default_fg },
-            NoiceAttr120 = { fg = colors.default_fg },
-            NoiceAttr130 = { fg = colors.default_fg },
-            NoiceAttr143 = { fg = colors.default_fg },
-            NoiceAttr194 = { fg = colors.default_fg },
-            NoiceAttr214 = { fg = colors.default_fg },
-            NoiceAttr221 = { fg = colors.default_fg },
-            NoiceAttr283 = { fg = colors.default_fg },
-            lualine_transitional_lualine_a_normal_to_lualine_c_filetype_DevIconDefault_normal = {
-              fg = colors.default_fg,
-            },
-            lualine_transitional_lualine_a_normal_to_lualine_b_normal = { fg = colors.default_fg },
-            Conditional = { fg = colors.default_fg },
-            Statement = { fg = colors.default_fg },
-            Repeat = { fg = colors.default_fg },
-            Keyword = { fg = colors.default_fg },
-            Exception = { fg = colors.default_fg },
-            Include = { fg = colors.default_fg },
-            Macro = { fg = colors.default_fg },
-            NeogitUntrackedfiles = { fg = colors.default_fg },
-            NeogitRebasing = { fg = colors.default_fg },
-            NeogitStashes = { fg = colors.default_fg },
-            NeogitStagedchanges = { fg = colors.default_fg },
-            NeogitRecentcommits = { fg = colors.default_fg },
-            NeogitUnpulledchanges = { fg = colors.default_fg },
-            NeogitUnmergedchanges = { fg = colors.default_fg },
-            NeogitUnstagedchanges = { fg = colors.default_fg },
-            NeoTreeGitUntracked = { fg = colors.default_fg },
-            CmpItemKindSnippet = { fg = colors.default_fg },
-            NeogitChangeRenamed = { fg = colors.default_fg },
-            NeogitSectionHeader = { fg = colors.default_fg },
-            DapUIType = { fg = colors.default_fg },
-            MasonHighlightSecondary = { fg = colors.default_fg },
-            NeotestNamespace = { fg = colors.default_fg },
-            DapBreakpointRejected = { fg = colors.default_fg },
-            RainbowDelimiterViolet = { fg = colors.default_fg },
-            NvimTreeRootFolder = { fg = colors.default_fg },
             NvimTreeHighlights = { fg = colors.default_fg },
-            Normal = colors.default_fg_bg,
-            LineNr = { fg = colors.line_col },
-            Pmenu = { fg = colors.line_col },
-            CursorLineNr = { fg = colors.line_hl_col },
-            Comment = { fg = colors.comment_col },
-            ['@lsp.type.namespace'] = { fg = colors.module_col },
           }
+          local fg_only_groups = {
+            "Directory", "MoreMsg", "Question", "Title", "Folded", "Function",
+            "Conditional", "Statement", "Repeat", "Keyword", "Exception", "Include", "Macro" }
+          for _, group in ipairs(fg_only_groups) do
+            highlights[group] = { fg = colors.default_fg }
+          end
+
+          for _, group in ipairs(vim.fn.getcompletion('', 'highlight')) do
+            if group:match("^Neogit") or
+                group:match("^NvimTree") or
+                group:match("^NeoTree") or
+                group:match("^DapUI") or
+                group:match("^NotifyINFO") or
+                group:match("^Neotest") or
+                group:match("^RainbowDelimiter") then
+              highlights[group] = { fg = colors.default_fg }
+            end
+          end
+
+          return highlights
         end,
       },
       integrations = {
@@ -167,22 +110,11 @@ return {
         gitsigns = true,
         headlines = true,
         illuminate = true,
-        indent_blankline = { enabled = true },
         leap = true,
         lsp_trouble = true,
         mason = true,
         markdown = true,
         mini = true,
-        native_lsp = {
-          enabled = true,
-          underlines = {
-            errors = { 'undercurl' },
-            hints = { 'undercurl' },
-            warnings = { 'undercurl' },
-            information = { 'undercurl' },
-          },
-        },
-        navic = { enabled = true, custom_bg = 'lualine' },
         neotest = true,
         neotree = true,
         noice = true,
@@ -190,8 +122,13 @@ return {
         semantic_tokens = true,
         telescope = true,
         treesitter = true,
-        treesitter_context = true,
         which_key = true,
+        indent_blankline = { enabled = true },
+        native_lsp = {
+          enabled = true,
+          underlines = { errors = { 'undercurl' }, hints = { 'undercurl' }, warnings = { 'undercurl' } },
+        },
+        navic = { enabled = true, custom_bg = 'lualine' },
       },
     },
     config = function(_, opts)
