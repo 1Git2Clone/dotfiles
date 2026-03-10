@@ -42,6 +42,9 @@ PATH="$PATH:$HOME/.local/bin"
 PATH="$PATH:$HOME/shared_rust_target/release"
 PATH="$PATH:$HOME/.spicetify"
 PATH="$PATH:$PNPM_HOME"
+PATH="$PATH:/home/hutao/.bun/bin"
+PATH="$PATH:$HOME/.local/share/nvim/mason/bin"
+PATH="$PATH:$HOME/.npm-global/bin"
 
 # Example usage
 #
