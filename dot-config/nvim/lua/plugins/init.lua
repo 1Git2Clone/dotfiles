@@ -1,24 +1,8 @@
-if vim.fn.has("nvim-0.9.0") == 0 then
-  vim.api.nvim_echo({
-    { "LazyVim requires Neovim >= 0.9.0\n", "ErrorMsg" },
-    { "Press any key to exit", "MoreMsg" },
-  }, true, {})
-  vim.fn.getchar()
-  vim.cmd([[quit]])
-  return {}
-end
+-- You can add your own plugins here or in other files in this directory!
+--  I promise not to create any merge conflicts in this directory :)
+--
+-- See the kickstart.nvim README for more information
 
-require("lazyvim.config").init()
-
-return {
-  { "folke/lazy.nvim", version = "*" },
-  {
-    "LazyVim/LazyVim",
-    priority = 10000,
-    lazy = false,
-    config = true,
-    cond = true,
-    version = "*",
-    opts = { colorscheme = "catppuccin" },
-  },
-}
+---@module 'lazy'
+---@type LazySpec
+return {}

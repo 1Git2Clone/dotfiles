@@ -1,8 +1,13 @@
-tt.*
-.tests
-doc/tags
-debug
-.repro
-foo.*
-*.log
-data
+tags
+test.sh
+.luarc.json
+nvim
+
+spell/
+
+# You likely want to comment this, since it's recommended to track lazy-lock.json in version
+# control, see https://lazy.folke.io/usage/lockfile
+# For kickstart, it makes sense to leave it ignored.
+lazy-lock.json
+
+.DS_Store

@@ -1,11 +1,13 @@
-local colors = require("utils.colors")
+local colors = require 'utils.colors'
 
+---@module 'lazy'
+---@type LazySpec
 return {
-  "nvim-lualine/lualine.nvim",
+  'nvim-lualine/lualine.nvim',
   opts = function()
-    local lualine_theme = require("lualine.themes.auto")
+    local lualine_theme = require 'lualine.themes.auto'
 
-    for _, mode in pairs({ "normal", "insert", "visual", "replace", "command", "inactive", "terminal" }) do
+    for _, mode in pairs { 'normal', 'insert', 'visual', 'replace', 'command', 'inactive', 'terminal' } do
       lualine_theme[mode].a = colors.default_fg_bg
       lualine_theme[mode].b = colors.default_fg_bg
       lualine_theme[mode].c = colors.default_fg_bg

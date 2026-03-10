@@ -1,2 +1,6 @@
--- wakatime: <https://wakatime.com/neovim>
-return { "wakatime/vim-wakatime", lazy = false }
+---@module 'lazy'
+---@type LazySpec
+return {
+  'wakatime/vim-wakatime',
+  lazy = false,
+}

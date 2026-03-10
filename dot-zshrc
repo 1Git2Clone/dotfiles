@@ -50,3 +50,8 @@ alias ls='lsd --color=auto'
 precmd() {
   $PROFILE_PROMPT_COMMANDS
 }
+export PATH="$HOME/.npm-global/bin:$PATH"
+
+# OpenClaw Completion
+source "/home/hutao/.openclaw/completions/openclaw.zsh"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"

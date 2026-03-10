@@ -1,29 +1,31 @@
-local colors = require("utils.colors")
+local colors = require 'utils.colors'
 
+---@module 'lazy'
+---@type LazySpec
 return {
   -- catppuccin
   {
-    "catppuccin/nvim",
-    lazy = true,
-    name = "catppuccin",
+    'catppuccin/nvim',
+    lazy = false,
+    name = 'catppuccin',
     priority = 1000,
     styles = {
-      functions = { "bold" },
+      functions = { 'bold' },
     },
     -- credit to the original color overrides:
     --https://github.com/b-ggs/dotfiles/blob/becba14045586db9ee2becf39fbe07f0f8ae0a68/nvim/.config/nvim/init.vim#L203-L237
     opts = {
       color_overrides = {
         all = {
-          text = "#f4cdd5",
-          subtext1 = "#debac2",
-          subtext0 = "#c9a6ae",
-          overlay2 = "#b39497",
-          overlay1 = "#9b7d82",
-          overlay0 = "#856a6d",
-          surface2 = "#6f585d",
-          surface1 = "#594548",
-          surface0 = "#443131",
+          text = '#f4cdd5',
+          subtext1 = '#debac2',
+          subtext0 = '#c9a6ae',
+          overlay2 = '#b39497',
+          overlay1 = '#9b7d82',
+          overlay0 = '#856a6d',
+          surface2 = '#6f585d',
+          surface1 = '#594548',
+          surface0 = '#443131',
 
           base = colors.catppuccin.base,
           mantle = colors.catppuccin.mantle,
@@ -150,7 +152,7 @@ return {
             Pmenu = { fg = colors.line_col },
             CursorLineNr = { fg = colors.line_hl_col },
             Comment = { fg = colors.comment_col },
-            ["@lsp.type.namespace"] = { fg = colors.module_col },
+            ['@lsp.type.namespace'] = { fg = colors.module_col },
           }
         end,
       },
@@ -172,13 +174,13 @@ return {
         native_lsp = {
           enabled = true,
           underlines = {
-            errors = { "undercurl" },
-            hints = { "undercurl" },
-            warnings = { "undercurl" },
-            information = { "undercurl" },
+            errors = { 'undercurl' },
+            hints = { 'undercurl' },
+            warnings = { 'undercurl' },
+            information = { 'undercurl' },
           },
         },
-        navic = { enabled = true, custom_bg = "lualine" },
+        navic = { enabled = true, custom_bg = 'lualine' },
         neotest = true,
         neotree = true,
         noice = true,
@@ -190,5 +192,9 @@ return {
         which_key = true,
       },
     },
+    config = function(_, opts)
+      require('catppuccin').setup(opts)
+      vim.cmd.colorscheme 'catppuccin'
+    end,
   },
 }
