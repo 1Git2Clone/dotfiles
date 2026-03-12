@@ -20,19 +20,16 @@ helper](https://wiki.archlinux.org/title/AUR_helpers) you may use_
 Also, a lot of the packages **are** AUR packages, so don't worry about pacman
 telling you they don't exist if you don't use an AUR helper to install them
 with.
+Full
 
 ## Table of contents
 
 - [Configuration files](#configuration-files)
   - [Quick setup guide](#quick-setup-guide)
-    - [Important notes](#important-notes)
-    - [Lazy Neovim](#lazy-neovim)
-  - [Terminal utils](#terminal-utils)
-    - [Workflow video](#workflow-video)
-    - [Zoxide](#zoxide)
-    - [Lazygit](#lazygit)
-    - [Btop++](#btop)
-    - [Additional resources](#additional-resources)
+  - [Setup Showcase](#setup-showcase)
+    - [Neovim](#neovim)
+    - [Full Workflow video](#full-workflow-video)
+  - [Additional resources](#additional-resources)
 
 ## Quick setup guide
 
@@ -42,59 +39,38 @@ chmod +x ./stow_setup.sh && chmod +x ./full_setup.sh # One time only
 ./full_setup.sh # Or ./stow_setup.sh if you only want the symlinks.
 ```
 
-### Important notes
+## Setup Showcase
 
-- **Both the i3 and Hyprland configurations assume DP-1 is a 1080p165hz
-  monitor. _(easy to change)_**
+### Neovim
 
-### Lazy Neovim
-
-![Treesitter](assets/treesitter.png)
-![Code testing feature preview](assets/code-testing.png)
-
-Here's a more recent setup showcase video too (recorded on `2025-02-10` | `YYYY/MM/DD`):
-
-[Neovim Setup Showcase](https://github.com/user-attachments/assets/adf29c80-4e4b-4bee-a1a0-c8d8f511ade3)
+![Neovim Screenshot](assets/nvim/main.png)
+![Neovim Screenshot Full](assets/nvim/full.png)
+![Neovim Screenshot LazyGit](assets/nvim/lazygit.png)
+![Neovim Screenshot Telescope](assets/nvim/telescope.png)
 
 > [!NOTE]
-> Also available on [`YouTube`](https://www.youtube.com/watch?v=BKOce2_b8t8)
-> and as an uncompressed asset under
-> [`/assets`](./assets/neovm-setup-showcase.mp4).
+> The full Neovim setup can be found in [`dot-config/nvim`](./dot-config/nvim).
+> It's based off [`kickstart.nvim`](https://github.com/nvim-lua/kickstart.nvim)
+> but it's heavily modified (and likely will be modified more in the future) to
+> match my workflow from [previously using LazyVim](https://www.lazyvim.org/).
 
-## Terminal utils
+### Full Workflow video
+
+<!-- markdownlint-disable MD034 -->
+<!-- Reason: GitHub embeds the link as a video directly. -->
+
+https://github.com/user-attachments/assets/741b4680-d85f-49cb-abff-1d959bdc93c2
+
+<!-- markdownlint-enable MD034 -->
 
 > [!NOTE]
-> The screenshots from below are from my old Hyprland setup. The applications
-> are the same but the windows don't have gaps and aren't rounded anymore in
-> the i3 environment.
+> Video files can be found in [`assets`](assets) in case you're viewing them
+> outside of GitHub or you want to view the video files themselves.
 
-### Workflow video
-
-[Workflow preview - only visible on the GitHub repo](https://github.com/1Git2Clone/dotfiles/assets/171241044/21eb072e-509b-4ef2-b709-15ddfa58ff0d)
-
-For non-GitHub users you can preview the video on [YouTube](https://youtu.be/Zu_38OXGSvc)
-
-Or you can download the raw video file from
-[here](https://raw.githubusercontent.com/1git2clone/dotfiles/main/assets/workflow_showcase.mp4)
-(`raw.githubusercontent.com`). Alternatively, head to the [git repo asset itself](assets/workflow_showcase.mp4).
-
-### Zoxide
-
-![Zoxide preview](assets/zoxide.png)
-
-### Lazygit
-
-![Lazygit preview](assets/lazygit.png)
-
-### Btop++
-
-![Btop++](assets/btop++.png)
-
-### Additional resources
+## Additional resources
 
 - cattpuccin.nvim docs -
   [neovimcraft.com](https://neovimcraft.com/plugin/catppuccin/nvim/index.html)
-
   - Useful for those who want to change the styling under
     /nvim/lua/plugins/colorscheme.lua
 
