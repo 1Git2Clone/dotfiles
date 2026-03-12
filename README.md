@@ -48,11 +48,9 @@ chmod +x ./stow_setup.sh && chmod +x ./full_setup.sh # One time only
 ![Neovim Screenshot LazyGit](assets/nvim/lazygit.png)
 ![Neovim Screenshot Telescope](assets/nvim/telescope.png)
 
-> [!NOTE]
-> The full Neovim setup can be found in [`dot-config/nvim`](./dot-config/nvim).
-> It's based off [`kickstart.nvim`](https://github.com/nvim-lua/kickstart.nvim)
-> but it's heavily modified (and likely will be modified more in the future) to
-> match my workflow from [previously using LazyVim](https://www.lazyvim.org/).
+> [!IMPORTANT]
+> The Neovim part of this repo can be found in
+> [`1git2clone/nvim-config`](https://1git2clone/nvim-config).
 
 ### Full Workflow video
 
