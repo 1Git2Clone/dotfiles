@@ -21,6 +21,8 @@
       }
     },
     "anim": {
+      "mediaGifSpeedAdjustment": 300,
+      "sessionGifSpeed": 0.7,
       "durations": {
         "scale": 1
       }
@@ -96,6 +98,7 @@
   },
   "background": {
     "enabled": true,
+    "wallpaperEnabled": true,
     "desktopClock": {
       "enabled": false,
       "scale": 1,
@@ -211,7 +214,8 @@
         "enabled": true,
         "id": "power"
       }
-    ]
+    ],
+    "excludedScreens": []
   },
   "border": {
     "thickness": 10,
@@ -220,8 +224,15 @@
   "dashboard": {
     "enabled": true,
     "showOnHover": true,
-    "mediaUpdateInterval": 500,
     "dragThreshold": 50,
+    "performance": {
+      "showBattery": true,
+      "showGpu": true,
+      "showCpu": true,
+      "showMemory": true,
+      "showStorage": true,
+      "showNetwork": true
+    },
     "sizes": {
       "tabIndicatorHeight": 3,
       "tabIndicatorSpacing": 5,
@@ -254,6 +265,9 @@
     "enableDangerousActions": false,
     "dragThreshold": 50,
     "vimKeybinds": true,
+    "favouriteApps": [
+      "floorp"
+    ],
     "hiddenApps": [],
     "useFuzzy": {
       "apps": false,
@@ -446,6 +460,12 @@
     "enabled": true,
     "dragThreshold": 30,
     "vimKeybinds": true,
+    "icons": {
+      "logout": "logout",
+      "shutdown": "power_settings_new",
+      "hibernate": "downloading",
+      "reboot": "cached"
+    },
     "commands": {
       "logout": [
         "hyprctl",
@@ -523,6 +543,7 @@
   "services": {
     "weatherLocation": "Sofia,BG",
     "useFahrenheit": false,
+    "useFahrenheitPerformance": true,
     "useTwelveHourClock": false,
     "gpuType": "",
     "visualiserBars": 45,
