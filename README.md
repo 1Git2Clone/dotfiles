@@ -50,7 +50,7 @@ chmod +x ./stow_setup.sh && chmod +x ./full_setup.sh # One time only
 
 > [!IMPORTANT]
 > The Neovim part of this repo can be found in
-> [`1git2clone/nvim-config`](https://1git2clone/nvim-config).
+> [`1git2clone/nvim-config`](https://github.com/1git2clone/nvim-config).
 
 ### Full Workflow video
 
