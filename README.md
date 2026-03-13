@@ -39,6 +39,15 @@ chmod +x ./stow_setup.sh && chmod +x ./full_setup.sh # One time only
 ./full_setup.sh # Or ./stow_setup.sh if you only want the symlinks.
 ```
 
+> [!IMPORTANT]
+> The [`stow script`](./stow_setup.sh) and by extension the
+> [`full setup script`](./full_setup.sh) both use
+> [`stow`](https://www.gnu.org/software/stow/) with the
+> [`--adopt` flag](https://man.archlinux.org/man/stow.8#adopt), meaning it
+> could alter existing files in directories such as `~/.config`, `~/.local`,
+> etc. If you don't want that behavior, run your stow commands manually or
+> change the scripts to not use the `--adopt` flag.
+
 ## Setup Showcase
 
 ### Neovim
