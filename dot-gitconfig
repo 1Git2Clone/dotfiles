@@ -34,3 +34,5 @@
 	helper = !/usr/bin/gh auth git-credential
 [commit]
 	gpgSign = true
+[pull]
+	rebase = true
