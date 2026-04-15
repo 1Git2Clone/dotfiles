@@ -531,7 +531,7 @@
       "audioInputChanged": true,
       "capsLockChanged": true,
       "numLockChanged": true,
-      "kbLayoutChanged": true,
+      "kbLayoutChanged": false,
       "vpnChanged": true,
       "nowPlaying": false
     },
