@@ -540,7 +540,37 @@
       "provider": [
         "netbird"
       ]
-    }
+    },
+    "quickToggles": [
+      {
+        "enabled": true,
+        "id": "wifi"
+      },
+      {
+        "enabled": true,
+        "id": "bluetooth"
+      },
+      {
+        "enabled": true,
+        "id": "mic"
+      },
+      {
+        "enabled": true,
+        "id": "settings"
+      },
+      {
+        "enabled": true,
+        "id": "gameMode"
+      },
+      {
+        "enabled": true,
+        "id": "dnd"
+      },
+      {
+        "enabled": false,
+        "id": "vpn"
+      }
+    ]
   },
   "sidebar": {
     "enabled": true,
