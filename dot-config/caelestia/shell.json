@@ -266,7 +266,16 @@
     "dragThreshold": 50,
     "vimKeybinds": true,
     "favouriteApps": [
-      "floorp"
+      "floorp",
+      "spotify",
+      "vesktop",
+      "moe.launcher.an-anime-game-launcher",
+      "honkers-railway-launcher",
+      "org.gnome.Nautilus",
+      "modrinth-app",
+      "com.stremio.stremio",
+      "org.vinegarhq.Sober",
+      "steam"
     ],
     "hiddenApps": [],
     "useFuzzy": {
