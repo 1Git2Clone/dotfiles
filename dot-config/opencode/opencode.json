@@ -1,0 +1,7 @@
+{
+  "plugin": [
+    "oh-my-opencode-slim",
+    "opencode-mem"
+  ]
+}
+
