@@ -36,3 +36,9 @@
 	gpgSign = true
 [pull]
 	rebase = true
+[diff]
+	tool = nvimdiff
+[difftool "nvimdiff"]
+	path = nvim
+[difftool]
+	prompt = false
