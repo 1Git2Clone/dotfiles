@@ -65,13 +65,17 @@ Beyond `Co-authored-by`, commits can carry other trailers like
 Agents should infer the email format for models not listed here based on the
 provider's domain pattern.
 
-| Model                  | Email                                                    |
-|------------------------|----------------------------------------------------------|
-| DeepSeek R1 / V3       | `[service@deepseek.com](mailto:service@deepseek.com)`    |
-| Claude (any version)   | `[noreply@anthropic.com](mailto:noreply@anthropic.com)`  |
-| GPT / Codex / o-series | `[noreply@openai.com](mailto:noreply@openai.com)`        |
-| Gemini                 | `[noreply@google.com](mailto:noreply@google.com)`        |
-| Grok                   | `[noreply@x.ai](mailto:noreply@x.ai)`                    |
+<!-- markdownlint-disable MD013 -->
+
+| Model                  | Email                                                  |
+|------------------------|--------------------------------------------------------|
+| DeepSeek R1 / V3       | [service@deepseek.com](mailto:service@deepseek.com)    |
+| Claude (any version)   | [noreply@anthropic.com](mailto:noreply@anthropic.com)  |
+| GPT / Codex / o-series | [noreply@openai.com](mailto:noreply@openai.com)        |
+| Gemini                 | [noreply@google.com](mailto:noreply@google.com)        |
+| Grok                   | [noreply@x.ai](mailto:noreply@x.ai)                    |
+
+<!-- markdownlint-enable MD013 -->
 
 ### Amending commits
 
