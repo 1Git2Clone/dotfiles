@@ -35,10 +35,9 @@ consistency within a repo matters more than the choice itself.
 ### Co-author trailer
 
 - **Default to DeepSeek R1** (`Co-authored-by: DeepSeek R1
-  <[service@deepseek.com](mailto:service@deepseek.com)>`) when the agent has
-  no clear signal about which model authored the work. This is the most
-  common case in OpenCode where agents lack self-awareness of their own
-  identity.
+  <service@deepseek.com>`) when the agent has no clear signal about which
+  model authored the work. This is the most common case in OpenCode where
+  agents lack self-awareness of their own identity.
 - **If context suggests a different model** was involved (mentioned in
   conversation, evident from tool/session metadata, etc.), ask once to
   confirm before using it.
@@ -66,7 +65,6 @@ Agents should infer the email format for models not listed here based on the
 provider's domain pattern.
 
 <!-- markdownlint-disable MD013 -->
-
 | Model                  | Email                                                  |
 |------------------------|--------------------------------------------------------|
 | DeepSeek R1 / V3       | [service@deepseek.com](mailto:service@deepseek.com)    |
@@ -74,8 +72,15 @@ provider's domain pattern.
 | GPT / Codex / o-series | [noreply@openai.com](mailto:noreply@openai.com)        |
 | Gemini                 | [noreply@google.com](mailto:noreply@google.com)        |
 | Grok                   | [noreply@x.ai](mailto:noreply@x.ai)                    |
-
 <!-- markdownlint-enable MD013 -->
+
+### Pre-commit checks
+
+Before generating a commit message, run `git diff --cached --check` to catch
+trailing whitespace and unresolved merge conflict markers. If anything
+surfaces, warn the user and let them decide whether to fix and re-stage or
+proceed as-is. Don't run linters, formatters, or tests proactively — those
+are repo-specific and belong in the repo's own `AGENTS.md`.
 
 ### Amending commits
 
@@ -128,6 +133,52 @@ Before amending any commit:
   confirm the target branch.
 - **Do not `git push` to any remote** without explicit user confirmation,
   regardless of branch.
+
+## Error Recovery
+
+When a tool, command, or operation fails, tier the response by how critical
+the failing component is:
+
+- **Critical** (superpowers skills, git itself, anything the current task
+  depends on directly) — stop and report. Don't work around the failure
+  without explicit user confirmation.
+- **Medium** (auxiliary tooling, optional integrations) — mention the
+  failure, keep it in mind for the rest of the session, and continue with
+  the task.
+- **Minor** (transient warnings, cosmetic issues) — retry once or ignore.
+
+General rules across all tiers:
+
+- Report errors verbatim with exit codes when available. Don't paraphrase
+  tool output.
+- Don't auto-retry without confirmation unless the failure is clearly
+  transient (network timeout, rate limit). One retry maximum.
+- For the memory plugin specifically: if a **read** fails at session start,
+  mention it and proceed without that context. If a **write** fails when the
+  user explicitly asked to save something, stop and report — losing intended
+  context is worse than operating without prior context.
+
+### Git-specific recovery
+
+If git surfaces an unexpected state — merge conflict, detached HEAD, dirty
+working tree, rebase or cherry-pick in progress, untracked files blocking a
+checkout — **stop and report**. Do not attempt to auto-stash, auto-reset, or
+otherwise resolve the state. Surface the exact git output and let the user
+decide how to proceed.
+
+## Secrets & Sensitive Data
+
+- **Never commit secrets, credentials, tokens, private keys, or `.env`
+  files.** If obvious patterns appear in a staged diff (API keys, bearer
+  tokens, private key headers, password assignments), abort the commit and
+  warn with the file and line reference.
+- Detection is **passive**: don't run a full secret scanner on every diff.
+  The expectation is that the agent notices obvious patterns during normal
+  review, not that it guarantees coverage.
+- **Don't log or store sensitive information in agent memory**, even if the
+  user pastes it directly. If a memory entry would otherwise contain a
+  secret, reference it abstractly instead (e.g., "user's API key for service
+  X is configured locally") rather than recording the value.
 
 ## Decision Making
 
