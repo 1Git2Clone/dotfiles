@@ -52,7 +52,12 @@ Before amending any commit:
 ## Memory & Tools
 
 - Use the `@knikolov/opencode-plugin-simple-memory` plugin to read and write
-  memory in `.opencode/memory` log files via its memory tools.
+  memory in `.opencode/memory` log files via its memory tools. This applies for
+  project specific memories. If the user chats about global memories refer to
+  `~/.config/opencode/AGENTS.md` and **do not** add project based memories
+  globally, nor global based memories on the project.
+  `@knikolov/opencode-plugin-simple-memory` and its tools work only on the
+  project, not globally.
 - **At session start**, check memory and surface relevant entries proactively
   rather than silently applying them. The user should know what context the
   agent is operating with.
