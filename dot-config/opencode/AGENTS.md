@@ -34,15 +34,12 @@ consistency within a repo matters more than the choice itself.
 
 ### Co-author trailer
 
-- **Default to DeepSeek R1** (`Co-authored-by: DeepSeek R1
-  <service@deepseek.com>`) when the agent has no clear signal about which
-  model authored the work. This is the most common case in OpenCode where
-  agents lack self-awareness of their own identity.
+- **Determine authorship based on the active model**: Use the model's identity
+  and email if available. If the agent has no clear signal about which model
+  authored the work, ask the user to pick the model's name and email.
 - **If context suggests a different model** was involved (mentioned in
-  conversation, evident from tool/session metadata, etc.), ask once to
-  confirm before using it.
-- **If genuinely unclear**, omit the trailer and briefly note why so the
-  user can add it manually.
+  conversation, evident from tool/session metadata, etc.), ask once to confirm
+  before using it.
 
 ### Additional trailers
 
