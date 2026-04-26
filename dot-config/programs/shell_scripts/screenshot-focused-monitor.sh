@@ -31,7 +31,13 @@ ACTION=$(notify-send -a "hyprland" \
   "Screenshot saved" \
   "$SCREENSHOT_PATH")
 
-# Handle open action
+# Handle open action with fallback chain
 if [[ "$ACTION" == "open" ]]; then
-  xdg-open "$SCREENSHOT_PATH" &
+  if command -v nautilus &>/dev/null; then
+    nautilus -w "$(dirname "$SCREENSHOT_PATH")" &
+  elif command -v swappy &>/dev/null; then
+    swappy -f "$SCREENSHOT_PATH" &
+  else
+    xdg-open "$SCREENSHOT_PATH" &
+  fi
 fi
