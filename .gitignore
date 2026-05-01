@@ -16,6 +16,7 @@
 
 # Managed by caelestia
 dot-config/hypr/scheme/current.conf
+/dot-config/caelestia/monitors
 
 ###############################################################################
 # wofi
