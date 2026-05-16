@@ -27,7 +27,7 @@ function M.setup(programs)
         hl.bind(main_mod .. " + G", hl.dsp.layout("togglesplit"))
         hl.bind(main_mod .. " + Space", exec(programs.menu))
 
-        hl.bind(main_mod .. " + Super_L", hl.dsp.global("caelestia:launcher"), { ignore_mods = true })
+        hl.bind(main_mod .. " + SUPER_L", hl.dsp.global("caelestia:launcher"), { ignore_mods = true, release = true })
 
         for _, key in ipairs({
             "Q",
