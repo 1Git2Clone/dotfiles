@@ -110,7 +110,7 @@ function M.setup(programs)
     end)
 
     local function enter_global_submap()
-        hl.exec_cmd("hyprctl dispatch submap global")
+        hl.exec_cmd([[hyprctl dispatch 'hl.dsp.submap("global")']])
     end
 
     hl.on("hyprland.start", enter_global_submap)
