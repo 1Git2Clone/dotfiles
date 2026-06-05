@@ -1,6 +1,7 @@
 local M = {}
 
 function M.setup(programs)
+  hl.env("XCURSOR_THEME", "Hutao-Cursor")
   hl.env("XCURSOR_SIZE", "24")
   hl.env("HYPRCURSOR_SIZE", "24")
 

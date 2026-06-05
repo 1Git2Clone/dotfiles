@@ -144,6 +144,7 @@ dot-config/hypr/scheme/current.conf
 # Custom Application Icons
 ###############################################################################
 
-/dot-local/share/icons
+/dot-local/share/icons/*
+!/dot-local/share/icons/Hutao-Cursor
 dot-config/espanso/scripts/work/welcome/welcome_history.txt
 __pycache__
