@@ -12,6 +12,12 @@ hl.config({
     layout = "dwindle",
   },
 
+  cursor = {
+    -- Use the Xcursor theme directly; the Hu Tao theme is Xcursor-only,
+    -- and hyprcursor mode renders a default cursor for it.
+    enable_hyprcursor = false,
+  },
+
   decoration = {
     rounding = 20,
     rounding_power = 2,
