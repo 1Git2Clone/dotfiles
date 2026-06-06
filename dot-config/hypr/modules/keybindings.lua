@@ -67,6 +67,7 @@ function M.setup(programs)
     )
     hl.bind("ALT + E", exec("caelestia emoji -p"))
     hl.bind(main_mod .. " + SHIFT + P", exec("~/dotfiles/dot-config/programs/shell_scripts/power-mode.sh"))
+    hl.bind("CTRL + " .. main_mod .. " + J", exec("~/dotfiles/dot-config/programs/shell_scripts/autoclicker.sh"))
 
     hl.bind(main_mod .. " + left", hl.dsp.focus({ direction = "left" }))
     hl.bind(main_mod .. " + right", hl.dsp.focus({ direction = "right" }))
