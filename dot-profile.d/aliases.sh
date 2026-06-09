@@ -35,8 +35,8 @@ alias gll='git log --oneline --graph --decorate'
 
 # URL encode/decode
 urlencode() {
-  python3 -c "import urllib.parse, getpass; print(urllib.parse.quote(getpass.getpass('Text to encode: ')))"
+  python3 -c "import urllib.parse, getpass; print(urllib.parse.quote(getpass.getpass('Text to encode: ')), end='')"
 }
 urldecode() {
-  python3 -c "import urllib.parse, getpass; print(urllib.parse.unquote(getpass.getpass('Text to decode: ')))"
+  python3 -c "import urllib.parse, getpass; print(urllib.parse.unquote(getpass.getpass('Text to decode: ')), end='')"
 }
