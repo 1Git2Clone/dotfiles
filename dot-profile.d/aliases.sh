@@ -32,3 +32,7 @@ alias py='python'
 # Git aliases
 alias gs='git status'
 alias gll='git log --oneline --graph --decorate'
+
+# URL encode/decode
+alias urlencode="python3 -c \"import urllib.parse; print(urllib.parse.quote(input('Text to encode: ')))\""
+alias urldecode="python3 -c \"import urllib.parse; print(urllib.parse.unquote(input('Text to decode: ')))\""
