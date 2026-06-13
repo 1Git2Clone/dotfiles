@@ -21,8 +21,9 @@ if [[ ! -f "$SCREENSHOT_PATH" ]]; then
   exit 1
 fi
 
-# Copy to clipboard
-wl-copy < "$SCREENSHOT_PATH"
+# Copy to clipboard (grim does not copy on its own, so this is the sole
+# clipboard owner — set the MIME type explicitly to match hyprshot's behavior)
+wl-copy --type image/png < "$SCREENSHOT_PATH"
 
 # Show notification with open action
 ACTION=$(notify-send -a "hyprland" \

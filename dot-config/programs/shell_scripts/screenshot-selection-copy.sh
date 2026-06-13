@@ -15,8 +15,10 @@ if [[ ! -f "$SCREENSHOT_PATH" ]]; then
   exit 1
 fi
 
-# Copy to clipboard
-wl-copy < "$SCREENSHOT_PATH"
+# NOTE: do NOT add a `wl-copy` here. hyprshot already copies the capture to
+# the clipboard itself (`wl-copy --type image/png`) when it saves to a file.
+# A second wl-copy seizes clipboard ownership mid-transfer, which truncates
+# the in-flight read (partial paste) and crashes Chromium/Electron readers.
 
 # Show notification with Open action (consistent with focused monitor)
 ACTION=$(notify-send -a "hyprland" \
