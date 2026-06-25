@@ -6,7 +6,8 @@
     "@knikolov/opencode-plugin-simple-memory",
     "opencode-pty",
     "opencode-morph-fast-apply",
-    "opencode-notificator"
+    "opencode-notificator",
+    "~/.config/opencode/ponytail.mjs"
   ],
   "agent": {
     "explore": {
