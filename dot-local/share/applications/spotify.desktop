@@ -2,9 +2,9 @@
 Type=Application
 Name=Spotify
 GenericName=Music Player
-Icon=Spotify
-TryExec=spotify
-Exec=spotify --uri=%u
+Icon=spotify-client
+TryExec=/home/hutao/.local/bin/spotify-hutao
+Exec=/home/hutao/.local/bin/spotify-hutao --uri=%u
 Terminal=false
 MimeType=x-scheme-handler/spotify;
 Categories=Audio;Music;Player;AudioVideo;
