@@ -16,5 +16,12 @@
     "general": {
       "disable": true
     }
+  },
+  "mcp": {
+    "codebase-memory-mcp": {
+      "enabled": true,
+      "type": "local",
+      "command": ["/home/hutao/.local/bin/codebase-memory-mcp"]
+    }
   }
 }
