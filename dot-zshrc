@@ -53,5 +53,11 @@ precmd() {
 export PATH="$HOME/.npm-global/bin:$PATH"
 
 # OpenClaw Completion
-source "/home/hutao/.openclaw/completions/openclaw.zsh"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
+# source "/home/hutao/.openclaw/completions/openclaw.zsh"
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
+
+# opencode
+export PATH=/home/hutao/.opencode/bin:$PATH
+
+# Added by codebase-memory-mcp install
+export PATH="/home/hutao/.local/bin:$PATH"
