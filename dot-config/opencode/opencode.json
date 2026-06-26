@@ -7,7 +7,10 @@
     "opencode-pty",
     "opencode-morph-fast-apply",
     "opencode-notificator",
-    "~/.config/opencode/ponytail.mjs"
+    "~/.config/opencode/ponytail.mjs",
+    "@csuwl/opencode-memory-plugin",
+    "@fpytloun/opencode-mnemory",
+    "opencode-plugin-preload-skills"
   ],
   "agent": {
     "explore": {
@@ -15,13 +18,79 @@
     },
     "general": {
       "disable": true
+    },
+    "memory-automation": {
+      "description": "Automatically saves important information to memory",
+      "mode": "subagent",
+      "tools": {
+        "memory_write": true,
+        "memory_read": true,
+        "memory_search": true,
+        "vector_memory_search": true
+      },
+      "permission": {
+        "memory_write": "allow",
+        "memory_read": "allow",
+        "memory_search": "allow",
+        "vector_memory_search": "allow"
+      }
+    },
+    "memory-consolidate": {
+      "description": "Consolidates daily logs into long-term memory",
+      "mode": "subagent",
+      "tools": {
+        "memory_write": true,
+        "memory_read": true,
+        "memory_search": true,
+        "vector_memory_search": true,
+        "list_daily": true,
+        "rebuild_index": true
+      },
+      "permission": {
+        "memory_write": "allow",
+        "memory_read": "allow",
+        "memory_search": "allow",
+        "vector_memory_search": "allow",
+        "list_daily": "allow",
+        "rebuild_index": "allow"
+      }
     }
   },
   "mcp": {
     "codebase-memory-mcp": {
       "enabled": true,
       "type": "local",
-      "command": ["/home/hutao/.local/bin/codebase-memory-mcp"]
+      "command": [
+        "/home/hutao/.local/bin/codebase-memory-mcp"
+      ]
+    },
+    "playwright": {
+      "enabled": true,
+      "type": "local",
+      "command": ["npx", "@playwright/mcp@latest"]
+    },
+    "sequential-thinking": {
+      "enabled": true,
+      "type": "local",
+      "command": ["npx", "@gotza02/seq-thinking@latest"]
     }
+  },
+  "instructions": [
+    "~/.opencode/memory/SOUL.md",
+    "~/.opencode/memory/AGENTS.md",
+    "~/.opencode/memory/USER.md",
+    "~/.opencode/memory/IDENTITY.md",
+    "~/.opencode/memory/TOOLS.md",
+    "~/.opencode/memory/MEMORY.md"
+  ],
+  "tools": {
+    "memory_write": true,
+    "memory_read": true,
+    "memory_search": true,
+    "vector_memory_search": true,
+    "list_daily": true,
+    "init_daily": true,
+    "rebuild_index": true,
+    "index_status": true
   }
 }
