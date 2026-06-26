@@ -37,8 +37,6 @@ function M.setup(programs)
       "G",
       "V",
       "Space",
-      "mouse:272",
-      "mouse:273",
       "mouse:274",
       "mouse:275",
       "mouse:276",
@@ -100,9 +98,6 @@ function M.setup(programs)
     hl.bind(main_mod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
     hl.bind(main_mod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 
-    hl.bind(main_mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
-    hl.bind(main_mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
-
     hl.bind(
       "XF86AudioRaiseVolume",
       exec("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
@@ -127,6 +122,10 @@ function M.setup(programs)
     hl.bind("XF86AudioPlay", exec("playerctl play-pause"), { locked = true })
     hl.bind("XF86AudioPrev", exec("playerctl previous"), { locked = true })
   end)
+
+  -- Mouse binds must be outside submap to work properly
+  hl.bind(main_mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
+  hl.bind(main_mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
   local function enter_global_submap()
     hl.exec_cmd([[hyprctl dispatch 'hl.dsp.submap("global")']])
