@@ -1,0 +1,28 @@
+# Pre-commit hooks (commit-time gate).
+#
+# KEEP THIS FAST. This runs on every commit. Aim for <2s.
+# Anything slow (language linters, formatters) belongs in pre-push
+# (.pre-push-config.yaml) or CI (.github/workflows/).
+#
+# Install:   pre-commit install
+#            pre-commit install --hook-type pre-push
+# Update:    pre-commit autoupdate
+# Run all:   pre-commit run --all-files
+
+repos:
+  # ── Secrets (must run first) ─────────────────────────────
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.4
+    hooks:
+      - id: gitleaks
+        args: ["--config", ".gitleaks.toml"]
+
+  # ── Byte-level hygiene (mirrors AGENTS.md "Pre-commit checks") ──
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-merge-conflict # hard-fail on leftover <<<<<<< markers
+      - id: check-added-large-files
+        args: ["--maxkb=512"]
+      - id: mixed-line-ending
+        args: ["--fix=lf"]
