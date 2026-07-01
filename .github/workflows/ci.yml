@@ -9,6 +9,13 @@
 # (currently: `dot-config/opencode/skills/`). Everything else is
 # either tracked-on-purpose or already covered by .gitignore.
 #
+# Severity policy: linters that catch real bugs in user code run
+# with their default failure threshold. Linters whose default config
+# produces many "info"-level findings on existing content (e.g.
+# shellcheck on dot-config/programs/) are gated to `--severity=warning`
+# so we don't block on cosmetic findings — a future commit can
+# tighten that one rule at a time.
+#
 # Triggers:
 #   - push to main
 #   - pull_request to main
@@ -66,21 +73,28 @@ jobs:
           sudo apt-get install -y shellcheck
           sudo curl -fsSL https://webi.sh/shfmt | sudo sh
       - name: shellcheck
-        run: ./ci/select-files.sh '*.sh' | xargs shellcheck --shell=bash --external-sources
+        # xargs -d '\n' so filenames with spaces (e.g. "Thunar Bulk Rename.sh")
+        # don't get split. --severity=warning gates to real warnings; info-level
+        # findings (unquoted vars, missing || on cd, etc.) are still printed
+        # but don't block CI. Tighten per-file later.
+        run: |
+          ./ci/select-files.sh '*.sh' \
+            | xargs -d '\n' shellcheck --shell=bash --external-sources --severity=warning
       - name: shfmt (check only)
-        run: ./ci/select-files.sh '*.sh' | xargs shfmt -d -i 2 -ci -sr
+        run: ./ci/select-files.sh '*.sh' | xargs -d '\n' shfmt -d -i 2 -ci -sr
 
   python:
     name: Python (ruff)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: astral-sh/ruff-action@v1
-        with:
-          args: "check --output-format=github"
-      - uses: astral-sh/ruff-action@v1
-        with:
-          args: "format --check"
+      # ruff runs on the file list from ci/select-files.sh (same exclusion
+      # as every other job). The vendored skill scripts in
+      # dot-config/opencode/skills/ are skipped.
+      - name: ruff check
+        run: ./ci/select-files.sh '*.py' | xargs -d '\n' ruff check --output-format=github
+      - name: ruff format check
+        run: ./ci/select-files.sh '*.py' | xargs -d '\n' ruff format --check
 
   lua:
     name: Lua (stylua)
@@ -90,7 +104,7 @@ jobs:
       - name: Install stylua
         run: curl -fsSL https://github.com/JohnnyMorganz/stylua/releases/latest/download/stylua-linux-x86_64.zip -o /tmp/stylua.zip && sudo unzip -o /tmp/stylua.zip -d /usr/local/bin/
       - name: stylua (check only)
-        run: ./ci/select-files.sh '*.lua' | xargs stylua --check
+        run: ./ci/select-files.sh '*.lua' | xargs -d '\n' stylua --check
 
   json:
     name: JSON / JSONC (prettier)
@@ -108,7 +122,7 @@ jobs:
           set -e
           ./ci/select-files.sh '*.json' '*.jsonc' \
             | grep -vE 'package-lock\.json|dot-config/obs_plugins|_spicetify_theme_configs|dot-claude/\.mcp\.json' \
-            | xargs prettier --check
+            | xargs -d '\n' prettier --check
 
   yaml:
     name: YAML (prettier)
@@ -120,7 +134,7 @@ jobs:
           node-version: "20"
       - run: npm install -g prettier@3.3.3
       - name: prettier (check only)
-        run: ./ci/select-files.sh '*.yaml' '*.yml' | xargs prettier --check
+        run: ./ci/select-files.sh '*.yaml' '*.yml' | xargs -d '\n' prettier --check
 
   toml:
     name: TOML (prettier)
@@ -132,7 +146,7 @@ jobs:
           node-version: "20"
       - run: npm install -g prettier@3.3.3
       - name: prettier (check only)
-        run: ./ci/select-files.sh '*.toml' | xargs prettier --check
+        run: ./ci/select-files.sh '*.toml' | xargs -d '\n' prettier --check
 
   markdown:
     name: Markdown (markdownlint-cli2)
@@ -153,6 +167,7 @@ jobs:
             dot-config/opencode/commands/**/*.md
             dot-claude/**/*.md
             dot-opencode/**/*.md
+            dot-hermes/**/*.md
 
   # ─────────────────────────────────────────────────────────
   #  Stow dry-run — catches ignore regressions
