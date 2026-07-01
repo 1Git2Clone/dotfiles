@@ -1,0 +1,30 @@
+# gitleaks configuration for dotfiles repo.
+#
+# Repo state: this dotfiles tree contains (a) vendored skill docs that
+# ship with literal example strings like `email@company.com:API_TOKEN`
+# and `api-key: *** and (b) `dot-gitconfig` with a GPG
+# signing-key fingerprint that is public-by-design but trips the
+# `generic-api-key` rule because of its entropy shape.
+#
+# Neither of those is a real secret. This config tells gitleaks to
+# skip them so future runs come back clean.
+#
+# Verified against gitleaks 8.x.
+
+# Allowlist 1: skill reference docs.
+# Any `references/` directory under a skill is documentation, not config.
+[[allowlists]]
+  paths = [
+    '''dot-config/opencode/skills/.*/references/.*''',
+  ]
+
+# Allowlist 2: GPG signing-key fingerprint in dot-gitconfig.
+# Fingerprints are meant to be public (they identify your public key).
+[[allowlists]]
+  paths = ['dot-gitconfig']
+  regexes = [
+    '''signingkey\s*=\s*[A-F0-9]{40}''',
+  ]
+
+[extend]
+  useDefault = true
