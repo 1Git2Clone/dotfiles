@@ -21,17 +21,17 @@ while true; do
 
   packages=${packages:-n}
   case "$packages" in
-  [Yy]*)
-    sudo pacman -S --needed base-devel git firefox
-    break
-    ;;
-  [Nn]*)
-    echo "Alright."
-    break
-    ;;
-  *)
-    echo "Enter a correct choice"
-    ;;
+    [Yy]*)
+      sudo pacman -S --needed base-devel git firefox
+      break
+      ;;
+    [Nn]*)
+      echo "Alright."
+      break
+      ;;
+    *)
+      echo "Enter a correct choice"
+      ;;
   esac
 done
 
@@ -47,17 +47,17 @@ Warning: this may take a while if you don't have obs-studio-tytan652.
 (y/N): " additional_packages
     additional_packages=${additional_packages:-n}
     case "$additional_packages" in
-    [Yy]*)
-      echo "Alright."
-      return 0
-      ;;
-    [Nn]*)
-      echo "Alright."
-      return 1
-      ;;
-    *)
-      echo "Enter a valid option..."
-      ;;
+      [Yy]*)
+        echo "Alright."
+        return 0
+        ;;
+      [Nn]*)
+        echo "Alright."
+        return 1
+        ;;
+      *)
+        echo "Enter a valid option..."
+        ;;
     esac
   done
 }
@@ -72,56 +72,56 @@ Choice: " aur_helper
 
   aur_helper=${aur_helper:-0}
   case "$aur_helper" in
-  1)
-    if ! command -v paru >/dev/null 2>&1; then
-      echo "Installing rustup instead of normal rust."
-      sudo pacman -S --needed rustup
+    1)
+      if ! command -v paru > /dev/null 2>&1; then
+        echo "Installing rustup instead of normal rust."
+        sudo pacman -S --needed rustup
 
-      mkdir -p "$HOME/aur_helpers/paru/"
+        mkdir -p "$HOME/aur_helpers/paru/"
 
-      cd "$HOME/aur_helpers/paru/" || exit 1
+        cd "$HOME/aur_helpers/paru/" || exit 1
 
-      git clone https://aur.archlinux.org/paru.git && cd paru || exit 1
+        git clone https://aur.archlinux.org/paru.git && cd paru || exit 1
 
-      makepkg -si
+        makepkg -si
 
-      rm -rf "$HOME/aur_helpers/"
-    else
-      echo "Paru is already installed."
-      install_additional_packages
-    fi
+        rm -rf "$HOME/aur_helpers/"
+      else
+        echo "Paru is already installed."
+        install_additional_packages
+      fi
 
-    break
-    ;;
-  2)
-    if ! command -v yay >/dev/null 2>&1; then
-      mkdir -p "$HOME/aur_helpers/yay/"
+      break
+      ;;
+    2)
+      if ! command -v yay > /dev/null 2>&1; then
+        mkdir -p "$HOME/aur_helpers/yay/"
 
-      cd "$HOME/aur_helpers/yay/" || exit 1
+        cd "$HOME/aur_helpers/yay/" || exit 1
 
-      git clone https://aur.archlinux.org/yay.git && cd yay || exit 1
+        git clone https://aur.archlinux.org/yay.git && cd yay || exit 1
 
-      makepkg -si
+        makepkg -si
 
-      rm -rf "$HOME/aur_helpers/"
-    else
-      echo "Yay is already installed."
-      install_additional_packages
-    fi
+        rm -rf "$HOME/aur_helpers/"
+      else
+        echo "Yay is already installed."
+        install_additional_packages
+      fi
 
-    break
-    ;;
-  *)
-    read -p "Are you sure you don't want an AUR helper? (y/N): " no_aur_helper
-    case "$no_aur_helper" in
-    [Yy]*)
       break
       ;;
     *)
-      echo "Going back..."
+      read -p "Are you sure you don't want an AUR helper? (y/N): " no_aur_helper
+      case "$no_aur_helper" in
+        [Yy]*)
+          break
+          ;;
+        *)
+          echo "Going back..."
+          ;;
+      esac
       ;;
-    esac
-    ;;
   esac
 done
 
@@ -137,53 +137,56 @@ installing the Zsh plugins.**"
     choose_shell
   choose_shell=${choose_shell:-1}
   case "$choose_shell" in
-  1)
-    echo "Bash it is..."
-    break
-    ;;
-  2)
-    if ! command -v zsh >/dev/null 2>&1; then
-      sudo pacman -S zsh
-      sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    fi
-
-    # Restow just to make sure the configurations match.
-    # This is due to the fact that "$HOME/.profile" has the $ZSH export.
-    # Inlined from stow_setup.sh so the rest of full_setup.sh keeps running
-    # (exec would terminate the script).
-    rm "$HOME/.zshrc"
-    rm "$HOME/.bashrc"
-    rm "$HOME/.profile"
-    if ! command -v stow >/dev/null 2>&1; then
-      echo "You need to have GNU stow installed."
-      exit 1
-    fi
-    cd ~/dotfiles || { echo "You should have a $HOME/dotfiles/ directory."; exit 1; }
-    stow --adopt --dotfiles . -t "$HOME/"
-    cd - >/dev/null || exit
-    source "$HOME/.profile"
-
-    declare -A plugins_to_install=()
-    plugins_to_install["$ZSH/plugins/zsh-autosuggestions"]="https://github.com/zsh-users/zsh-autosuggestions"
-    plugins_to_install["$ZSH/plugins/zsh-vi-mode"]="https://github.com/jeffreytse/zsh-vi-mode"
-    plugins_to_install["$ZSH/plugins/zsh-syntax-highlighting"]=https://github.com/zsh-users/zsh-syntax-highlighting
-
-    echo "Installing zsh plugins: zsh-autosuggestions, zsh-vi-mode, zsh-syntax-highlighting"
-    for plugin_path in "${!plugins_to_install[@]}"; do
-      if [[ -d "${plugin_path}" ]]; then
-        echo "Installing ${plugin_path}"
-        echo "Current plugin is already installed in: ${plugin_path}"
-      else
-        repo_url="${plugins_to_install[$plugin_path]}"
-        git clone "${repo_url}" "${plugin_path}"
+    1)
+      echo "Bash it is..."
+      break
+      ;;
+    2)
+      if ! command -v zsh > /dev/null 2>&1; then
+        sudo pacman -S zsh
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
       fi
-    done
 
-    break
-    ;;
-  *)
-    echo "Select (y/n)."
-    ;;
+      # Restow just to make sure the configurations match.
+      # This is due to the fact that "$HOME/.profile" has the $ZSH export.
+      # Inlined from stow_setup.sh so the rest of full_setup.sh keeps running
+      # (exec would terminate the script).
+      rm "$HOME/.zshrc"
+      rm "$HOME/.bashrc"
+      rm "$HOME/.profile"
+      if ! command -v stow > /dev/null 2>&1; then
+        echo "You need to have GNU stow installed."
+        exit 1
+      fi
+      cd ~/dotfiles || {
+        echo "You should have a $HOME/dotfiles/ directory."
+        exit 1
+      }
+      stow --adopt --dotfiles . -t "$HOME/"
+      cd - > /dev/null || exit
+      source "$HOME/.profile"
+
+      declare -A plugins_to_install=()
+      plugins_to_install["$ZSH/plugins/zsh-autosuggestions"]="https://github.com/zsh-users/zsh-autosuggestions"
+      plugins_to_install["$ZSH/plugins/zsh-vi-mode"]="https://github.com/jeffreytse/zsh-vi-mode"
+      plugins_to_install["$ZSH/plugins/zsh-syntax-highlighting"]=https://github.com/zsh-users/zsh-syntax-highlighting
+
+      echo "Installing zsh plugins: zsh-autosuggestions, zsh-vi-mode, zsh-syntax-highlighting"
+      for plugin_path in "${!plugins_to_install[@]}"; do
+        if [[ -d "${plugin_path}" ]]; then
+          echo "Installing ${plugin_path}"
+          echo "Current plugin is already installed in: ${plugin_path}"
+        else
+          repo_url="${plugins_to_install[$plugin_path]}"
+          git clone "${repo_url}" "${plugin_path}"
+        fi
+      done
+
+      break
+      ;;
+    *)
+      echo "Select (y/n)."
+      ;;
   esac
 done
 
@@ -196,15 +199,15 @@ while true; do
 (y/N): " enable_sddm
   enable_sddm=${enable_sddm:-n}
   case "$enable_sddm" in
-  [Yy]*)
-    sudo systemctl enable sddm --now
-    ;;
-  [Nn]*)
-    break
-    ;;
-  *)
-    echo "Select (y/n)."
-    ;;
+    [Yy]*)
+      sudo systemctl enable sddm --now
+      ;;
+    [Nn]*)
+      break
+      ;;
+    *)
+      echo "Select (y/n)."
+      ;;
   esac
 done
 
@@ -216,14 +219,14 @@ while true; do
 (Y/n): " setup_stow
   setup_stow=${setup_stow:-y}
   case "$setup_stow" in
-  [Yy]*)
-    exec ./stow_setup.sh
-    ;;
-  [Nn]*)
-    break
-    ;;
-  *)
-    echo "Select (y/n)."
-    ;;
+    [Yy]*)
+      exec ./stow_setup.sh
+      ;;
+    [Nn]*)
+      break
+      ;;
+    *)
+      echo "Select (y/n)."
+      ;;
   esac
 done
