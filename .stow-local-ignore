@@ -21,6 +21,16 @@ assets
 .git
 .claude
 
+# ── Reference / example files (live config is source of truth) ──
+# The hermes config.example.yaml is a template for new installs.
+# The live config.yaml sits at dot-hermes/config.yaml in each
+# working tree, is gitignored (see dot-hermes/.gitignore), and
+# is the file that stow symlinks to ~/.hermes/config.yaml.
+#
+# The example file itself is NOT stowed — leave it as a repo-only
+# reference. Add new reference files here as you create them.
+dot-hermes/config.example.yaml
+
 # ── Dev infrastructure (linter, formatter, CI configs) ────
 # These live in the repo so the lint stack is reproducible, but
 # they must NOT pollute $HOME — stow would symlink them as plain
