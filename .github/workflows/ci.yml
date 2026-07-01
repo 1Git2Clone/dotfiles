@@ -70,7 +70,11 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y shellcheck
-          sudo curl -fsSL https://webi.sh/shfmt | sudo sh
+          # Install shfmt from GitHub releases (webi.sh was failing on
+          # the CI runner — install path wasn't on PATH for the next step).
+          sudo curl -fsSL https://github.com/mvdan/sh/releases/download/v3.13.1/shfmt_v3.13.1_linux_amd64 \
+            -o /usr/local/bin/shfmt
+          sudo chmod +x /usr/local/bin/shfmt
       - name: shellcheck
         # xargs -d '\n' so filenames with spaces (e.g. "Thunar Bulk Rename.sh")
         # don't get split. --severity=warning suppresses info-level findings
