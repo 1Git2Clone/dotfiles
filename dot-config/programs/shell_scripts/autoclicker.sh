@@ -90,17 +90,21 @@ fi
 
 # --- Run the click loop detached so the toggle "off" call can find and kill it. ---
 sleep_s="$(awk "BEGIN { printf \"%.3f\", $interval_ms / 1000 }")"
-setsid bash -c '
-  click_code="$1"; sleep_s="$2"; count="$3"
+# Use double quotes around the body so the variables passed in via
+# positional args expand. SC2016 was a false positive (single quotes
+# here are intentional: the body needs to be re-evaluated by the
+# child bash, not the parent).
+setsid bash -c "
+  click_code=\"\$1\"; sleep_s=\"\$2\"; count=\"\$3\"
   n=0
   while :; do
-    ydotool click "$click_code" || exit 1
-    n=$((n + 1))
-    [ "$count" -gt 0 ] && [ "$n" -ge "$count" ] && break
-    sleep "$sleep_s"
+    ydotool click \"\$click_code\" || exit 1
+    n=\$((n + 1))
+    [ \"\$count\" -gt 0 ] && [ \"\$n\" -ge \"\$count\" ] && break
+    sleep \"\$sleep_s\"
   done
-  rm -f "'"$pid_file"'"
-' _ "$click_code" "$sleep_s" "$count" &
+  rm -f '$pid_file'
+" _ "$click_code" "$sleep_s" "$count" &
 
 echo "$!" > "$pid_file"
 

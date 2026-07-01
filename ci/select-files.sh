@@ -32,7 +32,10 @@ select_files() {
     return 2
   fi
   local exclude_re
-  exclude_re="$(IFS='|'; echo "${VENDOR_PATHS[*]}")"
+  exclude_re="$(
+    IFS='|'
+    echo "${VENDOR_PATHS[*]}"
+  )"
   SELECTED_FILES="$(git ls-files "$@" | grep -vE "$exclude_re" || true)"
 }
 
