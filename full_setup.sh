@@ -149,10 +149,18 @@ installing the Zsh plugins.**"
 
     # Restow just to make sure the configurations match.
     # This is due to the fact that "$HOME/.profile" has the $ZSH export.
+    # Inlined from stow_setup.sh so the rest of full_setup.sh keeps running
+    # (exec would terminate the script).
     rm "$HOME/.zshrc"
     rm "$HOME/.bashrc"
     rm "$HOME/.profile"
-    stow home_user/ -t "$HOME"
+    if ! command -v stow >/dev/null 2>&1; then
+      echo "You need to have GNU stow installed."
+      exit 1
+    fi
+    cd ~/dotfiles || { echo "You should have a $HOME/dotfiles/ directory."; exit 1; }
+    stow --adopt --dotfiles . -t "$HOME/"
+    cd - >/dev/null
     source "$HOME/.profile"
 
     declare -A plugins_to_install=()
