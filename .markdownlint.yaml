@@ -1,0 +1,16 @@
+# markdownlint ruleset for the dotfiles repo's own markdown.
+#
+# https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
+#
+# Disabled rules (with reason):
+#   MD013  line-length           — examples in agent prompts are long
+#                                   and embedding them in lists is useful.
+#   MD033  no-inline-html        — agent prompts use callout boxes (><).
+#   MD036  no-emphasis-as-heading — common in agent prompt style.
+#   MD041  first-line-h1         — top-level AGENTS.md files don't need
+#                                   an H1 (the filename is the title).
+default: true
+MD013: false
+MD033: false
+MD036: false
+MD041: false

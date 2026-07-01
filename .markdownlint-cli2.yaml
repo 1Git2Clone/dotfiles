@@ -1,0 +1,29 @@
+# markdownlint-cli2 configuration for the dotfiles repo.
+#
+# LAYER: This lints markdown files that THIS REPO OWNS. It does not
+# lint the ~500 markdown files under `dot-config/opencode/skills/`
+# which are vendored upstream content symlinked in from another
+# repo. If you author new markdown here, it gets linted. If you
+# update a skill doc, that's upstream's problem.
+#
+# The pre-push hook ignores `--files` and always uses these globs.
+
+config: .markdownlint.yaml
+globs:
+  # Repo-owned markdown — top-level docs and config-adjacent files.
+  - "README.md"
+  - "**/README.md"
+  - "**/AGENTS.md"
+  - "**/CLAUDE.md"
+  - "_extra_notes/**/*.md"
+  - "dot-config/opencode/AGENTS.md"
+  - "dot-config/opencode/agents/**/*.md"
+  - "dot-config/opencode/command/**/*.md"
+  - "dot-config/opencode/commands/**/*.md"
+  - "dot-claude/**/*.md"
+  - "dot-opencode/**/*.md"
+  # Exclude everything that isn't repo-owned content.
+  - "#dot-config/opencode/skills/**"
+  - "#**/node_modules/**"
+  - "#**/dist/**"
+  - "#.codewhale/**"

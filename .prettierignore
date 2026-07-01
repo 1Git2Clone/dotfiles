@@ -1,0 +1,21 @@
+# Prettier ignores — files prettier should skip even if it would otherwise format them.
+# Used as the defaultIgnore in addition to per-hook excludes in .pre-commit-config.yaml.
+
+# Vendored skill content (upstream, not authored here).
+dot-config/opencode/skills/**
+
+# Build artifacts (gitignored; included here because pre-commit
+# doesn't read .gitignore by default).
+**/node_modules/**
+**/dist/**
+
+# Other auto-generated or vendored blobs.
+package-lock.json
+_spicetify_theme_configs/**
+
+# Binary files.
+*.ttf
+*.png
+*.jpg
+*.mp4
+*.qbtheme

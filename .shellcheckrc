@@ -1,0 +1,10 @@
+# shellcheck configuration. See https://github.com/koalaman/shellcheck/blob/master/shellcheckrc
+
+# Default to bash, since the dotfiles repo mixes bash and POSIX sh.
+shell=bash
+
+# Allow source paths in $HOME; we have lots of dot-config/ symlinks.
+external-sources=true
+
+# These are checked elsewhere or are intentional.
+disable=SC1090,SC1091

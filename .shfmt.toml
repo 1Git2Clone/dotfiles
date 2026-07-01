@@ -1,0 +1,11 @@
+# shfmt configuration. See https://github.com/mvdan/sh#shfmt
+
+# 2-space indent (matches existing dotfiles style)
+indent = 2
+
+# Keep column alignment for case statements and continuations
+case-indent = 0
+space-redirects = true
+
+# Don't simplify the code beyond what shfmt normally does.
+# (binary-next-line, switch-case, etc. are off by default.)

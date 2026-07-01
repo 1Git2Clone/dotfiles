@@ -1,0 +1,21 @@
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+# Reasonable defaults for a dotfiles repo. Scripts tend to be small
+# and pragmatic; we don't need full strictness, just no obvious bugs.
+select = [
+  "E", "F", "W",   # pycodestyle + pyflakes
+  "I",             # isort
+  "B",             # bugbear
+  "UP",            # pyupgrade
+  "SIM",           # simplify
+]
+ignore = [
+  "E501",  # line length is handled by the formatter
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
