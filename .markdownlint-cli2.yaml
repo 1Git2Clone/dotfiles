@@ -1,29 +1,24 @@
 # markdownlint-cli2 configuration for the dotfiles repo.
 #
 # LAYER: This lints markdown files that THIS REPO OWNS. It does not
-# lint the ~500 markdown files under `dot-config/opencode/skills/`
-# which are vendored upstream content symlinked in from another
-# repo. If you author new markdown here, it gets linted. If you
-# update a skill doc, that's upstream's problem.
+# lint the ~500 markdown files under `dot-config/opencode/skills/`,
+# `dot-config/opencode/agents/`, `dot-config/opencode/commands/`,
+# etc. — those are vendored upstream content. If you author new
+# markdown here, add the path to globs below.
 #
-# The pre-push hook ignores `--files` and always uses these globs.
+# The pre-push hook and the CI workflow both use this config.
+# Keep them in sync — drift between local and CI linting is a
+# debugging tax.
+#
+# What counts as "repo-owned" markdown:
+#   - README.md at the repo root
+#   - dot-claude/CLAUDE.md, dot-claude/hooks/*.md, etc.
+#   - dot-config/opencode/AGENTS.md (project-level prompt, not vendored)
+#   - dot-hermes/config.example.yaml and any siblings
 
 config: .markdownlint.yaml
 globs:
-  # Repo-owned markdown — top-level docs and config-adjacent files.
   - "README.md"
-  - "**/README.md"
-  - "**/AGENTS.md"
-  - "**/CLAUDE.md"
-  - "_extra_notes/**/*.md"
-  - "dot-config/opencode/AGENTS.md"
-  - "dot-config/opencode/agents/**/*.md"
-  - "dot-config/opencode/command/**/*.md"
-  - "dot-config/opencode/commands/**/*.md"
   - "dot-claude/**/*.md"
-  - "dot-opencode/**/*.md"
-  # Exclude everything that isn't repo-owned content.
-  - "#dot-config/opencode/skills/**"
-  - "#**/node_modules/**"
-  - "#**/dist/**"
-  - "#.codewhale/**"
+  - "dot-config/opencode/AGENTS.md"
+  - "dot-hermes/**/*.md"
