@@ -1,0 +1,197 @@
+# CI for the dotfiles repo.
+#
+# Parallel matrix: one job per language. Each job installs its tool,
+# lints its slice of the tree, and exits.
+#
+# File selection: every per-language job calls `ci/select-files.sh`
+# to enumerate the files it should lint. That script is the single
+# source of truth for "this file is vendored upstream, skip it"
+# (currently: `dot-config/opencode/skills/`). Everything else is
+# either tracked-on-purpose or already covered by .gitignore.
+#
+# Triggers:
+#   - push to main
+#   - pull_request to main
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ─────────────────────────────────────────────────────────
+  #  Secrets — must run first, fast-fail the rest on a leak
+  # ─────────────────────────────────────────────────────────
+  secrets:
+    name: Secrets (gitleaks)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITLEAKS_CONFIG: .gitleaks.toml
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # ─────────────────────────────────────────────────────────
+  #  Byte-level hygiene (mirrors the commit-time pre-commit)
+  # ─────────────────────────────────────────────────────────
+  hygiene:
+    name: Hygiene
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pre-commit/action@v3.0.1
+        with:
+          extra_args: --all-files
+
+  # ─────────────────────────────────────────────────────────
+  #  Per-language lint jobs (run in parallel)
+  # ─────────────────────────────────────────────────────────
+  shell:
+    name: Shell (shellcheck + shfmt)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y shellcheck
+          sudo curl -fsSL https://webi.sh/shfmt | sudo sh
+      - name: shellcheck
+        run: ./ci/select-files.sh '*.sh' | xargs shellcheck --shell=bash --external-sources
+      - name: shfmt (check only)
+        run: ./ci/select-files.sh '*.sh' | xargs shfmt -d -i 2 -ci -sr
+
+  python:
+    name: Python (ruff)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/ruff-action@v1
+        with:
+          args: "check --output-format=github"
+      - uses: astral-sh/ruff-action@v1
+        with:
+          args: "format --check"
+
+  lua:
+    name: Lua (stylua)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install stylua
+        run: curl -fsSL https://github.com/JohnnyMorganz/stylua/releases/latest/download/stylua-linux-x86_64.zip -o /tmp/stylua.zip && sudo unzip -o /tmp/stylua.zip -d /usr/local/bin/
+      - name: stylua (check only)
+        run: ./ci/select-files.sh '*.lua' | xargs stylua --check
+
+  json:
+    name: JSON / JSONC (prettier)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm install -g prettier@3.3.3
+      - name: prettier (check only)
+        # Lockfiles and vendored theme blobs aren't lint-able as JSON.
+        # Everything else flows through ci/select-files.sh.
+        run: |
+          set -e
+          ./ci/select-files.sh '*.json' '*.jsonc' \
+            | grep -vE 'package-lock\.json|dot-config/obs_plugins|_spicetify_theme_configs|dot-claude/\.mcp\.json' \
+            | xargs prettier --check
+
+  yaml:
+    name: YAML (prettier)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm install -g prettier@3.3.3
+      - name: prettier (check only)
+        run: ./ci/select-files.sh '*.yaml' '*.yml' | xargs prettier --check
+
+  toml:
+    name: TOML (prettier)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm install -g prettier@3.3.3
+      - name: prettier (check only)
+        run: ./ci/select-files.sh '*.toml' | xargs prettier --check
+
+  markdown:
+    name: Markdown (markdownlint-cli2)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DavidAnson/markdownlint-cli2-action@v19
+        with:
+          globs: |
+            README.md
+            **/README.md
+            **/AGENTS.md
+            **/CLAUDE.md
+            _extra_notes/**/*.md
+            dot-config/opencode/AGENTS.md
+            dot-config/opencode/agents/**/*.md
+            dot-config/opencode/command/**/*.md
+            dot-config/opencode/commands/**/*.md
+            dot-claude/**/*.md
+            dot-opencode/**/*.md
+
+  # ─────────────────────────────────────────────────────────
+  #  Stow dry-run — catches ignore regressions
+  # ─────────────────────────────────────────────────────────
+  stow:
+    name: Stow dry-run
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install stow
+        run: sudo apt-get update && sudo apt-get install -y stow
+      - name: Build --ignore flags from .stow-local-ignore
+        id: build
+        run: |
+          IGNORE_ARGS=""
+          while IFS= read -r line; do
+            [[ -z "$line" || "$line" =~ ^# ]] && continue
+            IGNORE_ARGS="$IGNORE_ARGS --ignore=$line"
+          done < .stow-local-ignore
+          echo "args<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$IGNORE_ARGS" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+      - name: Simulate stow
+        run: |
+          mkdir -p /tmp/stow-target
+          stow --adopt --dotfiles --no -v 1 \
+               -d "$GITHUB_WORKSPACE" \
+               -t /tmp/stow-target \
+               ${{ steps.build.outputs.args }} \
+               .
+          # Confirm none of the dev-infra files leaked
+          ! ls /tmp/stow-target/.pre-commit-config.yaml \
+               /tmp/stow-target/.gitleaks.toml \
+               /tmp/stow-target/.shellcheckrc \
+               /tmp/stow-target/.shfmt.toml \
+               /tmp/stow-target/.prettierrc.json \
+               /tmp/stow-target/.markdownlint.yaml \
+               /tmp/stow-target/.markdownlint-cli2.yaml \
+               /tmp/stow-target/.prettierignore \
+               /tmp/stow-target/pyproject.toml \
+               /tmp/stow-target/.github \
+               2>/dev/null
