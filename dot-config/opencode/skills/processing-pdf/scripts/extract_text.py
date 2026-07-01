@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Extract text from a PDF file with page numbers."""
+
 import argparse
 import sys
 

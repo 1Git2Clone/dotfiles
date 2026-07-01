@@ -35,10 +35,7 @@ label {
   background-size: 96px 96px;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: image(
-    url("icons/lock.png"),
-    url("/usr/local/share/wlogout/icons/lock.png")
-  );
+  background-image: image(url("icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png"));
 }
 
 #logout {

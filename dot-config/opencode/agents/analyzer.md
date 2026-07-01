@@ -62,6 +62,7 @@ You receive these parameters in your prompt:
 ### Step 4: Analyze Instruction Following
 
 For each transcript, evaluate:
+
 - Did the agent follow the skill's explicit instructions?
 - Did the agent use the skill's provided tools/scripts?
 - Were there missed opportunities to leverage skill content?
@@ -84,6 +85,7 @@ Based on the analysis, produce actionable suggestions for improving the loser sk
 Use these categories: `instructions`, `tools`, `examples`, `error_handling`, `structure`, `references`.
 
 Priority levels:
+
 - **high**: Would likely change the outcome of this comparison
 - **medium**: Would improve quality but may not change win/loss
 - **low**: Nice to have, marginal improvement
@@ -103,8 +105,8 @@ Save structured analysis to `{output_path}` as JSON:
   "winner_strengths": ["Clear step-by-step instructions"],
   "loser_weaknesses": ["Vague instruction led to inconsistent behavior"],
   "instruction_following": {
-    "winner": {"score": 9, "issues": ["Minor: skipped optional logging step"]},
-    "loser": {"score": 6, "issues": ["Did not use the skill's formatting template"]}
+    "winner": { "score": 9, "issues": ["Minor: skipped optional logging step"] },
+    "loser": { "score": 6, "issues": ["Did not use the skill's formatting template"] }
   },
   "improvement_suggestions": [
     {
@@ -152,6 +154,7 @@ Review all benchmark run results and generate freeform notes that help the user 
 ### Analyze Per-Assertion Patterns
 
 For each expectation across all runs:
+
 - Does it **always pass** in both configurations? (may not differentiate skill value)
 - Does it **always fail** in both configurations? (may be broken)
 - Does it **always pass with skill but fail without**? (skill clearly adds value)
@@ -167,6 +170,7 @@ For each expectation across all runs:
 ### Analyze Metrics Patterns
 
 Look at time_seconds, tokens, tool_calls:
+
 - Does the skill significantly increase execution time?
 - Is there high variance in resource usage?
 - Are there outlier runs that skew the aggregates?
@@ -174,11 +178,13 @@ Look at time_seconds, tokens, tool_calls:
 ### Generate Notes
 
 Write freeform observations as a JSON array of strings to `{output_path}`. Each note should:
+
 - State a specific observation
 - Be grounded in the data (not speculation)
 - Help the user understand something the aggregate metrics don't show
 
 Examples:
+
 - "Assertion 'Output is a PDF file' passes 100% in both configurations – may not differentiate skill value"
 - "Eval 3 shows high variance (50% +/- 40%) – run 2 had an unusual failure"
 - "Without-skill runs consistently fail on table extraction expectations"

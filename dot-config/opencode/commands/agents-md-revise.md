@@ -77,7 +77,7 @@ If multiple additions go to the same file, group them under one header so the us
 
 ## Step 5 — Apply with approval
 
-Ask the user explicitly: *"Apply these changes?"* Edit only files they approve.
+Ask the user explicitly: _"Apply these changes?"_ Edit only files they approve.
 
 Preserve the existing structure. Place additions in the most relevant section (e.g., a new build command goes under "Commands" if that section exists). If no obvious section fits, create one with a clear header.
 

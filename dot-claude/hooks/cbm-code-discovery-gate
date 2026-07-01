@@ -5,5 +5,5 @@
 # graph context. Any failure is silent (exit 0, no output).
 BIN="/home/hutao/.local/bin/codebase-memory-mcp"
 [ -x "$BIN" ] || exit 0
-"$BIN" hook-augment 2>/dev/null
+"$BIN" hook-augment 2> /dev/null
 exit 0

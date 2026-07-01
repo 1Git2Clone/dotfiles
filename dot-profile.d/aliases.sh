@@ -1,4 +1,4 @@
-if command -v lsd >/dev/null 2>&1; then
+if command -v lsd > /dev/null 2>&1; then
   alias ls='lsd --color=auto'
 else
   alias ls='ls --color=auto'
@@ -15,15 +15,15 @@ alias imgl='kitten icat --align left'
 
 # Pipe a command to | clip
 case $XDG_SESSION_TYPE in
-wayland)
-  alias clip='wl-copy'
-  ;;
-x11)
-  alias clip='xclip -selection clipboard'
-  ;;
-*)
-  echo "Unknown session type: $XDG_SESSION_TYPE. Please set up \`clip\` alias manually."
-  ;;
+  wayland)
+    alias clip='wl-copy'
+    ;;
+  x11)
+    alias clip='xclip -selection clipboard'
+    ;;
+  *)
+    echo "Unknown session type: $XDG_SESSION_TYPE. Please set up \`clip\` alias manually."
+    ;;
 esac
 
 alias ff='fastfetch'

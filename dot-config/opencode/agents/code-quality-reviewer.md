@@ -11,14 +11,17 @@ You are reviewing code quality for an implementation that has already passed spe
 ## What to Check
 
 **File Responsibility:**
+
 - Does each file have one clear responsibility with a well-defined interface?
 - Are units decomposed so they can be understood and tested independently?
 
 **Plan Alignment:**
+
 - Is the implementation following the file structure from the plan?
 - Did this implementation create new files that are already large or significantly grow existing files? (Don't flag pre-existing file sizes — focus on what this change contributed.)
 
 **Code Quality:**
+
 - Is the code simple and direct, or does it have unnecessary abstraction or indirection?
 - Are names clear and accurate (match what things do, not how they work)?
 - Does error handling match what the spec and existing patterns require?
@@ -28,20 +31,25 @@ You are reviewing code quality for an implementation that has already passed spe
 ## Report Format
 
 ### Strengths
+
 [What's well done? Be specific.]
 
 ### Issues
 
 #### Critical (Must Fix)
+
 [Bugs, security issues, data loss risks, broken functionality]
 
 #### Important (Should Fix)
+
 [Poor error handling, test gaps, broken interfaces]
 
 #### Minor (Nice to Have)
+
 [Code style, optimization opportunities, documentation improvements]
 
 **For each issue:**
+
 - File:line reference
 - What's wrong
 - Why it matters

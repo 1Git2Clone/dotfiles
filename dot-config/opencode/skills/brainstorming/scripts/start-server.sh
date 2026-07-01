@@ -36,11 +36,11 @@ while [[ $# -gt 0 ]]; do
       URL_HOST="$2"
       shift 2
       ;;
-    --foreground|--no-daemon)
+    --foreground | --no-daemon)
       FOREGROUND="true"
       shift
       ;;
-    --background|--daemon)
+    --background | --daemon)
       FORCE_BACKGROUND="true"
       shift
       ;;
@@ -67,7 +67,7 @@ fi
 # Windows/Git Bash reaps nohup background processes. Auto-foreground when detected.
 if [[ "$FOREGROUND" != "true" && "$FORCE_BACKGROUND" != "true" ]]; then
   case "${OSTYPE:-}" in
-    msys*|cygwin*|mingw*) FOREGROUND="true" ;;
+    msys* | cygwin* | mingw*) FOREGROUND="true" ;;
   esac
   if [[ -n "${MSYSTEM:-}" ]]; then
     FOREGROUND="true"
@@ -93,7 +93,7 @@ mkdir -p "${SESSION_DIR}/content" "$STATE_DIR"
 # Kill any existing server
 if [[ -f "$PID_FILE" ]]; then
   old_pid=$(cat "$PID_FILE")
-  kill "$old_pid" 2>/dev/null
+  kill "$old_pid" 2> /dev/null
   rm -f "$PID_FILE"
 fi
 
@@ -102,7 +102,7 @@ cd "$SCRIPT_DIR"
 # Resolve the harness PID (grandparent of this script).
 # $PPID is the ephemeral shell the harness spawned to run us — it dies
 # when this script exits. The harness itself is $PPID's parent.
-OWNER_PID="$(ps -o ppid= -p "$PPID" 2>/dev/null | tr -d ' ')"
+OWNER_PID="$(ps -o ppid= -p "$PPID" 2> /dev/null | tr -d ' ')"
 if [[ -z "$OWNER_PID" || "$OWNER_PID" == "1" ]]; then
   OWNER_PID="$PPID"
 fi
@@ -118,16 +118,16 @@ fi
 # Use nohup to survive shell exit; disown to remove from job table
 nohup env BRAINSTORM_DIR="$SESSION_DIR" BRAINSTORM_HOST="$BIND_HOST" BRAINSTORM_URL_HOST="$URL_HOST" BRAINSTORM_OWNER_PID="$OWNER_PID" node server.cjs > "$LOG_FILE" 2>&1 &
 SERVER_PID=$!
-disown "$SERVER_PID" 2>/dev/null
+disown "$SERVER_PID" 2> /dev/null
 echo "$SERVER_PID" > "$PID_FILE"
 
 # Wait for server-started message (check log file)
 for i in {1..50}; do
-  if grep -q "server-started" "$LOG_FILE" 2>/dev/null; then
+  if grep -q "server-started" "$LOG_FILE" 2> /dev/null; then
     # Verify server is still alive after a short window (catches process reapers)
     alive="true"
     for _ in {1..20}; do
-      if ! kill -0 "$SERVER_PID" 2>/dev/null; then
+      if ! kill -0 "$SERVER_PID" 2> /dev/null; then
         alive="false"
         break
       fi

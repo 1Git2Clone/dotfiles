@@ -1,5 +1,5 @@
 ---
-description: Audit and improve project-rules files (AGENTS.md, CLAUDE.md, .agents/instructions, etc.) in repositories. Use when the user asks to check, audit, update, improve, or fix their AGENTS.md or CLAUDE.md, 
+description: Audit and improve project-rules files (AGENTS.md, CLAUDE.md, .agents/instructions, etc.) in repositories. Use when the user asks to check, audit, update, improve, or fix their AGENTS.md or CLAUDE.md,
 ---
 
 # AGENTS.md / CLAUDE.md Improver
@@ -22,14 +22,14 @@ find . \( -name "AGENTS.md" -o -name "CLAUDE.md" -o -name ".claude.local.md" -o 
 
 **File types and locations:**
 
-| Type | Location | Purpose |
-|------|----------|---------|
-| Project root (OpenCode native) | `./AGENTS.md` | Primary project context (committed, shared) |
-| Project root (Claude compat) | `./CLAUDE.md` | Same purpose; OpenCode reads it as fallback |
-| Local overrides | `./.agents.local.md` or `./.claude.local.md` | Personal/local settings (gitignored) |
-| Global defaults | `~/.config/opencode/AGENTS.md` or `~/.claude/CLAUDE.md` | User-wide defaults |
-| Package-specific | `./packages/*/AGENTS.md` | Module-level context in monorepos |
-| Subdirectory | Any nested location | Feature/domain-specific context |
+| Type                           | Location                                                | Purpose                                     |
+| ------------------------------ | ------------------------------------------------------- | ------------------------------------------- |
+| Project root (OpenCode native) | `./AGENTS.md`                                           | Primary project context (committed, shared) |
+| Project root (Claude compat)   | `./CLAUDE.md`                                           | Same purpose; OpenCode reads it as fallback |
+| Local overrides                | `./.agents.local.md` or `./.claude.local.md`            | Personal/local settings (gitignored)        |
+| Global defaults                | `~/.config/opencode/AGENTS.md` or `~/.claude/CLAUDE.md` | User-wide defaults                          |
+| Package-specific               | `./packages/*/AGENTS.md`                                | Module-level context in monorepos           |
+| Subdirectory                   | Any nested location                                     | Feature/domain-specific context             |
 
 OpenCode walks up from the working directory toward the git root, loading any matching rules files along the way, so monorepos and nested projects work automatically.
 
@@ -39,14 +39,14 @@ For each rules file, evaluate against the criteria below.
 
 **Quick assessment checklist:**
 
-| Criterion | Weight | Check |
-|-----------|--------|-------|
-| Commands / workflows documented | High | Are build / test / deploy commands present? |
-| Architecture clarity | High | Can the agent understand the codebase structure? |
-| Non-obvious patterns | Medium | Are gotchas and quirks documented? |
-| Conciseness | Medium | No verbose explanations or obvious info? |
-| Currency | High | Does it reflect the current codebase state? |
-| Actionability | High | Are instructions executable, not vague? |
+| Criterion                       | Weight | Check                                            |
+| ------------------------------- | ------ | ------------------------------------------------ |
+| Commands / workflows documented | High   | Are build / test / deploy commands present?      |
+| Architecture clarity            | High   | Can the agent understand the codebase structure? |
+| Non-obvious patterns            | Medium | Are gotchas and quirks documented?               |
+| Conciseness                     | Medium | No verbose explanations or obvious info?         |
+| Currency                        | High   | Does it reflect the current codebase state?      |
+| Actionability                   | High   | Are instructions executable, not vague?          |
 
 **Quality scores:**
 
@@ -101,6 +101,7 @@ After the quality report, ask the user for confirmation before updating.
 **Update guidelines (critical):**
 
 1. **Propose targeted additions only.** Focus on genuinely useful info:
+
    - Commands or workflows discovered during analysis
    - Gotchas or non-obvious patterns found in code
    - Package relationships that were unclear
@@ -108,6 +109,7 @@ After the quality report, ask the user for confirmation before updating.
    - Configuration quirks
 
 2. **Keep it minimal.** Avoid:
+
    - Restating what is obvious from the code
    - Generic best practices already covered
    - One-off fixes unlikely to recur
@@ -125,14 +127,14 @@ After the quality report, ask the user for confirmation before updating.
 
 **Why:** Build command was missing, causing confusion about how to run the project.
 
-```diff
+````diff
 + ## Quick Start
 +
 + ```bash
 + npm install
 + npm run dev  # Start development server on port 3000
 + ```
-```
+````
 ````
 
 ### Phase 5: Apply updates

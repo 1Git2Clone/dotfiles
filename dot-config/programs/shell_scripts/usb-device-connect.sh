@@ -1,7 +1,7 @@
 #!/bin/bash
 
 LOCK_FILE="/tmp/usb-device-connect.lock"
-exec 200>"$LOCK_FILE"
+exec 200> "$LOCK_FILE"
 if ! flock -n 200; then
   echo "Another instance is already running. Exiting." >&2
   exit 1
@@ -21,7 +21,7 @@ authorize_with_usbguard() {
   local dev_name="$2"
   local dev_vendor="$3"
 
-  if ! command -v usbguard >/dev/null 2>&1; then
+  if ! command -v usbguard > /dev/null 2>&1; then
     return
   fi
   if ! systemctl is-active --quiet usbguard; then
@@ -60,8 +60,8 @@ udevadm monitor --udev --subsystem-match=usb |
 
     sysfs_path=$(echo "$line" | awk '{print $4}')
 
-    dev_name=$(udevadm info -q property -p "$sysfs_path" 2>/dev/null | grep '^ID_MODEL=' | cut -d= -f2)
-    dev_vendor=$(udevadm info -q property -p "$sysfs_path" 2>/dev/null | grep '^ID_VENDOR=' | cut -d= -f2)
+    dev_name=$(udevadm info -q property -p "$sysfs_path" 2> /dev/null | grep '^ID_MODEL=' | cut -d= -f2)
+    dev_vendor=$(udevadm info -q property -p "$sysfs_path" 2> /dev/null | grep '^ID_VENDOR=' | cut -d= -f2)
 
     [ -z "$dev_name" ] && dev_name="Unknown Device"
     [ -z "$dev_vendor" ] && dev_vendor="Unknown Vendor"

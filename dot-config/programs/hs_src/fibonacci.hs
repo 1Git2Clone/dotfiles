@@ -11,7 +11,7 @@ fib :: Integer -> Integer
     | x == 1 = 1
     | x == 2 = 2
     | otherwise = last $ take (fromIntegral x) [fib' n | n <- [1..] ]
-    
+
     where
       fib' 1 = 1
       fib' 2 = 2

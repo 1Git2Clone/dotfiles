@@ -115,4 +115,3 @@ Use PostgreSQL as the primary datastore for the Order Service.
 ## Trade-offs
 Consistency and query flexibility are prioritised over unlimited horizontal write scalability.
 ```
-

@@ -19,13 +19,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // The shared instruction builder is CommonJS; bridge to it from this ES module.
 const require = createRequire(import.meta.url);
-const {
-  getPonytailInstructions,
-} = require("../../hooks/ponytail-instructions");
-const {
-  getDefaultMode,
-  normalizePersistedMode,
-} = require("../../hooks/ponytail-config");
+const { getPonytailInstructions } = require("../../hooks/ponytail-instructions");
+const { getDefaultMode, normalizePersistedMode } = require("../../hooks/ponytail-config");
 
 // OpenCode has no flag-file convention of its own; keep mode beside its config.
 const statePath = path.join(
@@ -36,10 +31,7 @@ const statePath = path.join(
 
 function readMode() {
   try {
-    return (
-      normalizePersistedMode(fs.readFileSync(statePath, "utf8").trim()) ||
-      getDefaultMode()
-    );
+    return normalizePersistedMode(fs.readFileSync(statePath, "utf8").trim()) || getDefaultMode();
   } catch (e) {
     return getDefaultMode();
   }
@@ -53,9 +45,7 @@ function writeMode(mode) {
 export default async ({ client } = {}) => {
   const log = (level, message) => {
     try {
-      client &&
-        client.app &&
-        client.app.log({ body: { service: "ponytail", level, message } });
+      client && client.app && client.app.log({ body: { service: "ponytail", level, message } });
     } catch (e) {}
   };
 
@@ -85,9 +75,7 @@ export default async ({ client } = {}) => {
     "command.execute.before": async (input) => {
       if (!input || input.command !== "ponytail") return;
       // `off` is persisted like any mode; the transform reads it and stays silent.
-      const mode =
-        normalizePersistedMode((input.arguments || "").trim()) ||
-        getDefaultMode();
+      const mode = normalizePersistedMode((input.arguments || "").trim()) || getDefaultMode();
       writeMode(mode);
       log("info", "ponytail " + mode);
     },

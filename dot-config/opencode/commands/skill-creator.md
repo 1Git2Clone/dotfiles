@@ -51,7 +51,7 @@ If the platform supports parallel sub-tasks, research in parallel (search docs, 
 Based on the interview, fill in:
 
 - **`name`** — the skill identifier (must match the directory name; lowercase alphanumeric with single hyphens, regex `^[a-z0-9]+(-[a-z0-9]+)*$`).
-- **`description`** — when to trigger and what the skill does. **This is the primary triggering mechanism**. Include both what the skill does AND specific contexts for when to use it. All "when to use" info goes here, not in the body. Skills tend to under-trigger, so make descriptions slightly "pushy" — e.g. instead of *"Build a fast dashboard"*, write *"Build a fast dashboard. Make sure to use this skill whenever the user mentions dashboards, data visualization, internal metrics, or wants to display any kind of company data, even if they do not explicitly ask for a 'dashboard.'"*
+- **`description`** — when to trigger and what the skill does. **This is the primary triggering mechanism**. Include both what the skill does AND specific contexts for when to use it. All "when to use" info goes here, not in the body. Skills tend to under-trigger, so make descriptions slightly "pushy" — e.g. instead of _"Build a fast dashboard"_, write _"Build a fast dashboard. Make sure to use this skill whenever the user mentions dashboards, data visualization, internal metrics, or wants to display any kind of company data, even if they do not explicitly ask for a 'dashboard.'"_
 - **`license`** (optional) — the license under which the skill is distributed.
 
 Then write the body.
@@ -110,10 +110,15 @@ Skills must not contain malware, exploit code, or any content that could comprom
 
 ```markdown
 ## Report structure
+
 ALWAYS use this exact template:
+
 # [Title]
+
 ## Executive summary
+
 ## Key findings
+
 ## Recommendations
 ```
 
@@ -121,6 +126,7 @@ ALWAYS use this exact template:
 
 ```markdown
 ## Commit message format
+
 **Example 1:**
 Input: Added user authentication with JWT tokens
 Output: feat(auth): implement JWT-based authentication
@@ -128,7 +134,7 @@ Output: feat(auth): implement JWT-based authentication
 
 ## Test cases
 
-After drafting, come up with 2–3 realistic test prompts — the kind of thing a real user would actually say. Share them with the user: *"Here are a few test cases I'd like to try. Do these look right, or do you want to add more?"*
+After drafting, come up with 2–3 realistic test prompts — the kind of thing a real user would actually say. Share them with the user: _"Here are a few test cases I'd like to try. Do these look right, or do you want to add more?"_
 
 Try the skill on each prompt. Read the transcripts (not just the final outputs) to see whether the skill is causing the model to waste effort on unhelpful steps.
 

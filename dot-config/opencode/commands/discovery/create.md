@@ -30,11 +30,13 @@ Creates tickets in target implementation epics
 1. **Fetch the epic** from Jira using `{Epic_Key}`
 
 2. **Extract from epic:**
+
    - `{Epic_Title}` - The epic title/name
    - `{Jira_Project}` - The Jira project URL
    - Linked tickets
 
 3. **Determine Confluence location:**
+
    - Default: `/Epics/Discovery/{Epic_Key}/`
    - If location unclear, ask user
 
@@ -43,6 +45,7 @@ Creates tickets in target implementation epics
    If epic cannot be found or has no linked tickets:
 
    **STOP and prompt the user:**
+
    ```
    I was unable to retrieve epic {Epic_Key}.
 
@@ -76,6 +79,7 @@ Creates tickets in target implementation epics
 ## Phase 1: Question Extraction
 
 1. **Read all Jira tickets** linked to epic `{Epic_Key}`
+
    - Use JQL query: `"Epic Link" = {Epic_Key}` to find all child tickets
    - Extract acceptance criteria from each ticket
    - Identify ticket dependencies and relationships
@@ -86,6 +90,7 @@ Creates tickets in target implementation epics
    - Catalog unknowns and uncertainties
 
 2. **Categorize questions** into themes:
+
    - Customer/User Discovery (who, what problems, what workflows)
    - Technical Feasibility (can we build it, how complex)
    - Business Viability (is it worth it, what's the ROI)
@@ -107,6 +112,7 @@ Creates tickets in target implementation epics
 Create a discovery document with these sections:
 
 ### 1. Discovery Overview
+
 - **Epic:** Link to epic with title
 - **Discovery Goal:** What are we trying to learn?
 - **Success Criteria:** How do we know discovery is complete?
@@ -114,42 +120,48 @@ Create a discovery document with these sections:
 - **Stakeholders:** Who needs to be involved?
 
 ### 2. Hypothesis Map
+
 For each major feature/capability in the epic:
 
-| Hypothesis ID | Statement | Confidence | Validation Method | Status |
-|---------------|-----------|------------|-------------------|--------|
-| H1 | "Users need X because Y" | Low/Med/High | Interview/Data/Spike | Open |
-| H2 | "We can integrate with Z" | Low/Med/High | Technical spike | Open |
+| Hypothesis ID | Statement                 | Confidence   | Validation Method    | Status |
+| ------------- | ------------------------- | ------------ | -------------------- | ------ |
+| H1            | "Users need X because Y"  | Low/Med/High | Interview/Data/Spike | Open   |
+| H2            | "We can integrate with Z" | Low/Med/High | Technical spike      | Open   |
 
 ### 3. Research Questions Matrix
 
 Organize questions by category and priority:
 
 #### Customer/User Discovery
-| ID | Question | Priority | Method | Owner | Status |
-|----|----------|----------|--------|-------|--------|
-| Q1 | Who are the primary users? | High | Interviews | [TBD] | Open |
-| Q2 | What pain points exist today? | High | Interviews + Data | [TBD] | Open |
+
+| ID  | Question                      | Priority | Method            | Owner | Status |
+| --- | ----------------------------- | -------- | ----------------- | ----- | ------ |
+| Q1  | Who are the primary users?    | High     | Interviews        | [TBD] | Open   |
+| Q2  | What pain points exist today? | High     | Interviews + Data | [TBD] | Open   |
 
 #### Technical Feasibility
-| ID | Question | Priority | Method | Owner | Status |
-|----|----------|----------|--------|-------|--------|
-| T1 | Can we integrate with X API? | High | Spike | [TBD] | Open |
-| T2 | What are the performance implications? | Med | Benchmark | [TBD] | Open |
+
+| ID  | Question                               | Priority | Method    | Owner | Status |
+| --- | -------------------------------------- | -------- | --------- | ----- | ------ |
+| T1  | Can we integrate with X API?           | High     | Spike     | [TBD] | Open   |
+| T2  | What are the performance implications? | Med      | Benchmark | [TBD] | Open   |
 
 #### Business Viability
-| ID | Question | Priority | Method | Owner | Status |
-|----|----------|----------|--------|-------|--------|
-| B1 | What's the expected ROI? | High | Analysis | [TBD] | Open |
-| B2 | How does this compare to competitors? | Med | Research | [TBD] | Open |
+
+| ID  | Question                              | Priority | Method   | Owner | Status |
+| --- | ------------------------------------- | -------- | -------- | ----- | ------ |
+| B1  | What's the expected ROI?              | High     | Analysis | [TBD] | Open   |
+| B2  | How does this compare to competitors? | Med      | Research | [TBD] | Open   |
 
 #### Scope & Boundaries
-| ID | Question | Priority | Method | Owner | Status |
-|----|----------|----------|--------|-------|--------|
-| S1 | What's the MVP vs full vision? | High | Discussion | [TBD] | Open |
-| S2 | What's explicitly out of scope? | High | Discussion | [TBD] | Open |
+
+| ID  | Question                        | Priority | Method     | Owner | Status |
+| --- | ------------------------------- | -------- | ---------- | ----- | ------ |
+| S1  | What's the MVP vs full vision?  | High     | Discussion | [TBD] | Open   |
+| S2  | What's explicitly out of scope? | High     | Discussion | [TBD] | Open   |
 
 ### 4. Dependencies & Blockers
+
 - External dependencies (third-party APIs, vendor decisions)
 - Internal dependencies (other teams, systems)
 - Information blockers (data access, stakeholder availability)
@@ -160,6 +172,7 @@ Organize questions by category and priority:
 For each high-priority question, outline:
 
 #### Research Activity Template
+
 ```
 **Activity:** [Interview/Spike/Analysis/etc.]
 **Questions Addressed:** Q1, Q2, T1
@@ -173,24 +186,24 @@ For each high-priority question, outline:
 
 Define how findings will be evaluated:
 
-| Decision Point | Options | Criteria | Owner |
-|----------------|---------|----------|-------|
-| Build vs Buy for X | Build, Buy, Partner | Cost, Time, Control | [TBD] |
-| Target user segment | Segment A, B, Both | Market size, Fit | [TBD] |
+| Decision Point      | Options             | Criteria            | Owner |
+| ------------------- | ------------------- | ------------------- | ----- |
+| Build vs Buy for X  | Build, Buy, Partner | Cost, Time, Control | [TBD] |
+| Target user segment | Segment A, B, Both  | Market size, Fit    | [TBD] |
 
 ### 7. Risk Register
 
-| Risk | Likelihood | Impact | Mitigation | Owner |
-|------|------------|--------|------------|-------|
-| Users don't want this feature | Med | High | Early validation interviews | [TBD] |
-| Technical integration too complex | Low | High | Spike before commitment | [TBD] |
+| Risk                              | Likelihood | Impact | Mitigation                  | Owner |
+| --------------------------------- | ---------- | ------ | --------------------------- | ----- |
+| Users don't want this feature     | Med        | High   | Early validation interviews | [TBD] |
+| Technical integration too complex | Low        | High   | Spike before commitment     | [TBD] |
 
 ### 8. Target Implementation Epics
 
 List epics where findings may generate tickets:
 
-| Epic | Title | Relationship |
-|------|-------|--------------|
+| Epic  | Title   | Relationship                           |
+| ----- | ------- | -------------------------------------- |
 | CC-60 | [Title] | [How discoveries might feed into this] |
 | CC-62 | [Title] | [How discoveries might feed into this] |
 
@@ -198,8 +211,8 @@ List epics where findings may generate tickets:
 
 **Discovery Epic:** [{Epic_Key}]({Epic_URL}) - {Epic_Title}
 
-| Key | Summary | Type | Discovery Focus |
-|-----|---------|------|-----------------|
+| Key               | Summary        | Type | Discovery Focus                  |
+| ----------------- | -------------- | ---- | -------------------------------- |
 | [TICKET-123](url) | Ticket summary | Task | [Which questions this addresses] |
 
 ---
@@ -230,6 +243,7 @@ Ready to publish this discovery document to Confluence? (Yes / No / Modify)
 ## Phase 4: Publish & Output
 
 1. Publish to Confluence at: `/epics/Discovery/{Epic_Key}/`
+
    - Page title: "{Epic_Key} Discovery - {Epic_Title}"
 
 2. Verify the document was published successfully
@@ -240,12 +254,12 @@ Ready to publish this discovery document to Confluence? (Yes / No / Modify)
 
 ## Failure Conditions
 
-| Condition | Action |
-|-----------|--------|
-| Epic key not found | Error message, ask user to verify epic key |
-| No linked tickets | Warn user, ask if they want to continue with minimal document |
-| Confluence location invalid | Ask user for correct location |
-| Missing Jira/Confluence access | Provide instructions for credential setup |
+| Condition                      | Action                                                        |
+| ------------------------------ | ------------------------------------------------------------- |
+| Epic key not found             | Error message, ask user to verify epic key                    |
+| No linked tickets              | Warn user, ask if they want to continue with minimal document |
+| Confluence location invalid    | Ask user for correct location                                 |
+| Missing Jira/Confluence access | Provide instructions for credential setup                     |
 
 ---
 

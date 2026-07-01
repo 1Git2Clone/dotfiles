@@ -19,12 +19,12 @@ Claude often operates on assumptions about project context, technology choices, 
 
 Parse arguments to determine mode:
 
-| Flag | Mode | Description |
-|------|------|-------------|
-| (none) | Default | Surface & Adjust two-phase interactive flow |
-| `--list` | List | Read-only view of all tracked assumptions |
-| `--check` | Check | Quick validation of current assumptions |
-| `--graph` | Graph | Generate mermaid diagram of reasoning structure |
+| Flag      | Mode    | Description                                     |
+| --------- | ------- | ----------------------------------------------- |
+| (none)    | Default | Surface & Adjust two-phase interactive flow     |
+| `--list`  | List    | Read-only view of all tracked assumptions       |
+| `--check` | Check   | Quick validation of current assumptions         |
+| `--graph` | Graph   | Generate mermaid diagram of reasoning structure |
 
 ---
 
@@ -32,11 +32,11 @@ Parse arguments to determine mode:
 
 Load detailed guidance based on context:
 
-| Topic | Reference | Load When |
-|-------|-----------|-----------|
-| Assumption Types & Tiers | `references/assumption-classification.md` | Classifying assumptions, determining type or tier |
-| File Management | `references/file-management.md` | Storage operations, project ID, ground file format |
-| Reasoning Graph | `references/reasoning-graph.md` | Using --graph flag, generating mermaid diagrams |
+| Topic                    | Reference                                 | Load When                                          |
+| ------------------------ | ----------------------------------------- | -------------------------------------------------- |
+| Assumption Types & Tiers | `references/assumption-classification.md` | Classifying assumptions, determining type or tier  |
+| File Management          | `references/file-management.md`           | Storage operations, project ID, ground file format |
+| Reasoning Graph          | `references/reasoning-graph.md`           | Using --graph flag, generating mermaid diagrams    |
 
 ---
 
@@ -45,9 +45,11 @@ Load detailed guidance based on context:
 Before any operation, determine the project identity:
 
 1. **Try git remote:**
+
    ```bash
    git remote get-url origin 2>/dev/null
    ```
+
    If found, use the URL as project identifier (e.g., `github.com/user/repo`)
 
 2. **Fallback to path:**
@@ -64,11 +66,13 @@ When no flags provided, execute the two-phase interactive flow.
 ### Phase 1: Surface & Select
 
 1. **Analyze current context** to identify assumptions:
+
    - Scan configuration files (tsconfig.json, package.json, .eslintrc, etc.)
    - Review recent conversation context
    - Check existing ground file for tracked assumptions
 
 2. **Classify each assumption** by type and proposed tier:
+
    - See `references/assumption-classification.md` for classification rules
 
 3. **Present to user via AskUserQuestion:**
@@ -76,11 +80,13 @@ When no flags provided, execute the two-phase interactive flow.
    Present assumptions grouped by category. Use multiSelect to let user choose which to track.
 
    **Question format:**
+
    ```
    I've identified assumptions about this project. Which should I track?
    ```
 
    **Options** (up to 4 categories, user selects via multiSelect):
+
    - Architecture & Tech Stack assumptions
    - Coding Standards assumptions
    - Testing & Quality assumptions
@@ -98,17 +104,20 @@ When no flags provided, execute the two-phase interactive flow.
 2. **Present tier adjustment options via AskUserQuestion:**
 
    **Question format:**
+
    ```
    Review the confidence tiers. Any adjustments needed?
    ```
 
    **Options:**
+
    - Accept all proposed tiers
    - Promote some to higher confidence
    - Demote some to lower confidence
    - Add new assumptions
 
 3. **Process adjustments:**
+
    - Promotions: OPEN -> WORKING -> ESTABLISHED
    - Demotions: ESTABLISHED -> WORKING -> OPEN
    - New additions: User specifies via "Other" with format: `assumption text [tier] [type]`
@@ -187,16 +196,19 @@ Quick validation of existing assumptions.
 2. **Present summary via AskUserQuestion:**
 
    **Question format:**
+
    ```
    Quick check: Are these assumptions still valid?
    ```
 
    **Options:**
+
    - All still valid
    - Some need updates
    - Need full review
 
 3. **Handle responses:**
+
    - **All valid:** Update `last_validated` timestamp, confirm
    - **Some need updates:** Ask which ones, then enter Phase 2 of default flow
    - **Need full review:** Run full default flow
@@ -217,6 +229,7 @@ Generate a mermaid diagram showing Claude's reasoning structure—not just assum
 ### Purpose
 
 Make the shape of Claude's reasoning visible:
+
 - Decision points and branches considered
 - Paths taken vs alternatives
 - Where uncertainty lives in the reasoning chain
@@ -226,6 +239,7 @@ Make the shape of Claude's reasoning visible:
 1. **Run standard common-ground flow** (if no existing ground file, execute default mode first)
 
 2. **Analyze reasoning structure** behind confirmed assumptions:
+
    - What decision points led to these assumptions?
    - What alternatives were considered at each branch?
    - What confidence level exists at each node?
@@ -240,7 +254,7 @@ Make the shape of Claude's reasoning visible:
 
 The reasoning graph is embedded in `COMMON-GROUND.md`:
 
-```markdown
+````markdown
 ## Reasoning Graph
 
 ```mermaid
@@ -250,6 +264,8 @@ flowchart TD
     D1 -->|"weight: 0.2 [alternative]"| P2[Alternative]
     ...
 ```
+````
+
 ```
 
 ### Conversational Interaction
@@ -268,6 +284,7 @@ After each significant interaction, regenerate the graph showing updated state.
 ### Example Output
 
 ```
+
 ## --graph Complete
 
 **Project:** {project_name}
@@ -275,6 +292,7 @@ After each significant interaction, regenerate the graph showing updated state.
 **Decision Points:** {count}
 
 ### Graph Summary
+
 - Root: {task_description}
 - Major Decisions: {count}
 - Open Questions: {count} nodes with uncertain status
@@ -283,6 +301,7 @@ After each significant interaction, regenerate the graph showing updated state.
 
 Run `/common-ground --list` to view assumptions.
 Run `/common-ground --graph` to regenerate after changes.
+
 ```
 
 See `references/reasoning-graph.md` for detailed mermaid conventions and node styling.
@@ -307,3 +326,4 @@ See `references/reasoning-graph.md` for detailed mermaid conventions and node st
 - Overwrite ground file without preserving history
 - Generate graphs without first having confirmed assumptions
 - Remove alternative branches from graph (preserve for exploration)
+```

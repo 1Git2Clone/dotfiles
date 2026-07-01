@@ -10,6 +10,7 @@
 The reasoning graph makes Claude's decision-making structure visible—not just the assumptions (premises), but the decision tree that led to the current approach.
 
 **Two complementary artifacts:**
+
 - `COMMON-GROUND.md` = the premises (what we're assuming)
 - Reasoning graph = the structure (how decisions connect)
 
@@ -47,14 +48,14 @@ flowchart TD
 
 ## Node Types
 
-| Node Type | Shape | Color | Mermaid Syntax | Meaning |
-|-----------|-------|-------|----------------|---------|
-| Task/Goal | Rectangle | Default | `ROOT[Task: ...]` | Root of reasoning tree |
-| Decision Point | Diamond | Yellow `#ffcc00` | `D1{Question?}` | Fork requiring choice |
-| Chosen Path | Rectangle | Green `#90EE90` | `P1[Path Name]` | High confidence, taken |
-| Alternative | Rectangle | Gray `#cccccc` | `P2[Alternative]` | Considered but not taken |
-| Uncertain | Rectangle | Orange `#FFB366` | `U1[Uncertain]` | Low confidence, needs clarification |
-| Implementation | Rectangle | Blue `#87CEEB` | `I1[Detail]` | Concrete decision/action |
+| Node Type      | Shape     | Color            | Mermaid Syntax    | Meaning                             |
+| -------------- | --------- | ---------------- | ----------------- | ----------------------------------- |
+| Task/Goal      | Rectangle | Default          | `ROOT[Task: ...]` | Root of reasoning tree              |
+| Decision Point | Diamond   | Yellow `#ffcc00` | `D1{Question?}`   | Fork requiring choice               |
+| Chosen Path    | Rectangle | Green `#90EE90`  | `P1[Path Name]`   | High confidence, taken              |
+| Alternative    | Rectangle | Gray `#cccccc`   | `P2[Alternative]` | Considered but not taken            |
+| Uncertain      | Rectangle | Orange `#FFB366` | `U1[Uncertain]`   | Low confidence, needs clarification |
+| Implementation | Rectangle | Blue `#87CEEB`   | `I1[Detail]`      | Concrete decision/action            |
 
 ---
 
@@ -96,13 +97,13 @@ D1 -->|"[alternative]"| A1
 
 ### Source Tags
 
-| Tag | Meaning | Typical Weight |
-|-----|---------|----------------|
-| `[stated]` | User explicitly said this | 0.8 - 1.0 |
-| `[inferred]` | Derived from code/config | 0.6 - 0.8 |
-| `[assumed]` | Best practice default | 0.5 - 0.7 |
-| `[uncertain]` | Needs clarification | 0.2 - 0.5 |
-| `[alternative]` | Considered but not taken | 0.1 - 0.3 |
+| Tag             | Meaning                   | Typical Weight |
+| --------------- | ------------------------- | -------------- |
+| `[stated]`      | User explicitly said this | 0.8 - 1.0      |
+| `[inferred]`    | Derived from code/config  | 0.6 - 0.8      |
+| `[assumed]`     | Best practice default     | 0.5 - 0.7      |
+| `[uncertain]`   | Needs clarification       | 0.2 - 0.5      |
+| `[alternative]` | Considered but not taken  | 0.1 - 0.3      |
 
 ---
 
@@ -112,13 +113,13 @@ D1 -->|"[alternative]"| A1
 
 Use consistent prefixes:
 
-| Prefix | Meaning | Example |
-|--------|---------|---------|
-| `ROOT` | Root task | `ROOT[Task: Build auth]` |
+| Prefix | Meaning        | Example                  |
+| ------ | -------------- | ------------------------ |
+| `ROOT` | Root task      | `ROOT[Task: Build auth]` |
 | `D{n}` | Decision point | `D1{MVP or Production?}` |
-| `P{n}` | Chosen path | `P1[Production-grade]` |
-| `A{n}` | Alternative | `A1[MVP approach]` |
-| `U{n}` | Uncertain node | `U1[Redis sessions?]` |
+| `P{n}` | Chosen path    | `P1[Production-grade]`   |
+| `A{n}` | Alternative    | `A1[MVP approach]`       |
+| `U{n}` | Uncertain node | `U1[Redis sessions?]`    |
 | `I{n}` | Implementation | `I1[15min token expiry]` |
 
 ### Labels
@@ -143,6 +144,7 @@ ROOT[Task: Build authentication system]
 ### Step 2: Map Major Decisions
 
 For each ESTABLISHED or WORKING assumption, trace back:
+
 - What decision led to this assumption?
 - What alternatives existed?
 
@@ -189,6 +191,7 @@ Add style rules for all nodes based on their type.
 ### Context
 
 User wants to build an authentication system. Through conversation:
+
 - Production-grade confirmed (inferred from requirements)
 - Stateless preferred (assumed, not confirmed)
 - JWT chosen over sessions (working assumption)
@@ -237,7 +240,7 @@ flowchart TD
 
 Add the graph as a section in the ground file:
 
-```markdown
+````markdown
 ---
 
 ## Reasoning Graph
@@ -248,18 +251,20 @@ Last generated: {timestamp}
 flowchart TD
     ...
 ```
+````
 
 ### Graph Legend
 
-| Color | Meaning |
-|-------|---------|
+| Color  | Meaning                          |
+| ------ | -------------------------------- |
 | Yellow | Decision point (requires choice) |
-| Green | Chosen path (high confidence) |
-| Gray | Alternative (not taken) |
-| Orange | Uncertain (needs clarification) |
-| Blue | Implementation (concrete action) |
+| Green  | Chosen path (high confidence)    |
+| Gray   | Alternative (not taken)          |
+| Orange | Uncertain (needs clarification)  |
+| Blue   | Implementation (concrete action) |
 
 ---
+
 ```
 
 ---
@@ -348,3 +353,4 @@ Regenerate the graph when:
 | User requests expansion | Add subtree detail |
 
 Always preserve the full tree structure—never remove alternatives, just gray them out.
+```

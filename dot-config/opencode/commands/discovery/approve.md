@@ -12,10 +12,12 @@ agent: build
 ## Argument Parsing
 
 Parse the arguments to extract:
+
 - `{Synthesis_URL}` - Confluence synthesis document URL (required)
 - `{Decisions}` - Optional pre-provided decision resolutions (via `--decision=D1:OptionB`)
 
 **Examples:**
+
 - `/discovery/approve https://confluence/synthesis-doc` → Review and approve interactively
 - `/discovery/approve https://confluence/synthesis-doc --decision=D1:B --decision=D2:Y` → Pre-resolve decisions
 
@@ -42,6 +44,7 @@ Parse the arguments to extract:
 1. **Fetch the synthesis document** from `{Synthesis_URL}`
 
 2. **Extract from synthesis document:**
+
    - Discovery Epic link
    - Target implementation epics
    - Proposed tickets JSON (from Section 9, between `<!-- PROPOSED_TICKETS_START -->` and `<!-- PROPOSED_TICKETS_END -->` markers)
@@ -53,6 +56,7 @@ Parse the arguments to extract:
    If synthesis document cannot be fetched or lacks required sections:
 
    **STOP and prompt the user:**
+
    ```
    I was unable to retrieve the synthesis document or it is missing required data.
 
@@ -72,6 +76,7 @@ Parse the arguments to extract:
    If synthesis is already approved (`approval_status: "approved"`):
 
    **STOP and report:**
+
    ```
    This synthesis has already been approved.
 
@@ -116,6 +121,7 @@ Parse the arguments to extract:
 2. **Apply any pre-provided decisions** from `--decision` arguments:
 
    For each `--decision=ID:Value`:
+
    - Validate the decision ID exists
    - Validate the value is a valid option
    - Mark as resolved
@@ -125,6 +131,7 @@ Parse the arguments to extract:
    If any blocking decisions remain unresolved:
 
    **STOP and present each decision:**
+
    ```
    ## Blocking Decisions Require Resolution
 
@@ -154,6 +161,7 @@ Parse the arguments to extract:
 4. **Record decision resolutions:**
 
    For each resolved decision:
+
    - Record the chosen option
    - Record resolver (user)
    - Record timestamp
@@ -213,6 +221,7 @@ Parse the arguments to extract:
    ```
 
    **Editing loop:**
+
    - Parse user input for add/remove/modify commands
    - Apply changes to proposed tickets
    - Show updated list after each change
@@ -249,6 +258,7 @@ For each approved ticket:
    ```
 
 2. **Set ticket fields:**
+
    - Summary: [Title]
    - Type: Story/Task/Bug/Spike
    - Epic Link: {Target_Epic}
@@ -260,32 +270,40 @@ For each approved ticket:
 
 ```markdown
 ## Source
+
 - Discovery Epic: [{Discovery_Epic_Key}]({url})
 - Synthesis Document: [{Synthesis_Doc}]({url})
 - Based on Findings: [F1, F2, ...]
 
 ## Context
+
 [Why this ticket was created based on discovery findings]
 
 ## Summary
+
 [What this ticket accomplishes]
 
 ## Acceptance Criteria
+
 - [ ] [Criterion from synthesis]
 - [ ] [Criterion from synthesis]
 
 ## Notes from Discovery
+
 - [Relevant insights that inform implementation]
 - [Constraints or considerations discovered]
 
 ## Decisions Made
+
 - D1: [Decision question] → [Resolution chosen]
 
 ---
-*This ticket was generated from discovery synthesis. See source documents for full context.*
+
+_This ticket was generated from discovery synthesis. See source documents for full context._
 ```
 
 4. **Link tickets:**
+
    - Link to discovery epic as "discovered by"
    - Link dependencies between tickets using `jira_create_issue_link`:
      - `inward_issue_key` = **blocker**, `outward_issue_key` = **blocked**
@@ -339,18 +357,18 @@ For each approved ticket:
 
    #### Tickets Created
 
-   | Jira Key | Title | Type | Epic | Points |
-   |----------|-------|------|------|--------|
-   | [CC-123](url) | [title] | Story | CC-62 | 5 |
-   | [CC-124](url) | [title] | Task | CC-62 | 3 |
+   | Jira Key      | Title   | Type  | Epic  | Points |
+   | ------------- | ------- | ----- | ----- | ------ |
+   | [CC-123](url) | [title] | Story | CC-62 | 5      |
+   | [CC-124](url) | [title] | Task  | CC-62 | 3      |
 
    **Total:** [count] tickets, [sum] story points
 
    #### Decision Resolutions
 
-   | Decision | Question | Resolution | Resolved By |
-   |----------|----------|------------|-------------|
-   | D1 | [question] | Option B | [user] |
+   | Decision | Question   | Resolution | Resolved By |
+   | -------- | ---------- | ---------- | ----------- |
+   | D1       | [question] | Option B   | [user]      |
 
    #### Changes from Original Proposal
 
@@ -426,16 +444,16 @@ For each approved ticket:
 
 ## Failure Conditions
 
-| Condition | Action |
-|-----------|--------|
-| Synthesis URL not accessible | Ask user to verify URL |
-| Missing Proposed Tickets section | Ask user to run /discovery/synthesize first |
-| Invalid JSON in Proposed Tickets | Report parsing error, ask for manual fix |
-| Unresolved blocking decisions | Present decisions for resolution, block ticket creation |
-| Synthesis already approved | Offer options: view, append, or cancel |
-| Jira ticket creation fails | Report error, offer retry/skip/stop options |
-| Confluence update fails | Provide content for manual update |
-| Target epic not found | Ask user to verify epic key |
+| Condition                        | Action                                                  |
+| -------------------------------- | ------------------------------------------------------- |
+| Synthesis URL not accessible     | Ask user to verify URL                                  |
+| Missing Proposed Tickets section | Ask user to run /discovery/synthesize first             |
+| Invalid JSON in Proposed Tickets | Report parsing error, ask for manual fix                |
+| Unresolved blocking decisions    | Present decisions for resolution, block ticket creation |
+| Synthesis already approved       | Offer options: view, append, or cancel                  |
+| Jira ticket creation fails       | Report error, offer retry/skip/stop options             |
+| Confluence update fails          | Provide content for manual update                       |
+| Target epic not found            | Ask user to verify epic key                             |
 
 ---
 

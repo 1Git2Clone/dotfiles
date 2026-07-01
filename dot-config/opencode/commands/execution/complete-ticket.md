@@ -14,10 +14,12 @@ agent: build
 **If argument provided:** Use `$ARGUMENTS` as the ticket key.
 
 **If no argument:** Look back in the conversation for:
+
 - The most recently executed ticket (from `/execution/execute-ticket`)
 - The implementation plan URL (extracted during execution)
 
 **If ticket cannot be identified:**
+
 ```
 I couldn't identify which ticket to complete. Please provide the ticket key:
 
@@ -29,20 +31,22 @@ I couldn't identify which ticket to complete. Please provide the ticket key:
 ## Step 2: Gather Completion Details
 
 **From the Jira ticket:**
+
 - Implementation Plan URL (from ticket description)
 
 **From conversation context:**
 
-| Field | Source |
-|-------|--------|
-| Ticket Key | From argument or recent `/execution/execute-ticket` |
-| Changes Made | From the completion summary presented |
-| Files Modified | From the completion summary |
-| Tests Added | From the completion summary |
-| Deviations | Any approved deviations discussed |
-| Follow-up Tickets | Any tickets created during implementation |
+| Field             | Source                                              |
+| ----------------- | --------------------------------------------------- |
+| Ticket Key        | From argument or recent `/execution/execute-ticket` |
+| Changes Made      | From the completion summary presented               |
+| Files Modified    | From the completion summary                         |
+| Tests Added       | From the completion summary                         |
+| Deviations        | Any approved deviations discussed                   |
+| Follow-up Tickets | Any tickets created during implementation           |
 
 **If completion summary not found in context:**
+
 ```
 I couldn't find a completion summary in this conversation.
 
@@ -52,6 +56,7 @@ Please either:
 ```
 
 **If Implementation Plan URL not in ticket:**
+
 ```
 The ticket doesn't have an Implementation Plan URL.
 
@@ -106,6 +111,7 @@ Fetch the current implementation plan page and update:
 3. **Parallel Execution Strategy wave table** - Update ticket's Status to "✅ Complete"
 
 4. **Add Completion Details section:**
+
    ```
    ## {Ticket_Key} Completion Details
 
@@ -144,14 +150,17 @@ Fetch the current implementation plan page and update:
 ## Error Handling
 
 **If Jira transition fails:**
+
 - Report the error
 - Ask user if they want to retry or skip
 
 **If Confluence update fails:**
+
 - Report the error
 - Provide the completion details so user can manually update if needed
 
 **If implementation plan URL not found:**
+
 - Fetch the ticket from Jira
 - Extract the implementation plan URL from the description
 - If still not found, ask user to provide it
@@ -167,6 +176,7 @@ This command can be used standalone (without prior `/execution/execute-ticket`) 
 ```
 
 If no context is available, prompt user for:
+
 1. Implementation plan URL
 2. Brief summary of changes made
 3. Files modified

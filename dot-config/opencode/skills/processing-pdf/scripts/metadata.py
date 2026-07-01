@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Extract metadata from a PDF file."""
+
 import argparse
 import json
 import sys
@@ -22,7 +23,15 @@ def main():
         }
 
         if meta:
-            for key in ["/Title", "/Author", "/Subject", "/Creator", "/Producer", "/CreationDate", "/ModDate"]:
+            for key in [
+                "/Title",
+                "/Author",
+                "/Subject",
+                "/Creator",
+                "/Producer",
+                "/CreationDate",
+                "/ModDate",
+            ]:
                 val = meta.get(key)
                 if val:
                     info[key.lstrip("/").replace("/", " ")] = str(val)

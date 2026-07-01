@@ -10,7 +10,7 @@
  * @website https://mwittrien.github.io/
  * @source https://github.com/mwittrien/BetterDiscordAddons/tree/master/Themes/BasicBackground/
  * @updateUrl https://mwittrien.github.io/BetterDiscordAddons/Themes/BasicBackground/BasicBackground.theme.css
- * 
+ *
  * @var text				transparencycolor_s		"Transparency Color: [default] = 0, 0, 0"		0, 0, 0
  * @var range				transparencyalpha_s		"Transparency Alpha: [default] = 0.15"			[0.15, 0, 1, 0.05]
  * @var range				messagetransparency_s		"Messages: [default] = 0.5, 0 = No Boxes"		[0.5, 0, 1, 0.05]
@@ -63,11 +63,11 @@
 	/* --accentcolor:			255, 179, 204;			/* default: 190, 78, 180			(RGB-format - blurple: 88, 101, 242 bd-blue: 58, 113, 193)				*/ */
   /* Purpel */
 	--accentcolor:			255, 0, 255;			/* default: 190, 78, 180			(RGB-format - blurple: 88, 101, 242 bd-blue: 58, 113, 193)				*/
-	
+
 	--settingsicons:		1;				/* Use Settings Icons in User Settings: 1 = yes, 0 = no											*/
 	--font:				"JetBrainsMono Nerd Font Mono", "JetBrainsMono Nerd Font Mono";		/* font used in most places														*/
 	--textshadow:			transparent;			/* default: transparent				(textshadow for text ontop of accentcolor nodes, ONLY accepts a color, no px)		*/
-	
+
   /* Purpel */
 	--background:			url("https://codeberg.org/1Kill2Steal/dotfiles/raw/branch/main/dot-config/i3/backgrounds/Hu_Tao_1.png");	/* general background image					*/
   /* Pinkish */
@@ -76,23 +76,23 @@
 	--backgroundsize:		cover;				/* default: cover				(sizefit of background - values: [cover/contain/auto])					*/
 	/*--backgroundblur:		3;				/* default: 0					(blur in px, only works when --background is set to an image)				*/*/
 	--backgroundblur:		0;				/* default: 0					(blur in px, only works when --background is set to an image)				*/
-	
+
 	--popout:			var(--background);		/* default: var(--background)			(change to use another background/color for modals/popouts)				*/
 	--popoutposition:		var(--backgroundposition);	/* default: center				(position of popout - values: [center/top/right/bottom/left])				*/
 	--popoutsize:			var(--backgroundsize);		/* default: cover				(sizefit of popout - values: [cover/contain/auto])					*/
 	--popoutblur:			var(--backgroundblur);		/* default: 0					(blur in px, only works when --popout is set to an image)				*/
-	
+
 	--backdrop:			rgba(0, 0, 0, 0.85);		/* default: rgba(0, 0, 0, 0.85)			(change to use another background/color for backdrops)					*/
 	--backdropposition:		center;				/* default: center				(position of backdrop - values: [center/top/right/bottom/left])				*/
 	--backdropsize:			cover;				/* default: cover				(sizefit of backdrop - values: [cover/contain/auto])					*/
 	--backdropblur:			0;				/* default: 0					(blur in px, only works when --backdrop is set to an image)				*/
-	
+
 	--textbrightest: 		255, 255, 255;			/* default: 255, 255, 255			(text color for the brightest texts)							*/
 	--textbrighter: 		222, 222, 222;			/* default: 222, 222, 222			(text color for brighter texts)								*/
 	--textbright: 			200, 200, 200;			/* default: 200, 200, 200			(text color for bright texts)								*/
 	--textdark: 			160, 160, 160;			/* default: 160, 160, 160			(text color for dark texts)								*/
 	--textdarker: 			125, 125, 125;			/* default: 125, 125, 125			(text color for darker texts)								*/
 	--textdarkest: 			90, 90, 90;			/* default: 90, 90, 90				(text color for the darkest texts)							*/
-	
+
 	--version1_0_5:			none;				/* DO NOT CHANGE THIS VARIABLE , USED TO HIDE UPDATE NOTICE										*/
 }

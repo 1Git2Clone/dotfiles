@@ -36,10 +36,8 @@ def count_lines_in_files(directory, extensions=None, excluded_dirs=None):
             ext = os.path.splitext(file_path)[1]
             if not extensions or ext in extensions:
                 try:
-                    with open(file_path, "r", encoding="utf-8") as f:
-                        lines_count[ext] = lines_count.get(ext, 0) + sum(
-                            1 for line in f
-                        )
+                    with open(file_path, encoding="utf-8") as f:
+                        lines_count[ext] = lines_count.get(ext, 0) + sum(1 for line in f)
                 except UnicodeDecodeError:
                     # print(f"Error reading file: {file_path}. Skipping...")
                     continue
@@ -62,9 +60,7 @@ if __name__ == "__main__":
 
     if excluded_dirs_index:
         excluded_dirs = sys.argv[excluded_dirs_index + 1 :]
-        extensions = (
-            sys.argv[2:excluded_dirs_index] if excluded_dirs_index > 2 else None
-        )
+        extensions = sys.argv[2:excluded_dirs_index] if excluded_dirs_index > 2 else None
     else:
         excluded_dirs = []
         extensions = sys.argv[2:]

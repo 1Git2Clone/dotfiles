@@ -62,13 +62,15 @@ Agents should infer the email format for models not listed here based on the
 provider's domain pattern.
 
 <!-- markdownlint-disable MD013 -->
-| Model                  | Email                                                  |
-|------------------------|--------------------------------------------------------|
-| DeepSeek R1 / V3       | [service@deepseek.com](mailto:service@deepseek.com)    |
-| Claude (any version)   | [noreply@anthropic.com](mailto:noreply@anthropic.com)  |
-| GPT / Codex / o-series | [noreply@openai.com](mailto:noreply@openai.com)        |
-| Gemini                 | [noreply@google.com](mailto:noreply@google.com)        |
-| Grok                   | [noreply@x.ai](mailto:noreply@x.ai)                    |
+
+| Model                  | Email                                                 |
+| ---------------------- | ----------------------------------------------------- |
+| DeepSeek R1 / V3       | [service@deepseek.com](mailto:service@deepseek.com)   |
+| Claude (any version)   | [noreply@anthropic.com](mailto:noreply@anthropic.com) |
+| GPT / Codex / o-series | [noreply@openai.com](mailto:noreply@openai.com)       |
+| Gemini                 | [noreply@google.com](mailto:noreply@google.com)       |
+| Grok                   | [noreply@x.ai](mailto:noreply@x.ai)                   |
+
 <!-- markdownlint-enable MD013 -->
 
 ### Pre-commit checks
@@ -195,12 +197,14 @@ Verify before acting:
 - Does the user actually want this, or are they thinking out loud?
 
 <!-- codebase-memory-mcp:start -->
+
 # Codebase Knowledge Graph (codebase-memory-mcp)
 
 This project uses codebase-memory-mcp to maintain a knowledge graph of the codebase.
 ALWAYS prefer MCP graph tools over grep/glob/file-search for code discovery.
 
 ## Priority Order
+
 1. `search_graph` — find functions, classes, routes, variables by pattern
 2. `trace_path` — trace who calls a function or what it calls
 3. `get_code_snippet` — read specific function/class source code
@@ -208,11 +212,13 @@ ALWAYS prefer MCP graph tools over grep/glob/file-search for code discovery.
 5. `get_architecture` — high-level project summary
 
 ## When to fall back to grep/glob
+
 - Searching for string literals, error messages, config values
 - Searching non-code files (Dockerfiles, shell scripts, configs)
 - When MCP tools return insufficient results
 
 ## Examples
+
 - Find a handler: `search_graph(name_pattern=".*OrderHandler.*")`
 - Who calls it: `trace_path(function_name="OrderHandler", direction="inbound")`
 - Read source: `get_code_snippet(qualified_name="pkg/orders.OrderHandler")`

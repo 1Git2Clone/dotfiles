@@ -18,9 +18,7 @@ const OPENROUTER_API_BASE = "https://openrouter.ai/api/v1";
 function getApiKey(): string {
   const key = process.env.OPENROUTER_API_KEY ?? process.env.OPENROUTER_TOKEN;
   if (!key) {
-    console.error(
-      "ERROR: OPENROUTER_API_KEY or OPENROUTER_TOKEN environment variable is required"
-    );
+    console.error("ERROR: OPENROUTER_API_KEY or OPENROUTER_TOKEN environment variable is required");
     process.exit(1);
   }
   return key;
@@ -34,7 +32,7 @@ const ImageGenerationInputSchema = z.object({
     .min(1, "Prompt is required")
     .max(4000, "Prompt must not exceed 4000 characters")
     .describe(
-      "Detailed description of the image to generate. For UI mockups, describe layout, colors, components, and style."
+      "Detailed description of the image to generate. For UI mockups, describe layout, colors, components, and style.",
     ),
 
   model: z
@@ -42,7 +40,7 @@ const ImageGenerationInputSchema = z.object({
     .default("google/gemini-2.5-pro-preview-03-25")
     .describe(
       "OpenRouter model ID that supports image output. Default: google/gemini-2.5-pro-preview-03-25. " +
-        "Others: google/gemini-2.5-flash-image-preview (free), openai/gpt-5-image, black-forest/flux-dev, etc."
+        "Others: google/gemini-2.5-flash-image-preview (free), openai/gpt-5-image, black-forest/flux-dev, etc.",
     ),
 
   aspect_ratio: z
@@ -60,10 +58,7 @@ const ImageGenerationInputSchema = z.object({
     .default("standard")
     .describe("Image quality. 'high' for finer detail, 'standard' for faster generation."),
 
-  output_format: z
-    .enum(["png", "webp", "jpeg"])
-    .default("webp")
-    .describe("Output image format."),
+  output_format: z.enum(["png", "webp", "jpeg"]).default("webp").describe("Output image format."),
 });
 
 type ImageGenerationInput = z.infer<typeof ImageGenerationInputSchema>;
@@ -84,7 +79,7 @@ interface OpenRouterImageResponse {
 }
 
 async function generateImage(
-  params: ImageGenerationInput
+  params: ImageGenerationInput,
 ): Promise<{ imageUrl: string; altText: string }> {
   const apiKey = getApiKey();
 
@@ -153,7 +148,7 @@ async function generateImage(
   // If we got text back but no image, return it as context
   if (content) {
     throw new Error(
-      `Model returned text instead of an image. Try a different model (e.g., google/gemini-2.5-flash-image-preview). Response: ${content.slice(0, 300)}`
+      `Model returned text instead of an image. Try a different model (e.g., google/gemini-2.5-flash-image-preview). Response: ${content.slice(0, 300)}`,
     );
   }
 
@@ -247,7 +242,7 @@ Error Handling:
         ],
       };
     }
-  }
+  },
 );
 
 // ── Main ─────────────────────────────────────────────────

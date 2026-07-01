@@ -47,22 +47,25 @@ Dispatch **seven independent reviewers** in parallel. Each returns a list of can
 - **Reviewer 4 — Deep-context bug scan.** Read the **full file(s)** for each changed function, not just the diff hunks. Trace data flow into and out of the changed code. Flag bugs that depend on context the diff alone does not show (e.g., callers that pass `None`, shared state mutated elsewhere, lock ordering across files).
 - **Reviewer 5 — Concurrency, ordering & state.** Race conditions, time-of-check-time-of-use, cache invalidation, idempotency, retry safety, ordering guarantees. Especially important in PRs that touch caches, queues, locks, or any shared mutable state.
 - **Reviewer 6 — Error handling & edge cases.** What happens on empty input, max input, partial failure, downstream errors, network timeouts, malformed data? Is failure logged, swallowed, or propagated? Are exceptions caught at the right layer?
-- **Reviewer 7 — Test coverage gap.** What scenarios in the changed code are *not* covered by existing tests? List them concretely (no generic "needs more tests"). Especially flag changed branches with no test exercising them.
+- **Reviewer 7 — Test coverage gap.** What scenarios in the changed code are _not_ covered by existing tests? List them concretely (no generic "needs more tests"). Especially flag changed branches with no test exercising them.
 
 Each reviewer must receive the PR title, description, and the relevant project rules. Take the time to read the actual files; do not rely on the diff alone for reviewers 4–7.
 
 **Critical: only HIGH-SIGNAL issues should be flagged.** Do flag:
+
 - Code that will fail to compile or parse (syntax, type errors, missing imports)
 - Code that will definitely produce wrong results regardless of inputs
 - Clear, unambiguous convention violations (must quote the exact rule)
 - Concrete edge cases that are reachable in production with a specific trigger
 
 **Critical: only HIGH-SIGNAL issues should be flagged.** Do flag:
+
 - Code that will fail to compile or parse (syntax, type errors, missing imports)
 - Code that will definitely produce wrong results regardless of inputs
 - Clear, unambiguous convention violations (must quote the exact rule)
 
 Do NOT flag:
+
 - Style or quality concerns that aren't in the project rules
 - Potential issues that depend on specific runtime state or inputs
 - Subjective suggestions
@@ -76,7 +79,7 @@ When uncertain, do not flag. False positives erode trust.
 
 Before validation, dispatch a **second-pass reviewer** that explicitly tries to **break** each candidate finding:
 
-- For each candidate, ask: "What is the strongest argument this is *not* a real issue?" Write that argument out.
+- For each candidate, ask: "What is the strongest argument this is _not_ a real issue?" Write that argument out.
 - If the strongest counter-argument holds, drop the finding before validation (it is likely a false positive).
 - If the candidate survives, keep it for validation in step 6.
 
@@ -92,11 +95,12 @@ For each candidate from step 5, dispatch a validator sub-task. Give it the PR ti
 - For edge cases → identify the specific input or condition that triggers the failure.
 
 For each validated issue, the validator must produce:
+
 1. A re-stated confidence score (0–100). Drop anything below 80.
 2. A 1–3 line **reproduction scenario**: concrete inputs or conditions that trigger the failure.
 3. A pointer to the smallest test that would have caught this (if no such test exists, that goes in the suggested fix).
 
-Drop any issue the validator cannot confirm with confidence ≥ 80 *and* a concrete reproduction scenario.
+Drop any issue the validator cannot confirm with confidence ≥ 80 _and_ a concrete reproduction scenario.
 
 ### 7. Output
 

@@ -1,19 +1,19 @@
 # Why? Some commands force `less` as the pager even with a different `$PAGER` variable.
 # Also works with manpages for convenience.
 help() {
-  if command man "$@" >/dev/null 2>&1; then
-    eval "$MANPAGER" <<<"$(man "$@")"
+  if command man "$@" > /dev/null 2>&1; then
+    eval "$MANPAGER" <<< "$(man "$@")"
     return
   fi
 
   for viable_help_flag in --help -h; do
-    if "$@" $viable_help_flag >/dev/null 2>&1; then
-      eval "$PAGER" <<<"$("$@" $viable_help_flag 2>&1)"
+    if "$@" $viable_help_flag > /dev/null 2>&1; then
+      eval "$PAGER" <<< "$("$@" $viable_help_flag 2>&1)"
       return
     fi
   done
 
-  eval "$PAGER" <<<"$("$@" 2>&1)"
+  eval "$PAGER" <<< "$("$@" 2>&1)"
 }
 
 # Useful if you mess around with VPNs
@@ -32,9 +32,9 @@ reset_network() {
   sudo iptables -P OUTPUT ACCEPT
 
   echo "[*] Restarting networking and DNS..."
-  sudo systemctl restart NetworkManager 2>/dev/null || true
-  sudo systemctl restart systemd-resolved 2>/dev/null || true
-  sudo systemctl restart ufw 2>/dev/null || true
+  sudo systemctl restart NetworkManager 2> /dev/null || true
+  sudo systemctl restart systemd-resolved 2> /dev/null || true
+  sudo systemctl restart ufw 2> /dev/null || true
 
   echo "[*] Restoring resolv.conf if needed..."
   # If your system uses systemd-resolved:
@@ -42,7 +42,7 @@ reset_network() {
     sudo ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
   else
     # fallback DNS
-    echo "nameserver 1.1.1.1" | sudo tee /etc/resolv.conf >/dev/null
+    echo "nameserver 1.1.1.1" | sudo tee /etc/resolv.conf > /dev/null
   fi
 
   echo "[*] Done."

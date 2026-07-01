@@ -84,17 +84,17 @@ Pass 1 below is **not** a single "look for security issues" sweep. It is one par
 
 You must dispatch the following sub-tasks in parallel, each with the diff and the category-specific instructions:
 
-| # | Category | Examples |
-|---|---|---|
-| 1 | Input validation | SQL/command/XXE/template/NoSQL injection, path traversal, deserialization |
-| 2 | Authentication & authorization | Auth bypass, privilege escalation, IDOR, session/JWT flaws |
-| 3 | Crypto & secrets | Hardcoded keys, weak algorithms, improper key storage, randomness, cert validation |
-| 4 | Code execution | RCE via deserialization, pickle/eval, YAML loaders, dynamic exec |
-| 5 | Data exposure | Sensitive logging, PII handling, debug info, API leakage |
-| 6 | Concurrency & state | TOCTOU, race conditions on auth checks, cache invalidation that affects sandbox/allowlist behavior |
-| 7 | Trust boundaries | What inputs cross from untrusted to trusted? Are they validated at the boundary? Are sandbox / allowlist decisions cached past their validity? |
+| #   | Category                       | Examples                                                                                                                                       |
+| --- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Input validation               | SQL/command/XXE/template/NoSQL injection, path traversal, deserialization                                                                      |
+| 2   | Authentication & authorization | Auth bypass, privilege escalation, IDOR, session/JWT flaws                                                                                     |
+| 3   | Crypto & secrets               | Hardcoded keys, weak algorithms, improper key storage, randomness, cert validation                                                             |
+| 4   | Code execution                 | RCE via deserialization, pickle/eval, YAML loaders, dynamic exec                                                                               |
+| 5   | Data exposure                  | Sensitive logging, PII handling, debug info, API leakage                                                                                       |
+| 6   | Concurrency & state            | TOCTOU, race conditions on auth checks, cache invalidation that affects sandbox/allowlist behavior                                             |
+| 7   | Trust boundaries               | What inputs cross from untrusted to trusted? Are they validated at the boundary? Are sandbox / allowlist decisions cached past their validity? |
 
-Each sub-task returns its own candidate list. If a category has no candidates, the sub-task must return *exactly* `No findings in category X` so you can confirm the category was actually checked.
+Each sub-task returns its own candidate list. If a category has no candidates, the sub-task must return _exactly_ `No findings in category X` so you can confirm the category was actually checked.
 
 ## Three-stage filtering
 
@@ -103,6 +103,7 @@ After pass 1's parallel category sub-tasks return, run **two more passes** befor
 2. **Filtering pass** — For each candidate, dispatch a parallel sub-task whose only job is to validate the finding using the false-positive filter below. Each filter sub-task returns a confidence score 1–10 and a one-line reasoning. Drop anything below 8.
 
 3. **Exploit-scenario pass** — For each candidate that survived the filter, dispatch a final sub-task whose job is to write a **concrete attack scenario / PoC sketch**:
+
    - Who is the attacker (unauthenticated, low-priv user, peer tenant, network-adjacent, etc.)?
    - What input or action do they control?
    - What is the exact request, payload, or sequence?
@@ -173,11 +174,11 @@ Example:
 ```markdown
 # Vuln 1: XSS — `foo.py:42`
 
-* Severity: High
-* Category: xss
-* Description: User input from the `username` parameter is directly interpolated into HTML without escaping, allowing reflected XSS.
-* Exploit Scenario: An attacker crafts a URL like `/bar?q=<script>alert(document.cookie)</script>` to execute JavaScript in the victim's browser, enabling session hijacking.
-* Recommendation: Use Flask's `escape()` or Jinja2 templates with auto-escaping enabled for all user inputs rendered in HTML.
+- Severity: High
+- Category: xss
+- Description: User input from the `username` parameter is directly interpolated into HTML without escaping, allowing reflected XSS.
+- Exploit Scenario: An attacker crafts a URL like `/bar?q=<script>alert(document.cookie)</script>` to execute JavaScript in the victim's browser, enabling session hijacking.
+- Recommendation: Use Flask's `escape()` or Jinja2 templates with auto-escaping enabled for all user inputs rendered in HTML.
 ```
 
 **Severity guidelines:**

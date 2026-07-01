@@ -12,6 +12,7 @@ agent: build
 ## Overview
 
 This workflow creates two outputs:
+
 1. **Implementation Plan (Confluence)** - Coordination dashboard for tracking execution
 2. **Updated Jira Tickets** - Self-contained with full implementation details
 
@@ -22,6 +23,7 @@ This workflow creates two outputs:
 1. **Fetch the overview document** from `{Overview_Document}`
 
 2. **Extract:**
+
    - `{Epic_Key}` - The epic ticket key (e.g., CC-123)
    - `{Jira_Project}` - Link to the Jira project/board
    - Related ticket links
@@ -39,6 +41,7 @@ This workflow creates two outputs:
 3. **Explore the codebase** for patterns relevant to the tickets
 
 **Codebase Exploration Focus:**
+
 - Affected files/modules per ticket
 - API patterns (routes, middleware, response formats)
 - Component patterns (naming, state management)
@@ -71,32 +74,32 @@ Create a **lightweight coordination document** in Confluence.
 
 ## Summary
 
-| Metric | Value |
-|--------|-------|
-| **Epic** | [{Epic_Key}](link) |
-| **Total Tickets** | X |
-| **Total Story Points** | X |
-| **Overall Complexity** | Low/Medium/High |
-| **Execution Waves** | X |
-| **Key Dependencies** | Brief summary |
+| Metric                 | Value              |
+| ---------------------- | ------------------ |
+| **Epic**               | [{Epic_Key}](link) |
+| **Total Tickets**      | X                  |
+| **Total Story Points** | X                  |
+| **Overall Complexity** | Low/Medium/High    |
+| **Execution Waves**    | X                  |
+| **Key Dependencies**   | Brief summary      |
 
 ---
 
 ## Completion Status
 
-| Ticket | Status | Completed Date | Notes |
-|--------|--------|----------------|-------|
-| [CC-XXX](link) | Pending | - | - |
-| [CC-YYY](link) | Pending | - | - |
+| Ticket         | Status  | Completed Date | Notes |
+| -------------- | ------- | -------------- | ----- |
+| [CC-XXX](link) | Pending | -              | -     |
+| [CC-YYY](link) | Pending | -              | -     |
 
 ---
 
 ## Execution Order (Topologically Sorted)
 
-| # | Ticket | Summary | Points | Risk | Dependencies | Status |
-|---|--------|---------|--------|------|--------------|--------|
-| 1 | [CC-XXX](link) | Title | 2 | Low | None | Pending |
-| 2 | [CC-YYY](link) | Title | 3 | Low | CC-XXX | Pending |
+| #   | Ticket         | Summary | Points | Risk | Dependencies | Status  |
+| --- | -------------- | ------- | ------ | ---- | ------------ | ------- |
+| 1   | [CC-XXX](link) | Title   | 2      | Low  | None         | Pending |
+| 2   | [CC-YYY](link) | Title   | 3      | Low  | CC-XXX       | Pending |
 
 ---
 
@@ -104,16 +107,16 @@ Create a **lightweight coordination document** in Confluence.
 
 ### Wave 1: [Name] (X pts) - Execute in Parallel
 
-| Ticket | Summary | Points | Agent | Status |
-|--------|---------|--------|-------|--------|
-| CC-XXX | Title | 2 | frontend-developer | Pending |
-| CC-YYY | Title | 3 | backend-developer | Pending |
+| Ticket | Summary | Points | Agent              | Status  |
+| ------ | ------- | ------ | ------------------ | ------- |
+| CC-XXX | Title   | 2      | frontend-developer | Pending |
+| CC-YYY | Title   | 3      | backend-developer  | Pending |
 
 ### Wave 2: [Name] (X pts) - After Wave 1
 
-| Ticket | Summary | Points | Agent | Status |
-|--------|---------|--------|-------|--------|
-| CC-ZZZ | Title | 5 | fullstack-developer | Pending |
+| Ticket | Summary | Points | Agent               | Status  |
+| ------ | ------- | ------ | ------------------- | ------- |
+| CC-ZZZ | Title   | 5      | fullstack-developer | Pending |
 
 **Note:** [Any blocking dependencies or coordination notes]
 
@@ -121,13 +124,13 @@ Create a **lightweight coordination document** in Confluence.
 
 ## Agent Recommendations
 
-| Work Type | Recommended Agent |
-|-----------|-------------------|
-| Frontend UI/components | frontend-developer |
-| API/backend services | backend-developer |
-| Database changes | database-optimizer |
-| Full-stack features | fullstack-developer |
-| Test coverage | test-automator |
+| Work Type              | Recommended Agent   |
+| ---------------------- | ------------------- |
+| Frontend UI/components | frontend-developer  |
+| API/backend services   | backend-developer   |
+| Database changes       | database-optimizer  |
+| Full-stack features    | fullstack-developer |
+| Test coverage          | test-automator      |
 
 ---
 
@@ -149,7 +152,7 @@ After publishing the implementation plan, update **each ticket** with full imple
 
 Each ticket must be **self-contained** with everything needed to execute:
 
-```markdown
+````markdown
 Overview Document: {Overview_Document_URL}
 Implementation Plan: {Implementation_Plan_URL}
 
@@ -165,6 +168,7 @@ Implementation Plan: {Implementation_Plan_URL}
    ```typescript
    // Example code
    ```
+````
 
 2. **[Step title]**
    - Specific action
@@ -172,10 +176,10 @@ Implementation Plan: {Implementation_Plan_URL}
 
 ## Files to Modify
 
-| File | Action | Description |
-|------|--------|-------------|
+| File              | Action | Description  |
+| ----------------- | ------ | ------------ |
 | `path/to/file.ts` | Modify | What changes |
-| `path/to/new.ts` | Create | What it does |
+| `path/to/new.ts`  | Create | What it does |
 
 ## Tests
 
@@ -203,7 +207,8 @@ describe('Feature', () => {
 - [ ] All tests passing
 - [ ] No TypeScript errors (`npm run check`)
 - [ ] Linting passes (`npm run lint`)
-```
+
+````
 
 ### Why Self-Contained Tickets
 
@@ -235,7 +240,7 @@ Add an **Adjustments Section** to the overview document:
 
 ### New Dependencies
 - [CC-AAA] blocked by [CC-BBB] - [reason]
-```
+````
 
 **CHECKPOINT:** Present proposed updates and get approval before modifying.
 
@@ -270,11 +275,11 @@ When complete, provide:
 
 ## Checkpoints Summary
 
-| Phase | Checkpoint | Action |
-|-------|------------|--------|
-| 0 | Document confirmation | Confirm epic key and project |
-| 2 | Ticket changes | Approve new/split/updated tickets |
-| 3 | Plan preview | Approve before publishing |
-| 5 | Overview updates | Approve adjustments section |
+| Phase | Checkpoint            | Action                            |
+| ----- | --------------------- | --------------------------------- |
+| 0     | Document confirmation | Confirm epic key and project      |
+| 2     | Ticket changes        | Approve new/split/updated tickets |
+| 3     | Plan preview          | Approve before publishing         |
+| 5     | Overview updates      | Approve adjustments section       |
 
 **Never modify Jira or Confluence without explicit user approval.**

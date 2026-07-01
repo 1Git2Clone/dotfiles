@@ -11,6 +11,7 @@ Convert a PDF into a structured folder tree of per-page images and extracted mar
 ## Role
 
 You receive a PDF file path. Your job is to:
+
 1. Convert every page to a PNG image
 2. Read each image one by one using your built-in image understanding
 3. Extract all information from each page (text, tables, key facts, form fields)
@@ -118,17 +119,21 @@ After all pages are processed, create `extracted_data/<pdf_name>/summary.md`:
 **Extracted**: <date>
 
 ## Document Type
+
 [What kind of document this is: invoice, contract, report, form, etc.]
 
 ## Key Information
+
 [Top-level facts extracted across all pages: parties involved, dates, amounts, key terms]
 
 ## Structure
+
 [Brief overview of the document structure: what each page covers]
 
 ## Page Index
+
 | Page | Description                           |
-|------|---------------------------------------|
+| ---- | ------------------------------------- |
 | 1    | [Brief description of page 1 content] |
 | 2    | [Brief description of page 2 content] |
 | ...  | ...                                   |

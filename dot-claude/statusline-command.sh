@@ -19,7 +19,7 @@ fmt_tokens() {
     echo "?"
     return
   fi
-  if [ "$n" -ge 1000 ] 2>/dev/null; then
+  if [ "$n" -ge 1000 ] 2> /dev/null; then
     printf "%.1fk" "$(echo "scale=1; $n / 1000" | bc)"
   else
     echo "$n"
@@ -52,7 +52,10 @@ if [ -n "$five_pct" ] || [ -n "$week_pct" ]; then
   parts=()
   [ -n "$five_pct" ] && parts+=("5h: $(printf '%.0f' "$five_pct")%")
   [ -n "$week_pct" ] && parts+=("7d: $(printf '%.0f' "$week_pct")%")
-  rate_seg=$(IFS=' | '; echo "${parts[*]}")
+  rate_seg=$(
+    IFS=' | '
+    echo "${parts[*]}"
+  )
 fi
 
 # Git repo segment
@@ -85,16 +88,19 @@ vim_seg=""
 
 # Assemble segments — only include non-empty ones
 segments=()
-[ -n "$vim_seg" ]     && segments+=("$vim_seg")
-[ -n "$dir" ]         && segments+=("$dir")
-[ -n "$git_seg" ]     && segments+=("$git_seg")
-[ -n "$pr_seg" ]      && segments+=("$pr_seg")
-[ -n "$model" ]       && segments+=("Model: $model")
-[ -n "$effort_seg" ]  && segments+=("$effort_seg")
-[ -n "$ctx_seg" ]     && segments+=("$ctx_seg")
-[ -n "$tok_seg" ]     && segments+=("$tok_seg")
-[ -n "$rate_seg" ]    && segments+=("$rate_seg")
+[ -n "$vim_seg" ] && segments+=("$vim_seg")
+[ -n "$dir" ] && segments+=("$dir")
+[ -n "$git_seg" ] && segments+=("$git_seg")
+[ -n "$pr_seg" ] && segments+=("$pr_seg")
+[ -n "$model" ] && segments+=("Model: $model")
+[ -n "$effort_seg" ] && segments+=("$effort_seg")
+[ -n "$ctx_seg" ] && segments+=("$ctx_seg")
+[ -n "$tok_seg" ] && segments+=("$tok_seg")
+[ -n "$rate_seg" ] && segments+=("$rate_seg")
 [ -n "$session_seg" ] && segments+=("$session_seg")
 
 # Join with separator
-(IFS=' | '; echo "${segments[*]}")
+(
+  IFS=' | '
+  echo "${segments[*]}"
+)

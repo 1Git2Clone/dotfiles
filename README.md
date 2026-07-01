@@ -78,6 +78,7 @@ https://github.com/user-attachments/assets/741b4680-d85f-49cb-abff-1d959bdc93c2
 
 - cattpuccin.nvim docs -
   [neovimcraft.com](https://neovimcraft.com/plugin/catppuccin/nvim/index.html)
+
   - Useful for those who want to change the styling under
     /nvim/lua/plugins/colorscheme.lua
 

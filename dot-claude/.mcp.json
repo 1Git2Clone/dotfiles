@@ -1,15 +1,15 @@
 {
-    "mcpServers": {
-        "codebase-memory-mcp": {
-            "command": "/home/hutao/.local/bin/codebase-memory-mcp"
-        },
-        "playwright": {
-            "command": "npx",
-            "args": ["@playwright/mcp@latest"]
-        },
-        "sequential-thinking": {
-            "command": "npx",
-            "args": ["@gotza02/seq-thinking@latest"]
-        }
+  "mcpServers": {
+    "codebase-memory-mcp": {
+      "command": "/home/hutao/.local/bin/codebase-memory-mcp"
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"]
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": ["@gotza02/seq-thinking@latest"]
     }
+  }
 }

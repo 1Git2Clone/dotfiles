@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Fill a fillable PDF form with values from a JSON file."""
+
 import argparse
 import json
 import sys

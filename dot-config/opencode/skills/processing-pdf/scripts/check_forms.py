@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Check if a PDF has fillable form fields and list them."""
+
 import argparse
 import json
 import sys

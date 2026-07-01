@@ -21,8 +21,8 @@ notify() { notify-send "$app_title" "$1" --app-name="$app_name"; }
 # --- Stop an already-running instance, then exit (the toggle "off" path). ---
 if [ -f "$pid_file" ]; then
   old_pid="$(cat "$pid_file")"
-  if [ -n "$old_pid" ] && kill -0 "$old_pid" 2>/dev/null; then
-    kill "$old_pid" 2>/dev/null
+  if [ -n "$old_pid" ] && kill -0 "$old_pid" 2> /dev/null; then
+    kill "$old_pid" 2> /dev/null
     rm -f "$pid_file"
     notify "🛑 Stopped"
     exit 0
@@ -38,29 +38,29 @@ count=0
 
 while getopts ":i:b:c:h" opt; do
   case "$opt" in
-  i) interval_ms="$OPTARG" ;;
-  b) button="$OPTARG" ;;
-  c) count="$OPTARG" ;;
-  h)
-    sed -n '2,11p' "$0" | sed 's/^# \{0,1\}//'
-    exit 0
-    ;;
-  *)
-    notify "❌ Invalid option: -$OPTARG"
-    exit 1
-    ;;
+    i) interval_ms="$OPTARG" ;;
+    b) button="$OPTARG" ;;
+    c) count="$OPTARG" ;;
+    h)
+      sed -n '2,11p' "$0" | sed 's/^# \{0,1\}//'
+      exit 0
+      ;;
+    *)
+      notify "❌ Invalid option: -$OPTARG"
+      exit 1
+      ;;
   esac
 done
 
 # --- Map the friendly button name to ydotool's press+release bitmask. ---
 case "$button" in
-left) click_code="0xC0" ;;
-right) click_code="0xC1" ;;
-middle) click_code="0xC2" ;;
-*)
-  notify "❌ Invalid button: $button (use left, right, or middle)"
-  exit 1
-  ;;
+  left) click_code="0xC0" ;;
+  right) click_code="0xC1" ;;
+  middle) click_code="0xC2" ;;
+  *)
+    notify "❌ Invalid button: $button (use left, right, or middle)"
+    exit 1
+    ;;
 esac
 
 if ! [[ "$interval_ms" =~ ^[0-9]+$ ]] || ! [[ "$count" =~ ^[0-9]+$ ]]; then
@@ -68,15 +68,15 @@ if ! [[ "$interval_ms" =~ ^[0-9]+$ ]] || ! [[ "$count" =~ ^[0-9]+$ ]]; then
   exit 1
 fi
 
-if ! command -v ydotool >/dev/null 2>&1; then
+if ! command -v ydotool > /dev/null 2>&1; then
   notify "❌ ydotool is not installed"
   exit 1
 fi
 
 # --- Make sure the ydotool daemon is up before we try to click. ---
 if [ ! -S "$YDOTOOL_SOCKET" ]; then
-  if command -v ydotoold >/dev/null 2>&1; then
-    ydotoold >/dev/null 2>&1 &
+  if command -v ydotoold > /dev/null 2>&1; then
+    ydotoold > /dev/null 2>&1 &
     for _ in $(seq 1 20); do
       [ -S "$YDOTOOL_SOCKET" ] && break
       sleep 0.1
@@ -102,7 +102,7 @@ setsid bash -c '
   rm -f "'"$pid_file"'"
 ' _ "$click_code" "$sleep_s" "$count" &
 
-echo "$!" >"$pid_file"
+echo "$!" > "$pid_file"
 
 if [ "$count" -gt 0 ]; then
   notify "▶️ Clicking ${button} ×${count} every ${interval_ms}ms"

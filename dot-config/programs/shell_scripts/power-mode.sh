@@ -13,19 +13,19 @@ if [ -z "$mode" ]; then
 fi
 
 case $mode in
-"$performance")
-  powerprofilesctl set performance
-  ;;
-"$balanced")
-  powerprofilesctl set balanced
-  ;;
-"$powersave")
-  powerprofilesctl set power-saver
-  ;;
-*)
-  notify-send "$app_title" "❌ Invalid option selected: $mode" --app-name="$app_name"
-  exit 1
-  ;;
+  "$performance")
+    powerprofilesctl set performance
+    ;;
+  "$balanced")
+    powerprofilesctl set balanced
+    ;;
+  "$powersave")
+    powerprofilesctl set power-saver
+    ;;
+  *)
+    notify-send "$app_title" "❌ Invalid option selected: $mode" --app-name="$app_name"
+    exit 1
+    ;;
 esac
 
 notify-send "$app_title" "✅ Set power mode to: $mode" --app-name="$app_name"

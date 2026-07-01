@@ -32,12 +32,14 @@ This command completes an epic after all tickets have been executed:
 1. **Fetch the epic** from Jira using `{Epic_Key}`
 
 2. **Extract from epic:**
+
    - `{Epic_Title}` - The epic title/name
    - `{Jira_Project}` - The Jira project URL
    - All linked tickets
    - Epic status
 
 3. **Locate documentation:**
+
    - Find Overview Document in Confluence at `/Epics/In Progress/{Epic_Key}/`
    - Find Implementation Plan (subpage of Overview Document)
 
@@ -46,6 +48,7 @@ This command completes an epic after all tickets have been executed:
    If documentation cannot be found:
 
    **STOP and prompt the user:**
+
    ```
    I was unable to locate the required documents for epic {Epic_Key}.
 
@@ -84,6 +87,7 @@ This command completes an epic after all tickets have been executed:
 ## Phase 1: Verification
 
 1. **Verify all tickets are complete:**
+
    - Check Jira status for each ticket in the epic
    - Identify any tickets not in "Done" status
    - Check for any blocking issues or unresolved dependencies
@@ -93,6 +97,7 @@ This command completes an epic after all tickets have been executed:
    If any tickets are not complete:
 
    **STOP and report:**
+
    ```
    Epic {Epic_Key} has incomplete tickets:
 
@@ -127,6 +132,7 @@ This command completes an epic after all tickets have been executed:
 Generate a comprehensive epic completion report with these sections:
 
 ### 1. Epic Summary
+
 - **Epic:** {Epic_Key} - {Epic_Title}
 - **Duration:** Start date → Completion date
 - **Total Story Points:** Planned vs. Actual
@@ -134,6 +140,7 @@ Generate a comprehensive epic completion report with these sections:
 - **Team Members:** List of contributors
 
 ### 2. Objectives & Outcomes
+
 - **Original Goals:** (from Overview Document)
 - **Success Metrics:** (from Overview Document)
 - **Outcomes Achieved:**
@@ -142,17 +149,20 @@ Generate a comprehensive epic completion report with these sections:
 - **Business Impact:** Quantifiable results (users affected, performance improvements, etc.)
 
 ### 3. Ticket Breakdown
-| Ticket | Title | Points | Completed | Deviations |
-|--------|-------|--------|-----------|------------|
-| [KEY] | [title] | [pts] | [date] | [any deviations] |
+
+| Ticket | Title   | Points | Completed | Deviations       |
+| ------ | ------- | ------ | --------- | ---------------- |
+| [KEY]  | [title] | [pts]  | [date]    | [any deviations] |
 
 **Summary:**
+
 - Total tickets: [count]
 - Average cycle time: [days]
 - Tickets with deviations: [count]
 - Follow-up tickets created: [count]
 
 ### 4. Technical Deliverables
+
 - **Files Created:** [count] files
   - Major components: [list key files]
 - **Files Modified:** [count] files
@@ -165,6 +175,7 @@ Generate a comprehensive epic completion report with these sections:
   - Overall coverage: [%] (target: 90%)
 
 ### 5. Architecture & Design Decisions
+
 - **Key Architectural Patterns Used:**
   - [Pattern 1]: [explanation and files affected]
   - [Pattern 2]: [explanation and files affected]
@@ -174,6 +185,7 @@ Generate a comprehensive epic completion report with these sections:
 - **Reusable Components Created:** [list components that can be reused in future work]
 
 ### 6. Quality Metrics
+
 - **Code Review:**
   - PRs created: [count]
   - Average review time: [hours/days]
@@ -187,6 +199,7 @@ Generate a comprehensive epic completion report with these sections:
   - Common failures: [list patterns]
 
 ### 7. Technical Debt & Follow-up
+
 - **Technical Debt Incurred:**
   - [Item 1]: [description, why it was necessary, remediation plan]
   - [Item 2]: [description, why it was necessary, remediation plan]
@@ -196,6 +209,7 @@ Generate a comprehensive epic completion report with these sections:
 - **Performance Optimizations:** [areas that could be optimized]
 
 ### 8. Testing & Quality Assurance
+
 - **Test Strategy Effectiveness:**
   - Did tests catch issues early? [Yes/No - examples]
   - Edge cases covered: [list critical edge cases tested]
@@ -205,6 +219,7 @@ Generate a comprehensive epic completion report with these sections:
   - Improvements needed: [suggestions for future testing]
 
 ### 9. Documentation Delivered
+
 - **Confluence Pages:**
   - Overview Document: {Overview_Document}
   - Implementation Plan: {Implementation_Plan}
@@ -216,32 +231,39 @@ Generate a comprehensive epic completion report with these sections:
 - **Runbook Updates:** [operational documentation added]
 
 ### 10. Lessons Learned
+
 #### What Went Well
+
 - [Success 1]: [detailed description with examples]
 - [Success 2]: [detailed description with examples]
 - [Success 3]: [detailed description with examples]
 
 #### What Could Be Improved
+
 - [Challenge 1]: [description, impact, how it could be avoided]
 - [Challenge 2]: [description, impact, how it could be avoided]
 - [Challenge 3]: [description, impact, how it could be avoided]
 
 #### Process Improvements
+
 - [Improvement 1]: [specific recommendation]
 - [Improvement 2]: [specific recommendation]
 - [Improvement 3]: [specific recommendation]
 
 ### 11. Risk Assessment Review
+
 Compare planned risks (from Overview Document) with actual outcomes:
 
-| Risk | Planned Level | Actual Impact | Mitigation Effectiveness |
-|------|--------------|---------------|-------------------------|
+| Risk     | Planned Level  | Actual Impact | Mitigation Effectiveness        |
+| -------- | -------------- | ------------- | ------------------------------- |
 | [Risk 1] | [Low/Med/High] | [description] | [Effective/Partial/Ineffective] |
 
 **Unexpected Risks Encountered:**
+
 - [Risk]: [description and how it was handled]
 
 ### 12. Recommendations for Future Epics
+
 - **Planning Phase:**
   - [Recommendation 1]
   - [Recommendation 2]
@@ -286,14 +308,17 @@ Proceed with these updates? (Yes / No / Modify)
 ## Phase 4: Publish & Close
 
 1. **Publish Epic Completion Report:**
+
    - Add as a new section to the Overview Document
    - Create a standalone "Completion Report" subpage (optional)
 
 2. **Move documentation to complete:**
+
    - Move from `/Epics/In Progress/{Epic_Key}/` to `/Epics/Complete/Sprint [N]/{Epic_Key}/`
    - Update all internal links to reflect new location
 
 3. **Update all tickets:**
+
    - Add completion date
    - Update documentation links to new location
    - Add link to completion report
@@ -314,6 +339,7 @@ Proceed with these updates? (Yes / No / Modify)
    **DO NOT CLOSE** the epic without explicit approval.
 
 5. **Close epic in Jira:**
+
    - Set status to "Done"
    - Add resolution: "Completed"
    - Add comment with link to completion report
@@ -327,11 +353,13 @@ Proceed with these updates? (Yes / No / Modify)
 ## Phase 5: Knowledge Transfer
 
 1. **Identify reusable patterns:**
+
    - Document any new patterns that should be used in future work
    - Update AGENTS.md if new coding standards were established
    - Update AGENTS.md if new commands or workflows were created
 
 2. **Share key learnings:**
+
    - Technical insights that benefit other team members
    - Process improvements that should be adopted
    - Tools or techniques that proved valuable
@@ -345,14 +373,14 @@ Proceed with these updates? (Yes / No / Modify)
 
 ## Failure Conditions
 
-| Condition | Action |
-|-----------|--------|
-| Epic not found | Error message, ask user to verify epic key |
-| Incomplete tickets exist | Report incomplete tickets, wait for user decision |
-| Documentation not found | Ask user for document locations |
-| Cannot move Confluence pages | Ask user to move manually, provide instructions |
-| Cannot close epic in Jira | Report error, provide manual instructions |
-| Missing git history/PRs | Generate report with available data, note gaps |
+| Condition                    | Action                                            |
+| ---------------------------- | ------------------------------------------------- |
+| Epic not found               | Error message, ask user to verify epic key        |
+| Incomplete tickets exist     | Report incomplete tickets, wait for user decision |
+| Documentation not found      | Ask user for document locations                   |
+| Cannot move Confluence pages | Ask user to move manually, provide instructions   |
+| Cannot close epic in Jira    | Report error, provide manual instructions         |
+| Missing git history/PRs      | Generate report with available data, note gaps    |
 
 ---
 

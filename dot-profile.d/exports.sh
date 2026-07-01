@@ -47,11 +47,12 @@ PATH="$PATH:$HOME/.local/share/nvim/mason/bin"
 PATH="$PATH:$HOME/.npm-global/bin"
 PATH="$PATH:$HOME/.go/bin"
 PATH="$PATH:$HOME/go/bin"
-PATH="$PATH:$HOME/.opencode/bin"`
+PATH="$PATH:$HOME/.opencode/bin"$(
 
-# Example usage
-#
-# ```sh
+  # Example usage
+  #
+  #
+)$()sh
 # mkdir "MONTHS[@]" # NOTE: Pivots off your CWD.
 # ```
 export MONTHS=(

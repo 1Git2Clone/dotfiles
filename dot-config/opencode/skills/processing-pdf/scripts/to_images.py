@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Convert PDF pages to images."""
+
 import argparse
 import os
 import sys
@@ -7,7 +8,10 @@ import sys
 try:
     from pypdfium2 import PdfDocument
 except ImportError:
-    print("Error: pypdfium2 not installed. Run: PYENV_VERSION=3.12.12 pip3 install pypdfium2", file=sys.stderr)
+    print(
+        "Error: pypdfium2 not installed. Run: PYENV_VERSION=3.12.12 pip3 install pypdfium2",
+        file=sys.stderr,
+    )
     sys.exit(1)
 
 

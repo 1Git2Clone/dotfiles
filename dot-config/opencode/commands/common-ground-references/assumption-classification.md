@@ -88,13 +88,13 @@ Unvalidated assumptions requiring user input before acting.
 
 ## Tier Transitions
 
-| From | To | Trigger |
-|------|-----|---------|
-| OPEN | WORKING | User confirms informally in conversation |
-| WORKING | ESTABLISHED | User explicitly validates ("yes, that's correct") |
-| ESTABLISHED | WORKING | User says "usually but..." or exception noted |
-| WORKING | OPEN | Contradiction found in code/config |
-| Any | Archived | Superseded by new information |
+| From        | To          | Trigger                                           |
+| ----------- | ----------- | ------------------------------------------------- |
+| OPEN        | WORKING     | User confirms informally in conversation          |
+| WORKING     | ESTABLISHED | User explicitly validates ("yes, that's correct") |
+| ESTABLISHED | WORKING     | User says "usually but..." or exception noted     |
+| WORKING     | OPEN        | Contradiction found in code/config                |
+| Any         | Archived    | Superseded by new information                     |
 
 ---
 
@@ -104,22 +104,22 @@ When identifying assumptions, follow this process:
 
 ### Step 1: Identify Source
 
-| Source | Typical Type | Typical Tier |
-|--------|-------------|--------------|
-| User statement | stated | ESTABLISHED |
-| Config file | inferred | WORKING |
-| Code pattern | inferred | WORKING |
-| Convention | assumed | WORKING |
-| Unknown/gap | uncertain | OPEN |
+| Source         | Typical Type | Typical Tier |
+| -------------- | ------------ | ------------ |
+| User statement | stated       | ESTABLISHED  |
+| Config file    | inferred     | WORKING      |
+| Code pattern   | inferred     | WORKING      |
+| Convention     | assumed      | WORKING      |
+| Unknown/gap    | uncertain    | OPEN         |
 
 ### Step 2: Assess Evidence Strength
 
-| Evidence | Tier Adjustment |
-|----------|----------------|
-| Explicit user confirmation | -> ESTABLISHED |
-| Multiple corroborating sources | -> WORKING |
-| Single source, no contradictions | -> WORKING |
-| No evidence or conflicting | -> OPEN |
+| Evidence                         | Tier Adjustment |
+| -------------------------------- | --------------- |
+| Explicit user confirmation       | -> ESTABLISHED  |
+| Multiple corroborating sources   | -> WORKING      |
+| Single source, no contradictions | -> WORKING      |
+| No evidence or conflicting       | -> OPEN         |
 
 ### Step 3: Consider Impact
 
@@ -131,37 +131,37 @@ High-impact assumptions (architecture, security, data handling) should start at 
 
 ### Architecture & Tech Stack
 
-| Assumption | Type | Tier | Reasoning |
-|------------|------|------|-----------|
-| "Uses TypeScript" | inferred | WORKING | tsconfig.json present |
-| "React 18 with hooks" | inferred | WORKING | package.json shows react@18 |
-| "No server-side rendering" | inferred | OPEN | High impact, needs validation |
-| "Monorepo structure" | inferred | WORKING | Multiple packages/ dirs |
+| Assumption                 | Type     | Tier    | Reasoning                     |
+| -------------------------- | -------- | ------- | ----------------------------- |
+| "Uses TypeScript"          | inferred | WORKING | tsconfig.json present         |
+| "React 18 with hooks"      | inferred | WORKING | package.json shows react@18   |
+| "No server-side rendering" | inferred | OPEN    | High impact, needs validation |
+| "Monorepo structure"       | inferred | WORKING | Multiple packages/ dirs       |
 
 ### Coding Standards
 
-| Assumption | Type | Tier | Reasoning |
-|------------|------|------|-----------|
-| "ESLint Airbnb config" | inferred | WORKING | .eslintrc extends airbnb |
-| "Prettier for formatting" | inferred | WORKING | .prettierrc present |
-| "2-space indentation" | inferred | ESTABLISHED | Consistent across all files |
-| "Prefer named exports" | assumed | WORKING | Convention, not enforced |
+| Assumption                | Type     | Tier        | Reasoning                   |
+| ------------------------- | -------- | ----------- | --------------------------- |
+| "ESLint Airbnb config"    | inferred | WORKING     | .eslintrc extends airbnb    |
+| "Prettier for formatting" | inferred | WORKING     | .prettierrc present         |
+| "2-space indentation"     | inferred | ESTABLISHED | Consistent across all files |
+| "Prefer named exports"    | assumed  | WORKING     | Convention, not enforced    |
 
 ### Testing
 
-| Assumption | Type | Tier | Reasoning |
-|------------|------|------|-----------|
-| "Jest for unit tests" | inferred | WORKING | jest.config.js present |
-| "80% coverage target" | assumed | OPEN | No config found, assumed |
-| "Integration tests required" | uncertain | OPEN | Unknown requirement |
+| Assumption                   | Type      | Tier    | Reasoning                |
+| ---------------------------- | --------- | ------- | ------------------------ |
+| "Jest for unit tests"        | inferred  | WORKING | jest.config.js present   |
+| "80% coverage target"        | assumed   | OPEN    | No config found, assumed |
+| "Integration tests required" | uncertain | OPEN    | Unknown requirement      |
 
 ### User Preferences
 
-| Assumption | Type | Tier | Reasoning |
-|------------|------|------|-----------|
-| "Prefers verbose explanations" | stated | ESTABLISHED | User said "explain thoroughly" |
-| "Wants minimal changes" | inferred | WORKING | User often requests targeted fixes |
-| "Likes TypeScript annotations" | assumed | WORKING | Convention, not stated |
+| Assumption                     | Type     | Tier        | Reasoning                          |
+| ------------------------------ | -------- | ----------- | ---------------------------------- |
+| "Prefers verbose explanations" | stated   | ESTABLISHED | User said "explain thoroughly"     |
+| "Wants minimal changes"        | inferred | WORKING     | User often requests targeted fixes |
+| "Likes TypeScript annotations" | assumed  | WORKING     | Convention, not stated             |
 
 ---
 
@@ -172,6 +172,7 @@ When users add new assumptions via "Other", they specify both tier and type:
 **Format:** `{assumption text} [tier] [type]`
 
 **Examples:**
+
 - "Must work offline [ESTABLISHED] [stated]" - user explicitly stating a requirement
 - "Prefer functional style [WORKING] [stated]" - user preference
 

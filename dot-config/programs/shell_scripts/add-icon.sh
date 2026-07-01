@@ -18,7 +18,7 @@ SIZES=(16 24 32 48 64 96 128 256 512)
 echo "[*] Installing icon \"$ICON_NAME\" from \"$INPUT_IMAGE\"..."
 
 # Ensure ImageMagick is installed
-if ! command -v convert >/dev/null; then
+if ! command -v convert > /dev/null; then
   echo "[-] Error: imagemagick (convert) not found. Install it with:"
   echo "    sudo pacman -S imagemagick"
   exit 1

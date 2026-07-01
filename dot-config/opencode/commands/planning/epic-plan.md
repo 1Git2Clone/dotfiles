@@ -28,11 +28,13 @@ This command creates a comprehensive planning document (Overview Document) for a
 1. **Fetch the epic** from Jira using `{Epic_Key}`
 
 2. **Extract from epic:**
+
    - `{Epic_Title}` - The epic title/name
    - `{Jira_Project}` - The Jira project URL
    - Linked tickets
 
 3. **Determine Confluence location:**
+
    - Default: `/Epics/In Progress/{Epic_Key}/`
    - If location unclear, ask user
 
@@ -41,6 +43,7 @@ This command creates a comprehensive planning document (Overview Document) for a
    If epic cannot be found or has no linked tickets:
 
    **STOP and prompt the user:**
+
    ```
    I was unable to retrieve epic {Epic_Key}.
 
@@ -74,6 +77,7 @@ This command creates a comprehensive planning document (Overview Document) for a
 ## Phase 1: Discovery
 
 1. **Read all Jira tickets** linked to epic `{Epic_Key}`
+
    - Use JQL query: `"Epic Link" = {Epic_Key}` to find all child tickets
    - Extract acceptance criteria from each ticket
    - Identify ticket dependencies and relationships
@@ -83,13 +87,13 @@ This command creates a comprehensive planning document (Overview Document) for a
 
    Launch these agents **in parallel** to analyze different aspects of the codebase:
 
-   | Agent | Task | Output for Section 11 |
-   |-------|------|----------------------|
-   | `Explore` | Find all files/modules affected by this epic based on ticket requirements | → Affected Modules |
-   | `Explore` | Discover API patterns, middleware conventions, response formats | → Patterns Discovered (API) |
-   | `Explore` | Discover component patterns, naming conventions, state management | → Patterns Discovered (Components) |
-   | `Explore` | Find test file locations, testing framework, fixture patterns | → Test Locations & Conventions |
-   | `Explore` | Find similar features that can serve as implementation references | → Reference Implementations |
+   | Agent     | Task                                                                      | Output for Section 11              |
+   | --------- | ------------------------------------------------------------------------- | ---------------------------------- |
+   | `Explore` | Find all files/modules affected by this epic based on ticket requirements | → Affected Modules                 |
+   | `Explore` | Discover API patterns, middleware conventions, response formats           | → Patterns Discovered (API)        |
+   | `Explore` | Discover component patterns, naming conventions, state management         | → Patterns Discovered (Components) |
+   | `Explore` | Find test file locations, testing framework, fixture patterns             | → Test Locations & Conventions     |
+   | `Explore` | Find similar features that can serve as implementation references         | → Reference Implementations        |
 
    **Agent Prompts:**
 
@@ -129,30 +133,35 @@ This command creates a comprehensive planning document (Overview Document) for a
 Create a comprehensive planning document with these sections:
 
 ### 1. Epic Overview
+
 - **Purpose:** What problem does this epic solve?
 - **User Value:** How does this improve the user experience?
 - **Scope:** What is included/excluded from this epic?
 - **Key Stakeholders:** Who is impacted by this work?
 
 ### 2. Epic Goals & Success Metrics
+
 - **Primary Goal:** Main objective of this epic
 - **Success Metrics:** How will we measure success?
 - **KPIs:** Quantifiable outcomes (if applicable)
 
 ### 3. Requirements Summary
+
 - **Functional Requirements:** What the system must do
 - **Non-Functional Requirements:** Performance, security, accessibility, etc.
 - **Business Rules:** Constraints and validation rules
 - **Edge Cases:** Error handling and boundary conditions
 
 ### 4. Technical Change Overview
+
 List all technical changes with risk assessment. For each change:
 
-| Component | Type | Description | Risk Score | Dependencies |
-|-----------|------|-------------|------------|--------------|
-| [file/component] | [New/Enhancement/Refactor/Fix] | [summary] | [Low/Med/High] | [blockers] |
+| Component        | Type                           | Description | Risk Score     | Dependencies |
+| ---------------- | ------------------------------ | ----------- | -------------- | ------------ |
+| [file/component] | [New/Enhancement/Refactor/Fix] | [summary]   | [Low/Med/High] | [blockers]   |
 
 ### 5. Impact Analysis
+
 - **Codebase Impact:** Files, components, APIs affected
 - **Data Model Changes:** Database migrations required
 - **API Changes:** New endpoints, modified contracts, breaking changes
@@ -162,6 +171,7 @@ List all technical changes with risk assessment. For each change:
 - **Tradeoffs:** What compromises are being made and why?
 
 ### 6. Testing Strategy
+
 - **Unit Testing:** Coverage targets (aim for 90% branch coverage)
 - **Integration Testing:** Cross-component interactions
 - **API Testing:** Endpoint validation and error handling
@@ -169,19 +179,23 @@ List all technical changes with risk assessment. For each change:
 - **Coverage Goals:** Specific areas requiring high coverage
 
 ### 7. User Behavior Testing
+
 - **E2E Scenarios:** Critical user journeys to validate
 - **Acceptance Test Cases:** Scenarios derived from requirements
 - **User Flows:** Step-by-step validation paths
 - **Regression Testing:** Existing flows that must not break
 
 ### 8. Implementation Notes
+
 - **Patterns to Follow:** Existing code patterns to replicate
 - **Architecture Decisions:** Key technical choices and rationale
 - **Technical Debt:** Known shortcuts or future improvements
 - **Security Considerations:** Authentication, authorization, data protection
 
 ### 9. Acceptance Criteria
+
 Definition of done for this epic:
+
 - [ ] All functional requirements implemented
 - [ ] Test coverage meets targets (90% branch coverage)
 - [ ] Documentation updated
@@ -190,6 +204,7 @@ Definition of done for this epic:
 - [ ] Accessibility standards met (if applicable)
 
 ### 10. Open Questions & Risks
+
 - **Blockers:** Items preventing progress
 - **Unknowns:** Information still needed
 - **Assumptions:** Things we're assuming to be true
@@ -200,20 +215,24 @@ Definition of done for this epic:
 Capture findings from codebase exploration to inform the implementation plan:
 
 **Affected Modules:**
+
 - List directories and modules that will be modified
 - Example: `packages/server/routes/` - API endpoints affected
 
 **Patterns Discovered:**
+
 - API conventions (route structure, middleware patterns, response formats)
 - Test patterns (framework, file locations, fixture patterns)
 - Component patterns (naming, structure, state management)
 - Database patterns (query patterns, transaction handling)
 
 **Reference Implementations:**
+
 - Similar features that can serve as templates
 - Example: "See `packages/web/src/components/events/` for CRUD component patterns"
 
 **Test Locations & Conventions:**
+
 - Unit tests: `tests/unit/` - pattern: `[feature].test.ts`
 - Integration tests: `tests/integration/` - pattern: `[endpoint].test.ts`
 - E2E tests: `e2e/` - pattern: `[flow].spec.ts`
@@ -224,11 +243,11 @@ Capture findings from codebase exploration to inform the implementation plan:
 **Epic:** [{Epic_Key}]({Epic_URL}) - {Epic_Title}
 **Jira Project:** [{Jira_Project}]({Jira_Project_URL})
 
-| Key | Summary | Type | Story Points |
-|-----|---------|------|--------------|
-| [TICKET-123](url) | Ticket summary | Task/Bug/Story | X |
+| Key               | Summary        | Type           | Story Points |
+| ----------------- | -------------- | -------------- | ------------ |
+| [TICKET-123](url) | Ticket summary | Task/Bug/Story | X            |
 
-*Use JQL `"Epic Link" = {Epic_Key}` to fetch current ticket list.*
+_Use JQL `"Epic Link" = {Epic_Key}` to fetch current ticket list._
 
 ---
 
@@ -236,17 +255,18 @@ Capture findings from codebase exploration to inform the implementation plan:
 
 Evaluate each technical change across 7 dimensions (score 1-3 each):
 
-| Dimension | Low (1) | Medium (2) | High (3) |
-|-----------|---------|------------|----------|
-| **Scope** | ≤3 files, isolated change | 4-10 files, single feature | 10+ files, cross-cutting |
-| **Dependencies** | All prerequisites exist | Some foundation work needed | Requires significant groundwork |
-| **Blocking Factor** | Independent work | Soft dependency for 1-2 tickets | Hard blocker for multiple streams |
-| **Stability** | Well-defined, existing patterns | Some unknowns, new patterns | Novel approach, high uncertainty |
-| **UX Impact** | Backend/internal only | Secondary flows affected | Core user journey affected |
-| **Testing Complexity** | Simple assertions, existing fixtures | New mocks/fixtures needed, async flows | Complex integration, E2E required, hard to isolate |
-| **Reversibility** | Easily reverted, no data changes | Moderate effort to rollback | Database migrations, breaking API changes, one-way door |
+| Dimension              | Low (1)                              | Medium (2)                             | High (3)                                                |
+| ---------------------- | ------------------------------------ | -------------------------------------- | ------------------------------------------------------- |
+| **Scope**              | ≤3 files, isolated change            | 4-10 files, single feature             | 10+ files, cross-cutting                                |
+| **Dependencies**       | All prerequisites exist              | Some foundation work needed            | Requires significant groundwork                         |
+| **Blocking Factor**    | Independent work                     | Soft dependency for 1-2 tickets        | Hard blocker for multiple streams                       |
+| **Stability**          | Well-defined, existing patterns      | Some unknowns, new patterns            | Novel approach, high uncertainty                        |
+| **UX Impact**          | Backend/internal only                | Secondary flows affected               | Core user journey affected                              |
+| **Testing Complexity** | Simple assertions, existing fixtures | New mocks/fixtures needed, async flows | Complex integration, E2E required, hard to isolate      |
+| **Reversibility**      | Easily reverted, no data changes     | Moderate effort to rollback            | Database migrations, breaking API changes, one-way door |
 
 **Risk Levels:**
+
 - **7-11 (Low):** Proceed with standard implementation
 - **12-16 (Medium):** Incremental delivery, extra code review
 - **17-21 (High):** Spike/POC first, decompose further, architectural review required
@@ -285,6 +305,7 @@ Ready to publish this planning document to Confluence? (Yes / No / Modify)
 ## Phase 4: Publish & Output
 
 1. Publish to Confluence at: `/epics/In Progress/{Epic_Key}/`
+
    - Page title: "{Epic_Key} {Epic_Title}"
 
 2. Verify the document was published successfully
@@ -295,13 +316,13 @@ Ready to publish this planning document to Confluence? (Yes / No / Modify)
 
 ## Failure Conditions
 
-| Condition | Action |
-|-----------|--------|
-| Epic key not found | Error message, ask user to verify epic key |
-| No linked tickets | Warn user, ask if they want to continue with minimal document |
-| Confluence location invalid | Ask user for correct location |
-| Missing Jira/Confluence access | Provide instructions for credential setup |
-| Codebase exploration inconclusive | Document unknowns, proceed with available information |
+| Condition                         | Action                                                        |
+| --------------------------------- | ------------------------------------------------------------- |
+| Epic key not found                | Error message, ask user to verify epic key                    |
+| No linked tickets                 | Warn user, ask if they want to continue with minimal document |
+| Confluence location invalid       | Ask user for correct location                                 |
+| Missing Jira/Confluence access    | Provide instructions for credential setup                     |
+| Codebase exploration inconclusive | Document unknowns, proceed with available information         |
 
 ---
 

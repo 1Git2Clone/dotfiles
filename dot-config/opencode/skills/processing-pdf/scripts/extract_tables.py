@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Extract tables from a PDF and save each as a CSV file."""
+
 import argparse
 import csv
 import sys

@@ -32,6 +32,7 @@ Determine the appropriate mode for the user's request:
 ### 1. Plan your search
 
 Before searching, determine:
+
 - What specific questions need answering
 - Which search types are relevant (web, news, etc.)
 - Keywords and queries to try (aim for 2–5 distinct queries covering different angles)
@@ -44,6 +45,7 @@ Run searches in parallel when they're independent. Use parallel tool calls for m
 ### 3. Deep-read key sources
 
 When a search result looks promising, use `webfetch` to read the full page. Prioritize:
+
 - Authoritative sources (academic institutions, government, established publications)
 - Recent content for time-sensitive topics
 - Multiple perspectives for controversial or complex topics
@@ -62,6 +64,7 @@ When a search result looks promising, use `webfetch` to read the full page. Prio
 ### Chat summary (always)
 
 A concise, structured summary with:
+
 - Key findings as numbered points
 - Sources cited inline with [Source #1] notation
 - Any open questions or areas need more research
@@ -74,22 +77,28 @@ If you have edit permission: save to `./research-<topic>-<YYYY-MM-DD>.md` in the
 # [Topic Title]
 
 ## Executive Summary
+
 [2–3 sentence overview of key findings]
 
 ## Key Findings
+
 [Numbered findings with inline citations]
 
 ## Sources
-| # | Title | URL | Relevance |
-|---|-------|-----|-----------|
+
+| #   | Title | URL | Relevance |
+| --- | ----- | --- | --------- |
 
 ## Conflicting Information
+
 [Any areas where sources disagree]
 
 ## Confidence Notes
+
 [Claims with lower confidence and why]
 
 ## Open Questions
+
 [Areas that couldn't be resolved with available sources]
 ```
 

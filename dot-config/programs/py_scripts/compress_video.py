@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
-import subprocess
 import argparse
+import subprocess
 import sys
 from pathlib import Path
-from typing import List
 
 
 def get_video_duration(input_path: Path) -> float:
     """Uses ffprobe to get the exact duration of the video in seconds."""
-    cmd: List[str] = [
+    cmd: list[str] = [
         "ffprobe",
         "-v",
         "error",
@@ -34,9 +33,7 @@ def compress_video(input_path: Path, output_path: Path, max_size_mb: float) -> N
     # Check if compression is even necessary
     current_size_mb: float = input_path.stat().st_size / (1024 * 1024)
     if current_size_mb <= max_size_mb:
-        print(
-            f"File is already {current_size_mb:.2f}MB (under {max_size_mb}MB target). Skipping."
-        )
+        print(f"File is already {current_size_mb:.2f}MB (under {max_size_mb}MB target). Skipping.")
         return
 
     # 1. Setup constants and safety buffer
@@ -63,7 +60,7 @@ def compress_video(input_path: Path, output_path: Path, max_size_mb: float) -> N
     null_device: str = "NUL" if sys.platform == "win32" else "/dev/null"
 
     # Base FFmpeg parameters
-    base_params: List[str] = [
+    base_params: list[str] = [
         "ffmpeg",
         "-y",
         "-i",
@@ -76,8 +73,8 @@ def compress_video(input_path: Path, output_path: Path, max_size_mb: float) -> N
         "medium",
     ]
 
-    pass1: List[str] = base_params + ["-pass", "1", "-an", "-f", "mp4", null_device]
-    pass2: List[str] = base_params + [
+    pass1: list[str] = base_params + ["-pass", "1", "-an", "-f", "mp4", null_device]
+    pass2: list[str] = base_params + [
         "-pass",
         "2",
         "-c:a",
@@ -106,9 +103,7 @@ def compress_video(input_path: Path, output_path: Path, max_size_mb: float) -> N
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(
-        description="Force video under a specific MB limit."
-    )
+    parser = argparse.ArgumentParser(description="Force video under a specific MB limit.")
     parser.add_argument("input", type=Path, help="Source video file")
     parser.add_argument("output", type=Path, help="Output video file")
     parser.add_argument("size", type=float, help="Target size in MB")
