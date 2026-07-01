@@ -11,4 +11,4 @@ fi
 db_file=$1
 shift # Shift the arguments to the left so $@ now contains only the SQL commands
 
-/usr/bin/mysql "$db_file" --init-command="${INIT_COMMAND}" $@
+/usr/bin/mysql "$db_file" --init-command="${INIT_COMMAND}" "$@"

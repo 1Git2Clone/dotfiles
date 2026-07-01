@@ -7,4 +7,5 @@ shell=bash
 external-sources=true
 
 # These are checked elsewhere or are intentional.
+#   SC1090, SC1091: source paths we can't resolve in CI
 disable=SC1090,SC1091

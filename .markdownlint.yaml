@@ -2,22 +2,19 @@
 #
 # https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
 #
+# The CI markdownlint job only lints a small, hand-curated set of
+# project-owned files (see the globs in .github/workflows/ci.yml).
+# So we can keep most rules enabled — the corpus is small enough
+# to fix findings as they come up.
+#
 # Disabled rules (with reason):
-#   MD013  line-length           — examples in agent prompts are long
-#                                   and embedding them in lists is useful.
-#   MD031  blanks-around-fences  — many command/agent prompts pack
-#                                   fences tightly to their context.
-#   MD033  no-inline-html        — agent prompts use callout boxes (><).
-#   MD036  no-emphasis-as-heading — common in agent prompt style.
-#   MD040  fenced-code-language  — many "```" code fences exist in
-#                                   agent prompts without a language tag.
-#                                   Re-enable when those are cleaned up.
-#   MD041  first-line-h1         — top-level AGENTS.md files don't need
-#                                   an H1 (the filename is the title).
+#   MD013  line-length           — long lines exist in tables and
+#                                   skill-prompt examples.
+#   MD033  no-inline-html        — README uses callout blocks (><).
+#   MD036  no-emphasis-as-heading — common in prompt content.
+#   MD041  first-line-h1         — files are titled by filename.
 default: true
 MD013: false
-MD031: false
 MD033: false
 MD036: false
-MD040: false
 MD041: false

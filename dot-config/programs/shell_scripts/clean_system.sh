@@ -13,7 +13,7 @@ sudo pacman -Scc # All cached packages.
 ###############################################################################
 # Remove unsused packages (Orphans)
 ###############################################################################
-sudo pacman -Rns $(pacman -Qtdq)
+sudo pacman -Rns "$(pacman -Qtdq)"
 
 ###############################################################################
 # Remove the cache from your home directory.
