@@ -1,5 +1,12 @@
 # Configuration files
 
+[![CI Icon]][CI Status]&emsp;[![License Icon]][LICENSE]
+
+[CI Icon]: https://img.shields.io/github/actions/workflow/status/1Git2Clone/dotfiles/ci.yml?branch=main
+[CI Status]: https://github.com/1Git2Clone/dotfiles/actions?query=branch%3Amain
+[License Icon]: https://img.shields.io/badge/license-MIT-blue.svg
+[LICENSE]: LICENSE
+
 Quick tip about querying your packages into your own file:
 
 ```sh
