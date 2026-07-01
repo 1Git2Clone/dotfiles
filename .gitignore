@@ -162,3 +162,11 @@ dot-config/hypr/scheme/current.conf
 !/dot-local/share/icons/Hutao-Cursor
 dot-config/espanso/scripts/work/welcome/welcome_history.txt
 __pycache__
+
+
+###############################################################################
+# Build artifacts & dependencies (catch-all for any subdirectory)
+###############################################################################
+
+**/node_modules/
+**/dist/
