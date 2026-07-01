@@ -160,7 +160,7 @@ installing the Zsh plugins.**"
     fi
     cd ~/dotfiles || { echo "You should have a $HOME/dotfiles/ directory."; exit 1; }
     stow --adopt --dotfiles . -t "$HOME/"
-    cd - >/dev/null
+    cd - >/dev/null || exit
     source "$HOME/.profile"
 
     declare -A plugins_to_install=()
