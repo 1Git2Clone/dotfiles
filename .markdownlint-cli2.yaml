@@ -1,24 +1,55 @@
 # markdownlint-cli2 configuration for the dotfiles repo.
 #
-# LAYER: This lints markdown files that THIS REPO OWNS. It does not
-# lint the ~500 markdown files under `dot-config/opencode/skills/`,
-# `dot-config/opencode/agents/`, `dot-config/opencode/commands/`,
-# etc. — those are vendored upstream content. If you author new
-# markdown here, add the path to globs below.
+# LAYER MODEL — configs and globs are split by file ownership:
 #
-# The pre-push hook and the CI workflow both use this config.
-# Keep them in sync — drift between local and CI linting is a
-# debugging tax.
+#   1. Repo-owned markdown  ← linted with .markdownlint.yaml (strict).
+#   2. Vendored markdown    ← linted with .markdownlint.vendored.yaml
+#                             (advisory; excluded from CI by default).
 #
-# What counts as "repo-owned" markdown:
-#   - README.md at the repo root
-#   - dot-claude/CLAUDE.md, dot-claude/hooks/*.md, etc.
-#   - dot-config/opencode/AGENTS.md (project-level prompt, not vendored)
-#   - dot-hermes/config.example.yaml and any siblings
-
-config: .markdownlint.yaml
+# The globs below cover (1). Anything under `dot-config/opencode/`
+# other than the project AGENTS.md falls into (2) — that path is
+# excluded by the `dot-config/opencode/**` glob but the explicit
+# AGENTS.md entry re-includes the one project-owned file in that
+# tree. If you author new repo-owned markdown, add its path below.
+#
+# Globs are referenced verbatim by `.github/workflows/ci.yml` — keep
+# them in sync or CI drifts from local linting.
+config:
+  - .markdownlint.yaml
 globs:
+  # Project-level, repo-owned. Linted with .markdownlint.yaml.
   - "README.md"
-  - "dot-claude/**/*.md"
+  - "LICENSE"
+
+  # dot-claude/ — Claude Code integration (project-owned).
+  - "dot-claude/CLAUDE.md"
+  - "dot-claude/hooks/**/*.md"
+
+  # dot-config/opencode/ — vendored EXCEPT for the project AGENTS.md.
+  # The explicit entry below overrides the broader `dot-config/opencode/**`
+  # exclude (added below) for this one project-owned file.
   - "dot-config/opencode/AGENTS.md"
+
+  # dot-hermes/ — Hermes Agent integration (project-owned).
   - "dot-hermes/**/*.md"
+
+  # dot-cargo/ — vendored Rust crate registry sources. Add overrides
+  # here if you ever author project-owned markdown under dot-cargo/.
+  # (No entries today.)
+
+  # dot-local/, dot-profile.d/, dot-bashrc, dot-zshrc — sourced shell,
+  # rarely have project-owned markdown.
+
+# ── Exclude (vendored) ─────────────────────────────────────────────────────
+# Anything matching these patterns is vendored upstream. It is excluded
+# from CI and consumes .markdownlint.vendored.yaml if you lint it locally.
+ignores:
+  - "dot-config/opencode/skills/**"
+  - "dot-config/opencode/agents/**"
+  - "dot-config/opencode/commands/**"
+  - "dot-config/opencode/plugins/**"
+  - "dot-config/opencode/templates/**"
+  - "dot-config/opencode/docs/**"
+  - "dot-cargo/registry/**"
+  - "dot-config/obs_plugins/**"
+  - "_spicetify_theme_configs/**"

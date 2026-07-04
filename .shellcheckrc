@@ -1,6 +1,7 @@
 # shellcheck configuration. See https://github.com/koalaman/shellcheck/blob/master/shellcheckrc
 
-# Default to bash, since the dotfiles repo mixes bash and POSIX sh.
+# All executed scripts in this repo use `#!/usr/bin/env bash` for portability.
+# Source-only dotfiles under dot-profile.d/ may be POSIX with no shebang.
 shell=bash
 
 # Allow source paths in $HOME; we have lots of dot-config/ symlinks.

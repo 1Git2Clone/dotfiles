@@ -159,19 +159,12 @@ jobs:
   markdown:
     name: Markdown (markdownlint-cli2)
     runs-on: ubuntu-latest
+    # LAYER: globs and rules live in .markdownlint-cli2.yaml (and the two
+    # configs it selects: .markdownlint.yaml for repo-owned, the vendored
+    # file for everything excluded). Keep them in sync with the workflow.
     steps:
       - uses: actions/checkout@v4
       - uses: DavidAnson/markdownlint-cli2-action@v19
-        with:
-          globs: |
-            README.md
-            dot-claude/**/*.md
-            dot-config/opencode/AGENTS.md
-            dot-hermes/**/*.md
-            # .codewhale, dot-config/opencode/skills, agents, commands,
-            # and other subdirectories are vendored content or agent
-            # definitions — excluded by design. Add new project-owned
-            # markdown paths here as you create them.
 
   # ─────────────────────────────────────────────────────────
   #  Stow dry-run — catches ignore regressions

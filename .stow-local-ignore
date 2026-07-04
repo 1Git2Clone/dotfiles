@@ -47,6 +47,7 @@ dot-hermes/config.example.yaml
 .prettierignore
 .markdownlint.yaml
 .markdownlint-cli2.yaml
+.markdownlint.vendored.yaml
 pyproject.toml
 .ruff.toml
 .editorconfig

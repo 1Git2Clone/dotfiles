@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ###############################################################################
 # On Ctrl+C handler
@@ -16,8 +16,7 @@ trap cleanup SIGINT
 ###############################################################################
 
 while true; do
-  read -p "Do you want to install packages: base-devel and git with pacman?
-(y/N): " packages
+  read -p "Do you want to install packages: base-devel, git and firefox with pacman? (y/N): " packages
 
   packages=${packages:-n}
   case "$packages" in
@@ -41,10 +40,10 @@ done
 
 install_additional_packages() {
   while true; do
-    read -p "Would you like to install packages required for setting up your
-desktop environment (i3) as well as apps like discord and OBS studio?
-Warning: this may take a while if you don't have obs-studio-tytan652.
-(y/N): " additional_packages
+    echo "Would you like to install packages required for setting up your desktop environment (i3)"
+    echo "as well as apps like discord and OBS studio?"
+    echo "Warning: this may take a while if you don't have obs-studio-tytan652."
+    read -p "(y/N): " additional_packages
     additional_packages=${additional_packages:-n}
     case "$additional_packages" in
       [Yy]*)
@@ -64,11 +63,10 @@ Warning: this may take a while if you don't have obs-studio-tytan652.
 
 while true; do
 
-  read -p \
-    "Select your AUR helper. [Default: none] (Won't reinstall if it exists)
-1 - paru
-2 - yay
-Choice: " aur_helper
+  echo "Select your AUR helper. [Default: none] (Won't reinstall if it exists)"
+  echo "1 - paru"
+  echo "2 - yay"
+  read -p "Choice: " aur_helper
 
   aur_helper=${aur_helper:-0}
   case "$aur_helper" in
@@ -130,9 +128,9 @@ done
 ###############################################################################
 
 while true; do
-  echo "NOTE: **If you choose zsh your .bashrc, .profile and .zshrc will get
-replaced with the home_user/ ones based on this repo. This is for the sake of
-installing the Zsh plugins.**"
+  echo "NOTE: **If you choose zsh your .bashrc, .profile and .zshrc will get"
+  echo "replaced with the home_user/ ones based on this repo. This is for the"
+  echo "sake of installing the Zsh plugins.**"
   read -p "Continue with bash (1) or use zsh (2)? [Default: bash]: " \
     choose_shell
   choose_shell=${choose_shell:-1}
@@ -195,8 +193,7 @@ done
 ###############################################################################
 
 while true; do
-  read -p "If this is a terminal install. Would you like to enable SDDM?
-(y/N): " enable_sddm
+  read -p "If this is a terminal install. Would you like to enable SDDM? (y/N): " enable_sddm
   enable_sddm=${enable_sddm:-n}
   case "$enable_sddm" in
     [Yy]*)
@@ -215,8 +212,7 @@ done
 # GNU stow setup
 ###############################################################################
 while true; do
-  read -r "Would you like to setup GNU stow with the current repo dotfiles?
-(Y/n): " setup_stow
+  read -p "Would you like to setup GNU stow with the current repo dotfiles? (Y/n): " setup_stow
   setup_stow=${setup_stow:-y}
   case "$setup_stow" in
     [Yy]*)

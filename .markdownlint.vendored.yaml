@@ -1,0 +1,23 @@
+# markdownlint ruleset for the **vendored** markdown surface.
+#
+# Vendored = "tracked here, but authored upstream" (see
+# `.markdownlint-cli2.yaml` for the excluded globs). We do not lint
+# these files by default — the rules in this file are here as a
+# reference for someone who wants to spot-check a vendored file
+# locally, and as a place to record exceptions that the vendored
+# upstream has baked in (e.g. intentional duplicate headings in
+# agent prompts).
+#
+# Treat this config as advisory. The pre-push markdownlint job does
+# not consume it. If you find a problem with vendored content,
+# report it upstream rather than fixing it in-place.
+#
+# https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
+default: true
+MD013: false # upstream's long lines, not our problem
+MD024: false # duplicate headings are intentional in prompts
+MD025: false # front-matter H1 is upstream convention
+MD029: false # ordered list numbering is upstream convention
+MD033: false # callouts and inline HTML are upstream convention
+MD036: false # NOTE/TIP emphasis as heading is upstream
+MD041: false # filename-titled, not first-line-titled
