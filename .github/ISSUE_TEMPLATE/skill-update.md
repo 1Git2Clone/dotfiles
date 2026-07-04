@@ -22,3 +22,11 @@ A short summary of the relevant upstream changes.
 
 Did you make any local changes to the vendored content beyond
 the upstream mirror? If so, list them.
+
+## Area
+
+Vendored skill updates always map to `area: opencode`. A
+maintainer will apply that label on triage. The full list of
+available labels lives at
+<https://github.com/1Git2Clone/dotfiles/labels> (filter by
+`area:*`).

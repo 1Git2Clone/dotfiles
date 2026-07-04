@@ -1,18 +1,21 @@
-# markdownlint ruleset for the dotfiles repo's own markdown.
+# markdownlint ruleset for the **repo-owned** markdown surface.
+#
+# This is the canonical ruleset. It is intentionally strict because
+# the corpus of project-authored markdown is small (see
+# `.markdownlint-cli2.yaml` for the globs) — anything that flags here
+# is worth fixing inline.
 #
 # https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
-#
-# The CI markdownlint job only lints a small, hand-curated set of
-# project-owned files (see the globs in .github/workflows/ci.yml).
-# So we can keep most rules enabled — the corpus is small enough
-# to fix findings as they come up.
 #
 # Disabled rules (with reason):
 #   MD013  line-length           — long lines exist in tables and
 #                                   skill-prompt examples.
-#   MD033  no-inline-html        — README uses callout blocks (><).
-#   MD036  no-emphasis-as-heading — common in prompt content.
-#   MD041  first-line-h1         — files are titled by filename.
+#   MD033  no-inline-html        — README and AGENTS.md use callout
+#                                   blocks (><).
+#   MD036  no-emphasis-as-heading — common in prompt content (NOTE,
+#                                   IMPORTANT).
+#   MD041  first-line-h1         — files are titled by filename, not
+#                                   by their first line.
 default: true
 MD013: false
 MD033: false

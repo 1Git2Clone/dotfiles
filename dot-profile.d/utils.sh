@@ -24,11 +24,11 @@ reset_network() {
   printf 'Continue? [y/N] '
   read -r confirm
   case "$confirm" in
-  [yY]) ;;
-  *)
-    echo "Aborted."
-    return 1
-    ;;
+    [yY]) ;;
+    *)
+      echo "Aborted."
+      return 1
+      ;;
   esac
 
   echo "[*] Flushing nft rulesets..."

@@ -1,6 +1,63 @@
+# ── Git LFS policy ─────────────────────────────────────────────────────
+#
+# Binary blobs (images, fonts, themes, videos, compiled binaries) are
+# tracked via Git LFS so the working tree and clone size stay sane.
+# See the "LFS / large binaries" section of README.md for rationale
+# and migration instructions.
+#
+# This file declares what gets stored in LFS going forward. Existing
+# commits already in the repository history are NOT migrated by this
+# PR — that is a separate `git lfs migrate` step (see README).
+#
+# If you author new binary content under `assets/`, `dot-config/...`,
+# or anywhere else, it WILL be routed to LFS automatically via the
+# patterns below — no per-file changes needed.
+#
+# Source: see `git lfs track --help` for the wildcard syntax.
+
+# ── Images ─────────────────────────────────────────────────────────────
+*.png filter=lfs diff=lfs merge=lfs -text
+*.jpg filter=lfs diff=lfs merge=lfs -text
+*.jpeg filter=lfs diff=lfs merge=lfs -text
+*.gif filter=lfs diff=lfs merge=lfs -text
+*.webp filter=lfs diff=lfs merge=lfs -text
+*.bmp filter=lfs diff=lfs merge=lfs -text
+
+# ── Video / audio (only mp4 is currently tracked, but be permissive) ──
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+*.webm filter=lfs diff=lfs merge=lfs -text
+*.mov filter=lfs diff=lfs merge=lfs -text
+*.mp3 filter=lfs diff=lfs merge=lfs -text
+*.ogg filter=lfs diff=lfs merge=lfs -text
+
+# ── Fonts ──────────────────────────────────────────────────────────────
+*.ttf filter=lfs diff=lfs merge=lfs -text
+*.otf filter=lfs diff=lfs merge=lfs -text
+*.woff filter=lfs diff=lfs merge=lfs -text
+*.woff2 filter=lfs diff=lfs merge=lfs -text
+
+# ── Themes ─────────────────────────────────────────────────────────────
+*.qbtheme filter=lfs diff=lfs merge=lfs -text
+
+# ── Compiled / prebuilt binaries ───────────────────────────────────────
+# These are checked in as a convenience for users who don't want to
+# build them — see `dot-config/programs/src/` for sources.
+*.bin filter=lfs diff=lfs merge=lfs -text
+
+# Compiled binaries shipped under dot-config/programs/bin/ — these have
+# no extension, so we pattern-match by parent directory.
+dot-config/programs/bin/** filter=lfs diff=lfs merge=lfs -text
+
+# ── Cursor data (extension-less binary files) ──────────────────────────
+# Hu Tao Xcursor theme — extension-less binary cursor data.
+dot-local/share/icons/Hutao-Cursor/cursors/** filter=lfs diff=lfs merge=lfs -text
+
+# ── Non-LFS rules below this line ──────────────────────────────────────
+# Anything not matched above is treated as text (the default).
+
+# ── Legacy compatibility (binary attributes used before LFS was wired up) ──
+# Pre-existing commit history has these as plain Git objects. The lines
+# below keep `git status` honest for those files going forward.
 *.mp4 binary
 *.png binary
 *.jpg binary
-
-# Hu Tao Xcursor theme — extension-less binary cursor data
-dot-local/share/icons/Hutao-Cursor/cursors/** binary
