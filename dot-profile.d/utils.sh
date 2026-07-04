@@ -20,6 +20,20 @@ help() {
 # NOTE: If you configure your firewall with `iptables`, this will reset it.
 # This function is intended for `ufw` users.
 reset_network() {
+  printf '[!] WARNING: This will reset ALL firewall rules (nft + iptables) and restart networking.\n'
+  printf 'Continue? [y/N] '
+  read -r confirm
+  case "$confirm" in
+  [yY]) ;;
+  *)
+    echo "Aborted."
+    return 1
+    ;;
+  esac
+
+  echo "[*] Flushing nft rulesets..."
+  sudo nft flush ruleset
+
   echo "[*] Flushing iptables..."
   sudo iptables -F
   sudo iptables -X
