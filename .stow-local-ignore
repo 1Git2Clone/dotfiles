@@ -15,6 +15,7 @@
 # ── Repo meta (not for ~) ─────────────────────────────────
 README.md
 LICENSE
+CONTRIBUTING.md
 assets
 
 # ── Repo internals (not for ~) ────────────────────────────
