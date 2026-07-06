@@ -82,3 +82,13 @@ Mark which files this touches (paste `git status` output or list paths):
 ## Notes
 
 Anything else — terminal output, screenshots, related issues.
+
+## Labels
+
+The bug report itself gets `bug` automatically. Please also add:
+
+- one **area:**\* label from
+  [the full list](https://github.com/1Git2Clone/dotfiles/labels?q=area%3A)
+  — pick the tool/config that broke (`area: setup`, `area: hyprland`,
+  `area: opencode`, `area: ci`, etc.)
+- a **P**\* priority (`P0` critical, `P3` polish)

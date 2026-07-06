@@ -38,3 +38,11 @@
 - [ ] If I added a new top-level file, I added it to `.stow-local-ignore`
 - [ ] If I added a new tool config, the relevant CI job covers it
 - [ ] I followed the commit message convention (`type(scope): subject`)
+
+## Labels
+
+Please apply at least one **area:**\* label matching the tools/configs
+checked above. The full list lives at
+<https://github.com/1Git2Clone/dotfiles/labels?q=area%3A>. For docs-only
+or repo-infra-only changes use `area: docs` / `area: ci` /
+`area: lint-stack` accordingly.

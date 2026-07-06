@@ -71,3 +71,13 @@ A maintainer will replace the checklist above with the matching
 - [ ] I have run `pre-commit run --all-files` locally
 - [ ] I have considered whether CI lint jobs need updating
 - [ ] I have considered whether `.stow-local-ignore` needs updating
+
+## Labels
+
+The feature request itself gets `enhancement` automatically. Please
+also add:
+
+- one **area:**\* label from
+  [the full list](https://github.com/1Git2Clone/dotfiles/labels?q=area%3A)
+  — pick the tool/config the change affects
+- `good first issue` if you're new to the repo and want help onboarding
