@@ -10,3 +10,12 @@ external-sources=true
 # These are checked elsewhere or are intentional.
 #   SC1090, SC1091: source paths we can't resolve in CI
 disable=SC1090,SC1091
+
+# Shebang policy (enforced by convention, not by this file):
+#   - Scripts that use bash syntax (declare -A, [[ ]], arrays, etc.)
+#     must start with `#!/bin/bash`.
+#   - Scripts that stay POSIX-clean start with `#!/bin/sh`.
+#   - Anything zsh-only starts with `#!/bin/zsh`.
+# If you reach for `#!/usr/bin/env bash` instead, justify it in the
+# commit message — we standardize on the absolute path because every
+# supported target distro guarantees it.
