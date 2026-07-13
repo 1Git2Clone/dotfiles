@@ -142,6 +142,7 @@ dot-config/hypr/scheme/current.conf
 !/dot-hermes
 /dot-hermes/config.yaml
 /dot-hermes/config.yml
+/dot-hermes/*
 
 ###############################################################################
 # Programs (scripts really)
