@@ -7,14 +7,14 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 # ── Dependency checks ──────────────────────────────────────────────
 MISSING=()
-command -v sysctl   &>/dev/null || MISSING+=(procps-ng)
-command -v udevadm  &>/dev/null || MISSING+=(systemd)
-command -v scxctl   &>/dev/null || MISSING+=(scx-scheds)
+command -v sysctl &> /dev/null || MISSING+=(procps-ng)
+command -v udevadm &> /dev/null || MISSING+=(systemd)
+command -v scxctl &> /dev/null || MISSING+=(scx-scheds)
 
 if [ ${#MISSING[@]} -gt 0 ]; then
-    echo "Error: missing required packages: ${MISSING[*]}" >&2
-    echo "Install with: sudo pacman -S ${MISSING[*]}" >&2
-    exit 1
+  echo "Error: missing required packages: ${MISSING[*]}" >&2
+  echo "Install with: sudo pacman -S ${MISSING[*]}" >&2
+  exit 1
 fi
 
 # ── sysctl ─────────────────────────────────────────────────────────
