@@ -3,8 +3,8 @@ Type=Application
 Name=Spotify
 GenericName=Music Player
 Icon=spotify-client
-TryExec=/home/hutao/.local/bin/spotify-hutao
-Exec=/home/hutao/.local/bin/spotify-hutao --uri=%u
+TryExec=spotify
+Exec=spotify --disable-gpu --disable-gpu-sandbox --ozone-platform=wayland --uri=%u
 Terminal=false
 MimeType=x-scheme-handler/spotify;
 Categories=Audio;Music;Player;AudioVideo;
