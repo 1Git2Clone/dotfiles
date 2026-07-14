@@ -64,3 +64,9 @@ required_packages_archlinux.txt
 # ── Notes & vendor blobs (not for ~) ──────────────────────
 _extra_notes
 _spicetify_theme_configs
+
+# ── System configs (installed via system/install.sh, not stowed) ──
+system
+
+# ── Documentation (not for ~) ─────────────────────────────
+docs
