@@ -1,0 +1,7 @@
+# ── I/O Scheduler Rules ──────────────────────────────────────────────────────
+# NVMe and SSDs: use none (lowest latency, hardware handles queuing)
+ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="none"
+ACTION=="add|change", KERNEL=="nvme[0-9]*", ATTR{queue/scheduler}="none"
+
+# HDDs: use bfq (fair queuing for spinning rust)
+ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="bfq"

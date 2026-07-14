@@ -1,0 +1,12 @@
+[Unit]
+Description=sched_ext Lavd (desktop-optimized scheduler)
+After=multi-user.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/scxctl start --sched lavd
+ExecStop=/usr/bin/scxctl stop
+
+[Install]
+WantedBy=multi-user.target
