@@ -130,6 +130,7 @@ dot-config/hypr/scheme/current.conf
 
 !/dot-config/opencode
 !/dot-config/opencode/**/*
+dot-config/opencode/.oh-my-opencode-slim
 
 ###############################################################################
 # CodeWhale
