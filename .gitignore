@@ -6,6 +6,8 @@
 
 !/dot-config/hypr/
 !/dot-config/hypr/**/*
+# Setup-dependent
+dot-config/hypr/modules/monitors.lua
 
 ###############################################################################
 # caelestia
