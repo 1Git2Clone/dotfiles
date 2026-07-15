@@ -10,6 +10,7 @@ fcitx5-configtool
 fcitx5-mozc
 fzf
 git
+git-lfs
 hyprlock
 hyprpaper
 hyprqt6engine
