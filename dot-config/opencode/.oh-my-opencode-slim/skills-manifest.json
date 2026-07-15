@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-15T13:34:51.681Z",
+  "skills": {
+    "simplify": {
+      "status": "customized",
+      "packageVersion": "2.2.1",
+      "sourceHash": "3dbfe351c0cf70cdacc9cd576b50ac87c47c4b1b06ebc40ec33590b149d7f616",
+      "lastManagedHash": "",
+      "lastSeenHash": "61361b7d3bb63154d622cb5c6ab32aa727180aae738307e7f1b434690ec66210",
+      "stagedPath": "/home/hutao/.config/opencode/.oh-my-opencode-slim/skill-updates/2.2.1/simplify",
+      "updatedAt": "2026-07-15T13:34:51.680Z"
+    },
+    "codemap": {
+      "status": "customized",
+      "packageVersion": "2.2.1",
+      "sourceHash": "d1f6c86212b4550b68096021266ecdbb0d788ad59b4673bb5658ca4b49251a9b",
+      "lastManagedHash": "",
+      "lastSeenHash": "b7abed1aad2ac0fca6c87eca1ebbd16480c9fac2afa23283a4fb721434c10b97",
+      "stagedPath": "/home/hutao/.config/opencode/.oh-my-opencode-slim/skill-updates/2.2.1/codemap",
+      "updatedAt": "2026-07-15T13:34:51.680Z"
+    },
+    "clonedeps": {
+      "status": "customized",
+      "packageVersion": "2.2.1",
+      "sourceHash": "93745eb7b84ea9ae7368c09a632be4e74180d0ac6305241e92023d89c9a89a14",
+      "lastManagedHash": "",
+      "lastSeenHash": "85dfe902610ec00ec8c3ff2d0f7b5210ff86b870d27a9684d91aac522c5732fc",
+      "stagedPath": "/home/hutao/.config/opencode/.oh-my-opencode-slim/skill-updates/2.2.1/clonedeps",
+      "updatedAt": "2026-07-15T13:34:51.681Z"
+    },
+    "deepwork": {
+      "status": "customized",
+      "packageVersion": "2.2.1",
+      "sourceHash": "65f18c17fd7499de343fcab9f4020596bc87db84611e7478cc79fff718c9f01d",
+      "lastManagedHash": "",
+      "lastSeenHash": "2306f537ec38b7b73265b42c996044bc06ce2a1da976fad75885b63039226b28",
+      "stagedPath": "/home/hutao/.config/opencode/.oh-my-opencode-slim/skill-updates/2.2.1/deepwork",
+      "updatedAt": "2026-07-15T13:34:51.681Z"
+    },
+    "verification-planning": {
+      "status": "managed",
+      "packageVersion": "2.2.2",
+      "sourceHash": "f59c06476d484287418b595a6ff2fc809eeffb1ea020d253481084e0862066c3",
+      "lastManagedHash": "f59c06476d484287418b595a6ff2fc809eeffb1ea020d253481084e0862066c3",
+      "lastSeenHash": "f59c06476d484287418b595a6ff2fc809eeffb1ea020d253481084e0862066c3",
+      "updatedAt": "2026-07-15T13:34:51.681Z"
+    },
+    "reflect": {
+      "status": "customized",
+      "packageVersion": "2.2.1",
+      "sourceHash": "3ee1c08d65a0145547ab54efe72b3277c5ae76c78396ba6f030ebaa2e776944a",
+      "lastManagedHash": "",
+      "lastSeenHash": "d6549f0261c224c300c1b2285221172cd2e44204e777dd74d4dc604766adf4b1",
+      "stagedPath": "/home/hutao/.config/opencode/.oh-my-opencode-slim/skill-updates/2.2.1/reflect",
+      "updatedAt": "2026-07-15T13:34:51.681Z"
+    },
+    "oh-my-opencode-slim": {
+      "status": "customized",
+      "packageVersion": "2.2.1",
+      "sourceHash": "0625f93779ce32291cd90e2f78fbb8ccdfc355a2cd526ba1c77704dfc2058871",
+      "lastManagedHash": "",
+      "lastSeenHash": "756ef3c8ed9309f2b534cc27fadc21d89b3419a7bcf4c8869c31e9ad3a1912ad",
+      "stagedPath": "/home/hutao/.config/opencode/.oh-my-opencode-slim/skill-updates/2.2.1/oh-my-opencode-slim",
+      "updatedAt": "2026-07-15T13:34:51.681Z"
+    },
+    "worktrees": {
+      "status": "customized",
+      "packageVersion": "2.2.1",
+      "sourceHash": "bdf7212ba2c5f8512afd5159d0462e05ec670cea676c6932e0a0f3ebb68bb77b",
+      "lastManagedHash": "",
+      "lastSeenHash": "565f3d29c33fdd7d74a5c7ec4f3107b918281cbf82d20ba103baae056bbc063c",
+      "stagedPath": "/home/hutao/.config/opencode/.oh-my-opencode-slim/skill-updates/2.2.1/worktrees",
+      "updatedAt": "2026-07-15T13:34:51.681Z"
+    }
+  }
+}
