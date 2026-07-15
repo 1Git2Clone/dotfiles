@@ -15,9 +15,9 @@
       "scale": 1
     },
     "transparency": {
-      "base": 0.85,
-      "enabled": false,
-      "layers": 0.4
+      "base": 0.9,
+      "enabled": true,
+      "layers": 0.5
     }
   },
   "background": {
