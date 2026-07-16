@@ -1,6 +1,6 @@
 # GNU Stow local ignore file.
 #
-# Read by `stow --dotfiles` (see stow_setup.sh) when symlinking the
+# Read by `stow --dotfiles` (see stow-setup.sh) when symlinking the
 # repo into $HOME. Anything matching a pattern here is NOT symlinked.
 #
 # Structure mirrors the root .gitignore: blanket deny at the top,
@@ -57,8 +57,8 @@ pyproject.toml
 .circleci
 
 # ── Setup / bootstrap scripts (run from the repo, not from ~)
-full_setup.sh
-stow_setup.sh
+full-setup.sh
+stow-setup.sh
 required_packages_archlinux.txt
 
 # ── Notes & vendor blobs (not for ~) ──────────────────────

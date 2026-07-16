@@ -26,7 +26,7 @@ full list of available labels lives at
 <https://github.com/1Git2Clone/dotfiles/labels> (filter by
 `area:*`).
 
-- [ ] area: setup (`full_setup.sh`, `stow_setup.sh`, bootstrap)
+- [ ] area: setup (`full-setup.sh`, `stow-setup.sh`, bootstrap)
 - [ ] area: hyprland (`dot-config/hypr/`)
 - [ ] area: profile (`dot-profile`, `dot-profile.d`, `dot-bashrc`, `dot-zshrc`)
 - [ ] area: waybar (`dot-config/waybar/`)

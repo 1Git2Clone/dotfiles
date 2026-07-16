@@ -2,7 +2,7 @@
 GPG_TTY="$(tty)"
 export GPG_TTY
 
-# The $ZSH variable is needed for the full_setup.sh
+# The $ZSH variable is needed for the full-setup.sh
 # script which runs in bash by default for
 # compatibility sake.
 export ZSH="$HOME/.oh-my-zsh"

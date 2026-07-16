@@ -6,7 +6,7 @@
 > (`paru` or `yay`). The setup script calls `sudo pacman`, installs
 > AUR packages via `makepkg`, and enables `sddm.service`. On other
 > distros, cherry-pick the `dot-config/` subtrees you want and
-> symlink them yourself — `stow_setup.sh` works anywhere stow runs.
+> symlink them yourself — `stow-setup.sh` works anywhere stow runs.
 
 [CI Icon]: https://img.shields.io/github/actions/workflow/status/1Git2Clone/dotfiles/ci.yml?branch=main
 [CI Status]: https://github.com/1Git2Clone/dotfiles/actions?query=branch%3Amain
@@ -46,14 +46,14 @@ them with.
 ## Quick setup guide
 
 ```sh
-chmod +x ./stow_setup.sh && chmod +x ./full_setup.sh # One time only
+chmod +x ./stow-setup.sh && chmod +x ./full-setup.sh # One time only
 
-./full_setup.sh # Or ./stow_setup.sh if you only want the symlinks.
+./full-setup.sh # Or ./stow-setup.sh if you only want the symlinks.
 ```
 
 > [!IMPORTANT]
-> The [`stow script`](./stow_setup.sh) and by extension the
-> [`full setup script`](./full_setup.sh) both use
+> The [`stow script`](./stow-setup.sh) and by extension the
+> [`full setup script`](./full-setup.sh) both use
 > [`stow`](https://www.gnu.org/software/stow/) with the
 > [`--adopt` flag](https://man.archlinux.org/man/stow.8#adopt), meaning it
 > could alter existing files in directories such as `~/.config`, `~/.local`,

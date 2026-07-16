@@ -147,7 +147,7 @@ while true; do
 
       # Restow just to make sure the configurations match.
       # This is due to the fact that "$HOME/.profile" has the $ZSH export.
-      # Inlined from stow_setup.sh so the rest of full_setup.sh keeps running
+      # Inlined from stow-setup.sh so the rest of full-setup.sh keeps running
       # (exec would terminate the script).
       rm "$HOME/.zshrc"
       rm "$HOME/.bashrc"
@@ -216,7 +216,7 @@ while true; do
   setup_stow=${setup_stow:-y}
   case "$setup_stow" in
     [Yy]*)
-      exec ./stow_setup.sh
+      exec ./stow-setup.sh
       ;;
     [Nn]*)
       break
