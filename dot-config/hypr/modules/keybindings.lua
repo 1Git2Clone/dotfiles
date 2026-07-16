@@ -36,6 +36,7 @@ function M.setup(programs)
       "E",
       "G",
       "V",
+      "S",
       "Space",
       "mouse:274",
       "mouse:275",
