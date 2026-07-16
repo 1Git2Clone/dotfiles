@@ -4,4 +4,4 @@
 # then opens the popup.
 primary=$(~/.config/programs/shell_scripts/caelestia-color.sh primary)
 tmux display-popup -E -w 60% -h 50% -S "fg=$primary" \
-  ~/.config/programs/shell_scripts/tmux-popup-newwin-picker.sh
+  ~/.config/programs/shell_scripts/tmux/popup-newwin-picker.sh

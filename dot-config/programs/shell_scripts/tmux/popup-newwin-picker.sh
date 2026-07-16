@@ -7,4 +7,4 @@ CC=~/.config/programs/shell_scripts/caelestia-color.sh
     --color "fg:$($CC primary),pointer:$($CC secondary),hl:$($CC secondary),hl+:$($CC secondary),header:$($CC primaryFixedDim),prompt:$($CC primary),info:$($CC primary)" \
     --prompt '  dir: ' \
     --header ' New Window ' \
-  | xargs -r ~/.config/programs/shell_scripts/tmux-new-named-window.sh
+  | xargs -r ~/.config/programs/shell_scripts/tmux/new-named-window.sh
