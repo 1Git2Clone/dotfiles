@@ -39,16 +39,6 @@
         ]
       }
     ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/check-stale-docs.sh"
-          }
-        ]
-      }
-    ],
     "SessionStart": [
       {
         "matcher": "startup",
@@ -86,11 +76,22 @@
           }
         ]
       }
+    ],
+    "SubagentStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/cbm-subagent-reminder"
+          }
+        ]
+      }
     ]
   },
   "statusLine": {
     "type": "command",
-    "command": "bunx -y ccstatusline@latest",
+    "command": "npx -y ccstatusline@latest",
     "padding": 0
   },
   "enabledPlugins": {
@@ -166,6 +167,5 @@
   "theme": "dark",
   "editorMode": "vim",
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true,
-  "model": "opus"
+  "skipAutoPermissionPrompt": true
 }

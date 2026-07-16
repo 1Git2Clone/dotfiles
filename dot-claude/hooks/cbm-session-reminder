@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # SessionStart hook: remind agent to use codebase-memory-mcp tools.
 # Installed by codebase-memory-mcp. Fires on startup/resume/clear/compact.
 cat << 'REMINDER'

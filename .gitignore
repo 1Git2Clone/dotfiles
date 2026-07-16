@@ -148,6 +148,18 @@ dot-config/opencode/.oh-my-opencode-slim
 /dot-hermes/*
 
 ###############################################################################
+# Claude Code
+###############################################################################
+
+!/dot-claude
+/dot-claude/*
+!/dot-claude/.mcp.json
+!/dot-claude/CLAUDE.md
+!/dot-claude/hooks/*
+!/dot-claude/settings.json
+!/dot-claude/statusline-command.sh
+
+###############################################################################
 # Programs (scripts really)
 ###############################################################################
 
