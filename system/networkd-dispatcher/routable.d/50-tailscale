@@ -1,0 +1,5 @@
+#!/bin/sh
+# Tailscale UDP GRO forwarding optimization for exit nodes/subnet routers
+# See: https://tailscale.com/s/ethtool-config-udp-gro
+NETDEV=$(ip route show default | awk '{print $5; exit}')
+[ -n "$NETDEV" ] && ethtool -K "$NETDEV" rx-udp-gro-forwarding on rx-gro-list off

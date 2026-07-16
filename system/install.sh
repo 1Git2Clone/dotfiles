@@ -38,4 +38,10 @@ cp "$SCRIPT_DIR/systemd/system/scx-lavd.service" /etc/systemd/system/scx-lavd.se
 systemctl daemon-reload
 systemctl enable --now scx-lavd.service
 
+# ── networkd-dispatcher (Tailscale) ──────────────────────────────
+echo "Installing Tailscale GRO config..."
+mkdir -p /etc/networkd-dispatcher/routable.d
+cp "$SCRIPT_DIR/networkd-dispatcher/routable.d/50-tailscale" /etc/networkd-dispatcher/routable.d/50-tailscale
+chmod 755 /etc/networkd-dispatcher/routable.d/50-tailscale
+
 echo "Done. Changes are active immediately."
