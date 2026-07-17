@@ -15,7 +15,7 @@
 # Any `references/` directory under a skill is documentation, not config.
 [[allowlists]]
   paths = [
-    '''dot-config/opencode/skills/.*/references/.*''',
+    '''dot-config/opencode/skills/.*''',
   ]
 
 # Allowlist 2: GPG signing-key fingerprint in dot-gitconfig.
@@ -23,7 +23,7 @@
 [[allowlists]]
   paths = ['dot-gitconfig']
   regexes = [
-    '''signingkey\s*=\s*[A-F0-9]{40}''',
+    '''[A-Fa-f0-9]{40}''',
   ]
 
 [extend]

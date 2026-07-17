@@ -15,14 +15,14 @@ if [ "$EUID" -eq 0 ]; then
 fi
 
 # ── Dependency checks ──────────────────────────────────────────────
-command -v caelestia &>/dev/null || {
+command -v caelestia &> /dev/null || {
   echo "Error: caelestia CLI not found" >&2
   echo "Install caelestia-cli first" >&2
   exit 1
 }
 
 # Resolve the caelestia package's schemes dir dynamically (python version varies)
-SCHEMES_DIR="$(python3 -c "import caelestia, os; print(os.path.join(os.path.dirname(caelestia.__file__), 'data', 'schemes'))" 2>/dev/null)"
+SCHEMES_DIR="$(python3 -c "import caelestia, os; print(os.path.join(os.path.dirname(caelestia.__file__), 'data', 'schemes'))" 2> /dev/null)"
 if [ -z "$SCHEMES_DIR" ] || [ ! -d "$SCHEMES_DIR" ]; then
   echo "Error: could not locate caelestia schemes directory" >&2
   exit 1
