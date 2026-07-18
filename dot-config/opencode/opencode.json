@@ -60,7 +60,7 @@
     "codebase-memory-mcp": {
       "enabled": true,
       "type": "local",
-      "command": ["/home/hutao/.local/bin/codebase-memory-mcp"]
+      "command": ["~/.local/bin/codebase-memory-mcp"]
     },
     "playwright": {
       "enabled": true,
@@ -75,10 +75,7 @@
     "openrouter-image": {
       "enabled": true,
       "type": "local",
-      "command": [
-        "node",
-        "/home/hutao/dotfiles/dot-opencode/mcp/openrouter-image-mcp-server/dist/index.js"
-      ],
+      "command": ["node", "~/dotfiles/dot-opencode/mcp/openrouter-image-mcp-server/dist/index.js"],
       "environment": {
         "OPENROUTER_API_KEY": "{env:OPENROUTER_TOKEN}"
       }

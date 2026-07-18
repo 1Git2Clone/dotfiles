@@ -34,4 +34,4 @@ find "$DOT_PROFILE_DIR" -type f -name '*.sh' -print0 | while IFS= read -r -d '' 
   source "$file"
 done
 
-[ -f "/home/hutao/.ghcup/env" ] && . "/home/hutao/.ghcup/env" # ghcup-env
+[ -f "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env" # ghcup-env
