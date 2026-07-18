@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Triple Z
 Comment=Play via umu + dwproton
-Exec=sh -c "\$HOME/Games/umu/run.sh \$HOME/Games/triple-z"
+Exec=sh -c "$HOME/Games/umu/run.sh $HOME/Games/triple-z"
 Icon=triple-z
 Terminal=false
 Type=Application
