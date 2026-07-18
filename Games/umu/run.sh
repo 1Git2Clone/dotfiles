@@ -7,17 +7,17 @@ set -e
 
 gamedir=$1
 if [ -z "$gamedir" ] || [ ! -d "$gamedir" ]; then
-    echo "usage: $0 <game-dir>" >&2
-    exit 1
+  echo "usage: $0 <game-dir>" >&2
+  exit 1
 fi
 
 exe=$(find -L "$gamedir" -maxdepth 1 -iname "*.exe" \
-    ! -iname "*crash*" ! -iname "*sys_global*" ! -iname "*upload*" \
-    ! -iname "*launcher*" ! -iname "*createdump*" | head -n1)
+  ! -iname "*crash*" ! -iname "*sys_global*" ! -iname "*upload*" \
+  ! -iname "*launcher*" ! -iname "*createdump*" | head -n1)
 
 if [ -z "$exe" ]; then
-    echo "no game exe found in $gamedir" >&2
-    exit 1
+  echo "no game exe found in $gamedir" >&2
+  exit 1
 fi
 
 export WINEPREFIX="$HOME/Games/umu/umu-default"
