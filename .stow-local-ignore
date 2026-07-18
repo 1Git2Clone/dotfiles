@@ -55,6 +55,7 @@ pyproject.toml
 .github
 .gitlab-ci.yml
 .circleci
+.luarc.json
 
 # ── Setup / bootstrap scripts (run from the repo, not from ~)
 full-setup.sh
