@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Fantasy Anime Game
+Comment=Play via umu + dwproton
+Exec=sh -c "\$HOME/Games/umu/run.sh \$HOME/Games/fantasy-anime-game"
+Icon=fantasy-anime-game
+Terminal=false
+Type=Application
+Categories=Game;

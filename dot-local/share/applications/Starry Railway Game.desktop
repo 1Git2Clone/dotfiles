@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Starry Railway Game
+Comment=Play via umu + dwproton
+Exec=sh -c "\$HOME/Games/umu/run.sh \$HOME/Games/starry-railway-game"
+Icon=starry-railway-game
+Terminal=false
+Type=Application
+Categories=Game;
