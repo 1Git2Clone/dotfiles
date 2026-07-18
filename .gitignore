@@ -15,6 +15,7 @@ dot-config/hypr/modules/monitors.lua
 
 !/dot-config/caelestia/
 !/dot-config/caelestia/**/*
+/dot-config/caelestia/shell.json
 
 # Managed by caelestia
 dot-config/hypr/scheme/current.conf
