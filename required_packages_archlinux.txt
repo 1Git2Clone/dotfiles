@@ -50,6 +50,7 @@ vim
 wget
 wireplumber
 wofi
+xdg-desktop-portal-hyprland
 xorg-xauth
 xorg-xhost
 zoxide
