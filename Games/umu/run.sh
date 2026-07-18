@@ -23,4 +23,4 @@ fi
 export WINEPREFIX="$HOME/Games/umu/umu-default"
 export GAMEID=umu-default
 export PROTONPATH=/usr/share/steam/compatibilitytools.d/dwproton
-exec umu-run "$exe"
+exec gamemoderun mangohud umu-run "$exe"
