@@ -27,6 +27,11 @@ hl.window_rule({
   tag = "+centerfloat",
 })
 hl.window_rule({ name = "tag-centerfloat-pavucontrol", match = { class = "^(pavucontrol)$" }, tag = "+centerfloat" })
+hl.window_rule({
+  name = "tag-centerfloat-fcitx5",
+  match = { class = "^(org.fcitx.fcitx5-config-qt)$" },
+  tag = "+centerfloat",
+})
 
 hl.window_rule({ name = "suppress-maximize-events", match = { class = ".*" }, suppress_event = "maximize" })
 hl.window_rule({
