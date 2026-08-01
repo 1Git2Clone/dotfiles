@@ -35,6 +35,14 @@ hl.window_rule({
 
 hl.window_rule({ name = "suppress-maximize-events", match = { class = ".*" }, suppress_event = "maximize" })
 hl.window_rule({
+  name = "hide-proton-empty-title-splash",
+  match = { initial_title = "^$", float = true },
+  workspace = "special:hiddenwindows silent",
+  no_focus = true,
+  no_anim = true,
+  opacity = "0",
+})
+hl.window_rule({
   name = "fix-xwayland-drags",
   match = {
     class = "^$",
