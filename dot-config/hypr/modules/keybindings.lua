@@ -124,9 +124,11 @@ function M.setup(programs)
     hl.bind("XF86AudioPrev", exec("playerctl previous"), { locked = true })
   end)
 
-  -- Mouse binds must be outside submap to work properly
-  hl.bind(main_mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
-  hl.bind(main_mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+  -- submap_universal keeps these active regardless of the current submap,
+  -- since we switch into the "global" submap on start/reload (see below) and
+  -- the default "" submap these were previously relying on then goes dead.
+  hl.bind(main_mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true, submap_universal = true })
+  hl.bind(main_mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true, submap_universal = true })
 
   local function enter_global_submap()
     hl.exec_cmd([[hyprctl dispatch 'hl.dsp.submap("global")']])
