@@ -4,6 +4,17 @@ local function exec(cmd)
   return hl.dsp.exec_cmd(cmd)
 end
 
+-- I hate having a mac
+local function mac_bind(key, shift)
+  hl.bind(
+    "ALT" .. (shift and " + SHIFT" or "") .. " + " .. key,
+    hl.dsp.send_shortcut({
+      mods = shift and "CTRL,SHIFT" or "CTRL",
+      key = key,
+    })
+  )
+end
+
 function M.setup(programs)
   local main_mod = "SUPER"
   local file_manager_from_clipboard = 'sh -c \'c=$(wl-paste); [ -d "$c" ] && '
@@ -48,17 +59,43 @@ function M.setup(programs)
       hl.bind(main_mod .. " + " .. key, hl.dsp.global("caelestia:launcherInterrupt"), launcher_interrupt_opts)
     end
 
+    mac_bind("C")
+    mac_bind("C", true)
+    mac_bind("V")
+    mac_bind("V", true)
+    mac_bind("Z")
+    mac_bind("Z", true)
+    mac_bind("S")
+    mac_bind("S", true)
+    -- New tab
+    mac_bind("T")
+    -- Restore last closed tab
+    mac_bind("T", true)
+    -- Close tab
+    mac_bind("W")
+    -- Find
+    mac_bind("F")
+    -- Next search result
+    mac_bind("G")
+    -- Previous search result
+    mac_bind("G", true)
+    -- Delete previous word
+    mac_bind("BACKSPACE")
+    hl.bind("ALT + CTRL + SPACE", exec("caelestia emoji -p"))
+    hl.bind("ALT + CTRL + Q", exec("caelestia shell lock lock"))
+    hl.bind("CTRL + LEFT", hl.dsp.focus({ workspace = "e-1" }))
+    hl.bind("CTRL + RIGHT", hl.dsp.focus({ workspace = "e+1" }))
+
     hl.bind(main_mod .. " + F", hl.dsp.window.fullscreen())
     hl.bind(main_mod .. " + S", exec("~/dotfiles/dot-config/programs/shell_scripts/screenshot-selection-copy.sh"))
     hl.bind(
       main_mod .. " + SHIFT + S",
       exec("~/dotfiles/dot-config/programs/shell_scripts/screenshot-focused-monitor.sh")
     )
-    hl.bind("ALT + V", exec("cliphist list | wofi -dmenu | cliphist decode | wl-copy"))
-    hl.bind("ALT + C", exec("~/dotfiles/dot-config/programs/shell_scripts/cliphist-remove-entry.sh"))
-    hl.bind("CTRL + ALT + C", exec("~/dotfiles/dot-config/programs/shell_scripts/get-cursor-pos.sh"))
-    hl.bind("ALT + SHIFT + Q", exec("poweroff"))
-    hl.bind("ALT + T", exec([[kitty --class "floating-term"]]))
+    hl.bind(main_mod .. " + CTRL + V", exec("cliphist list | wofi -dmenu | cliphist decode | wl-copy"))
+    hl.bind(main_mod .. " + CTRL + C", exec("~/dotfiles/dot-config/programs/shell_scripts/cliphist-remove-entry.sh"))
+    -- hl.bind("CTRL + ALT + C", exec("~/dotfiles/dot-config/programs/shell_scripts/get-cursor-pos.sh"))
+    hl.bind("CTRL + T", exec([[kitty --class "floating-term"]]))
     hl.bind(main_mod .. " + T", exec("~/dotfiles/dot-config/programs/shell_scripts/tesseract-screenshot.sh"))
     hl.bind(
       main_mod .. " + SHIFT + T",
