@@ -119,6 +119,9 @@ function M.setup(programs)
       local key = workspace % 10
       hl.bind(main_mod .. " + " .. key, hl.dsp.focus({ workspace = workspace }))
       hl.bind(main_mod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = workspace }))
+
+      hl.bind("ALT + " .. key, hl.dsp.focus({ workspace = workspace }))
+      hl.bind("ALT + SHIFT + " .. key, hl.dsp.window.move({ workspace = workspace }))
     end
 
     hl.bind(main_mod .. " + D", hl.dsp.workspace.toggle_special())
