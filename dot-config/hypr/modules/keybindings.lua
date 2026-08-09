@@ -59,6 +59,7 @@ function M.setup(programs)
       hl.bind(main_mod .. " + " .. key, hl.dsp.global("caelestia:launcherInterrupt"), launcher_interrupt_opts)
     end
 
+    mac_bind("A")
     mac_bind("C")
     mac_bind("C", true)
     mac_bind("V")
