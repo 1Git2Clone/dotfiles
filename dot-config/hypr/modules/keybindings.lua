@@ -106,7 +106,7 @@ function M.setup(programs)
     hl.bind(main_mod .. " + CTRL + V", exec("cliphist list | wofi -dmenu | cliphist decode | wl-copy"))
     hl.bind(main_mod .. " + CTRL + C", exec("~/dotfiles/dot-config/programs/shell_scripts/cliphist-remove-entry.sh"))
     -- hl.bind("CTRL + ALT + C", exec("~/dotfiles/dot-config/programs/shell_scripts/get-cursor-pos.sh"))
-    hl.bind("CTRL + T", exec([[kitty --class "floating-term"]]))
+    hl.bind("CTRL + ALT + T", exec([[kitty --class "floating-term"]]))
     hl.bind(main_mod .. " + T", exec("~/dotfiles/dot-config/programs/shell_scripts/tesseract-screenshot.sh"))
     hl.bind(
       main_mod .. " + SHIFT + T",
