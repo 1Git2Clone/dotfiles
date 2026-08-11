@@ -55,6 +55,16 @@ function M.setup(programs)
       "mouse:277",
       "mouse_up",
       "mouse_down",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "0",
     }) do
       hl.bind(main_mod .. " + " .. key, hl.dsp.global("caelestia:launcherInterrupt"), launcher_interrupt_opts)
     end
