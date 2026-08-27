@@ -17,6 +17,40 @@
     "defaultMode": "auto"
   },
   "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/hutao/Documents/Code/cc-reels/action.sh hide",
+            "timeout": 5,
+            "async": true
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "atuin hook claude-code"
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "atuin hook claude-code"
+          }
+        ]
+      }
+    ],
     "PreToolUse": [
       {
         "matcher": "Bash|Read|Edit|Write|MultiEdit|NotebookEdit|Grep|Glob",
@@ -35,6 +69,15 @@
             "type": "command",
             "command": "~/.claude/hooks/cbm-code-discovery-gate",
             "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "atuin hook claude-code"
           }
         ]
       }
@@ -77,6 +120,18 @@
         ]
       }
     ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/hutao/Documents/Code/cc-reels/action.sh hide",
+            "timeout": 5,
+            "async": true
+          }
+        ]
+      }
+    ],
     "SubagentStart": [
       {
         "matcher": "*",
@@ -84,6 +139,18 @@
           {
             "type": "command",
             "command": "~/.claude/hooks/cbm-subagent-reminder"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/hutao/Documents/Code/cc-reels/action.sh show",
+            "timeout": 5,
+            "async": true
           }
         ]
       }
@@ -95,9 +162,6 @@
     "padding": 0
   },
   "enabledPlugins": {
-    "gopls-lsp@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true,
-    "frontend-design@claude-plugins-official": true,
     "accessibility-compliance@claude-code-workflows": true,
     "agent-orchestration@claude-code-workflows": true,
     "agent-teams@claude-code-workflows": true,
@@ -106,46 +170,49 @@
     "application-performance@claude-code-workflows": true,
     "backend-api-security@claude-code-workflows": true,
     "backend-development@claude-code-workflows": true,
+    "chrome-devtools-mcp@claude-plugins-official": true,
+    "claude-code-setup@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
     "code-documentation@claude-code-workflows": true,
+    "code-review@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
     "comprehensive-review@claude-code-workflows": true,
     "context-management@claude-code-workflows": true,
+    "context7@claude-plugins-official": true,
     "developer-essentials@claude-code-workflows": true,
+    "discord@claude-plugins-official": true,
     "error-debugging@claude-code-workflows": true,
     "error-diagnostics@claude-code-workflows": true,
+    "feature-dev@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
     "frontend-mobile-security@claude-code-workflows": true,
     "full-stack-orchestration@claude-code-workflows": true,
     "git-pr-workflows@claude-code-workflows": true,
+    "github@claude-plugins-official": true,
+    "gitlab@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true,
+    "greptile@claude-plugins-official": true,
+    "lua-lsp@claude-plugins-official": true,
+    "mcp-server-dev@claude-plugins-official": true,
     "observability-monitoring@claude-code-workflows": true,
+    "ponytail@ponytail": true,
+    "pr-review-toolkit@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "ralph-loop@claude-plugins-official": true,
+    "remember@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
     "security-compliance@claude-code-workflows": true,
+    "security-guidance@claude-plugins-official": true,
     "security-scanning@claude-code-workflows": true,
+    "sentry@claude-plugins-official": true,
     "shell-scripting@claude-code-workflows": true,
+    "skill-creator@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
     "ui-design@claude-code-workflows": true,
     "unit-testing@claude-code-workflows": true,
-    "web-scripting@claude-code-workflows": true,
-    "pyright-lsp@claude-plugins-official": true,
-    "lua-lsp@claude-plugins-official": true,
-    "context7@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true,
-    "greptile@claude-plugins-official": true,
-    "code-review@claude-plugins-official": true,
-    "github@claude-plugins-official": true,
-    "claude-md-management@claude-plugins-official": true,
-    "feature-dev@claude-plugins-official": true,
-    "security-guidance@claude-plugins-official": true,
-    "ralph-loop@claude-plugins-official": true,
-    "claude-code-setup@claude-plugins-official": true,
-    "commit-commands@claude-plugins-official": true,
-    "pr-review-toolkit@claude-plugins-official": true,
-    "chrome-devtools-mcp@claude-plugins-official": true,
-    "remember@claude-plugins-official": true,
-    "gitlab@claude-plugins-official": true,
-    "sentry@claude-plugins-official": true,
-    "discord@claude-plugins-official": true,
-    "mcp-server-dev@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true,
-    "skill-creator@claude-plugins-official": true,
-    "code-simplifier@claude-plugins-official": true,
-    "ponytail@ponytail": true
+    "web-scripting@claude-code-workflows": true
   },
   "extraKnownMarketplaces": {
     "claude-code-workflows": {
