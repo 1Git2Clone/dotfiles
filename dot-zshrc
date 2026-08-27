@@ -56,3 +56,11 @@ export PATH="$HOME/.opencode/bin:$PATH"
 
 # Added by codebase-memory-mcp install
 export PATH="$HOME/.local/bin:$PATH"
+
+. "$HOME/.atuin/bin/env"
+eval "$(atuin init zsh)"
+
+function zvm_after_init() {
+  bindkey -M viins '^R' atuin-search-viins
+  bindkey -M viins '^S' atuin-search-viins
+}
