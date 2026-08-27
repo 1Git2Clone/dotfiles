@@ -43,3 +43,6 @@ eval "$(starship init bash)"
 # zoxide + fzf
 # https://github.com/ajeetdsouza/zoxide
 eval "$(zoxide init --cmd cd bash)"
+
+. "$HOME/.atuin/bin/env"
+eval "$(atuin init bash)"
