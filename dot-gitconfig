@@ -32,6 +32,9 @@
 [credential "https://gist.github.com"]
 	helper =
 	helper = !/usr/bin/gh auth git-credential
+[credential "https://git.hu-tao.dev"]
+	helper = manager
+	provider = generic
 [commit]
 	gpgSign = true
 [pull]
