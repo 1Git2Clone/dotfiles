@@ -1,7 +1,7 @@
 [user]
-	name = 1Kill2Steal
-	email = 171241044+1Git2Clone@users.noreply.github.com
-	signingkey = F9AC0DB0122368D95C7A067965FBC622BD8DE12D
+	name = Ivan
+	email = ivan@hu-tao.dev
+	signingkey = D7B6F6EB50C776B2A0ABFC2AE656E12B8EADC31C
 [credential]
 	credentialStore = gpg
 	helper = cache --timeout=3600
